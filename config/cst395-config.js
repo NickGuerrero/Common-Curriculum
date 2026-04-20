@@ -597,6 +597,19 @@ const CST395_CONFIG = {
       week: 13,
       htmlFile: "assignments/s4-w13-lookback-1-problem-selection.html",
       briefing: "Extra credit recovery. Revisit your Sprint 1 or Sprint 2 problem/partner-need selection as a judgment call. Check-in with Prof. Sathya in class to get credit for this submission."
+    },
+    "s4-framework-symbiotic-thinking": {
+      canvasId: "",
+      title: "S4: Framework Track — Symbiotic Thinking",
+      dueDate: "2026-04-26",
+      type: "reflection",
+      canvasType: "assignment",
+      assignmentGroup: "Sprint 4: Productive Reflections",
+      points: 5,
+      sprint: 4,
+      week: 13,
+      htmlFile: "assignments/s4-w13-framework-symbiotic-thinking.html",
+      briefing: "First of three framework pieces in Sprint 4. Name what symbiotic thinking is — and find your own Sprint 1-3 evidence of when it worked and when it didn't."
     }
   },
 
