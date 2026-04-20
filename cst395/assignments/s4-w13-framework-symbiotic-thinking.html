@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Framework Track: Symbiotic Thinking | Sprint 4 Week 13 | CST395</title>
+    <link rel="stylesheet" href="../../css/shared-styles.css">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 24px;
+            background: #f9fafb;
+            color: #111827;
+            line-height: 1.7;
+        }
+        .container { max-width: 760px; margin: 0 auto; }
+
+        .breadcrumb { font-size: 14px; color: #6b7280; margin-bottom: 12px; }
+        .breadcrumb a { color: #14b8a6; text-decoration: none; font-weight: 500; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .header {
+            background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+            color: white;
+            padding: 22px 26px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+        .header h1 { margin: 0; font-size: 24px; font-weight: 700; }
+        .header p { margin: 8px 0 0 0; opacity: 0.92; font-size: 15px; }
+
+        .intro-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 20px;
+        }
+        .intro-card p { margin: 0; color: #4b5563; font-size: 15px; }
+        .intro-card strong { color: #111827; }
+
+        /* Workflow callout (teal) */
+        .workflow-callout {
+            background: #f0fdfa;
+            border: 2px solid #14b8a6;
+            border-left: 6px solid #0d9488;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+        .workflow-callout h2 {
+            margin: 0 0 4px 0;
+            font-size: 13px;
+            font-weight: 700;
+            color: #0f766e;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .workflow-callout p.subtitle {
+            margin: 0 0 14px 0;
+            font-size: 15px;
+            color: #134e4a;
+            font-weight: 600;
+        }
+        .workflow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        .workflow-steps li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: white;
+            border: 1px solid #99f6e4;
+            border-radius: 8px;
+            padding: 12px 14px;
+            font-size: 14px;
+            color: #134e4a;
+            counter-increment: step-counter;
+        }
+        .workflow-steps li::before {
+            content: counter(step-counter);
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #14b8a6;
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .workflow-steps li strong { color: #0f172a; }
+
+        /* PDF-only submission callout */
+        .submission-card {
+            background: #111827;
+            color: white;
+            border-radius: 12px;
+            padding: 22px 26px;
+            margin-top: 28px;
+        }
+        .submission-card h2 {
+            margin: 0 0 6px 0;
+            font-size: 13px;
+            font-weight: 700;
+            color: #fca5a5;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .submission-card p.lead {
+            margin: 0 0 12px 0;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .submission-card p.howto {
+            margin: 0 0 12px 0;
+            color: #d1d5db;
+            font-size: 14px;
+        }
+        .submission-card .pdf-badge {
+            display: inline-block;
+            background: #dc2626;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+
+        /* ============================================
+           Activity Engine Styles — inlined minimal subset
+           CST395 teal theme
+           ============================================ */
+
+        .activity[data-theme="teal"],
+        .activity[data-theme="indigo"] {
+            --activity-primary: #14b8a6;
+            --activity-primary-light: #5eead4;
+            --activity-primary-dark: #0d9488;
+            --activity-primary-bg: rgba(20, 184, 166, 0.1);
+        }
+
+        .activity {
+            font-family: inherit;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 24px;
+            color: #1e293b;
+            line-height: 1.6;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+        }
+
+        .activity-loading,
+        .activity-error {
+            text-align: center;
+            padding: 48px 24px;
+            color: #64748b;
+        }
+        .activity-error h2 { color: #dc2626; margin-bottom: 16px; }
+        .activity-error button {
+            margin-top: 16px;
+            padding: 12px 24px;
+            background: #14b8a6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Activity header */
+        .activity__header { margin-bottom: 24px; }
+        .activity__badge {
+            display: inline-block;
+            background: var(--activity-primary, #14b8a6);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+        .activity__title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 8px 0;
+        }
+        .activity__description {
+            color: #64748b;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* Progress bar */
+        .activity__progress { margin-bottom: 28px; }
+        .activity__progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .activity__progress-fill {
+            height: 100%;
+            background: var(--activity-primary, #14b8a6);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        .activity__progress-text {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 8px;
+        }
+
+        /* Question container */
+        .activity__questions {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .activity-question {
+            background: #f9fafb;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 22px;
+        }
+        .activity-question__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+        .activity-question__number {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--activity-primary, #14b8a6);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .activity-question__status {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+        .activity-question__status--answered { background: #ccfbf1; color: #0f766e; }
+        .activity-question__status--skipped { background: #fef3c7; color: #92400e; }
+        .activity-question__header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .activity-question__optional-chip {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 3px 9px;
+            border-radius: 12px;
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+        .activity-question__info-block {
+            margin-bottom: 14px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #1e293b;
+        }
+        .activity-question__prompt {
+            font-size: 15px;
+            font-weight: 500;
+            color: #1e293b;
+            margin: 0 0 14px 0;
+        }
+        .activity-question__skip {
+            display: block;
+            margin-top: 12px;
+            padding: 7px 14px;
+            background: transparent;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            color: #64748b;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .activity-question__skip:hover { background: #f1f5f9; }
+
+        /* Open-ended textarea */
+        .activity-open__textarea {
+            width: 100%;
+            min-height: 130px;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 15px;
+            line-height: 1.6;
+            resize: vertical;
+        }
+        .activity-open__textarea:focus {
+            outline: none;
+            border-color: var(--activity-primary, #14b8a6);
+        }
+        .activity-open__charcount {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 8px;
+        }
+        .activity-open__charcount--insufficient { color: #dc2626; }
+        .activity-open__save {
+            display: block;
+            margin-top: 12px;
+            padding: 10px 20px;
+            background: var(--activity-primary, #14b8a6);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .activity-open__save:hover { background: var(--activity-primary-dark, #0d9488); }
+
+        /* Activity footer / submit section */
+        .activity__footer {
+            margin-top: 40px;
+            padding-top: 28px;
+            border-top: 2px solid #e2e8f0;
+        }
+        .activity__submit-section { max-width: 520px; }
+        .activity__submit-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 6px 0;
+        }
+        .activity__submit-text {
+            color: #64748b;
+            font-size: 14px;
+            margin: 0 0 20px 0;
+        }
+        .activity__name-input-wrapper { margin-bottom: 14px; }
+        .activity__name-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+        .activity__name-input {
+            width: 100%;
+            padding: 13px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+        .activity__name-input:focus {
+            outline: none;
+            border-color: var(--activity-primary, #14b8a6);
+        }
+        .activity__name-input:disabled { background: #f1f5f9; color: #64748b; }
+        .activity__warning {
+            background: #fef3c7;
+            border: 1px solid #fcd34d;
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin-bottom: 18px;
+            font-size: 13px;
+            color: #92400e;
+        }
+        .activity__download-btn {
+            display: block;
+            width: 100%;
+            padding: 14px 24px;
+            background: var(--activity-primary, #14b8a6);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .activity__download-btn:hover:not(:disabled) { background: var(--activity-primary-dark, #0d9488); }
+        .activity__download-btn:disabled { background: #cbd5e1; cursor: not-allowed; }
+        .activity__canvas-link {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 11px 22px;
+            background: #0d9488;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .activity__version {
+            margin-top: 36px;
+            padding-top: 14px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 12px;
+            color: #94a3b8;
+            text-align: center;
+        }
+
+        /* Mobile gate */
+        .activity-mobile-gate {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 12px;
+        }
+        .activity-mobile-gate__content {
+            background: white;
+            border-radius: 12px;
+            padding: 32px 24px;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .activity-mobile-gate__icon { font-size: 40px; margin-bottom: 12px; }
+        .activity-mobile-gate__title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0 0 12px 0;
+        }
+        .activity-mobile-gate__text { color: #64748b; margin: 0; font-size: 14px; }
+        .activity-mobile-gate__buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .activity-mobile-gate__btn {
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+        }
+        .activity-mobile-gate__btn--primary { background: #14b8a6; color: white; }
+        .activity-mobile-gate__btn--secondary {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+        .activity-mobile-gate__btn-hint {
+            display: block;
+            font-size: 11px;
+            font-weight: 400;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 16px; }
+            .activity { padding: 16px; }
+            .activity__title { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="breadcrumb">
+            <a href="../sprint-4.html">&larr; Sprint 4</a>
+        </p>
+
+        <div class="header">
+            <h1>Framework Track: Symbiotic Thinking</h1>
+            <p>Sprint 4 &middot; Week 13 &middot; Form activity &middot; ~30 min &middot; Due <span data-due-date="s4-framework-symbiotic-thinking"></span></p>
+        </div>
+
+        <div class="intro-card">
+            <p>~30 minutes. The first of three framework pieces. You leave with one clean frame (what symbiotic thinking is and isn&rsquo;t) and your own Sprint 1&ndash;3 evidence of when you did it well and when you didn&rsquo;t. <strong>No AI on this one &mdash; the whole point is the honest audit.</strong></p>
+        </div>
+
+        <!-- Why this framework piece (purple reflection accent) -->
+        <div style="background:#faf5ff;border:2px solid #c084fc;border-left:6px solid #9333ea;border-radius:12px;padding:18px 22px;margin-bottom:24px;">
+            <h2 style="margin:0 0 6px 0;font-size:13px;font-weight:700;color:#6b21a8;text-transform:uppercase;letter-spacing:0.06em;">Why this framework piece</h2>
+            <p style="margin:0;font-size:15px;color:#4c1d95;line-height:1.6;">You&rsquo;ve been doing symbiotic thinking for 12 weeks. You don&rsquo;t need to learn it &mdash; you need to <strong>name</strong> it. Naming is what lets you use it on purpose in Sprint 4, defend it in W16, and carry it into whatever you do next.</p>
+        </div>
+
+        <!-- How to earn the credit (teal workflow callout) -->
+        <div class="workflow-callout">
+            <h2>How to earn the credit</h2>
+            <p class="subtitle">Five steps. Keep the Google Doc open &mdash; you&rsquo;ll add to it next week.</p>
+            <ol class="workflow-steps">
+                <li><span><strong>Complete the form below.</strong> Three required gates (one multiple-choice, two open-ended) plus four instructional blocks. No AI sparring &mdash; just you and your Sprint 1&ndash;3 evidence.</span></li>
+                <li><span><strong>Download your responses.</strong> Enter your name at the bottom, click <em>Download Responses</em>. You&rsquo;ll get a JSON with a <code>markdown</code> field of your full answers.</span></li>
+                <li><span><strong>Paste into your Sprint 4 Framework Reflections Google Doc.</strong> This is the start of that doc &mdash; you&rsquo;ll add the W14 and W15 framework pieces to the same file.</span></li>
+                <li><span><strong>Export as PDF.</strong> <em>File &rarr; Download &rarr; PDF Document.</em></span></li>
+                <li><span><strong>Submit on Canvas.</strong> Upload the PDF to the assignment page &mdash; nothing else.</span></li>
+            </ol>
+        </div>
+
+        <!-- Activity Engine Container -->
+        <div id="activity-container"></div>
+
+        <!-- PDF-Only Submission Reminder -->
+        <div class="submission-card">
+            <span class="pdf-badge">PDF ONLY</span>
+            <h2>Submission format</h2>
+            <p class="lead">Submit as PDF only &mdash; Canvas will reject other file types.</p>
+            <p class="howto"><strong>How:</strong> Paste the <code>markdown</code> field from your exported JSON into your <em>Sprint 4 Framework Reflections</em> Google Doc, then <em>File &rarr; Download &rarr; PDF Document</em>. Upload that PDF on the Canvas assignment page &mdash; nothing else.</p>
+            <p class="howto"><strong>Reminder:</strong> Keep the Google Doc open across W13&ndash;W15. This is piece 1 of 3 &mdash; next week&rsquo;s framework activity lands in the same doc.</p>
+        </div>
+    </div>
+
+    <!-- Activity Engine Scripts -->
+    <script src="../../js/activity-components.js"></script>
+    <script src="../../js/activity-engine.js"></script>
+    <script>
+        ActivityEngine.init({
+            containerId: 'activity-container',
+            configUrl: '../../activities/cst395/s4-w13-framework-symbiotic-thinking.json',
+            courseTheme: 'cst395'
+        });
+    </script>
+
+    <footer style="text-align:center;padding:24px 16px;margin-top:40px;border-top:1px solid #e5e7eb;">
+        <p style="margin:0;font-size:12px;color:#9ca3af;">
+            Please provide (anonymous) feedback: <a href="https://forms.gle/ssHfShC6QECbW7WQ6" target="_blank" style="color:#14b8a6;">https://forms.gle/ssHfShC6QECbW7WQ6</a>
+        </p>
+    </footer>
+</body>
+</html>

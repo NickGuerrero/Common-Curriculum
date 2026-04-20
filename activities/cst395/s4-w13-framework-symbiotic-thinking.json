@@ -1,0 +1,82 @@
+{
+  "activityId": "cst395-s4-framework-symbiotic-thinking",
+  "version": "1.0",
+  "versionNotes": "Sprint 4 W13 Framework Track v1 — first of three framework pieces. Names symbiotic thinking as the frame; students locate themselves across listening/talking/reading/writing and pull evidence from Sprints 1-3. Three required gates (1 multiple-choice warm-up + 2 open-ended, AI sparring off). W14 preview at the end.",
+  "course": "cst395",
+  "title": "Framework Track: Symbiotic Thinking",
+  "description": "~30 minutes. The first of three framework pieces that name what you've been doing all semester. You leave with a clearer frame for why conversation quality is the foundation of everything else — and your own Sprint 1–3 evidence of when you did it well and when you didn't.",
+
+  "settings": {
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2,
+    "requireAtLeastOneOpenEnded": true
+  },
+
+  "questions": [
+    {
+      "id": "intro-hook",
+      "type": "instructional",
+      "sectionTitle": "The parable, honestly framed",
+      "infoBlock": "<div style='background:#f8fafc;border:1px solid #cbd5e1;border-left:4px solid #64748b;border-radius:8px;padding:18px 22px;margin-bottom:16px;'><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>Six blind men encounter an elephant. Each touches a different part &mdash; trunk, tusk, ear, leg, side, tail &mdash; and each describes a different animal. A snake, a spear, a fan, a tree, a wall, a rope.</p><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>The parable is usually told as &lsquo;truth requires multiple perspectives.&rsquo; That&rsquo;s one reading. Here&rsquo;s a sharper one:</p><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'><strong>None of them is wrong. All of them are incomplete.</strong> The animal they&rsquo;re describing is real. It&rsquo;s an elephant. The problem isn&rsquo;t that they see different things &mdash; the problem is what happens next. If they shout past each other, nobody learns anything. If they talk to each other &mdash; really talk, with the assumption that each is partly right &mdash; they reconstruct the elephant.</p><p style='margin:0;font-size:15px;color:#1e293b;line-height:1.65;'>That&rsquo;s symbiotic thinking. Not stacking perspectives. Pressure-testing them against each other until something emerges that none of them had alone.</p></div>",
+      "prompt": "Read this, then continue. The gate is next."
+    },
+    {
+      "id": "gate-1-parable",
+      "type": "multiple-choice",
+      "sectionTitle": "1. What the parable is actually about",
+      "infoBlock": "<div style='background:#f9fafb;border:1px solid #e5e7eb;border-left:4px solid #9ca3af;border-radius:8px;padding:12px 16px;margin-bottom:12px;'><p style='margin:0;font-size:14px;color:#374151;line-height:1.55;'>Warm-up check. One right answer.</p></div>",
+      "prompt": "Which statement best captures what makes symbiotic thinking different from just combining multiple perspectives?",
+      "options": [
+        "Multiple perspectives are always better than one, so more voices = more truth.",
+        "Each perspective is partly right, and the exchange between them produces something none of them had alone.",
+        "The goal is to find which perspective is most accurate and trust that one.",
+        "Perspectives should be kept separate to avoid one contaminating another."
+      ],
+      "correctIndex": 1,
+      "maxRetries": 2,
+      "hint": "Re-read the last line of the parable framing. The key word is 'emerges.' What's the difference between stacking perspectives and letting them pressure-test each other?",
+      "explanation": "B is it. Symbiotic thinking isn't addition — it's pressure-testing. The exchange produces something none of the parts had alone. The other three options either treat perspectives as votes (C), as additive counts (A), or as contamination to be isolated from each other (D). That's not what's happening here."
+    },
+    {
+      "id": "concept-four-skills",
+      "type": "instructional",
+      "sectionTitle": "Four skills, two modes",
+      "infoBlock": "<div style='background:#f8fafc;border:1px solid #cbd5e1;border-left:4px solid #64748b;border-radius:8px;padding:18px 22px;margin-bottom:16px;'><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>Every conversation &mdash; with a human, with AI, with yourself &mdash; rides on four skills:</p><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'><strong>Synchronous</strong> (real-time): listening, talking.<br><strong>Asynchronous</strong> (with time to think): reading, writing.</p><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>When you talk to a classmate in class, you&rsquo;re leaning on listening and talking. When you prompt Claude at midnight, you&rsquo;re leaning on reading and writing. Both are conversation. Both can be symbiotic &mdash; or neither can.</p><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>The trap: people are usually strong in one mode and weak in the other, and they don&rsquo;t notice. A student who&rsquo;s sharp in discussion might write prompts that barely scratch the surface. A student who writes great essays might stay silent when a peer says something questionable.</p><p style='margin:0;font-size:15px;color:#1e293b;line-height:1.65;'>You&rsquo;ve had 12 weeks of evidence about yourself. Time to use it.</p></div>",
+      "prompt": "Continue to the self-audit."
+    },
+    {
+      "id": "gate-2-self-audit",
+      "type": "open-ended",
+      "sectionTitle": "2. Locate yourself honestly",
+      "infoBlock": "<div style='background:#f0fdfa;border:2px solid #14b8a6;border-left:6px solid #0d9488;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#0f766e;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Gate 2 of 3 required &middot; Locate yourself</div><p style='margin:0;font-size:14px;color:#134e4a;line-height:1.55;'>No general wisdom. Name the skill and point to a specific moment from your own Sprint 1&ndash;3 work.</p></div>",
+      "prompt": "Of the four skills — listening, talking, reading, writing — which is your WEAKEST when you're conversing with AI? Which is your weakest when you're conversing with a peer or the instructor? Name a specific moment from Sprint 1, 2, or 3 that shows this.",
+      "placeholder": "Weakest with AI: [which skill]. Evidence: [specific moment from your Sprint 1-3 work]. Weakest with humans: [which skill]. Evidence: [specific moment]...",
+      "minLength": 200,
+      "aiSparringPartner": false
+    },
+    {
+      "id": "concept-deliberate-practice",
+      "type": "instructional",
+      "sectionTitle": "Dialogue is a skill. Skills develop with deliberate practice.",
+      "infoBlock": "<div style='background:#f8fafc;border:1px solid #cbd5e1;border-left:4px solid #64748b;border-radius:8px;padding:18px 22px;margin-bottom:16px;'><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>You&rsquo;ve been doing this for 12 weeks. Every peer conversation. Every Dojo session. Every prompt-and-response with an AI. Every time you got a Sprint demo question you didn&rsquo;t have an answer for.</p><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>Some of those moments were symbiotic &mdash; you went in with one understanding, you came out with a different one, and the shift was because of the exchange. Other moments weren&rsquo;t. You performed. You nodded. You pasted. You moved on.</p><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>The difference between the two is what we&rsquo;re naming this week. Symbiotic thinking isn&rsquo;t a technique you apply on top of your existing conversations. It&rsquo;s a quality those conversations either have or don&rsquo;t have. And it&rsquo;s trainable.</p><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>Next week (W14) we&rsquo;ll get operational: how do you tell, in the moment, whether you&rsquo;re contributing or just consuming? That&rsquo;s where 3Cs, Create/Consume, and UMPIRE come in.</p><p style='margin:0;font-size:15px;color:#1e293b;line-height:1.65;'>For this week, the job is smaller: name it in your own experience.</p></div>",
+      "prompt": "Continue to the final reflection."
+    },
+    {
+      "id": "gate-3-self-evidence",
+      "type": "open-ended",
+      "sectionTitle": "3. Your own evidence",
+      "infoBlock": "<div style='background:#f0fdfa;border:2px solid #14b8a6;border-left:6px solid #0d9488;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#0f766e;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Gate 3 of 3 required &middot; Your evidence</div><p style='margin:0;font-size:14px;color:#134e4a;line-height:1.55;'>Two moments side by side. What made one work, and what made the other collapse?</p></div>",
+      "prompt": "Name one moment from Sprint 1, 2, or 3 where you experienced symbiotic thinking at high quality — with a peer, with the instructor, with AI, or with the Dojo. What made it work? Then name one moment where a conversation collapsed into one-sided consumption (you got handed an answer, or you handed an answer away). What was the difference between the two moments?",
+      "placeholder": "High-quality moment: [what happened, with whom, what shifted]. Why it worked: [what you or the other party did]. Consumption moment: [what happened]. What was different: ...",
+      "minLength": 250,
+      "aiSparringPartner": false
+    },
+    {
+      "id": "w14-preview",
+      "type": "instructional",
+      "sectionTitle": "What's next",
+      "infoBlock": "<div style='background:#fffbeb;border:2px solid #f59e0b;border-left:6px solid #d97706;border-radius:10px;padding:18px 22px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#92400e;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>W14 Framework Track preview</div><p style='margin:0 0 12px 0;font-size:15px;color:#78350f;line-height:1.65;'>If symbiotic thinking is the frame, next week is about measurement. <em>Are you contributing to the exchange, or consuming what it produces?</em></p><p style='margin:0 0 8px 0;font-size:15px;color:#78350f;line-height:1.65;'>We&rsquo;ll use three tools to answer that in real time:</p><ul style='margin:0 0 12px 0;padding-left:20px;color:#78350f;font-size:14px;line-height:1.65;'><li><strong>3Cs</strong> &mdash; what you bring to every AI interaction (Context, Choices, Confirmation)</li><li><strong>Create / Consume</strong> &mdash; how the balance tells you if you&rsquo;re working symbiotically</li><li><strong>UMPIRE</strong> &mdash; the process that holds it all together</li></ul><p style='margin:0;font-size:15px;color:#78350f;line-height:1.65;'>You already use these. Next week, you name them.</p></div>",
+      "prompt": "Click **Download Responses** below to save your JSON. Submit it on Canvas."
+    }
+  ]
+}
