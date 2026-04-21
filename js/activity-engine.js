@@ -571,18 +571,25 @@ const ActivityEngine = (function() {
     const exportData = generateExport();
     const btn = document.getElementById('activity-download-btn');
 
+    // Only mark the CTA as "Copied ✓" when the clipboard write actually succeeds.
+    // On failure, the student needs a visible retry path from the main button
+    // after they dismiss the fallback modal, so leave the CTA interactive.
+    function markMainButtonCopied() {
+      nameInput.disabled = true;
+      btn.textContent = 'Copied ✓';
+      btn.disabled = true;
+    }
+
     copyMarkdownToClipboard(exportData.markdown)
       .then(function() {
-        showExportModal(exportData, name, true);
+        markMainButtonCopied();
+        showExportModal(exportData, name, true, markMainButtonCopied);
       })
       .catch(function() {
-        showExportModal(exportData, name, false);
+        // Leave btn / nameInput as they were (enabled, original label) so the
+        // student can retry from the main CTA after dismissing the modal.
+        showExportModal(exportData, name, false, markMainButtonCopied);
       });
-
-    // Lock the form regardless of clipboard outcome — the modal handles fallback copying.
-    nameInput.disabled = true;
-    btn.textContent = 'Copied ✓';
-    btn.disabled = true;
   }
 
   function copyMarkdownToClipboard(markdown) {
@@ -604,7 +611,7 @@ const ActivityEngine = (function() {
     URL.revokeObjectURL(jsonUrl);
   }
 
-  function showExportModal(exportData, name, copied) {
+  function showExportModal(exportData, name, copied, onLaterCopySuccess) {
     // Remove any prior modal (defensive: re-entrancy if the user clicks the main button twice)
     const existing = document.getElementById('activity-export-modal');
     if (existing) existing.parentNode.removeChild(existing);
@@ -667,6 +674,12 @@ const ActivityEngine = (function() {
         .then(function() {
           flash.style.opacity = '1';
           setTimeout(function() { flash.style.opacity = '0'; }, 1500);
+          // If this modal opened in fallback mode and the student just got a
+          // later clipboard write to succeed, promote the main CTA now so the
+          // page truthfully reflects "copied" state.
+          if (typeof onLaterCopySuccess === 'function') {
+            onLaterCopySuccess();
+          }
         })
         .catch(function() {
           textarea.focus();

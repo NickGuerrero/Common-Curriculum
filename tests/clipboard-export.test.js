@@ -63,3 +63,24 @@ test('ActivityEngine._copyMarkdownToClipboard rejects when Clipboard API is unav
     globalThis.navigator.clipboard = originalClipboard;
   }
 });
+
+test('ActivityEngine._copyMarkdownToClipboard propagates writeText rejection (so handleDownload can take the fallback branch)', async () => {
+  ensureNavigator();
+  const originalClipboard = globalThis.navigator.clipboard;
+  const failure = new Error('NotAllowedError: clipboard write blocked');
+  globalThis.navigator.clipboard = {
+    writeText: () => Promise.reject(failure)
+  };
+
+  delete require.cache[require.resolve('../js/activity-engine.js')];
+  const ActivityEngine = require('../js/activity-engine.js');
+
+  try {
+    await assert.rejects(
+      () => ActivityEngine._copyMarkdownToClipboard('some markdown'),
+      /clipboard write blocked/
+    );
+  } finally {
+    globalThis.navigator.clipboard = originalClipboard;
+  }
+});
