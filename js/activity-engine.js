@@ -212,7 +212,7 @@ const ActivityEngine = (function() {
         <footer class="activity__footer" id="activity-footer">
           <div class="activity__submit-section">
             <h3 class="activity__submit-title">Ready to submit?</h3>
-            <p class="activity__submit-text">${rosterPresent ? 'Pick your name, then download your responses.' : 'Enter your name exactly as it appears in Canvas, then download your responses.'}</p>
+            <p class="activity__submit-text">${rosterPresent ? 'Pick your name, then copy your responses.' : 'Enter your name exactly as it appears in Canvas, then copy your responses.'}</p>
 
             <div class="activity__name-input-wrapper">
               <label for="activity-name-input" class="activity__name-label">Your Name</label>
@@ -220,8 +220,8 @@ const ActivityEngine = (function() {
             </div>
 
             <div class="activity__warning" id="activity-name-warning">
-              <strong>Important:</strong> Make sure your name is correct before downloading.
-              If you change your name after downloading, all responses will be cleared and you'll need to redo the activity.
+              <strong>Important:</strong> Make sure your name is correct before copying.
+              If you change your name after copying, all responses will be cleared and you'll need to redo the activity.
             </div>
 
             <p class="activity__download-hint activity__download-hint--blocked" id="activity-download-hint">
@@ -229,7 +229,7 @@ const ActivityEngine = (function() {
             </p>
 
             <button class="activity__download-btn" id="activity-download-btn" disabled>
-              Download Responses
+              Copy responses for Google Doc
             </button>
 
             ${canvasAssignmentUrl ? `
@@ -254,9 +254,9 @@ const ActivityEngine = (function() {
     function handleNameChange() {
       const name = nameInput.value.trim();
 
-      // Check if name changed after download
+      // Check if name changed after copying (downloadedAt field retained for state compatibility)
       if (state.downloadedAt && state.name && name !== state.name) {
-        if (confirm('Changing your name after downloading will clear all your responses. You will need to redo the activity. Continue?')) {
+        if (confirm('Changing your name after copying will clear all your responses. You will need to redo the activity. Continue?')) {
           // Clear everything and restart
           clearState();
           state = createInitialState();
@@ -435,7 +435,7 @@ const ActivityEngine = (function() {
   }
 
   /**
-   * Recompute whether the Download Responses button should be enabled.
+   * Recompute whether the "Copy responses for Google Doc" button should be enabled.
    * Enabled iff: student name >= 2 chars AND partner selected (when roster
    * present) AND every required question is substantially answered.
    * Also surfaces a tooltip / hint message explaining what's still missing.
@@ -472,7 +472,7 @@ const ActivityEngine = (function() {
 
     if (hint) {
       if (canDownload) {
-        hint.textContent = 'All set — download your responses.';
+        hint.textContent = 'All set — copy your responses.';
         hint.className = 'activity__download-hint activity__download-hint--ready';
       } else {
         hint.textContent = 'Still needed: ' + missing.join(', ') + '.';
@@ -552,28 +552,56 @@ const ActivityEngine = (function() {
     var requiredQuestions = config.questions.filter(function(q) { return !q.optional && q.type !== 'instructional'; });
     var missing = requiredQuestions.filter(function(q) { return !isQuestionSubstantiallyAnswered(q, state.responses[q.id]); });
     if (missing.length > 0) {
-      alert('Please finish all required questions before downloading. ' + missing.length + ' still needs work.');
+      alert('Please finish all required questions before copying. ' + missing.length + ' still needs work.');
       updateDownloadButtonState();
       return;
     }
     if (Array.isArray(config.roster) && config.roster.length > 0 && partnerSelect && !partnerSelect.value) {
-      alert('Please select your partner from the dropdown at the top of the page before downloading.');
+      alert('Please select your partner from the dropdown at the top of the page before copying.');
       return;
     }
 
-    // Save name, partner, and download timestamp
+    // Save name, partner, and export timestamp. `downloadedAt` field name is retained
+    // for localStorage backward compatibility; its meaning is now "export step completed at."
     state.name = name;
     if (partnerSelect) state.partnerName = partnerSelect.value || null;
     state.downloadedAt = new Date().toISOString();
     saveState();
 
-    // Generate export data
     const exportData = generateExport();
+    const btn = document.getElementById('activity-download-btn');
 
-    // Create and download JSON file
+    // Only mark the CTA as "Copied ✓" when the clipboard write actually succeeds.
+    // On failure, the student needs a visible retry path from the main button
+    // after they dismiss the fallback modal, so leave the CTA interactive.
+    function markMainButtonCopied() {
+      nameInput.disabled = true;
+      btn.textContent = 'Copied ✓';
+      btn.disabled = true;
+    }
+
+    copyMarkdownToClipboard(exportData.markdown)
+      .then(function() {
+        markMainButtonCopied();
+        showExportModal(exportData, name, true, markMainButtonCopied);
+      })
+      .catch(function() {
+        // Leave btn / nameInput as they were (enabled, original label) so the
+        // student can retry from the main CTA after dismissing the modal.
+        showExportModal(exportData, name, false, markMainButtonCopied);
+      });
+  }
+
+  function copyMarkdownToClipboard(markdown) {
+    if (typeof navigator !== 'undefined' && navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+      return navigator.clipboard.writeText(markdown);
+    }
+    return Promise.reject(new Error('Clipboard API unavailable'));
+  }
+
+  function downloadJsonBackup(exportData, name) {
     const jsonBlob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
     const jsonUrl = URL.createObjectURL(jsonBlob);
-
     const link = document.createElement('a');
     link.href = jsonUrl;
     link.download = `${config.activityId}_${name.replace(/\s+/g, '_')}.json`;
@@ -581,11 +609,88 @@ const ActivityEngine = (function() {
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(jsonUrl);
+  }
 
-    // Disable further changes
-    nameInput.disabled = true;
-    document.getElementById('activity-download-btn').textContent = 'Downloaded ✓';
-    document.getElementById('activity-download-btn').disabled = true;
+  function showExportModal(exportData, name, copied, onLaterCopySuccess) {
+    // Remove any prior modal (defensive: re-entrancy if the user clicks the main button twice)
+    const existing = document.getElementById('activity-export-modal');
+    if (existing) existing.parentNode.removeChild(existing);
+
+    const overlay = document.createElement('div');
+    overlay.id = 'activity-export-modal';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;';
+
+    const card = document.createElement('div');
+    card.style.cssText = 'background:white;border-radius:12px;max-width:720px;width:100%;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,0.3);position:relative;max-height:90vh;overflow-y:auto;';
+
+    const heading = copied ? 'Copied to clipboard ✓' : 'Copy your responses';
+    const fallbackNote = copied
+      ? ''
+      : '<p style="margin:0 0 12px 0;padding:10px 14px;background:#fef3c7;border:1px solid #fcd34d;border-radius:6px;font-size:13px;color:#92400e;">Your browser blocked automatic copy — press <strong>Cmd/Ctrl+C</strong> to copy the selected text below.</p>';
+
+    card.innerHTML =
+      '<button type="button" id="activity-export-modal-close" aria-label="Close" style="position:absolute;top:12px;right:12px;background:transparent;border:none;font-size:24px;line-height:1;color:#6b7280;cursor:pointer;padding:4px 8px;">&times;</button>' +
+      '<h2 style="margin:0 0 12px 0;font-size:20px;font-weight:700;color:#0f172a;">' + heading + '</h2>' +
+      fallbackNote +
+      '<textarea id="activity-export-modal-textarea" readonly rows="15" style="width:100%;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.5;padding:12px;border:1px solid #e2e8f0;border-radius:8px;resize:vertical;box-sizing:border-box;"></textarea>' +
+      '<p style="margin:12px 0 16px 0;font-size:14px;color:#334155;">Now paste into your Sprint 4 Google Doc (Cmd/Ctrl+V) and export as PDF.</p>' +
+      '<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">' +
+        '<button type="button" id="activity-export-modal-copy" style="background:#14b8a6;color:white;border:none;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;">Copy again</button>' +
+        '<span id="activity-export-modal-flash" style="font-size:13px;color:#0f766e;font-weight:600;opacity:0;transition:opacity 0.2s;">Copied ✓</span>' +
+        '<a href="#" id="activity-export-modal-json" style="margin-left:auto;font-size:13px;color:#64748b;text-decoration:underline;">Download JSON backup</a>' +
+      '</div>';
+
+    overlay.appendChild(card);
+    document.body.appendChild(overlay);
+
+    const textarea = document.getElementById('activity-export-modal-textarea');
+    textarea.value = exportData.markdown;
+
+    if (!copied) {
+      // Auto-select so Cmd/Ctrl+C is the only remaining step in fallback mode.
+      textarea.focus();
+      textarea.select();
+    }
+
+    function closeModal() {
+      if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      document.removeEventListener('keydown', onKeydown);
+    }
+    function onKeydown(e) {
+      if (e.key === 'Escape') closeModal();
+    }
+
+    document.getElementById('activity-export-modal-close').addEventListener('click', closeModal);
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', onKeydown);
+
+    const flash = document.getElementById('activity-export-modal-flash');
+    document.getElementById('activity-export-modal-copy').addEventListener('click', function() {
+      copyMarkdownToClipboard(exportData.markdown)
+        .then(function() {
+          flash.style.opacity = '1';
+          setTimeout(function() { flash.style.opacity = '0'; }, 1500);
+          // If this modal opened in fallback mode and the student just got a
+          // later clipboard write to succeed, promote the main CTA now so the
+          // page truthfully reflects "copied" state.
+          if (typeof onLaterCopySuccess === 'function') {
+            onLaterCopySuccess();
+          }
+        })
+        .catch(function() {
+          textarea.focus();
+          textarea.select();
+        });
+    });
+
+    document.getElementById('activity-export-modal-json').addEventListener('click', function(e) {
+      e.preventDefault();
+      downloadJsonBackup(exportData, name);
+    });
   }
 
   // ============================================
@@ -841,6 +946,14 @@ const ActivityEngine = (function() {
     reset() {
       clearState();
       location.reload();
+    },
+
+    /**
+     * Exposed for test harnesses. Internal use only — the UI path runs this via
+     * handleDownload() when the student clicks "Copy responses for Google Doc".
+     */
+    _copyMarkdownToClipboard(markdown) {
+      return copyMarkdownToClipboard(markdown);
     }
   };
 })();

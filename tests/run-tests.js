@@ -14,3 +14,4 @@ require('./synthesis-parsing.test.js');
 require('./canvas-api.test.js');
 require('./week-resolution.test.js');
 require('./page-rendering.test.js');
+require('./clipboard-export.test.js');
