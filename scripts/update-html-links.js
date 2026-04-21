@@ -125,6 +125,53 @@ function updateHtmlFile(filePath, key, canvasUrl) {
 }
 
 /**
+ * Sync canvasUrl inside ActivityEngine.init({...}) on an activity-host HTML page.
+ *
+ * - If the init block already has a canvasUrl, replace its value.
+ * - If it does not, inject a new `canvasUrl: '...'` line right after the
+ *   `courseTheme: '<theme>'` line, adding a trailing comma to courseTheme
+ *   if one is missing. Indentation is copied from the courseTheme line.
+ *
+ * Only init blocks whose courseTheme matches `courseTheme` are touched,
+ * so a page with multiple init calls (unlikely but defensively handled)
+ * won't cross-pollinate courses.
+ */
+function updateActivityEngineCanvasUrl(filePath, canvasUrl, courseTheme) {
+  if (!fs.existsSync(filePath)) {
+    return { updated: false, reason: 'file not found' };
+  }
+
+  let content = fs.readFileSync(filePath, 'utf8');
+  const originalContent = content;
+
+  const initBlockRegex = /ActivityEngine\.init\(\{[\s\S]*?\}\);/g;
+  const themeRegex = new RegExp(`courseTheme:\\s*'${courseTheme}'`);
+  const existingUrlRegex = /canvasUrl:\s*'[^']*'/;
+
+  content = content.replace(initBlockRegex, (block) => {
+    if (!themeRegex.test(block)) return block;
+
+    if (existingUrlRegex.test(block)) {
+      return block.replace(existingUrlRegex, `canvasUrl: '${canvasUrl}'`);
+    }
+
+    const injectRegex = new RegExp(
+      `([ \\t]*)courseTheme:\\s*'${courseTheme}'(,?)(\\s*\\r?\\n)`
+    );
+    return block.replace(injectRegex, (m, indent, _trailingComma, newline) => {
+      return `${indent}courseTheme: '${courseTheme}',${newline}${indent}canvasUrl: '${canvasUrl}'${newline}`;
+    });
+  });
+
+  if (content !== originalContent) {
+    fs.writeFileSync(filePath, content);
+    return { updated: true };
+  }
+
+  return { updated: false, reason: 'no changes needed' };
+}
+
+/**
  * Find all HTML files with data-assignment-key in a directory
  */
 function findHtmlFilesWithLinks(dir, key) {
@@ -163,6 +210,7 @@ function main() {
 
   let totalUpdated = 0;
   let totalSkipped = 0;
+  let totalActivityEngineUpdated = 0;
 
   for (const course of courses) {
     console.log(`\nProcessing ${course.name}...`);
@@ -183,6 +231,7 @@ function main() {
     console.log(`  Assignments: ${Object.keys(assignments).length}`);
 
     const htmlDir = path.join(rootDir, course.htmlDir);
+    const courseTheme = course.name.toLowerCase();
 
     for (const [key, assignment] of Object.entries(assignments)) {
       if (!assignment.canvasId) {
@@ -206,12 +255,25 @@ function main() {
           totalSkipped++;
         }
       }
+
+      // Sync canvasUrl inside the ActivityEngine.init() on the assignment's
+      // own page, so form activities' "Submit on Canvas →" link tracks the CSV.
+      if (assignment.htmlFile) {
+        const activityHtmlPath = path.join(rootDir, course.htmlDir, assignment.htmlFile);
+        const result = updateActivityEngineCanvasUrl(activityHtmlPath, canvasUrl, courseTheme);
+        if (result.updated) {
+          const relativePath = path.relative(rootDir, activityHtmlPath);
+          console.log(`  Updated init: ${relativePath}`);
+          totalActivityEngineUpdated++;
+        }
+      }
     }
   }
 
   console.log('\n-----------------');
   console.log(`Updated: ${totalUpdated} files`);
   console.log(`Skipped: ${totalSkipped} files`);
+  console.log(`ActivityEngine updates: ${totalActivityEngineUpdated} files`);
   console.log('Done!');
 }
 
