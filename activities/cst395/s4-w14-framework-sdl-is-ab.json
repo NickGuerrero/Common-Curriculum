@@ -1,0 +1,82 @@
+{
+  "activityId": "cst395-s4-framework-sdl-is-ab",
+  "version": "2.0",
+  "versionNotes": "Sprint 4 W14 Framework Track v2 — second of three framework pieces. Names the three core capabilities the course develops (SDL, IS, AB) and has students locate their own Sprint 1-3 evidence inside each. Three required open-ended gates, each mapping three components of one capability. No AI sparring partner — mapping is the student's own work.",
+  "course": "cst395",
+  "title": "Framework Track: SDL / IS / AB Mapping",
+  "description": "~30 minutes. The second of three framework pieces. You locate your own Sprint 1–3 evidence inside the three capabilities this course is designed to develop: Self-Directed Learner, Integrative Solver, Adaptive Builder. These nine moments become defense material.",
+
+  "settings": {
+    "maxRetries": 2,
+    "showHintsAfterAttempt": 2,
+    "requireAtLeastOneOpenEnded": true
+  },
+
+  "questions": [
+    {
+      "id": "intro",
+      "type": "instructional",
+      "sectionTitle": "Names for what you've already been doing",
+      "infoBlock": "<div style='background:#f8fafc;border:1px solid #cbd5e1;border-left:4px solid #64748b;border-radius:8px;padding:18px 22px;margin-bottom:16px;'><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>For 12 weeks you&rsquo;ve been developing three capabilities that this course was designed to grow. You didn&rsquo;t need to know their names to do the work. But now, with a defense coming, you do.</p><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>Last week we named Symbiotic Thinking. This week we name the three core capabilities: <strong>Self-Directed Learner</strong> (SDL), <strong>Integrative Solver</strong> (IS), and <strong>Adaptive Builder</strong> (AB).</p><p style='margin:0;font-size:15px;color:#1e293b;line-height:1.65;'>Here&rsquo;s the thing: every sprint activity developed multiple capabilities. But different activities emphasized different ones. Your job for this activity is to locate your own specific Sprint 1&ndash;3 work inside these capabilities. That&rsquo;s what the defense needs from you &mdash; not definitions, evidence.</p></div>",
+      "prompt": "Continue."
+    },
+    {
+      "id": "concept-sdl",
+      "type": "instructional",
+      "sectionTitle": "SDL — Self-Directed Learner",
+      "infoBlock": "<div style='background:#f8fafc;border:1px solid #cbd5e1;border-left:4px solid #64748b;border-radius:8px;padding:18px 22px;margin-bottom:16px;'><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>A Self-Directed Learner develops a meta-learning architecture &mdash; knowing what you need to learn versus what you can strategically ignore, and using AI as learning infrastructure to build just-in-time depth.</p><p style='margin:0 0 8px 0;font-size:15px;color:#1e293b;line-height:1.65;'>Three places SDL showed up in your course work:</p><ul style='margin:0 0 12px 0;padding-left:20px;color:#1e293b;font-size:15px;line-height:1.65;'><li><strong>Rapid domain depth</strong> &mdash; building usable knowledge in territory you didn&rsquo;t start in (Sprint 2 partner domain, Sprint 3 MDRO)</li><li><strong>Gap identification</strong> &mdash; noticing what you don&rsquo;t know that matters, before someone tells you</li><li><strong>AI as learning infrastructure</strong> &mdash; using AI to go deeper, not just faster</li></ul><p style='margin:0;font-size:15px;color:#1e293b;line-height:1.65;'>Next, you&rsquo;ll map your own Sprint 1&ndash;3 moments to each of these three.</p></div>",
+      "prompt": "Continue to the mapping."
+    },
+    {
+      "id": "map-sdl",
+      "type": "open-ended",
+      "sectionTitle": "Map your SDL evidence",
+      "infoBlock": "<div style='background:#f0fdfa;border:2px solid #14b8a6;border-left:6px solid #0d9488;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#0f766e;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Required &middot; Map your SDL evidence</div><p style='margin:0;font-size:14px;color:#134e4a;line-height:1.55;'>Specific moments, not general claims. One per component.</p></div>",
+      "prompt": "For each of the three SDL components, cite **one specific moment from Sprint 1, 2, or 3** — not a general claim, a specific artifact, decision, or shift.\n\n- **Rapid domain depth:** When did you build usable knowledge in territory you didn't start the sprint in? Sprint 2 partner's domain or Sprint 3 MDRO are the natural places — but your own moment matters more than the obvious one. What did you know by the end that you didn't at the start?\n- **Gap identification:** When did you notice a gap in your knowledge that mattered, before someone pointed it out? What was the gap, and what tipped you off?\n- **AI as learning infrastructure:** When did AI help you go deeper rather than just faster? What was the question you went in with, and what did you come out understanding that you wouldn't have alone?",
+      "placeholder": "Rapid domain depth: [what domain, starting point, ending point]\nGap identification: [what gap, what tipped you off]\nAI as learning infrastructure: [question asked, depth gained]",
+      "minLength": 300,
+      "aiSparringPartner": false
+    },
+    {
+      "id": "concept-is",
+      "type": "instructional",
+      "sectionTitle": "IS — Integrative Solver",
+      "infoBlock": "<div style='background:#f8fafc;border:1px solid #cbd5e1;border-left:4px solid #64748b;border-radius:8px;padding:18px 22px;margin-bottom:16px;'><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>An Integrative Solver applies self-directed learning across domains, developing T-shaped or m-shaped expertise. In the AI age, the horizontal bar matters most &mdash; operating at intersections between systems of knowledge where AI struggles but human value concentrates.</p><p style='margin:0 0 8px 0;font-size:15px;color:#1e293b;line-height:1.65;'>Three places IS showed up in your course work:</p><ul style='margin:0 0 12px 0;padding-left:20px;color:#1e293b;font-size:15px;line-height:1.65;'><li><strong>Domain crossing</strong> &mdash; working where technical capability meets human, cultural, or contextual reality</li><li><strong>Stakeholder understanding</strong> &mdash; asking the right questions of people, not just systems</li><li><strong>Human Value articulation</strong> &mdash; naming your unique contribution</li></ul><p style='margin:0;font-size:15px;color:#1e293b;line-height:1.65;'>Next, your specific moments.</p></div>",
+      "prompt": "Continue to the mapping."
+    },
+    {
+      "id": "map-is",
+      "type": "open-ended",
+      "sectionTitle": "Map your IS evidence",
+      "infoBlock": "<div style='background:#f0fdfa;border:2px solid #14b8a6;border-left:6px solid #0d9488;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#0f766e;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Required &middot; Map your IS evidence</div><p style='margin:0;font-size:14px;color:#134e4a;line-height:1.55;'>Specific moments, not general claims. One per component.</p></div>",
+      "prompt": "For each of the three IS components, cite **one specific moment** — what happened, who was involved, what shifted.\n\n- **Domain crossing:** When did you have to operate at the intersection of technical capability and something else — human workflow, cultural context, stakeholder reality? MDRO demanded this; so did your Sprint 2 partner work. Pick one. What was the technical side, what was the other side, and what did bridging them produce?\n- **Stakeholder understanding:** When did asking a specific question produce information you couldn't have gotten another way? What was the question? What did you learn that wasn't available before you asked?\n- **Human Value articulation:** When did you name what YOU specifically contributed that AI couldn't? What did you claim, and what was the evidence behind it?",
+      "placeholder": "Domain crossing: [technical side, other side, what bridging produced]\nStakeholder understanding: [question asked, what you learned]\nHuman Value articulation: [what you claimed, evidence behind it]",
+      "minLength": 300,
+      "aiSparringPartner": false
+    },
+    {
+      "id": "concept-ab",
+      "type": "instructional",
+      "sectionTitle": "AB — Adaptive Builder",
+      "infoBlock": "<div style='background:#f8fafc;border:1px solid #cbd5e1;border-left:4px solid #64748b;border-radius:8px;padding:18px 22px;margin-bottom:16px;'><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>An Adaptive Builder executes through cycles of building, testing, learning from failures, and adapting. They exercise restraint in complexity &mdash; discovering through iteration that simple solutions executed well often deliver more value than sophisticated ones.</p><p style='margin:0 0 8px 0;font-size:15px;color:#1e293b;line-height:1.65;'>Three places AB showed up in your course work:</p><ul style='margin:0 0 12px 0;padding-left:20px;color:#1e293b;font-size:15px;line-height:1.65;'><li><strong>UMPIRE</strong> &mdash; Understand, Map, Plan, Implement, Review, Evaluate. The scaffold for any build.</li><li><strong>Iteration under uncertainty</strong> &mdash; building and testing when you don&rsquo;t have full information. Sprint 3 lived here.</li><li><strong>Sprint Demonstrations</strong> &mdash; showing working solutions, not plans. Evidence, not intent.</li></ul><p style='margin:0;font-size:15px;color:#1e293b;line-height:1.65;'>One more mapping, then the close.</p></div>",
+      "prompt": "Continue to the final mapping."
+    },
+    {
+      "id": "map-ab",
+      "type": "open-ended",
+      "sectionTitle": "Map your AB evidence",
+      "infoBlock": "<div style='background:#f0fdfa;border:2px solid #14b8a6;border-left:6px solid #0d9488;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#0f766e;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Required &middot; Map your AB evidence</div><p style='margin:0;font-size:14px;color:#134e4a;line-height:1.55;'>Specific moments, not general claims. One per component.</p></div>",
+      "prompt": "For each of the three AB components, cite **one specific moment**.\n\n- **UMPIRE as scaffold:** Which UMPIRE phase did you most visibly skip or rush in Sprint 1-3, and what happened because of it? Or — when did slowing down at a phase you'd normally skip change the outcome?\n- **Iteration under uncertainty:** When did you build something without full information, test it, and adjust? What did you not know going in? What did the test reveal? What did you change?\n- **Sprint Demonstrations:** Which demo most clearly showed a *working* something vs. a *planned* something? What was the working thing, and what made it evidence rather than intent?",
+      "placeholder": "UMPIRE: [which phase, what happened]\nIteration under uncertainty: [what you didn't know, what test revealed, what you changed]\nSprint Demonstration: [what you showed, why it was evidence not plan]",
+      "minLength": 300,
+      "aiSparringPartner": false
+    },
+    {
+      "id": "closing",
+      "type": "instructional",
+      "sectionTitle": "For your defense",
+      "infoBlock": "<div style='background:#f8fafc;border:1px solid #cbd5e1;border-left:4px solid #64748b;border-radius:8px;padding:18px 22px;margin-bottom:16px;'><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>These nine moments are defense material. When someone asks you what you developed across this course, you now have names for it &mdash; and evidence for each name.</p><p style='margin:0 0 12px 0;font-size:15px;color:#1e293b;line-height:1.65;'>Superagency and Human Value &mdash; the bigger frames your defense aims at &mdash; are made of these three capabilities working together. SDL feeds IS feeds AB, and AB reveals the next SDL gap. The loop is the thing.</p><p style='margin:0;font-size:15px;color:#1e293b;line-height:1.65;'>In W15 you&rsquo;ll put this into defense form. For now, download your JSON, paste it into your Sprint 4 Framework Reflections doc, export as PDF, and submit on Canvas.</p></div>",
+      "prompt": "Click **Download Responses** to save your JSON. Then submit on Canvas."
+    }
+  ]
+}
