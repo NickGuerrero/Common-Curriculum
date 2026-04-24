@@ -711,7 +711,7 @@ const CST349_CONFIG = {
       dueDate: "2026-05-13",
       type: "assignment",
       canvasType: "assignment",
-      assignmentGroup: "Sprint 4: Check-in/Engagement",
+      assignmentGroup: "Final Submission",
       points: 10,
       sprint: 4,
       week: 15,
