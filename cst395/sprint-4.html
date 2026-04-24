@@ -493,12 +493,113 @@
               '</p>' +
             '</div>' +
           '</div>';
+      } else if (weekNum === 14) {
+        container.innerHTML =
+          '<p style="color:#4b5563;font-size:14px;line-height:1.6;margin:0 0 16px 0;">' +
+            '<strong>What\'s the point:</strong> Build week. Work on your Sprint 4 goal and complete the second framework track piece. This is the last week before defense prep begins.' +
+          '</p>' +
+
+          '<div class="in-class-plan">' +
+            '<p class="in-class-plan__label">&#x1F4C5; In-Class</p>' +
+            '<h4 class="in-class-plan__title">Build work + framework track check-in</h4>' +
+            '<div class="in-class-plan__content">' +
+              '<p style="margin:0;">Individual check-ins with Prof. Sathya on Sprint 4 progress. Framework Track: SDL/IS/AB Mapping is pre-work &mdash; come having completed or nearly completed it. Work time for your Solution Brief draft.</p>' +
+            '</div>' +
+          '</div>' +
+
+          '<div style="margin-top:16px;">' +
+            '<div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#374151;margin-bottom:8px;">What you need to do</div>' +
+
+            '<div class="activity-item activity-item--reflection">' +
+              '<div class="activity-item__header">' +
+                '<div>' +
+                  '<span class="activity-item__type">&#x1F9ED; Framework Track</span>' +
+                  '<h4 class="activity-item__title"><a href="assignments/s4-w14-framework-sdl-is-ab.html">Framework Track &mdash; SDL / IS / AB Mapping</a></h4>' +
+                '</div>' +
+                '<span class="activity-item__due">Due Sun May 3</span>' +
+              '</div>' +
+              '<p class="activity-item__description">' +
+                'Second framework piece. Map your Sprint 1&ndash;3 evidence to the nine components of SDL, IS, and AB. Defense material.' +
+              '</p>' +
+            '</div>' +
+
+          '</div>';
+      } else if (weekNum === 15) {
+        container.innerHTML =
+          '<p style="color:#4b5563;font-size:14px;line-height:1.6;margin:0 0 16px 0;">' +
+            '<strong>What\'s the point:</strong> Defense week begins. Present your growth across the course, with focus on Superagency and Human Value. Mock practice with peers on non-defense days.' +
+          '</p>' +
+
+          '<div class="in-class-plan">' +
+            '<p class="in-class-plan__label">&#x1F4C5; In-Class</p>' +
+            '<h4 class="in-class-plan__title">Defense presentations + mock practice</h4>' +
+            '<div class="in-class-plan__content">' +
+              '<p style="margin:0;">Volunteers defend first. Those not defending this week practice with peers and give feedback. 3-min presentation + 1 min for audience questions + 2 min Q&amp;A.</p>' +
+            '</div>' +
+          '</div>' +
+
+          '<div style="margin-top:16px;">' +
+            '<div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#374151;margin-bottom:8px;">What you need to do</div>' +
+
+            '<div class="activity-item activity-item--assignment">' +
+              '<div class="activity-item__header">' +
+                '<div>' +
+                  '<span class="activity-item__type">&#x1F3A4; Defense</span>' +
+                  '<h4 class="activity-item__title"><a href="assignments/s4-defense-presentation.html">Final Defense Presentation</a></h4>' +
+                '</div>' +
+                '<span class="activity-item__due">Due Wed May 13, noon</span>' +
+              '</div>' +
+              '<p class="activity-item__description">' +
+                'Slides PDF (5 pts) + in-class defense (5 pts). Upload PDF by noon Wed May 13. Present in class this week or W16.' +
+              '</p>' +
+            '</div>' +
+
+            '<div class="activity-item activity-item--assignment">' +
+              '<div class="activity-item__header">' +
+                '<div>' +
+                  '<span class="activity-item__type">&#x1F4C4; Solution Brief</span>' +
+                  '<h4 class="activity-item__title"><a href="assignments/s4-solution-brief.html">Sprint 4 Solution Brief</a></h4>' +
+                '</div>' +
+                '<span class="activity-item__due">Due Wed May 20</span>' +
+              '</div>' +
+              '<p class="activity-item__description">' +
+                'Written documentation of how you addressed your Sprint 4 goal. Due May 20, after finals week.' +
+              '</p>' +
+            '</div>' +
+
+            '<div class="activity-item activity-item--reflection">' +
+              '<div class="activity-item__header">' +
+                '<div>' +
+                  '<span class="activity-item__type">&#x1F4D3; Notebook</span>' +
+                  '<h4 class="activity-item__title"><a href="assignments/s4-notebook.html">Notebook Grade</a></h4>' +
+                '</div>' +
+                '<span class="activity-item__due">Due Wed May 13, noon</span>' +
+              '</div>' +
+              '<p class="activity-item__description">' +
+                'Bring your notebook to the final class for collection.' +
+              '</p>' +
+            '</div>' +
+
+          '</div>';
+      } else if (weekNum === 16) {
+        container.innerHTML =
+          '<p style="color:#4b5563;font-size:14px;line-height:1.6;margin:0 0 16px 0;">' +
+            '<strong>What\'s the point:</strong> Final defenses. Every student who hasn\'t yet presents. Everyone attends both weeks regardless of when they defended.' +
+          '</p>' +
+
+          '<div class="in-class-plan">' +
+            '<p class="in-class-plan__label">&#x1F4C5; In-Class</p>' +
+            '<h4 class="in-class-plan__title">Defense presentations continue</h4>' +
+            '<div class="in-class-plan__content">' +
+              '<p style="margin:0;">Same format: 3-min presentation + 2-min Q&amp;A. W16 attendance is required whether or not you\'re presenting.</p>' +
+            '</div>' +
+          '</div>';
       } else {
         container.innerHTML =
           '<div style="padding:32px 16px;background:#f9fafb;border:1px dashed #d1d5db;border-radius:10px;text-align:center;">' +
             '<div style="font-size:32px;margin-bottom:8px;">&#128736;&#65039;</div>' +
             '<h3 style="font-size:16px;font-weight:600;color:#374151;margin:0 0 6px 0;">Coming soon</h3>' +
-            '<p style="font-size:13px;color:#6b7280;line-height:1.55;margin:0;">Focus on Week 13 first. Week ' + weekNum + ' content will appear here once Week 13 is underway.</p>' +
+            '<p style="font-size:13px;color:#6b7280;line-height:1.55;margin:0;">Week ' + weekNum + ' content will appear here.</p>' +
           '</div>';
       }
     }
