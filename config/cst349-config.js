@@ -667,7 +667,7 @@ const CST349_CONFIG = {
       briefing: "Attendance and participation in W13 in-class activities. Instructor-assessed — no submission required."
     },
     "s4-w14-engagement": {
-      canvasId: "",
+      canvasId: "590109",
       title: "S4: In-Class Engagement — Week 14",
       dueDate: "2026-04-29",
       type: "assignment",
@@ -680,7 +680,7 @@ const CST349_CONFIG = {
       briefing: "Attendance and participation in W14 in-class activities. Instructor-assessed — no submission required."
     },
     "s4-w15-engagement": {
-      canvasId: "",
+      canvasId: "590110",
       title: "S4: In-Class Engagement — Week 15",
       dueDate: "2026-05-06",
       type: "assignment",
@@ -693,7 +693,7 @@ const CST349_CONFIG = {
       briefing: "Attendance and participation in W15 defense + mock practice sessions. Instructor-assessed — no submission required."
     },
     "s4-w16-engagement": {
-      canvasId: "",
+      canvasId: "590111",
       title: "S4: In-Class Engagement — Week 16",
       dueDate: "2026-05-13",
       type: "assignment",
@@ -706,7 +706,7 @@ const CST349_CONFIG = {
       briefing: "Attendance and participation in W16 defense sessions. Instructor-assessed — no submission required."
     },
     "s4-notebook": {
-      canvasId: "",
+      canvasId: "590112",
       title: "S4: Notebook Grade",
       dueDate: "2026-05-13",
       type: "assignment",
@@ -719,7 +719,7 @@ const CST349_CONFIG = {
       briefing: "Handwritten notebook collected at end of semester. Instructor-assessed — no submission required."
     },
     "s4-defense-presentation": {
-      canvasId: "",
+      canvasId: "590113",
       title: "S4: Final Defense Presentation",
       dueDate: "2026-05-13",
       type: "assignment",
