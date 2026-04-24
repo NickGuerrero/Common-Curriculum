@@ -654,7 +654,7 @@ const CST349_CONFIG = {
       briefing: "Extra credit recovery. Revisit your Sprint 1 5 Whys honestly. Check-in with Prof. Sathya in class to get credit for this submission."
     },
     "s4-w13-engagement": {
-      canvasId: "",
+      canvasId: "590108",
       title: "S4: In-Class Engagement — Week 13",
       dueDate: "2026-04-22",
       type: "assignment",
