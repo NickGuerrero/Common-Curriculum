@@ -714,6 +714,58 @@ const CST395_CONFIG = {
       week: 14,
       htmlFile: "assignments/s4-w14-framework-sdl-is-ab.html",
       briefing: "Second framework activity. Map your own Sprint 1-3 evidence to the three capabilities: Self-Directed Learner, Integrative Solver, Adaptive Builder. Nine specific moments that become defense material."
+    },
+    "s4-lookback-2-assumption-audit": {
+      canvasId: "",
+      title: "S4: Look-back 2 — Assumption Audit (Extra Credit)",
+      dueDate: "2026-05-03",
+      type: "assignment",
+      canvasType: "assignment",
+      assignmentGroup: "Extra Credit: Look Back",
+      points: 5,
+      sprint: 4,
+      week: 14,
+      htmlFile: "assignments/s4-w14-lookback-2-assumption-audit.html",
+      briefing: "Extra credit recovery. Revisit Sprint 2 Assumption Audit. Did you separate observation from interpretation, or did you write what felt true? Append to your Sprint 4 Look-backs Google Doc. PDF."
+    },
+    "s4-lookback-3-solution-brief": {
+      canvasId: "",
+      title: "S4: Look-back 3 — Sprint 3 Solution Brief (Extra Credit)",
+      dueDate: "2026-05-20",
+      type: "assignment",
+      canvasType: "assignment",
+      assignmentGroup: "Extra Credit: Look Back",
+      points: 5,
+      sprint: 4,
+      week: 15,
+      htmlFile: "assignments/s4-w15-lookback-3-solution-brief.html",
+      briefing: "Extra credit recovery. Revisit Sprint 3 Solution Brief. What you actually contributed vs. what AI did. Append to your Sprint 4 Look-backs Google Doc. PDF."
+    },
+    "s4-lookback-4-build-iteration": {
+      canvasId: "",
+      title: "S4: Look-back 4 — Build v1→v2 Iteration (Extra Credit)",
+      dueDate: "2026-05-20",
+      type: "assignment",
+      canvasType: "assignment",
+      assignmentGroup: "Extra Credit: Look Back",
+      points: 5,
+      sprint: 4,
+      week: 15,
+      htmlFile: "assignments/s4-w15-lookback-4-build-iteration.html",
+      briefing: "Extra credit recovery. Revisit Sprint 3 Build v1, Build Review, and Revised Plan as one arc. What you didn't know, what testing revealed, what you changed. Append to your Sprint 4 Look-backs Google Doc. PDF."
+    },
+    "s4-lookback-5-meta": {
+      canvasId: "",
+      title: "S4: Look-back 5 — Look-back on your Look-backs (Extra Credit)",
+      dueDate: "2026-05-20",
+      type: "assignment",
+      canvasType: "assignment",
+      assignmentGroup: "Extra Credit: Look Back",
+      points: 5,
+      sprint: 4,
+      week: 16,
+      htmlFile: "assignments/s4-w16-lookback-5-meta.html",
+      briefing: "Extra credit recovery. The pattern across your previous look-backs. What did the look-back exercise itself reveal? Append to your Sprint 4 Look-backs Google Doc. PDF."
     }
   },
 
