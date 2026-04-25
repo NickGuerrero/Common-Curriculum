@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Look-back 5: Look-back on Your Look-backs | Sprint 4 Week 16 | CST395</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 24px;
+            background: #f9fafb;
+            color: #111827;
+            line-height: 1.7;
+        }
+        .container { max-width: 760px; margin: 0 auto; }
+
+        .breadcrumb { font-size: 14px; color: #6b7280; margin-bottom: 12px; }
+        .breadcrumb a { color: #14b8a6; text-decoration: none; font-weight: 500; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .header {
+            background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+            color: white;
+            padding: 22px 26px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+        .header h1 { margin: 0; font-size: 24px; font-weight: 700; }
+        .header p { margin: 8px 0 0 0; opacity: 0.92; font-size: 15px; }
+
+        .prereq-banner {
+            background: #fffbeb;
+            border: 2px solid #f59e0b;
+            border-left: 6px solid #d97706;
+            border-radius: 12px;
+            padding: 14px 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #78350f;
+            line-height: 1.55;
+        }
+        .prereq-banner strong { color: #422006; }
+        .prereq-banner__label {
+            display: inline-block;
+            background: #d97706;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .intro-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 20px;
+        }
+        .intro-card p { margin: 0; color: #4b5563; font-size: 15px; }
+        .intro-card strong { color: #111827; }
+
+        .extra-credit-callout {
+            background: #ecfdf5;
+            border: 2px solid #10b981;
+            border-left: 6px solid #059669;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 20px;
+        }
+        .extra-credit-callout h2 {
+            margin: 0 0 4px 0;
+            font-size: 13px;
+            font-weight: 700;
+            color: #047857;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .extra-credit-callout p.lead {
+            margin: 0 0 12px 0;
+            font-size: 16px;
+            font-weight: 700;
+            color: #064e3b;
+            line-height: 1.5;
+        }
+        .extra-credit-callout p {
+            margin: 0 0 10px 0;
+            color: #065f46;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .extra-credit-callout p:last-child { margin-bottom: 0; }
+        .extra-credit-callout strong { color: #064e3b; }
+        .extra-credit-badge {
+            display: inline-block;
+            background: #059669;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .workflow-callout {
+            background: #f0fdfa;
+            border: 2px solid #14b8a6;
+            border-left: 6px solid #0d9488;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+        .workflow-callout h2 {
+            margin: 0 0 4px 0;
+            font-size: 13px;
+            font-weight: 700;
+            color: #0f766e;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .workflow-callout p.subtitle {
+            margin: 0 0 14px 0;
+            font-size: 15px;
+            color: #134e4a;
+            font-weight: 600;
+        }
+        .workflow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        .workflow-steps li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: white;
+            border: 1px solid #99f6e4;
+            border-radius: 8px;
+            padding: 12px 14px;
+            font-size: 14px;
+            color: #134e4a;
+            counter-increment: step-counter;
+        }
+        .workflow-steps li::before {
+            content: counter(step-counter);
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #14b8a6;
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .workflow-steps li strong { color: #0f172a; }
+        .workflow-steps li a { color: #0f766e; font-weight: 600; }
+
+        .prompts-section {
+            margin-top: 28px;
+            margin-bottom: 24px;
+        }
+        .prompts-section__label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #374151;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin: 0 0 14px 0;
+        }
+        .prompt-step {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-left: 4px solid #14b8a6;
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-bottom: 14px;
+        }
+        .prompt-step__badge {
+            display: inline-block;
+            background: #f0fdfa;
+            color: #0f766e;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .prompt-step h3 {
+            margin: 0 0 6px 0;
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.4;
+        }
+        .prompt-step p.guidance {
+            margin: 0;
+            color: #4b5563;
+            font-size: 14px;
+            font-style: italic;
+            line-height: 1.55;
+        }
+
+        .earn-credit-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-left: 4px solid #10b981;
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-top: 24px;
+            margin-bottom: 20px;
+        }
+        .earn-credit-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 15px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .earn-credit-card p {
+            margin: 0;
+            color: #4b5563;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .submission-card {
+            background: #111827;
+            color: white;
+            border-radius: 12px;
+            padding: 22px 26px;
+            margin-top: 28px;
+        }
+        .submission-card h2 {
+            margin: 0 0 6px 0;
+            font-size: 13px;
+            font-weight: 700;
+            color: #fca5a5;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .submission-card p.lead {
+            margin: 0 0 12px 0;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .submission-card p.howto {
+            margin: 0 0 12px 0;
+            color: #d1d5db;
+            font-size: 14px;
+        }
+        .submission-card .pdf-badge {
+            display: inline-block;
+            background: #dc2626;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+        .submission-card a.canvas-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 12px 22px;
+            background: linear-gradient(135deg, #0d9488, #14b8a6);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="breadcrumb">
+            <a href="../sprint-4.html">&larr; Sprint 4</a>
+        </p>
+
+        <div class="header">
+            <h1>Look-back 5: Look-back on Your Look-backs</h1>
+            <p>Sprint 4 &middot; Extra credit &middot; ~30 min &middot; Optional &middot; 5 pts</p>
+        </div>
+
+        <div class="prereq-banner">
+            <span class="prereq-banner__label">Sequential</span>
+            <p style="margin:0;"><strong>Do Look-backs 1&ndash;4 first.</strong> This one looks at the pattern across all of them.</p>
+        </div>
+
+        <div class="intro-card">
+            <p>5 points. ~30 minutes. The look-back exercise itself was teaching you something. <strong>This one names what that was.</strong></p>
+        </div>
+
+        <div class="extra-credit-callout">
+            <span class="extra-credit-badge">Extra credit &middot; recovery</span>
+            <h2>Recovery for points you lost earlier</h2>
+            <p class="lead">If you've fallen behind on grades, this is a real path forward.</p>
+            <p>Each look-back asks you to revisit one piece of Sprint 1&ndash;3 work honestly. Complete it, then <strong>check-in with Prof. Sathya in class</strong> to get credit for your submission &mdash; work is reviewed and credited on the spot.</p>
+            <p>You don't have to do this. It's optional. It's here because the work itself is worth doing &mdash; and the points help if you need them.</p>
+        </div>
+
+        <div class="workflow-callout">
+            <h2>How this works &middot; Read first</h2>
+            <p class="subtitle">The Look-back workflow &mdash; four steps.</p>
+            <ol class="workflow-steps">
+                <li><span><strong>Open your existing "Sprint 4 Look-backs" Google Doc.</strong> Add a new section titled <em>"Look-back 5 &mdash; Look-back on your Look-backs"</em>.</span></li>
+                <li><span><strong>Re-read your previous four look-backs in your Look-back doc</strong> before you write. The pattern is what you're looking for &mdash; recurring avoidances, recurring honesties, recurring shapes of insight.</span></li>
+                <li><span><strong>Write your responses to the 6 prompts below</strong>, directly in your Look-back doc.</span></li>
+                <li><span><strong>Export as PDF and submit here on Canvas.</strong> <em>File &rarr; Download &rarr; PDF Document.</em> This final submission contains all five look-backs together.</span></li>
+            </ol>
+        </div>
+
+        <div class="prompts-section">
+            <p class="prompts-section__label">The 6 prompts</p>
+
+            <div class="prompt-step">
+                <span class="prompt-step__badge">Step 1 of 6</span>
+                <h3>What's the pattern across your previous four look-backs?</h3>
+                <p class="guidance">Re-read them. What recurs? Same kind of avoidance, same kind of honesty, same kind of insight you keep arriving at? Name it.</p>
+            </div>
+
+            <div class="prompt-step">
+                <span class="prompt-step__badge">Step 2 of 6</span>
+                <h3>Which look-back was hardest to write honestly?</h3>
+                <p class="guidance">Why? What made that one resistant?</p>
+            </div>
+
+            <div class="prompt-step">
+                <span class="prompt-step__badge">Step 3 of 6</span>
+                <h3>What did the look-back exercise itself develop in you that the original assignments didn't?</h3>
+                <p class="guidance">The original assignments asked you to do work. The look-backs asked you to look at how you did the work. Name the difference in what each developed.</p>
+            </div>
+
+            <div class="prompt-step">
+                <span class="prompt-step__badge">Step 4 of 6</span>
+                <h3>Where in Sprint 4 will you do this without being asked?</h3>
+                <p class="guidance">Self-evaluation isn't something that needs an assignment. Where in your Sprint 4 work &mdash; your goal, your Solution Brief, your defense &mdash; will you apply this on your own?</p>
+            </div>
+
+            <div class="prompt-step">
+                <span class="prompt-step__badge">Step 5 of 6</span>
+                <h3>One thing you'd tell yourself in Sprint 1 if you could.</h3>
+                <p class="guidance">Knowing what these look-backs surfaced. One sentence.</p>
+            </div>
+
+            <div class="prompt-step">
+                <span class="prompt-step__badge">Step 6 of 6</span>
+                <h3>One sentence about how you evaluate your own work.</h3>
+                <p class="guidance">Across all the look-backs and across this exercise. The honest sentence about your actual evaluation habits.</p>
+            </div>
+        </div>
+
+        <div class="earn-credit-card">
+            <h3>How to earn the credit</h3>
+            <p>Check-in with Prof. Sathya in class to get credit for this submission. Your work is reviewed and credited on the spot.</p>
+        </div>
+
+        <div class="submission-card">
+            <span class="pdf-badge">PDF ONLY</span>
+            <h2>Submission format</h2>
+            <p class="lead">Submit as PDF only &mdash; Canvas will reject other file types.</p>
+            <p class="howto"><strong>How:</strong> Write in your <em>Sprint 4 Look-backs</em> Google Doc, then <em>File &rarr; Download &rarr; PDF Document</em>. Upload that PDF on the Canvas assignment page &mdash; nothing else.</p>
+            <p class="howto"><strong>Reminder:</strong> This is the capstone look-back. The PDF you submit contains all five look-backs together.</p>
+            <a data-assignment-key="s4-lookback-5-meta" href="#" target="_blank" class="canvas-btn">Submit on Canvas &rarr;</a>
+        </div>
+    </div>
+
+    <footer style="text-align:center;padding:24px 16px;margin-top:40px;border-top:1px solid #e5e7eb;">
+        <p style="margin:0;font-size:12px;color:#9ca3af;">
+            Please provide (anonymous) feedback: <a href="https://forms.gle/ssHfShC6QECbW7WQ6" target="_blank" style="color:#14b8a6;">https://forms.gle/ssHfShC6QECbW7WQ6</a>
+        </p>
+    </footer>
+</body>
+</html>
