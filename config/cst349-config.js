@@ -730,6 +730,58 @@ const CST349_CONFIG = {
       week: 15,
       htmlFile: "assignments/s4-defense-presentation.html",
       briefing: "PDF of your defense slides (10 pts) + in-class defense presentation (8 pts). Due noon Wed May 13 — before the final class."
+    },
+    "s4-lookback-2-pr3": {
+      canvasId: "",
+      title: "S4: Look-back 2 — Productive Reflection #3 (Extra Credit)",
+      dueDate: "2026-05-03",
+      type: "assignment",
+      canvasType: "assignment",
+      assignmentGroup: "Extra Credit: Look Back",
+      points: 5,
+      sprint: 4,
+      week: 14,
+      htmlFile: "assignments/s4-w14-lookback-2-pr3.html",
+      briefing: "Extra credit recovery. Revisit Sprint 1 W3 Productive Reflection — was your plan actually working then, and were you honest about it? Append to your Sprint 4 Look-backs Google Doc. PDF."
+    },
+    "s4-lookback-3-networking": {
+      canvasId: "",
+      title: "S4: Look-back 3 — Networking Event (Extra Credit)",
+      dueDate: "2026-05-20",
+      type: "assignment",
+      canvasType: "assignment",
+      assignmentGroup: "Extra Credit: Look Back",
+      points: 5,
+      sprint: 4,
+      week: 15,
+      htmlFile: "assignments/s4-w15-lookback-3-networking.html",
+      briefing: "Extra credit recovery. Revisit Sprint 2 Networking Event Prep + Report. Did you test assumptions, or perform the exercise? Append to your Sprint 4 Look-backs Google Doc. PDF."
+    },
+    "s4-lookback-4-info-diet": {
+      canvasId: "",
+      title: "S4: Look-back 4 — Information Diet Audit (Extra Credit)",
+      dueDate: "2026-05-20",
+      type: "assignment",
+      canvasType: "assignment",
+      assignmentGroup: "Extra Credit: Look Back",
+      points: 5,
+      sprint: 4,
+      week: 15,
+      htmlFile: "assignments/s4-w15-lookback-4-info-diet.html",
+      briefing: "Extra credit recovery. Revisit Sprint 3 Information Diet Audit. What you actually consumed, what you said you'd change, what changed. Append to your Sprint 4 Look-backs Google Doc. PDF."
+    },
+    "s4-lookback-5-meta": {
+      canvasId: "",
+      title: "S4: Look-back 5 — Look-back on your Look-backs (Extra Credit)",
+      dueDate: "2026-05-20",
+      type: "assignment",
+      canvasType: "assignment",
+      assignmentGroup: "Extra Credit: Look Back",
+      points: 5,
+      sprint: 4,
+      week: 16,
+      htmlFile: "assignments/s4-w16-lookback-5-meta.html",
+      briefing: "Extra credit recovery. The pattern across your previous look-backs. What did the look-back exercise itself reveal? Append to your Sprint 4 Look-backs Google Doc. PDF."
     }
   },
 
