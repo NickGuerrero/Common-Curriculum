@@ -59,6 +59,50 @@
             letter-spacing: 0.05em;
             margin-bottom: 10px;
         }
+
+        /* Defense outline card */
+        .outline-card {
+            background: white; border: 1px solid #99f6e4;
+            border-left: 6px solid #0d9488;
+            border-radius: 12px; padding: 22px 26px; margin-bottom: 16px;
+        }
+        .outline-card h2 {
+            margin: 0 0 4px 0;
+            font-size: 13px; font-weight: 700;
+            color: #0f766e;
+            text-transform: uppercase; letter-spacing: 0.06em;
+        }
+        .outline-card p.format {
+            margin: 0 0 16px 0;
+            font-size: 14px; color: #134e4a; font-weight: 600;
+        }
+        .outline-step {
+            display: flex; gap: 14px; align-items: flex-start;
+            padding: 12px 14px; margin-bottom: 8px;
+            background: #f0fdfa; border: 1px solid #99f6e4;
+            border-radius: 8px;
+        }
+        .outline-step:last-of-type { margin-bottom: 16px; }
+        .outline-step__num {
+            flex-shrink: 0; width: 26px; height: 26px;
+            border-radius: 50%; background: #0d9488; color: white;
+            font-weight: 700; font-size: 13px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .outline-step__body { font-size: 14px; line-height: 1.55; color: #1e293b; }
+        .outline-step__body strong { color: #0f172a; }
+        .outline-step__body .timing {
+            color: #0f766e; font-weight: 700; font-size: 12px;
+            text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .outline-card h3.qa-heading {
+            margin: 4px 0 8px 0; font-size: 13px; font-weight: 700;
+            color: #0f766e; text-transform: uppercase; letter-spacing: 0.06em;
+        }
+        .outline-card ul.qa-list {
+            margin: 0; padding-left: 20px;
+            color: #334155; font-size: 14px; line-height: 1.7;
+        }
     </style>
 </head>
 <body>
@@ -72,6 +116,48 @@
         <div class="header">
             <h1>Final Defense Presentation</h1>
             <p>Sprint 4 &middot; Due <span data-due-date="s4-defense-presentation"></span>, noon &middot; 10 pts</p>
+        </div>
+
+        <!-- Defense outline -->
+        <div class="outline-card">
+            <h2>Defense outline (5 minutes)</h2>
+            <p class="format"><strong>Format:</strong> 5 min presentation + 2 min Q&amp;A &middot; W15 or W16 (your choice).</p>
+
+            <div class="outline-step">
+                <div class="outline-step__num">1</div>
+                <div class="outline-step__body">
+                    <span class="timing">45 sec</span> &middot; <strong>The belief that changed.</strong> One key idea about being prepared for the age of AI you had coming in that has changed. State the before and the after.
+                </div>
+            </div>
+
+            <div class="outline-step">
+                <div class="outline-step__num">2</div>
+                <div class="outline-step__body">
+                    <span class="timing">60 sec</span> &middot; <strong>The moment.</strong> The specific point &mdash; which sprint, which conversation, which piece of work &mdash; where you realized the shift. Not &ldquo;over time.&rdquo; A moment.
+                </div>
+            </div>
+
+            <div class="outline-step">
+                <div class="outline-step__num">3</div>
+                <div class="outline-step__body">
+                    <span class="timing">3 min</span> &middot; <strong>The case.</strong> Make the case for your Superagency and Human Value Proposition, with concrete examples from your Sprint 1&ndash;4 work. This is the body of the defense.
+                </div>
+            </div>
+
+            <div class="outline-step">
+                <div class="outline-step__num">4</div>
+                <div class="outline-step__body">
+                    <span class="timing">15 sec</span> &middot; <strong>Going forward.</strong> How you&rsquo;ll approach work differently because of what changed.
+                </div>
+            </div>
+
+            <h3 class="qa-heading">Anticipate in Q&amp;A</h3>
+            <ul class="qa-list">
+                <li>What would a skeptic say about your superagency claim? What&rsquo;s your strongest counter-evidence?</li>
+                <li>Where in your Sprint 1&ndash;4 work did you NOT demonstrate this shift? What does that tell you?</li>
+                <li>If AI capabilities double in the next year, does your case still hold? What would have to change?</li>
+                <li>Which capability &mdash; SDL, IS, or AB &mdash; is weakest in you right now, honestly?</li>
+            </ul>
         </div>
 
         <div class="card">
@@ -107,5 +193,15 @@
             Please provide (anonymous) feedback: <a href="https://forms.gle/ssHfShC6QECbW7WQ6" target="_blank" style="color: #14b8a6;">https://forms.gle/ssHfShC6QECbW7WQ6</a>
         </p>
     </footer>
+
+    <script src="../../config/cst395-config.js"></script>
+    <script src="../../js/components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof populateDueDates === 'function' && typeof CST395_CONFIG !== 'undefined') {
+                populateDueDates(CST395_CONFIG);
+            }
+        });
+    </script>
 </body>
 </html>
