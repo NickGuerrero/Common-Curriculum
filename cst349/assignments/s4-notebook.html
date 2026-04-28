@@ -76,5 +76,15 @@
             Please provide (anonymous) feedback: <a href="https://forms.gle/ssHfShC6QECbW7WQ6" target="_blank" style="color: #6366f1;">https://forms.gle/ssHfShC6QECbW7WQ6</a>
         </p>
     </footer>
+
+    <script src="../../config/cst349-config.js"></script>
+    <script src="../../js/components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof populateDueDates === 'function' && typeof CST349_CONFIG !== 'undefined') {
+                populateDueDates(CST349_CONFIG);
+            }
+        });
+    </script>
 </body>
 </html>

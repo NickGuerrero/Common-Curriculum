@@ -39,6 +39,51 @@
             color: #4338ca;
         }
         .part p { margin: 0; color: #4b5563; font-size: 15px; }
+
+        /* Defense outline card */
+        .outline-card {
+            background: white; border: 1px solid #c7d2fe;
+            border-left: 6px solid #4f46e5;
+            border-radius: 12px; padding: 22px 26px; margin-bottom: 16px;
+        }
+        .outline-card h2 {
+            margin: 0 0 4px 0;
+            font-size: 13px; font-weight: 700;
+            color: #4338ca;
+            text-transform: uppercase; letter-spacing: 0.06em;
+        }
+        .outline-card p.format {
+            margin: 0 0 16px 0;
+            font-size: 14px; color: #1e3a5f; font-weight: 600;
+        }
+        .outline-step {
+            display: flex; gap: 14px; align-items: flex-start;
+            padding: 12px 14px; margin-bottom: 8px;
+            background: #eef2ff; border: 1px solid #c7d2fe;
+            border-radius: 8px;
+        }
+        .outline-step:last-of-type { margin-bottom: 16px; }
+        .outline-step__num {
+            flex-shrink: 0; width: 26px; height: 26px;
+            border-radius: 50%; background: #4f46e5; color: white;
+            font-weight: 700; font-size: 13px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .outline-step__body { font-size: 14px; line-height: 1.55; color: #1e293b; }
+        .outline-step__body strong { color: #0f172a; }
+        .outline-step__body .timing {
+            color: #4338ca; font-weight: 700; font-size: 12px;
+            text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .outline-card h3.qa-heading {
+            margin: 4px 0 8px 0; font-size: 13px; font-weight: 700;
+            color: #4338ca; text-transform: uppercase; letter-spacing: 0.06em;
+        }
+        .outline-card ul.qa-list {
+            margin: 0; padding-left: 20px;
+            color: #334155; font-size: 14px; line-height: 1.7;
+        }
+
         .submission {
             background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
             color: white; padding: 24px; border-radius: 12px;
@@ -74,6 +119,48 @@
             <p>Sprint 4 &middot; Due <span data-due-date="s4-defense-presentation"></span>, noon &middot; 18 pts</p>
         </div>
 
+        <!-- Defense outline -->
+        <div class="outline-card">
+            <h2>Defense outline (3 minutes)</h2>
+            <p class="format"><strong>Format:</strong> 3 min presentation + 2 min Q&amp;A &middot; W15 or W16 (your choice).</p>
+
+            <div class="outline-step">
+                <div class="outline-step__num">1</div>
+                <div class="outline-step__body">
+                    <span class="timing">30 sec</span> &middot; <strong>The belief that changed.</strong> One thing you believe about your ability to learn that has changed since the semester started. State the before and the after clearly.
+                </div>
+            </div>
+
+            <div class="outline-step">
+                <div class="outline-step__num">2</div>
+                <div class="outline-step__body">
+                    <span class="timing">45 sec</span> &middot; <strong>The moment.</strong> The specific point &mdash; which assignment, which conversation, which moment of stuck &mdash; where you realized the shift. Not &ldquo;throughout the semester.&rdquo; A moment.
+                </div>
+            </div>
+
+            <div class="outline-step">
+                <div class="outline-step__num">3</div>
+                <div class="outline-step__body">
+                    <span class="timing">75 sec</span> &middot; <strong>The evidence.</strong> Concrete evidence the shift is real. Your Sprint 4 gap-closing work is the freshest example. Earlier sprints, peer conversations, reflections all count.
+                </div>
+            </div>
+
+            <div class="outline-step">
+                <div class="outline-step__num">4</div>
+                <div class="outline-step__body">
+                    <span class="timing">30 sec</span> &middot; <strong>Going forward.</strong> How this changes your work from here &mdash; next semester, first job, next gap you&rsquo;ll hit.
+                </div>
+            </div>
+
+            <h3 class="qa-heading">Anticipate in Q&amp;A</h3>
+            <ul class="qa-list">
+                <li>What&rsquo;s the strongest evidence this shift is real and not just a story you&rsquo;re telling?</li>
+                <li>Where in the semester did you NOT demonstrate this change? What does that tell you?</li>
+                <li>If you hit a similar learning gap in 6 months, what would you do differently?</li>
+                <li>What&rsquo;s one thing about your ability to learn that has NOT changed, that you thought would?</li>
+            </ul>
+        </div>
+
         <div class="card">
             <div class="part">
                 <h3>Part 1 &mdash; Slide deck PDF (10 pts)</h3>
@@ -96,6 +183,9 @@
                 <strong>Points:</strong> 18 (10 slides + 8 in-class)<br>
                 <strong>Group:</strong> Sprint 4: Demonstration
             </div>
+            <a data-assignment-key="s4-defense-presentation" href="https://csumb.instructure.com/courses/32911/assignments/590113" target="_blank" style="display: inline-block; margin-top: 16px; padding: 12px 24px; background: linear-gradient(135deg, #4f46e5, #6366f1); color: white; border-radius: 8px; text-decoration: none; font-weight: 600;">
+                Submit on Canvas &rarr;
+            </a>
         </div>
     </div>
 
@@ -104,5 +194,15 @@
             Please provide (anonymous) feedback: <a href="https://forms.gle/ssHfShC6QECbW7WQ6" target="_blank" style="color: #6366f1;">https://forms.gle/ssHfShC6QECbW7WQ6</a>
         </p>
     </footer>
+
+    <script src="../../config/cst349-config.js"></script>
+    <script src="../../js/components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof populateDueDates === 'function' && typeof CST349_CONFIG !== 'undefined') {
+                populateDueDates(CST349_CONFIG);
+            }
+        });
+    </script>
 </body>
 </html>

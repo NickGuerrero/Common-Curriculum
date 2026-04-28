@@ -87,5 +87,15 @@
             Please provide (anonymous) feedback: <a href="https://forms.gle/ssHfShC6QECbW7WQ6" target="_blank" style="color: #14b8a6;">https://forms.gle/ssHfShC6QECbW7WQ6</a>
         </p>
     </footer>
+
+    <script src="../../config/cst395-config.js"></script>
+    <script src="../../js/components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof populateDueDates === 'function' && typeof CST395_CONFIG !== 'undefined') {
+                populateDueDates(CST395_CONFIG);
+            }
+        });
+    </script>
 </body>
 </html>
