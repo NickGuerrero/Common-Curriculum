@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 14: Future of Work | CST349</title>
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-section: #1a2332;
+      --bg-section-2: #1e293b;
+      --indigo-300: #a5b4fc;
+      --indigo-400: #818cf8;
+      --indigo-500: #6366f1;
+      --indigo-600: #4f46e5;
+      --indigo-700: #4338ca;
+      --violet-400: #a78bfa;
+      --emerald-400: #34d399;
+      --amber-400: #fbbf24;
+      --amber-500: #f59e0b;
+      --rose-400: #fb7185;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --border: rgba(255,255,255,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-primary); color: var(--text-primary); height: 100vh; overflow: hidden; }
+    .progress-bar { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,0.1); z-index: 100; }
+    .progress-fill { height: 100%; background: var(--indigo-500); transition: width 0.3s ease; width: 0%; }
+    .nav-bar { position: fixed; top: 3px; left: 0; right: 0; height: 52px; background: rgba(15,23,42,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; z-index: 99; }
+    .nav-title { font-size: 14px; color: var(--text-secondary); }
+    .nav-title strong { color: var(--text-primary); }
+    .nav-progress { font-size: 13px; color: var(--text-muted); }
+    .nav-controls { display: flex; gap: 8px; }
+    .nav-btn { background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text-secondary); padding: 6px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; transition: all 0.15s; }
+    .nav-btn:hover:not(:disabled) { background: rgba(255,255,255,0.06); color: var(--text-primary); }
+    .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .section { display: none; position: fixed; top: 55px; left: 0; right: 0; bottom: 0; overflow-y: auto; }
+    .section.active { display: flex; align-items: center; justify-content: center; }
+    .section-content { max-width: 920px; width: 100%; padding: 32px 24px; }
+    .section-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 12px; }
+    h1 { font-size: 60px; font-weight: 800; line-height: 1.05; margin-bottom: 16px; background: linear-gradient(135deg, #f1f5f9, var(--indigo-400)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    h2 { font-size: 36px; font-weight: 700; margin-bottom: 16px; }
+    .subtitle { font-size: 20px; color: var(--text-secondary); max-width: 720px; line-height: 1.55; margin-bottom: 24px; }
+    .lede { font-size: 22px; color: var(--text-primary); line-height: 1.55; margin-bottom: 20px; }
+    .lede strong { color: var(--indigo-300); }
+    .body-text { font-size: 18px; color: var(--text-secondary); line-height: 1.7; }
+    .body-text strong { color: var(--text-primary); font-weight: 600; }
+    .body-text + .body-text { margin-top: 14px; }
+
+    .activity-card { background: var(--bg-section); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+
+    .click-hint { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); font-size: 13px; color: var(--text-muted); }
+    .click-hint kbd { background: rgba(255,255,255,0.08); padding: 3px 8px; border-radius: 4px; font-family: inherit; }
+
+    /* ============ Source-attributed data-point card (slides 2 + 3) ============ */
+    .datapoint { border-left: 4px solid var(--indigo-500); padding: 18px 22px; margin-bottom: 12px; }
+    .datapoint:last-of-type { margin-bottom: 0; }
+    .datapoint__source { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo-300); margin-bottom: 8px; }
+    .datapoint__text { font-size: 17px; color: var(--text-primary); line-height: 1.55; }
+    .datapoint__text strong { color: var(--text-primary); font-weight: 700; }
+    .datapoint-list { display: flex; flex-direction: column; gap: 0; margin-top: 18px; }
+    .datapoint-closer { margin-top: 22px; font-size: 19px; color: var(--text-secondary); line-height: 1.55; }
+    .datapoint-closer strong { color: var(--indigo-300); font-weight: 600; }
+    .datapoint-closer--accent { color: var(--text-primary); font-size: 22px; }
+    .datapoint-closer--accent strong { color: var(--amber-400); }
+
+    /* ============ Numbered question cards (slides 6 + 7) ============ */
+    .agenda { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; }
+    .agenda-step { display: flex; align-items: flex-start; gap: 18px; background: var(--bg-section); border: 1px solid var(--border); border-left: 4px solid var(--indigo-500); border-radius: 12px; padding: 18px 22px; }
+    .agenda-num { flex-shrink: 0; width: 42px; height: 42px; border-radius: 10px; background: linear-gradient(135deg, var(--indigo-600), var(--indigo-500)); color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; box-shadow: 0 2px 8px rgba(99,102,241,0.3); }
+    .agenda-body { flex: 1; }
+    .agenda-detail { font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+    .agenda-detail strong { color: var(--text-primary); font-weight: 600; }
+    .agenda-source { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--indigo-300); margin-bottom: 6px; }
+
+    /* ============ Focal quote (slides 6 + 7 gap statement) + closing (slide 8) ============ */
+    .prompt-card { background: linear-gradient(135deg, rgba(99,102,241,0.16), rgba(139,92,246,0.08)); border: 1px solid rgba(129,140,248,0.45); border-radius: 20px; padding: 40px 44px; text-align: center; box-shadow: 0 8px 48px rgba(99,102,241,0.20); }
+    .prompt-label { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--indigo-300); margin-bottom: 18px; }
+    .prompt-text { font-size: 30px; font-weight: 600; color: var(--text-primary); line-height: 1.35; letter-spacing: -0.005em; }
+    .prompt-text--large { font-size: 42px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+    .prompt-instruction { margin-top: 28px; font-size: 18px; color: var(--text-secondary); line-height: 1.65; max-width: 680px; margin-left: auto; margin-right: auto; }
+    .prompt-instruction strong { color: var(--text-primary); font-weight: 600; }
+    .quote-intro { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; font-style: italic; }
+
+    /* ============ Emphasis pill ============ */
+    .emphasis-pill { display: inline-block; font-weight: 800; color: var(--amber-400); background: rgba(251,191,36,0.12); border: 1px solid rgba(251,191,36,0.35); padding: 2px 10px; border-radius: 6px; }
+
+    @media (max-width: 900px) {
+      h1 { font-size: 40px; }
+      h2 { font-size: 28px; }
+      .lede { font-size: 19px; }
+      .datapoint__text { font-size: 16px; }
+      .prompt-text { font-size: 22px; }
+      .prompt-text--large { font-size: 30px; }
+    }
+    @media (max-width: 560px) {
+      .agenda-step { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <nav class="nav-bar">
+    <div class="nav-title"><strong>CST349</strong> &middot; Week 14</div>
+    <div class="nav-progress" id="navProgress">1 / 8</div>
+    <div class="nav-controls">
+      <button class="nav-btn" id="prevBtn" disabled>&larr; Prev</button>
+      <button class="nav-btn" id="nextBtn">Next &rarr;</button>
+    </div>
+  </nav>
+
+  <!-- ==================== 1: TITLE ==================== -->
+  <section class="section active" data-section="1">
+    <div class="section-content" style="text-align: center;">
+      <p class="section-label">Week 14</p>
+      <h1>Future of Work</h1>
+      <p class="subtitle" style="margin: 16px auto 0;">The reason your gap statement matters.</p>
+      <p style="margin-top: 28px; font-size: 15px; color: var(--text-muted); letter-spacing: 0.06em;">Wed Apr 29, 2026</p>
+    </div>
+  </section>
+
+  <!-- ==================== 2: WHAT'S ACTUALLY HAPPENING ==================== -->
+  <section class="section" data-section="2">
+    <div class="section-content">
+      <p class="section-label">What&rsquo;s actually happening</p>
+      <h2>The rules of work are about to change. Again. And again.</h2>
+
+      <div class="datapoint-list">
+        <div class="datapoint">
+          <div class="datapoint__source">LinkedIn</div>
+          <p class="datapoint__text">More CS grads than ever. Lowest entry-level software hiring in years. Same chart.</p>
+        </div>
+        <div class="datapoint">
+          <div class="datapoint__source">World Economic Forum</div>
+          <p class="datapoint__text">39% of the skills you need will be different by 2030.</p>
+        </div>
+        <div class="datapoint">
+          <div class="datapoint__source">Stanford &middot; Brynjolfsson et al.</div>
+          <p class="datapoint__text">Hiring of 22&ndash;25-year-olds in AI-exposed jobs is down ~14%.</p>
+        </div>
+      </div>
+
+      <p class="datapoint-closer">Three reports. They partially disagree. The signal they share: <strong>whatever job you pick, the rules will keep changing.</strong></p>
+    </div>
+  </section>
+
+  <!-- ==================== 3: THE SKILLS THAT SURVIVE ==================== -->
+  <section class="section" data-section="3">
+    <div class="section-content" style="max-width: 1000px;">
+      <p class="section-label">What survives</p>
+      <h2>The data agrees on what wins.</h2>
+
+      <div class="datapoint-list">
+        <div class="datapoint">
+          <div class="datapoint__source">LinkedIn &middot; Skills on the Rise 2026</div>
+          <p class="datapoint__text">7 of the top 10 fastest-growing skills are human-centric &mdash; adaptability, conflict mitigation, public speaking, strategic thinking, innovative thinking, process optimization, solution-based selling. AI Literacy is #1, but it sits alongside the others.</p>
+        </div>
+        <div class="datapoint">
+          <div class="datapoint__source">WEF &middot; Future of Jobs</div>
+          <p class="datapoint__text">Resilience, flexibility, agility, curiosity and lifelong learning are among the top growing skill clusters through 2030.</p>
+        </div>
+        <div class="datapoint">
+          <div class="datapoint__source">McKinsey</div>
+          <p class="datapoint__text">The shift in work is from doing the writing and analysis to directing and judging the writing and analysis.</p>
+        </div>
+        <div class="datapoint">
+          <div class="datapoint__source">Deloitte</div>
+          <p class="datapoint__text">70% of business leaders say their primary competitive strategy for the next 3 years is being &ldquo;fast and nimble.&rdquo; Speed at the team level requires people who can absorb feedback and shift.</p>
+        </div>
+        <div class="datapoint">
+          <div class="datapoint__source">Anthropic &middot; 81,000-user survey</div>
+          <p class="datapoint__text">Experienced AI users treat AI as a collaborator. Newcomers hand work to it. The first group is measurably more productive.</p>
+        </div>
+      </div>
+
+      <p class="datapoint-closer datapoint-closer--accent">Look at this list. <strong>This is what you&rsquo;ve been practicing for 12 weeks.</strong></p>
+    </div>
+  </section>
+
+  <!-- ==================== 4: WHAT THIS COURSE WAS FOR ==================== -->
+  <section class="section" data-section="4">
+    <div class="section-content">
+      <p class="section-label">Why we did this</p>
+      <h2>This course was about one thing.</h2>
+      <p class="lede">Becoming the kind of learner who can <strong>spot a gap, name it clearly, and close it</strong> &mdash; every time the rules change.</p>
+      <p class="body-text">You did it four times this semester. Four sprints. Four reps.</p>
+      <p class="body-text">Most adults haven&rsquo;t done this on purpose once.</p>
+    </div>
+  </section>
+
+  <!-- ==================== 5: YOUR DEFENSE ==================== -->
+  <section class="section" data-section="5">
+    <div class="section-content">
+      <p class="section-label">Your defense</p>
+      <h2>The defense is asking one thing: do you know how to grow?</h2>
+      <p class="lede">It&rsquo;s not a status report. It&rsquo;s evidence &mdash; across one semester &mdash; that you can <strong>spot a real gap, name it cleanly, and close it on purpose.</strong></p>
+      <p class="body-text">Today is the rehearsal. We&rsquo;re going to look at two real Gap Statement drafts from this class and pressure-test them out loud, the way your defense panel will.</p>
+      <p class="body-text">Pair up. The questions on the next two slides stay on screen &mdash; work through them together.</p>
+    </div>
+  </section>
+
+  <!-- ==================== 6: PRESSURE-TEST GAP STATEMENT 1 ==================== -->
+  <section class="section" data-section="6">
+    <div class="section-content" style="max-width: 1000px;">
+      <p class="section-label">From this class &middot; 1 of 2</p>
+      <h2>Pressure-test this gap.</h2>
+
+      <div class="prompt-card">
+        <p class="quote-intro">Anonymized. A real gap statement from this cohort.</p>
+        <p class="prompt-text">&ldquo;I struggle to recognize in real time when I shift from genuinely understanding concepts to simply completing tasks through copying patterns or surface-level problem solving.&rdquo;</p>
+      </div>
+
+      <div class="agenda">
+        <div class="agenda-step">
+          <div class="agenda-num">1</div>
+          <div class="agenda-body">
+            <p class="agenda-detail"><strong>McKinsey:</strong> the shift in work is from doing the writing and analysis to directing and judging it. The skill named here &mdash; recognizing the shift in real time &mdash; IS that judgment skill. What&rsquo;s the earliest signal that tells you you&rsquo;ve slipped from understanding to pattern-matching?</p>
+          </div>
+        </div>
+        <div class="agenda-step">
+          <div class="agenda-num">2</div>
+          <div class="agenda-body">
+            <p class="agenda-detail"><strong>Anthropic&rsquo;s 81,000-user survey:</strong> experienced users treat AI as a collaborator. Newcomers hand work to it. That difference is what this gap is pointing at. What would a learning log look like that captured these moments specifically &mdash; not &ldquo;what I did&rdquo; but &ldquo;where I caught myself&rdquo;?</p>
+          </div>
+        </div>
+        <div class="agenda-step">
+          <div class="agenda-num">3</div>
+          <div class="agenda-body">
+            <p class="agenda-detail"><strong>Brynjolfsson&rsquo;s research:</strong> what AI struggles to replicate is tacit knowledge &mdash; the in-the-moment sense that something&rsquo;s off. This gap targets tacit knowledge directly. How would you know in 2 weeks that this skill is sharper, given that it&rsquo;s invisible by definition?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 7: PRESSURE-TEST GAP STATEMENT 2 ==================== -->
+  <section class="section" data-section="7">
+    <div class="section-content" style="max-width: 1000px;">
+      <p class="section-label">From this class &middot; 2 of 2</p>
+      <h2>Pressure-test this one.</h2>
+
+      <div class="prompt-card">
+        <p class="quote-intro">Different terrain. Same underlying move.</p>
+        <p class="prompt-text">&ldquo;Receiving feedback &mdash; I can give feedback but I tend to become rigid when receiving feedback and have a hard time incorporating it into my work.&rdquo;</p>
+      </div>
+
+      <div class="agenda">
+        <div class="agenda-step">
+          <div class="agenda-num">1</div>
+          <div class="agenda-body">
+            <p class="agenda-detail"><strong>Deloitte:</strong> 70% of business leaders say their top strategy for the next 3 years is being &ldquo;fast and nimble.&rdquo; Team speed depends on people who absorb feedback and shift, instead of absorbing feedback and defending. What does &ldquo;incorporating feedback&rdquo; look like as observable behavior &mdash; in the next 2 weeks, in a real project?</p>
+          </div>
+        </div>
+        <div class="agenda-step">
+          <div class="agenda-num">2</div>
+          <div class="agenda-body">
+            <p class="agenda-detail"><strong>WEF</strong> lists &ldquo;resilience, flexibility, agility&rdquo; as a top growing skill cluster through 2030. The hard part is that rigidity feels like principled disagreement from the inside. How will you tell, in the moment, whether you&rsquo;re disagreeing for a reason or defending out of habit?</p>
+          </div>
+        </div>
+        <div class="agenda-step">
+          <div class="agenda-num">3</div>
+          <div class="agenda-body">
+            <p class="agenda-detail">The most honest line in this gap statement is that the writer hasn&rsquo;t named this before &mdash; because naming it invites the exact thing they&rsquo;re avoiding. The vehicle has to break that loop. What&rsquo;s a structure where the cost of refusing feedback is higher than the cost of taking it?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 8: GOING FORWARD ==================== -->
+  <section class="section" data-section="8">
+    <div class="section-content" style="text-align: center;">
+      <p class="section-label">Going forward</p>
+      <h2 style="margin-bottom: 28px;">The whole course in one line.</h2>
+
+      <div class="prompt-card">
+        <p class="prompt-text prompt-text--large">Spot the gap. Close it. Find the next one.</p>
+        <p class="prompt-instruction">This semester was rep four. <strong>Rep five</strong> comes next semester. <strong>Rep six</strong> the semester after. <strong>A hundred more</strong> after graduation. The rules of work will keep changing &mdash; that&rsquo;s the only thing they do. The reps don&rsquo;t stop. The skill <em>is</em> the practice.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="click-hint"><kbd>&larr;</kbd> <kbd>&rarr;</kbd> arrow keys to navigate</div>
+
+  <script>
+    let currentSection = 1;
+    const totalSections = document.querySelectorAll('.section').length;
+    const sections = document.querySelectorAll('.section');
+    const progressFill = document.getElementById('progressFill');
+    const navProgress = document.getElementById('navProgress');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    function goToSection(n) {
+      if (n < 1 || n > totalSections) return;
+      sections.forEach(s => s.classList.remove('active'));
+      document.querySelector(`[data-section="${n}"]`).classList.add('active');
+      currentSection = n;
+      progressFill.style.width = `${(currentSection / totalSections) * 100}%`;
+      navProgress.textContent = `${currentSection} / ${totalSections}`;
+      prevBtn.disabled = currentSection === 1;
+      nextBtn.disabled = currentSection === totalSections;
+    }
+    prevBtn.addEventListener('click', () => goToSection(currentSection - 1));
+    nextBtn.addEventListener('click', () => goToSection(currentSection + 1));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goToSection(currentSection + 1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); goToSection(currentSection - 1); }
+    });
+    goToSection(1);
+  </script>
+
+  <script src="../../config/cst349-config.js"></script>
+  <script src="../../js/components.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof populateDueDates === 'function' && typeof CST349_CONFIG !== 'undefined') {
+      populateDueDates(CST349_CONFIG);
+    }
+  });
+  </script>
+
+  <footer style="text-align: center; padding: 24px 16px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
+    <p style="margin: 0; font-size: 12px; color: var(--text-muted);">
+      Please provide (anonymous) feedback: <a href="https://forms.gle/ssHfShC6QECbW7WQ6" target="_blank" style="color: var(--indigo-400);">https://forms.gle/ssHfShC6QECbW7WQ6</a>
+    </p>
+  </footer>
+</body>
+</html>
