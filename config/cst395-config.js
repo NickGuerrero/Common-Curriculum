@@ -588,7 +588,7 @@ const CST395_CONFIG = {
     "s4-lookback-1-problem-selection": {
       canvasId: "588986",
       title: "S4: Look-back 1 — Problem Selection (Extra Credit)",
-      dueDate: "2026-04-28",
+      dueDate: "2026-05-20",
       type: "assignment",
       canvasType: "assignment",
       assignmentGroup: "Extra Credit: Look Back",
@@ -718,7 +718,7 @@ const CST395_CONFIG = {
     "s4-lookback-2-assumption-audit": {
       canvasId: "590208",
       title: "S4: Look-back 2 — Assumption Audit (Extra Credit)",
-      dueDate: "2026-05-03",
+      dueDate: "2026-05-20",
       type: "assignment",
       canvasType: "assignment",
       assignmentGroup: "Extra Credit: Look Back",
