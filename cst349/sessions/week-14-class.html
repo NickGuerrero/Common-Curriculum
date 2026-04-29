@@ -87,6 +87,15 @@
     /* ============ Emphasis pill ============ */
     .emphasis-pill { display: inline-block; font-weight: 800; color: var(--amber-400); background: rgba(251,191,36,0.12); border: 1px solid rgba(251,191,36,0.35); padding: 2px 10px; border-radius: 6px; }
 
+    /* ============ Two-column layout (slide 9 anonymous review) ============ */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 20px; }
+    @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
+    .col-title { font-size: 14px; font-weight: 700; color: var(--indigo-300); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.10em; }
+    .ar-list { padding-left: 22px; color: var(--text-secondary); font-size: 16px; line-height: 1.6; margin-top: 6px; }
+    .ar-list li + li { margin-top: 8px; }
+    .ar-list a { color: var(--indigo-300); text-decoration: underline; }
+    .ar-tagline { margin-top: 14px; font-size: 15px; color: var(--text-muted); font-style: italic; line-height: 1.55; }
+
     @media (max-width: 900px) {
       h1 { font-size: 40px; }
       h2 { font-size: 28px; }
@@ -104,7 +113,7 @@
   <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
   <nav class="nav-bar">
     <div class="nav-title"><strong>CST349</strong> &middot; Week 14</div>
-    <div class="nav-progress" id="navProgress">1 / 8</div>
+    <div class="nav-progress" id="navProgress">1 / 10</div>
     <div class="nav-controls">
       <button class="nav-btn" id="prevBtn" disabled>&larr; Prev</button>
       <button class="nav-btn" id="nextBtn">Next &rarr;</button>
@@ -125,20 +134,20 @@
   <section class="section" data-section="2">
     <div class="section-content">
       <p class="section-label">What&rsquo;s actually happening</p>
-      <h2>The rules of work are about to change. Again. And again.</h2>
+      <h2>Every Signal Points to Adaptability as the Most Valuable Trait</h2>
 
       <div class="datapoint-list">
-        <div class="datapoint">
-          <div class="datapoint__source">LinkedIn</div>
-          <p class="datapoint__text">More CS grads than ever. Lowest entry-level software hiring in years. Same chart.</p>
-        </div>
         <div class="datapoint">
           <div class="datapoint__source">World Economic Forum</div>
           <p class="datapoint__text">39% of the skills you need will be different by 2030.</p>
         </div>
         <div class="datapoint">
           <div class="datapoint__source">Stanford &middot; Brynjolfsson et al.</div>
-          <p class="datapoint__text">Hiring of 22&ndash;25-year-olds in AI-exposed jobs is down ~14%.</p>
+          <p class="datapoint__text">Hiring of 22&ndash;25-year-olds in AI-exposed jobs is down ~14%, while postings asking for AI-partnering skills in entry-level roles nearly tripled in 6 months. (NACE Job Outlook 2026 Spring Update)</p>
+        </div>
+        <div class="datapoint">
+          <div class="datapoint__source">LinkedIn</div>
+          <p class="datapoint__text">More CS grads than ever. Lowest &lsquo;traditional&rsquo; entry-level software hiring in years. Same chart.</p>
         </div>
       </div>
 
@@ -179,7 +188,7 @@
         </div>
       </div>
 
-      <p class="datapoint-closer datapoint-closer--accent">Look at this list. <strong>This is what you&rsquo;ve been practicing for 12 weeks.</strong></p>
+      <p class="datapoint-closer datapoint-closer--accent">Look at this list. <strong>This is what you&rsquo;ve been practicing in this course.</strong></p>
 
       <p style="margin-top: 16px; font-size: 13px; color: var(--text-muted); text-align: right;">
         <a href="https://drive.google.com/drive/folders/1WvsCXeGH9cWwHh7WWh54AIbipQPT2jIo?usp=sharing" target="_blank" rel="noopener" style="color: var(--indigo-300); text-decoration: none;">Reference &rarr;</a>
@@ -191,7 +200,7 @@
   <section class="section" data-section="4">
     <div class="section-content">
       <p class="section-label">Why we did this</p>
-      <h2>This course was about one thing.</h2>
+      <h2>One important thing that we need to develop</h2>
       <p class="lede">Becoming the kind of learner who can <strong>spot a gap, name it clearly, and close it</strong> &mdash; every time the rules change.</p>
       <p class="body-text">You did it four times this semester. Four sprints. Four reps.</p>
       <p class="body-text">Most adults haven&rsquo;t done this on purpose once.</p>
@@ -202,7 +211,7 @@
   <section class="section" data-section="5">
     <div class="section-content">
       <p class="section-label">Your defense</p>
-      <h2>The defense is asking one thing: do you know how to grow?</h2>
+      <h2>The defense is about making the case that you can adapt</h2>
       <p class="lede">It&rsquo;s not a status report. It&rsquo;s evidence &mdash; across one semester &mdash; that you can <strong>spot a real gap, name it cleanly, and close it on purpose.</strong></p>
       <p class="body-text">Today is the rehearsal. We&rsquo;re going to look at two real Gap Statement drafts from this class and pressure-test them out loud, the way your defense panel will.</p>
       <p class="body-text">Pair up. The questions on the next two slides stay on screen &mdash; work through them together.</p>
@@ -213,7 +222,7 @@
   <section class="section" data-section="6">
     <div class="section-content" style="max-width: 1000px;">
       <p class="section-label">From this class &middot; 1 of 2</p>
-      <h2>Pressure-test this gap.</h2>
+      <h2>Review this gap statement</h2>
 
       <div class="prompt-card">
         <p class="quote-intro">Anonymized. A real gap statement from this cohort.</p>
@@ -224,19 +233,19 @@
         <div class="agenda-step">
           <div class="agenda-num">1</div>
           <div class="agenda-body">
-            <p class="agenda-detail"><strong>McKinsey:</strong> the shift in work is from doing the writing and analysis to directing and judging it. The skill named here &mdash; recognizing the shift in real time &mdash; IS that judgment skill. What&rsquo;s the earliest signal that tells you you&rsquo;ve slipped from understanding to pattern-matching?</p>
+            <p class="agenda-detail"><strong>Specific enough?</strong> Would we notice the difference if this gap closed?</p>
           </div>
         </div>
         <div class="agenda-step">
           <div class="agenda-num">2</div>
           <div class="agenda-body">
-            <p class="agenda-detail"><strong>Anthropic&rsquo;s 81,000-user survey:</strong> experienced users treat AI as a collaborator. Newcomers hand work to it. That difference is what this gap is pointing at. What would a learning log look like that captured these moments specifically &mdash; not &ldquo;what I did&rdquo; but &ldquo;where I caught myself&rdquo;?</p>
+            <p class="agenda-detail"><strong>Evidence real?</strong> Is the evidence a moment or an artifact, or general?</p>
           </div>
         </div>
         <div class="agenda-step">
           <div class="agenda-num">3</div>
           <div class="agenda-body">
-            <p class="agenda-detail"><strong>Brynjolfsson&rsquo;s research:</strong> what AI struggles to replicate is tacit knowledge &mdash; the in-the-moment sense that something&rsquo;s off. This gap targets tacit knowledge directly. How would you know in 2 weeks that this skill is sharper, given that it&rsquo;s invisible by definition?</p>
+            <p class="agenda-detail"><strong>Defensible?</strong> Could a someone argue you&rsquo;re already doing this?</p>
           </div>
         </div>
       </div>
@@ -247,7 +256,7 @@
   <section class="section" data-section="7">
     <div class="section-content" style="max-width: 1000px;">
       <p class="section-label">From this class &middot; 2 of 2</p>
-      <h2>Pressure-test this one.</h2>
+      <h2>Review this one</h2>
 
       <div class="prompt-card">
         <p class="quote-intro">Different terrain. Same underlying move.</p>
@@ -258,19 +267,19 @@
         <div class="agenda-step">
           <div class="agenda-num">1</div>
           <div class="agenda-body">
-            <p class="agenda-detail"><strong>Deloitte:</strong> 70% of business leaders say their top strategy for the next 3 years is being &ldquo;fast and nimble.&rdquo; Team speed depends on people who absorb feedback and shift, instead of absorbing feedback and defending. What does &ldquo;incorporating feedback&rdquo; look like as observable behavior &mdash; in the next 2 weeks, in a real project?</p>
+            <p class="agenda-detail"><strong>Specific enough?</strong> Would we notice the difference if this gap closed?</p>
           </div>
         </div>
         <div class="agenda-step">
           <div class="agenda-num">2</div>
           <div class="agenda-body">
-            <p class="agenda-detail"><strong>WEF</strong> lists &ldquo;resilience, flexibility, agility&rdquo; as a top growing skill cluster through 2030. The hard part is that rigidity feels like principled disagreement from the inside. How will you tell, in the moment, whether you&rsquo;re disagreeing for a reason or defending out of habit?</p>
+            <p class="agenda-detail"><strong>Evidence real?</strong> Is the evidence a moment or an artifact, or general?</p>
           </div>
         </div>
         <div class="agenda-step">
           <div class="agenda-num">3</div>
           <div class="agenda-body">
-            <p class="agenda-detail">The most honest line in this gap statement is that the writer hasn&rsquo;t named this before &mdash; because naming it invites the exact thing they&rsquo;re avoiding. The vehicle has to break that loop. What&rsquo;s a structure where the cost of refusing feedback is higher than the cost of taking it?</p>
+            <p class="agenda-detail"><strong>Defensible?</strong> Could a someone argue you&rsquo;re already doing this?</p>
           </div>
         </div>
       </div>
@@ -281,7 +290,7 @@
   <section class="section" data-section="8">
     <div class="section-content" style="text-align: center;">
       <p class="section-label">Going forward</p>
-      <h2 style="margin-bottom: 28px;">The whole course in one line.</h2>
+      <h2 style="margin-bottom: 28px;">One way of thinking about this course</h2>
 
       <div class="prompt-card">
         <p class="prompt-text prompt-text--large">Spot the gap. Close it. Find the next one.</p>
@@ -290,8 +299,40 @@
     </div>
   </section>
 
-  <!-- ==================== 9: TODAY'S CLASS PLAN ==================== -->
+  <!-- ==================== 9: ANONYMOUS REVIEW ==================== -->
   <section class="section" data-section="9">
+    <div class="section-content" style="max-width: 1100px;">
+      <p class="section-label">Anonymous review</p>
+      <h2>Anonymous Review</h2>
+
+      <div class="two-col">
+        <div>
+          <p class="col-title">Why anonymous works</p>
+          <p class="body-text">The Commons is mutually anonymous by design. The research on this is consistent (Suler 2004): when names and status drop out,</p>
+          <ol class="ar-list">
+            <li>people get more honest</li>
+            <li>they disagree when they&rsquo;d otherwise stay quiet, and</li>
+            <li>admit confusion they&rsquo;d never admit by name.</li>
+          </ol>
+          <p class="ar-tagline">We want the conversation about your gap statement, not about who&rsquo;s holding it.</p>
+        </div>
+        <div>
+          <p class="col-title">Steps</p>
+          <ol class="ar-list">
+            <li>Visit <a href="https://bit.ly/349-commons" target="_blank" rel="noopener">https://bit.ly/349-commons</a></li>
+            <li>Login using Google Auth &mdash; it is an app I developed, I am not tracking any data from Google</li>
+            <li>Submit the entire submission from your gap statement assignment (if you haven&rsquo;t completed the assignment, please work on it now)</li>
+            <li>Invite 1 or more students to talk about the gap &mdash; select others you think are working on similar and/or interesting gaps</li>
+            <li>Ask questions to understand, then ask questions to help and then ask questions to challenge</li>
+            <li>Keep it professional. It is not completely anonymous &mdash; I can see who wrote what</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 10: TODAY'S CLASS PLAN ==================== -->
+  <section class="section" data-section="10">
     <div class="section-content">
       <p class="section-label">Today&rsquo;s class plan</p>
       <h2>How today runs.</h2>
@@ -306,17 +347,11 @@
         <div class="agenda-step">
           <div class="agenda-num">2</div>
           <div class="agenda-body">
-            <p class="agenda-detail"><strong>Explore your gap statement with another student carefully and thoroughly</strong> at <a href="https://bit.ly/349-commons" target="_blank" rel="noopener" style="color: var(--indigo-300); text-decoration: underline;">https://bit.ly/349-commons</a>.</p>
-          </div>
-        </div>
-        <div class="agenda-step">
-          <div class="agenda-num">3</div>
-          <div class="agenda-body">
             <p class="agenda-detail"><strong>Everyone work on your defense.</strong></p>
           </div>
         </div>
         <div class="agenda-step">
-          <div class="agenda-num">4</div>
+          <div class="agenda-num">3</div>
           <div class="agenda-body">
             <p class="agenda-detail"><strong>Students planning to present defense next week</strong> check-in with me.</p>
           </div>
