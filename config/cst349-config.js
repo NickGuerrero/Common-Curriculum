@@ -643,7 +643,7 @@ const CST349_CONFIG = {
     "s4-lookback-1-five-whys": {
       canvasId: "588980",
       title: "S4: Look-back 1 — 5 Whys (Extra Credit)",
-      dueDate: "2026-04-28",
+      dueDate: "2026-05-20",
       type: "assignment",
       canvasType: "assignment",
       assignmentGroup: "Extra Credit: Look Back",
@@ -734,7 +734,7 @@ const CST349_CONFIG = {
     "s4-lookback-2-pr3": {
       canvasId: "590198",
       title: "S4: Look-back 2 — Productive Reflection #3 (Extra Credit)",
-      dueDate: "2026-05-03",
+      dueDate: "2026-05-20",
       type: "assignment",
       canvasType: "assignment",
       assignmentGroup: "Extra Credit: Look Back",
