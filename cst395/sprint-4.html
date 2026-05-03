@@ -226,175 +226,76 @@
   <div class="container">
 
     <!-- ============================================
-         Defense Day Console — Prof. Sathya's W15-W16 in-class panel.
-         Half-screen target. Giant timer. Single chime at zero (default OFF).
-         Vanilla JS, no external libs, IIFE-scoped to avoid globals.
+         Defense Day Console — styles + initDefenseConsole(root) function.
+         Console HTML is injected dynamically by renderSprint4Week into the
+         W15/W16 in-class blocks. Not rendered on W13/W14 (not needed there).
+         Compact dimensions for embedding inside the week container.
          ============================================ -->
     <style>
-      .dd-console {
-        --dd-accent: #14b8a6;
-        --dd-accent-dark: #0d9488;
-        --dd-warn: #f59e0b;
-        --dd-done: #ef4444;
-        background: #ffffff;
-        border: 2px solid var(--dd-accent);
-        border-radius: 16px;
-        padding: 24px 28px 28px;
-        margin-bottom: 32px;
-        box-shadow: 0 4px 24px rgba(20, 184, 166, 0.10);
-        text-align: center;
-      }
-      .dd-console__label {
-        margin: 0 0 8px;
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--dd-accent-dark);
-      }
-      .dd-console__timer {
-        font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-        font-size: clamp(7rem, 22vw, 18rem);
-        font-weight: 800;
-        line-height: 1;
-        letter-spacing: -0.04em;
-        color: var(--dd-accent);
-        margin: 4px 0 18px;
-        font-variant-numeric: tabular-nums;
-        transition: color 0.2s ease;
-      }
+      .dd-console { --dd-accent: #14b8a6; --dd-accent-dark: #0d9488; --dd-warn: #f59e0b; --dd-done: #ef4444; background: #ffffff; border: 2px solid var(--dd-accent); border-radius: 12px; padding: 18px 22px 20px; margin: 14px 0 18px; box-shadow: 0 2px 12px rgba(20, 184, 166, 0.10); text-align: center; }
+      .dd-console__label { margin: 0 0 6px; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dd-accent-dark); }
+      .dd-console__timer { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: clamp(4rem, 10vw, 7rem); font-weight: 800; line-height: 1; letter-spacing: -0.04em; color: var(--dd-accent); margin: 2px 0 12px; font-variant-numeric: tabular-nums; transition: color 0.2s ease; }
       .dd-console__timer[data-state="warn"] { color: var(--dd-warn); }
       .dd-console__timer[data-state="done"] { color: var(--dd-done); }
-      .dd-console__row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 12px;
-      }
-      .dd-btn {
-        font-family: inherit;
-        font-size: 16px;
-        font-weight: 600;
-        padding: 12px 20px;
-        border-radius: 10px;
-        border: 1px solid #e5e7eb;
-        background: #f9fafb;
-        color: #1f2937;
-        cursor: pointer;
-        transition: background 0.15s, border-color 0.15s, transform 0.05s;
-      }
+      .dd-console__row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center; margin-bottom: 10px; }
+      .dd-btn { font-family: inherit; font-size: 14px; font-weight: 600; padding: 9px 16px; border-radius: 8px; border: 1px solid #e5e7eb; background: #f9fafb; color: #1f2937; cursor: pointer; transition: background 0.15s, border-color 0.15s, transform 0.05s; }
       .dd-btn:hover { background: #f3f4f6; border-color: #d1d5db; }
       .dd-btn:active { transform: translateY(1px); }
       .dd-btn--preset { border-color: var(--dd-accent); color: var(--dd-accent-dark); }
       .dd-btn--preset:hover { background: rgba(20, 184, 166, 0.08); }
-      .dd-btn--primary {
-        background: var(--dd-accent);
-        color: #ffffff;
-        border-color: var(--dd-accent);
-        font-size: 22px;
-        padding: 16px 36px;
-        font-weight: 700;
-        min-width: 160px;
-      }
+      .dd-btn--primary { background: var(--dd-accent); color: #ffffff; border-color: var(--dd-accent); font-size: 17px; padding: 12px 28px; font-weight: 700; min-width: 130px; }
       .dd-btn--primary:hover { background: var(--dd-accent-dark); border-color: var(--dd-accent-dark); }
-      .dd-input {
-        font-family: ui-monospace, Menlo, Consolas, monospace;
-        font-size: 16px;
-        padding: 12px 14px;
-        width: 90px;
-        border: 1px solid #d1d5db;
-        border-radius: 10px;
-        text-align: center;
-      }
-      .dd-chime {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 16px;
-        color: #4b5563;
-        cursor: pointer;
-        user-select: none;
-      }
-      .dd-chime input { width: 18px; height: 18px; cursor: pointer; }
-      .dd-console__flow {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        margin: 22px 0 20px;
-        font-size: 17px;
-        color: #1f2937;
-      }
-      .dd-flow-step {
-        background: #f9fafb;
-        border: 1px solid #e5e7eb;
-        border-radius: 999px;
-        padding: 8px 16px;
-        font-weight: 600;
-      }
-      .dd-flow-arrow { color: var(--dd-accent); font-weight: 700; font-size: 20px; }
-      .dd-console__form-btn {
-        display: inline-block;
-        background: var(--dd-accent);
-        color: #ffffff;
-        text-decoration: none;
-        font-size: 26px;
-        font-weight: 700;
-        padding: 18px 40px;
-        border-radius: 12px;
-        margin-top: 8px;
-        box-shadow: 0 4px 12px rgba(20, 184, 166, 0.25);
-        transition: background 0.15s;
-      }
+      .dd-input { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 14px; padding: 9px 12px; width: 78px; border: 1px solid #d1d5db; border-radius: 8px; text-align: center; }
+      .dd-chime { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #4b5563; cursor: pointer; user-select: none; }
+      .dd-chime input { width: 16px; height: 16px; cursor: pointer; }
+      .dd-console__flow { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; margin: 16px 0 14px; font-size: 14px; color: #1f2937; }
+      .dd-flow-step { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 999px; padding: 6px 12px; font-weight: 600; }
+      .dd-flow-arrow { color: var(--dd-accent); font-weight: 700; font-size: 16px; }
+      .dd-console__form-btn { display: inline-block; background: var(--dd-accent); color: #ffffff; text-decoration: none; font-size: 18px; font-weight: 700; padding: 12px 28px; border-radius: 10px; margin-top: 4px; box-shadow: 0 2px 8px rgba(20, 184, 166, 0.25); transition: background 0.15s; }
       .dd-console__form-btn:hover { background: var(--dd-accent-dark); }
-      .dd-console__url {
-        font-family: ui-monospace, Menlo, Consolas, monospace;
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--dd-accent-dark);
-        margin: 14px 0 0;
-        letter-spacing: 0.02em;
-      }
+      .dd-console__url { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 1.2rem; font-weight: 700; color: var(--dd-accent-dark); margin: 10px 0 0; letter-spacing: 0.02em; }
     </style>
-    <section class="dd-console" aria-label="Defense Day Console">
-      <p class="dd-console__label">Defense Day</p>
-      <div class="dd-console__timer" id="defenseDayTimer" data-state="idle">04:00</div>
-      <div class="dd-console__row">
-        <button type="button" class="dd-btn dd-btn--preset" data-preset="240">4:00 Present</button>
-        <button type="button" class="dd-btn dd-btn--preset" data-preset="120">2:00 Q&amp;A</button>
-        <input type="text" class="dd-input" id="defenseDayCustom" placeholder="mm:ss" pattern="\d{1,2}:\d{2}" aria-label="Custom timer value (mm:ss)">
-        <button type="button" class="dd-btn" id="defenseDaySet">Set</button>
-        <button type="button" class="dd-btn" id="defenseDayReset">Reset</button>
-      </div>
-      <div class="dd-console__row">
-        <button type="button" class="dd-btn dd-btn--primary" id="defenseDayStart">Start</button>
-        <label class="dd-chime"><input type="checkbox" id="defenseDayChime"> Chime at end</label>
-      </div>
-      <div class="dd-console__flow" aria-label="Defense flow">
-        <span class="dd-flow-step">Present (4 min)</span>
-        <span class="dd-flow-arrow">&rarr;</span>
-        <span class="dd-flow-step">Q&amp;A (2 min)</span>
-        <span class="dd-flow-arrow">&rarr;</span>
-        <span class="dd-flow-step">Submit form</span>
-        <span class="dd-flow-arrow">&rarr;</span>
-        <span class="dd-flow-step">Next presenter</span>
-      </div>
-      <a href="https://bit.ly/395-rr" target="_blank" rel="noopener" class="dd-console__form-btn">Open peer reactions form</a>
-      <p class="dd-console__url">https://bit.ly/395-rr</p>
-    </section>
     <script>
-      (function() {
-        var timerEl = document.getElementById('defenseDayTimer');
+      // Console HTML template + init function. Re-init on every W15/W16
+      // render — timer state does NOT persist across week navigation
+      // (renderSprint4Week clobbers innerHTML each render).
+      window.DEFENSE_CONSOLE_HTML =
+        '<section class="dd-console" aria-label="Defense Day Console">' +
+          '<p class="dd-console__label">Defense Day</p>' +
+          '<div class="dd-console__timer" id="defenseDayTimer" data-state="idle">04:00</div>' +
+          '<div class="dd-console__row">' +
+            '<button type="button" class="dd-btn dd-btn--preset" data-preset="240">4:00 Present</button>' +
+            '<button type="button" class="dd-btn dd-btn--preset" data-preset="120">2:00 Q&amp;A</button>' +
+            '<input type="text" class="dd-input" id="defenseDayCustom" placeholder="mm:ss" pattern="\\d{1,2}:\\d{2}" aria-label="Custom timer value (mm:ss)">' +
+            '<button type="button" class="dd-btn" id="defenseDaySet">Set</button>' +
+            '<button type="button" class="dd-btn" id="defenseDayReset">Reset</button>' +
+          '</div>' +
+          '<div class="dd-console__row">' +
+            '<button type="button" class="dd-btn dd-btn--primary" id="defenseDayStart">Start</button>' +
+            '<label class="dd-chime"><input type="checkbox" id="defenseDayChime"> Chime at end</label>' +
+          '</div>' +
+          '<div class="dd-console__flow" aria-label="Defense flow">' +
+            '<span class="dd-flow-step">Present (4 min)</span>' +
+            '<span class="dd-flow-arrow">&rarr;</span>' +
+            '<span class="dd-flow-step">Q&amp;A (2 min)</span>' +
+            '<span class="dd-flow-arrow">&rarr;</span>' +
+            '<span class="dd-flow-step">Submit form</span>' +
+            '<span class="dd-flow-arrow">&rarr;</span>' +
+            '<span class="dd-flow-step">Next presenter</span>' +
+          '</div>' +
+          '<a href="https://bit.ly/395-rr" target="_blank" rel="noopener" class="dd-console__form-btn">Open peer reactions form</a>' +
+          '<p class="dd-console__url">https://bit.ly/395-rr</p>' +
+        '</section>';
+
+      window.initDefenseConsole = function(root) {
+        var timerEl = root.querySelector('#defenseDayTimer');
         if (!timerEl) return;
-        var customInput = document.getElementById('defenseDayCustom');
-        var setBtn = document.getElementById('defenseDaySet');
-        var resetBtn = document.getElementById('defenseDayReset');
-        var startBtn = document.getElementById('defenseDayStart');
-        var chimeBox = document.getElementById('defenseDayChime');
-        var presetBtns = document.querySelectorAll('.dd-console .dd-btn--preset');
+        var customInput = root.querySelector('#defenseDayCustom');
+        var setBtn = root.querySelector('#defenseDaySet');
+        var resetBtn = root.querySelector('#defenseDayReset');
+        var startBtn = root.querySelector('#defenseDayStart');
+        var chimeBox = root.querySelector('#defenseDayChime');
+        var presetBtns = root.querySelectorAll('.dd-console .dd-btn--preset');
 
         var initialParts = timerEl.textContent.trim().split(':');
         var remaining = parseInt(initialParts[0], 10) * 60 + parseInt(initialParts[1], 10);
@@ -477,7 +378,7 @@
           });
         }
         render();
-      })();
+      };
     </script>
 
     <!-- ============================================
@@ -810,6 +711,7 @@
               '<p style="margin:0;">Volunteers defend first. Those not defending this week practice with peers and give feedback. 3-min presentation + 1 min for audience questions + 2 min Q&amp;A.</p>' +
             '</div>' +
           '</div>' +
+          (window.DEFENSE_CONSOLE_HTML || '') +
 
           '<div style="margin-top:16px;">' +
             '<div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#374151;margin-bottom:8px;">What you need to do</div>' +
@@ -880,6 +782,7 @@
             '</div>' +
 
           '</div>';
+        if (window.initDefenseConsole) window.initDefenseConsole(container);
       } else if (weekNum === 16) {
         container.innerHTML =
           '<p style="color:#4b5563;font-size:14px;line-height:1.6;margin:0 0 16px 0;">' +
@@ -893,6 +796,7 @@
               '<p style="margin:0;">Same format: 3-min presentation + 2-min Q&amp;A. W16 attendance is required whether or not you\'re presenting.</p>' +
             '</div>' +
           '</div>' +
+          (window.DEFENSE_CONSOLE_HTML || '') +
 
           '<div style="margin-top:16px;">' +
             '<div style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#374151;margin-bottom:8px;">What you need to do</div>' +
@@ -911,6 +815,7 @@
             '</div>' +
 
           '</div>';
+        if (window.initDefenseConsole) window.initDefenseConsole(container);
       } else {
         container.innerHTML =
           '<div style="padding:32px 16px;background:#f9fafb;border:1px dashed #d1d5db;border-radius:10px;text-align:center;">' +
