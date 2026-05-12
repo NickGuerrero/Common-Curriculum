@@ -287,7 +287,7 @@
           '<p class="dd-console__url">https://bit.ly/349-rr</p>' +
         '</section>';
 
-      window.initDefenseConsole = function(root) {
+      window.initDefenseConsole = function(root, weekNum) {
         var timerEl = root.querySelector('#defenseDayTimer');
         if (!timerEl) return;
         var customInput = root.querySelector('#defenseDayCustom');
@@ -309,22 +309,47 @@
           return (m < 10 ? '0' : '') + m + ':' + (sec < 10 ? '0' : '') + sec;
         }
         function render() {
-          timerEl.textContent = fmt(Math.max(0, remaining));
+          timerEl.textContent = remaining < 0 ? '-' + fmt(-remaining) : fmt(remaining);
           if (remaining <= 0) timerEl.dataset.state = 'done';
           else if (remaining <= 30) timerEl.dataset.state = 'warn';
           else timerEl.dataset.state = running ? 'running' : 'idle';
         }
+        // W16 escalating chime schedule. 30 -> 1 beep, 10 -> 2, 0 -> 3.
+        // Timer keeps counting into negative: -10 -> 1, -20 -> 2, -25 -> 3,
+        // then every -5s adds one more beep (-30 -> 4, -35 -> 5, -40 -> 6, ...).
+        function w16BeepCount(rem) {
+          if (rem === 30) return 1;
+          if (rem === 10) return 2;
+          if (rem === 0) return 3;
+          if (rem === -10) return 1;
+          if (rem === -20) return 2;
+          if (rem === -25) return 3;
+          if (rem < -25 && rem % 5 === 0) return 3 + Math.floor((-rem - 25) / 5);
+          return 0;
+        }
         function tick() {
+          if (!timerEl.isConnected) {
+            // DOM was replaced by a re-render — self-terminate the orphaned interval.
+            clearInterval(intervalId); intervalId = null; running = false;
+            return;
+          }
           remaining--;
+          if (chimeBox.checked) {
+            var beeps = (weekNum === 16)
+              ? w16BeepCount(remaining)
+              : (remaining === 0 ? 1 : 0);
+            if (beeps > 0) playChime(beeps);
+          }
           render();
-          if (remaining <= 0) {
+          // W15 (default): stop at zero. W16: keep counting into overtime.
+          if (weekNum !== 16 && remaining <= 0) {
             clearInterval(intervalId); intervalId = null; running = false;
             startBtn.textContent = 'Start';
-            if (chimeBox.checked) playChime();
           }
         }
         function start() {
-          if (running || remaining <= 0) return;
+          if (running) return;
+          if (weekNum !== 16 && remaining <= 0) return;
           running = true;
           intervalId = setInterval(tick, 1000);
           startBtn.textContent = 'Pause';
@@ -342,22 +367,31 @@
           startingValue = toSeconds;
           render();
         }
-        function playChime() {
+        function playChime(count) {
+          count = count || 1;
           try {
             var Ctx = window.AudioContext || window.webkitAudioContext;
             if (!Ctx) return;
             var ctx = new Ctx();
-            var osc = ctx.createOscillator();
-            var gain = ctx.createGain();
-            osc.type = 'sine';
-            osc.frequency.value = 440;
-            osc.connect(gain); gain.connect(ctx.destination);
+            var beepDur = 0.18;
+            var beepGap = 0.12;
             var now = ctx.currentTime;
-            gain.gain.setValueAtTime(0.0001, now);
-            gain.gain.exponentialRampToValueAtTime(0.4, now + 0.02);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.4);
-            osc.start(now); osc.stop(now + 0.42);
-            setTimeout(function() { try { ctx.close(); } catch (e) {} }, 600);
+            for (var i = 0; i < count; i++) {
+              var t0 = now + i * (beepDur + beepGap);
+              var t1 = t0 + beepDur;
+              var osc = ctx.createOscillator();
+              var gain = ctx.createGain();
+              osc.type = 'sine';
+              osc.frequency.value = 440;
+              osc.connect(gain); gain.connect(ctx.destination);
+              gain.gain.setValueAtTime(0.0001, t0);
+              gain.gain.exponentialRampToValueAtTime(0.4, t0 + 0.02);
+              gain.gain.setValueAtTime(0.4, t1 - 0.04);
+              gain.gain.exponentialRampToValueAtTime(0.0001, t1);
+              osc.start(t0); osc.stop(t1 + 0.02);
+            }
+            var totalMs = count * (beepDur + beepGap) * 1000 + 200;
+            setTimeout(function() { try { ctx.close(); } catch (e) {} }, totalMs);
           } catch (e) { /* audio not available */ }
         }
 
@@ -786,7 +820,7 @@
             '</div>' +
 
           '</div>';
-        if (window.initDefenseConsole) window.initDefenseConsole(container);
+        if (window.initDefenseConsole) window.initDefenseConsole(container, 15);
       } else if (weekNum === 16) {
         container.innerHTML =
           '<p style="color:#4b5563;font-size:14px;line-height:1.6;margin:0 0 16px 0;">' +
@@ -819,7 +853,7 @@
             '</div>' +
 
           '</div>';
-        if (window.initDefenseConsole) window.initDefenseConsole(container);
+        if (window.initDefenseConsole) window.initDefenseConsole(container, 16);
       } else {
         container.innerHTML =
           '<div style="padding:32px 16px;background:#f9fafb;border:1px dashed #d1d5db;border-radius:10px;text-align:center;">' +
