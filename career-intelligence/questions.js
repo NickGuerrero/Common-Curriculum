@@ -4,9 +4,9 @@
 
 export const STAGE_1_FRAME = "Let's start with where you are — no judgment, just an honest picture.";
 
-export const STAGE_1_QUESTION = "What's your current situation with what comes after graduation? Are you actively job searching, weighing options, or focused on something else? Whatever is true — there's no wrong answer here.";
+export const STAGE_1_QUESTION = "What's your current situation? Are you actively job searching, weighing options, or focused on something else? Whatever is true — there's no wrong answer here.";
 
-export const STAGE_2_QUESTION = "Here's something most applicants don't think about: this year, entry-level job postings dropped 15% while applications per posting jumped 30%. Most of those applications are polished and professional — many written with AI help. With that in mind, what do you think it's actually like to be the person on the other end trying to decide who to call?";
+export const STAGE_2_QUESTION = "Here's something most applicants don't think about: this year, entry-level job postings dropped 15% while applications per posting jumped 30%. Most of those applications are polished and professional — many written with AI help. With that in mind, what do you think it's actually like to be the recruiter on the other end trying to decide who to call?";
 
 export const STAGE_3_BANK = {
   q3_a: {

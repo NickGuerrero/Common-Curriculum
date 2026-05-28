@@ -123,8 +123,7 @@ function clearSavedState() {
 
 function getSystemPrompt() {
   return SYSTEM_PROMPT
-    .replace(/{DATES_PLACEHOLDER}/g, CONFIG.dates_placeholder)
-    .replace(/{LINK_PLACEHOLDER}/g, CONFIG.link_placeholder);
+    .replace(/{DATES_PLACEHOLDER}/g, CONFIG.dates_placeholder);
 }
 
 function getStageQuestion() {
@@ -1179,7 +1178,7 @@ function renderSynthesisAdjustment(adjustmentText) {
 }
 
 // ============================================
-// Post-Reaction: Pitch + Program + Copy + Sign Up
+// Post-Reaction: Pitch + Program + Copy + Download
 // ============================================
 
 function trackEvent(eventName) {
@@ -1232,7 +1231,7 @@ function renderPostReactionActions() {
     programDesc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
 
-  // 4. Action buttons: Copy Brief + Sign Up
+  // 4. Action buttons: Copy Brief + Download JSON
   const actions = el('div', 'ci-actions ci-final-actions');
 
   const copyBtn = el('button', 'ci-copy-btn', 'Copy Brief to Clipboard');
@@ -1266,20 +1265,20 @@ function renderPostReactionActions() {
   });
   actions.appendChild(copyBtn);
 
-  if (PROGRAM_CONFIG.google_form_url) {
-    const signUpBtn = el('button', 'ci-signup-btn', 'Sign Up for Career Intelligence — Part I');
-    signUpBtn.addEventListener('click', () => {
-      trackEvent('signup_button_clicked');
-      window.open(PROGRAM_CONFIG.google_form_url, '_blank');
-    });
-    actions.appendChild(signUpBtn);
-  } else {
-    const comingSoon = el('button', 'ci-signup-btn ci-signup-btn--disabled', 'Sign Up — Coming Soon');
-    comingSoon.disabled = true;
-    actions.appendChild(comingSoon);
-  }
+  const downloadBtn = el('button', 'ci-signup-btn', 'Download Responses (JSON)');
+  downloadBtn.addEventListener('click', () => {
+    trackEvent('download_json_clicked');
+    downloadJSON(state);
+  });
+  actions.appendChild(downloadBtn);
 
   section.appendChild(actions);
+
+  const submitNote = el('p', 'ci-bridge-text',
+    'Download the JSON file above and submit it with your sign-up form to be considered for the Career Intelligence Program.'
+  );
+  section.appendChild(submitNote);
+
   actions.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 

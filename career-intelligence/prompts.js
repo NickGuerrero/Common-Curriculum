@@ -4,8 +4,7 @@
  * Handles: stage deepening with data layers, transitions,
  * two-part synthesis (brief + pitch), and synthesis adjustment.
  *
- * Tokens {DATES_PLACEHOLDER} and {LINK_PLACEHOLDER} are replaced
- * from config before sending.
+ * Token {DATES_PLACEHOLDER} is replaced from config before sending.
  */
 
 export const SYSTEM_PROMPT = `You are having a brief, thoughtful conversation with a graduating college senior about what comes after graduation. You are warm and direct. You are genuinely trying to help them see their situation clearly.

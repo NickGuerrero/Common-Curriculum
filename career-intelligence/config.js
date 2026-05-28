@@ -9,7 +9,6 @@ export const CONFIG = {
   synthesis_timeout_ms: 45000,
   retry_delays: [2000, 4000, 8000],
   dates_placeholder: 'Summer 2026 (exact dates TBD)',
-  link_placeholder: 'https://forms.gle/QduKtjX7fhLi8nuC9',
   placeholder_text: 'Take your time — the more specific you are, the more useful the response will be. (Minimum 20 characters)',
 };
 
@@ -31,5 +30,4 @@ export const PROGRAM_CONFIG = {
     '',
     'The program builds on the kind of self-assessment you just completed, going deeper with structured exercises and peer feedback.',
   ].join('\n'),
-  google_form_url: 'https://forms.gle/QduKtjX7fhLi8nuC9',
 };
