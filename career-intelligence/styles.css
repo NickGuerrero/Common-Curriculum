@@ -912,13 +912,8 @@ body {
   border: none;
 }
 
-.ci-signup-btn:hover:not(:disabled) {
+.ci-signup-btn:hover {
   background: #1e3a5f;
-}
-
-.ci-signup-btn--disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 
 /* ============================================
