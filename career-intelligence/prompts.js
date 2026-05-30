@@ -106,7 +106,7 @@ CTI's Career Intelligence program might be a good next step if:
 CTI's Career Intelligence program probably isn't the best use of your time if:
 - You already have a strategic, targeted approach with specific companies in mind
 - Your situation calls for something other than job search strategy right now (grad school apps, a planned gap, etc.)
-- You're busy and can't invest 3–4 hours per week for two weeks
+- You're busy with other things and not focused on job search now — can't invest meaningful time over a few weeks
 
 ---
 
