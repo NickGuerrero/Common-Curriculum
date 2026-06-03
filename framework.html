@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AI-Native Solution Engineering Framework</title>
+  <link rel="stylesheet" href="css/shared-styles.css">
+  <style>
+    /* Brand colors — alternating layers */
+    :root {
+      --fw-blue: #2a6fad;
+      --fw-blue-dark: #1f5687;
+      --fw-blue-bg: #eff5fb;
+      --fw-green: #2d875e;
+      --fw-green-dark: #1f6644;
+      --fw-green-bg: #ecf6f0;
+    }
+
+    /* Page intro */
+    .page-intro {
+      background: white;
+      border: 1px solid var(--gray-200, #e5e7eb);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+    .page-intro p { margin: 0; color: #374151; line-height: 1.7; }
+
+    /* Layer headings */
+    .layer-heading {
+      margin: 32px 0 12px 0;
+      font-size: 12px;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Layer card — clickable <details> with colored left accent */
+    .layer-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-left: 4px solid #9ca3af;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.15s ease;
+    }
+    .layer-card[open] {
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .layer-card > summary {
+      padding: 16px 20px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.15s ease;
+    }
+    .layer-card > summary:hover { background: #f9fafb; }
+    .layer-card > summary::-webkit-details-marker { display: none; }
+    .layer-card > summary::after {
+      content: '\25BE';
+      margin-left: auto;
+      font-size: 14px;
+      color: #6b7280;
+      transition: transform 0.2s ease;
+    }
+    .layer-card[open] > summary::after { transform: rotate(180deg); }
+    .layer-card__title {
+      font-weight: 700;
+      font-size: 17px;
+      color: #111827;
+      margin: 0;
+    }
+    .layer-card__tagline {
+      font-size: 13px;
+      color: #6b7280;
+      font-style: italic;
+      margin: 2px 0 0 0;
+    }
+    .layer-card__body {
+      padding: 4px 20px 20px 20px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    /* Layer color modifiers */
+    .layer-card--blue { border-left-color: var(--fw-blue); }
+    .layer-card--blue .layer-card__title { color: var(--fw-blue-dark); }
+    .layer-card--blue > summary:hover { background: var(--fw-blue-bg); }
+    .layer-card--green { border-left-color: var(--fw-green); }
+    .layer-card--green .layer-card__title { color: var(--fw-green-dark); }
+    .layer-card--green > summary:hover { background: var(--fw-green-bg); }
+
+    /* Outcomes & capabilities rows: two- and three-column grids */
+    .layer-row {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .layer-row--two { grid-template-columns: 1fr 1fr; }
+    .layer-row--three { grid-template-columns: 1fr 1fr 1fr; }
+    .layer-row .layer-card { margin-bottom: 0; }
+    @media (max-width: 720px) {
+      .layer-row--two,
+      .layer-row--three { grid-template-columns: 1fr; }
+    }
+
+    /* Outcome card head: small uppercase label */
+    .outcome-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--fw-blue-dark);
+      margin: 0 0 4px 0;
+    }
+    .layer-card--blue .outcome-question {
+      margin: 0;
+      font-size: 15px;
+      font-style: italic;
+      color: #1f3a5f;
+      line-height: 1.55;
+    }
+    .layer-card--blue .layer-card__body p {
+      margin: 0 0 10px 0;
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .layer-card--blue .layer-card__body p:last-child { margin-bottom: 0; }
+
+    /* Capability card head: badge */
+    .cap-badge {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: var(--fw-green);
+      color: white;
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Capability/symbiotic body sections */
+    .section-title {
+      margin: 16px 0 6px 0;
+      font-size: 13px;
+      font-weight: 700;
+      color: #334155;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .layer-card__body p {
+      margin: 0 0 12px 0;
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .layer-card__body > p:last-child { margin-bottom: 0; }
+
+    /* Nested clickable sub-card (pedagogy) */
+    .nested-card {
+      margin-top: 16px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 3px solid #64748b;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .nested-card > summary {
+      padding: 12px 16px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #334155;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: background 0.15s ease;
+    }
+    .nested-card > summary:hover { background: #f1f5f9; }
+    .nested-card > summary::-webkit-details-marker { display: none; }
+    .nested-card > summary::before {
+      content: '\25B8';
+      font-size: 11px;
+      color: #6b7280;
+      transition: transform 0.2s ease;
+    }
+    .nested-card[open] > summary::before { transform: rotate(90deg); }
+    .nested-card__body {
+      padding: 4px 16px 16px 16px;
+    }
+    .nested-card__body p {
+      margin: 0;
+      color: #334155;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* "How They Work Together" body styling */
+    .how-it-works ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #374151;
+      line-height: 1.7;
+    }
+    .how-it-works ul li { margin-bottom: 6px; }
+
+    /* Foundations: collapsible <details> blocks (reused from capabilities.html) */
+    .foundations-heading {
+      margin: 32px 0 12px 0;
+      font-size: 12px;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .foundations details {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .foundations details[open] {
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .foundations summary {
+      padding: 14px 18px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+      transition: background 0.15s ease;
+    }
+    .foundations summary:hover { background: #f9fafb; }
+    .foundations summary::-webkit-details-marker { display: none; }
+    .foundations summary::before {
+      content: '\25B6';
+      flex-shrink: 0;
+      font-size: 11px;
+      color: #6b7280;
+      transition: transform 0.2s ease;
+    }
+    .foundations details[open] summary::before {
+      transform: rotate(90deg);
+    }
+    .foundations summary .title {
+      font-weight: 700;
+      font-size: 16px;
+      color: #111827;
+    }
+    .foundations summary .terms {
+      font-size: 13px;
+      color: #6b7280;
+      font-weight: 500;
+    }
+    .foundations .details-body {
+      padding: 4px 18px 20px 18px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    /* Techniques cards */
+    .technique-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 600px) {
+      .technique-grid { grid-template-columns: 1fr; }
+    }
+    .technique-item {
+      padding: 16px;
+      border-radius: 8px;
+    }
+    .technique-item.reading {
+      background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+      border-left: 4px solid #14b8a6;
+    }
+    .technique-item.writing {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border-left: 4px solid #22c55e;
+    }
+    .technique-item.talking {
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border-left: 4px solid #3b82f6;
+    }
+    .technique-item.listening {
+      background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+      border-left: 4px solid #8b5cf6;
+    }
+    .technique-item h3 { margin: 0 0 8px 0; font-size: 16px; }
+    .technique-item.reading h3 { color: #0f766e; }
+    .technique-item.writing h3 { color: #166534; }
+    .technique-item.talking h3 { color: #1e40af; }
+    .technique-item.listening h3 { color: #6b21a8; }
+    .technique-item p { margin: 0 0 8px 0; font-size: 14px; color: #374151; }
+    .technique-item .where { margin: 0; font-size: 13px; color: #6b7280; font-style: italic; }
+    .foundations-intro {
+      margin: 0 0 4px 0;
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* Habits cards */
+    .habit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 600px) {
+      .habit-grid { grid-template-columns: 1fr; }
+    }
+    .habit-item {
+      padding: 16px;
+      background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .habit-item .icon { font-size: 28px; margin-bottom: 8px; }
+    .habit-item h3 { margin: 0 0 8px 0; font-size: 16px; color: #c2410c; }
+    .habit-item p { margin: 0 0 8px 0; font-size: 14px; color: #374151; }
+    .habit-item .where { margin: 0; font-size: 12px; color: #9a3412; font-style: italic; }
+
+    /* "Built from" capability mappings */
+    .built-from-list { margin-top: 16px; }
+    .built-from-item {
+      padding: 14px 16px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .built-from-item:last-child { margin-bottom: 0; }
+    .built-from-item.sdl {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+    }
+    .built-from-item.is {
+      background: #f0fdf4;
+      border-left: 4px solid #22c55e;
+    }
+    .built-from-item.ab {
+      background: #fff7ed;
+      border-left: 4px solid #f97316;
+    }
+    .built-from-badge {
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+    .built-from-badge.sdl { background: #3b82f6; }
+    .built-from-badge.is { background: #22c55e; }
+    .built-from-badge.ab { background: #f97316; }
+    .built-from-content h4 { margin: 0 0 4px 0; font-size: 15px; color: #111827; }
+    .built-from-content p { margin: 0 0 6px 0; font-size: 14px; color: #374151; }
+    .built-from-content .built-from { margin: 0; font-size: 13px; color: #6b7280; }
+    .built-from-content .built-from strong { color: #374151; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Page Header -->
+    <div class="sprint-header">
+      <h1 class="sprint-header__title">The AI-Native Solution Engineering Framework</h1>
+      <p class="sprint-header__subtitle">for human work in an AI-augmented world</p>
+    </div>
+
+    <!-- Intro -->
+    <div class="page-intro">
+      <p>
+        This framework names what it takes to create human value in an AI-augmented world. <strong>Two outcomes</strong> you aim for, <strong>three durable capabilities</strong> you build to produce them, <strong>one foundational practice</strong> that develops the capabilities, and the <strong>techniques and habits</strong> the practice rests on. Each card below opens for the details.
+      </p>
+    </div>
+
+    <!-- ============================================
+         Layer 1: Outcomes (blue)
+         ============================================ -->
+    <p class="layer-heading">Outcomes</p>
+    <div class="layer-row layer-row--two">
+
+      <details class="layer-card layer-card--blue">
+        <summary>
+          <div>
+            <p class="outcome-label">Superagency</p>
+            <p class="outcome-question">&ldquo;What problems are now within my reach that I would not have attempted before?&rdquo;</p>
+          </div>
+        </summary>
+        <div class="layer-card__body">
+          <p>
+            Superagency is the expansion of what you can attempt. With AI as a thinking partner, problems that would have been out of reach become tractable &mdash; and you pursue them with confidence in your own judgment, not deference to the tool.
+          </p>
+        </div>
+      </details>
+
+      <details class="layer-card layer-card--blue">
+        <summary>
+          <div>
+            <p class="outcome-label">Human Value Proposition</p>
+            <p class="outcome-question">&ldquo;What would be worse about my solutions if I had simply handed the problems to AI?&rdquo;</p>
+          </div>
+        </summary>
+        <div class="layer-card__body">
+          <p>
+            Your Human Value Proposition is what you specifically bring to a solution that AI alone could not &mdash; the judgment, context, intersection, and restraint that make the outcome better than a polished AI default.
+          </p>
+        </div>
+      </details>
+
+    </div>
+
+    <!-- ============================================
+         Layer 2: Capabilities (green)
+         ============================================ -->
+    <p class="layer-heading">Capabilities</p>
+    <div class="layer-row layer-row--three">
+
+      <!-- SDL -->
+      <details class="layer-card layer-card--green">
+        <summary>
+          <div class="cap-badge">SDL</div>
+          <div>
+            <p class="layer-card__title">Self-Directed Learner</p>
+            <p class="layer-card__tagline">A meta-learning architecture for rapid expertise</p>
+          </div>
+        </summary>
+        <div class="layer-card__body">
+          <p class="section-title">What It Means</p>
+          <p>
+            Self-Directed Learners develop a meta-learning architecture &mdash; a systematic approach to acquiring expertise in unfamiliar domains rapidly. This capability requires more than desire to learn; it&rsquo;s knowing what you need to learn versus what you can strategically ignore, and using AI as learning infrastructure to build the required just-in-time depth.
+          </p>
+          <p class="section-title">Example in Action</p>
+          <p>
+            When a builder starts work on patient communication tools, they need to understand medical terminology, HIPAA privacy regulations, clinical workflows, patient psychology under stress, and how different age groups interact with technology &mdash; in days or weeks, not semesters.
+          </p>
+          <details class="nested-card">
+            <summary>How we think about developing this in learners</summary>
+            <div class="nested-card__body">
+              <p>
+                Self-directed learning is treated as a muscle that strengthens through deliberate, low-stakes practice. Learners reflect by hand before consulting AI &mdash; slowing the loop down so the question <em>&ldquo;what do I actually need to learn here?&rdquo;</em> gets asked. The territory expands progressively: from learning about oneself, to learning about a partner&rsquo;s domain, to learning from indirect sources when no expert is at hand. The end state: AI used as learning infrastructure, not as an answer machine, to build just-in-time depth.
+              </p>
+            </div>
+          </details>
+        </div>
+      </details>
+
+      <!-- IS -->
+      <details class="layer-card layer-card--green">
+        <summary>
+          <div class="cap-badge">IS</div>
+          <div>
+            <p class="layer-card__title">Integrative Solver</p>
+            <p class="layer-card__tagline">Operating at intersections where human value concentrates</p>
+          </div>
+        </summary>
+        <div class="layer-card__body">
+          <p class="section-title">What It Means</p>
+          <p>
+            Integrative Solvers apply self-directed learning capacity across domains, developing T-shaped (or even m-shaped) expertise &mdash; deep knowledge in one technical area combined with broad boundary-crossing competencies. In the AI age, the horizontal bar becomes critical: they operate at intersections between systems of knowledge where AI struggles but human value concentrates.
+          </p>
+          <p class="section-title">Example in Action</p>
+          <p>
+            When analyzing customer complaints, an Integrative Solver doesn&rsquo;t just build the requested sentiment analysis dashboard. They spend time with the complaint handlers, discovering that 50 patients generate 60% of complaints &mdash; but nobody realized this because complaints were filed by date, not patient. They bridge from technical capability to human workflow, delivering simple frequency analysis that creates more value than a sophisticated tool.
+          </p>
+          <details class="nested-card">
+            <summary>How we think about developing this in learners</summary>
+            <div class="nested-card__body">
+              <p>
+                Learners operate across boundaries from the start. Structured conversations with people &mdash; not just systems &mdash; build the muscle of asking, listening, and finding the real problem. The distinction between observation and interpretation is treated as a named cognitive move, not an unspoken assumption. Practice expands from working alongside experts, to entering someone else&rsquo;s domain, to working when no expert is at hand. Throughout, the question stays the same: <em>&ldquo;what did you specifically contribute that AI couldn&rsquo;t?&rdquo;</em>
+              </p>
+            </div>
+          </details>
+        </div>
+      </details>
+
+      <!-- AB -->
+      <details class="layer-card layer-card--green">
+        <summary>
+          <div class="cap-badge">AB</div>
+          <div>
+            <p class="layer-card__title">Adaptive Builder</p>
+            <p class="layer-card__tagline">Executing through cycles of build, test, and adapt</p>
+          </div>
+        </summary>
+        <div class="layer-card__body">
+          <p class="section-title">What It Means</p>
+          <p>
+            Adaptive Builders execute under uncertainty &mdash; when full information isn&rsquo;t available, when the right answer can&rsquo;t be reasoned out in advance. They synthesize self-directed learning and integrative solving through cycles of building, testing, learning from failures, and adapting. They exercise restraint in complexity, discovering through iteration that simple solutions executed well often deliver more value than sophisticated ones.
+          </p>
+          <p class="section-title">Example in Action</p>
+          <p>
+            An Adaptive Builder starts with basic frequency analysis rather than ambitious sentiment analysis, testing whether it solves the core problem. Through iteration, they learn to meet user needs without over-engineering. The cycle teaches them to distinguish symptoms from root causes and to iterate toward value rather than complexity.
+          </p>
+          <details class="nested-card">
+            <summary>How we think about developing this in learners</summary>
+            <div class="nested-card__body">
+              <p>
+                Iteration is scaffolded explicitly, then the scaffold is withdrawn. Learners get a shared vocabulary for the build process and move through build &rarr; review &rarr; revise &rarr; rebuild cycles &mdash; under uncertainty, not as polish. Reasoning is documented at the time of decision; demonstrations require working evidence, not plans. The pedagogical bet: learners learn to iterate well when they can&rsquo;t reason their way to the answer in advance.
+              </p>
+            </div>
+          </details>
+        </div>
+      </details>
+
+    </div>
+
+    <!-- How They Work Together (green) -->
+    <details class="layer-card layer-card--green">
+      <summary>
+        <div>
+          <p class="layer-card__title">How They Work Together</p>
+          <p class="layer-card__tagline">SDL, IS, and AB as an integrated loop &mdash; not separate skills</p>
+        </div>
+      </summary>
+      <div class="layer-card__body how-it-works">
+        <p>These capabilities aren&rsquo;t separate &mdash; they&rsquo;re integrated:</p>
+        <ul>
+          <li><strong>SDL &rarr; IS:</strong> Self-directed learning capacity applied across domains enables integrative solving</li>
+          <li><strong>IS &rarr; AB:</strong> Bridging technical capability to human workflow informs what to build and how to iterate</li>
+          <li><strong>AB &rarr; SDL:</strong> Building cycles reveal new learning gaps, driving the next round of self-directed inquiry</li>
+          <li><strong>All three:</strong> Creating real value requires learning rapidly, connecting across boundaries, and iterating toward simplicity</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- ============================================
+         Layer 3: Symbiotic Thinking (blue)
+         ============================================ -->
+    <p class="layer-heading">Foundational Practice</p>
+
+    <details class="layer-card layer-card--blue" open>
+      <summary>
+        <div>
+          <p class="layer-card__title">&#x1F9E0; Symbiotic Thinking</p>
+          <p class="layer-card__tagline">Working with AI and people as cognitive partners &mdash; not tools to delegate to, not oracles to defer to</p>
+        </div>
+      </summary>
+      <div class="layer-card__body">
+        <p>
+          Symbiotic Thinking is the foundational practice this framework is built on: a human-led pursuit of better ideas than any party &mdash; you, an AI, or a peer &mdash; could reach alone. You stay in the driver&rsquo;s seat. AI and people are thinking partners you push back on, contribute to, and converge with.
+        </p>
+        <p>
+          The <strong>techniques</strong> below (reading, writing, talking, listening) are how Symbiotic Thinking is expressed. The <strong>habits</strong> (slow down, know yourself, take the lead) are the dispositions it demands. Practicing it is what develops the three capabilities above &mdash; and the capabilities are what produce Superagency and the Human Value Proposition.
+        </p>
+        <details class="nested-card">
+          <summary>How we think about developing this in learners</summary>
+          <div class="nested-card__body">
+            <p>
+              Symbiotic Thinking is treated as something practiced, not lectured. Learners are put into AI and peer conversations with a stake &mdash; a problem they own, a decision they have to defend. Handwritten reflection precedes prompting; structured peer conversations precede solo conclusions. Over time, learners learn to push back, contribute, and converge with cognitive partners rather than accept first answers &mdash; and to name when they did it well and when they didn&rsquo;t.
+            </p>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- ============================================
+         Foundations: Techniques, Habits, How they combine
+         ============================================ -->
+    <p class="foundations-heading">Foundations</p>
+    <div class="foundations">
+
+      <details>
+        <summary>
+          <span class="title">Techniques: how thinking is expressed</span>
+          <span class="terms">Reading &middot; Writing &middot; Talking &middot; Listening</span>
+        </summary>
+        <div class="details-body">
+          <p class="foundations-intro">Thinking isn&rsquo;t invisible &mdash; it shows up in how we read, write, talk, and listen. The framework exercises all four.</p>
+          <div class="technique-grid">
+            <div class="technique-item reading">
+              <h3>&#x1F4D6; Reading</h3>
+              <p>Extracting meaning from structured information. Recognizing patterns, following arguments, identifying what matters.</p>
+              <p class="where">Exercised through: Course content, documentation, AI outputs</p>
+            </div>
+            <div class="technique-item writing">
+              <h3>&#x270D;&#xFE0F; Writing</h3>
+              <p>Articulating your thinking clearly. Structuring arguments, explaining decisions, documenting reasoning.</p>
+              <p class="where">Exercised through: Reflection notebooks, goal setting, demonstrations</p>
+            </div>
+            <div class="technique-item talking">
+              <h3>&#x1F5E3;&#xFE0F; Talking</h3>
+              <p>Explaining ideas out loud. Defending positions, articulating value, making the implicit explicit.</p>
+              <p class="where">Exercised through: Peer conversations, check-ins, presentations</p>
+            </div>
+            <div class="technique-item listening">
+              <h3>&#x1F442; Listening</h3>
+              <p>Understanding others&rsquo; perspectives. Asking clarifying questions, receiving feedback, finding the real problem.</p>
+              <p class="where">Exercised through: Peer conversations, stakeholder interviews, thought partnering</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <span class="title">Habits: what the AI age demands</span>
+          <span class="terms">Slow Down &middot; Know Yourself &middot; Take the Lead</span>
+        </summary>
+        <div class="details-body">
+          <p class="foundations-intro">AI makes speed easy. These habits make speed valuable.</p>
+          <div class="habit-grid">
+            <div class="habit-item">
+              <div class="icon">&#x23F8;&#xFE0F;</div>
+              <h3>Slow Down</h3>
+              <p>Resist the urge to immediately generate. Pause before prompting. Think before asking AI to think.</p>
+              <p class="where">Built through: Handwritten reflections, wait time, deliberate process</p>
+            </div>
+            <div class="habit-item">
+              <div class="icon">&#x1FA9E;</div>
+              <h3>Know Yourself</h3>
+              <p>Understand your patterns, gaps, and growth edges. Self-awareness enables self-direction.</p>
+              <p class="where">Built through: Reflection practice, peer feedback, evidence collection</p>
+            </div>
+            <div class="habit-item">
+              <div class="icon">&#x1F3AF;</div>
+              <h3>Take the Lead</h3>
+              <p>You direct the work. AI assists. Maintain agency over goals, quality standards, and decisions.</p>
+              <p class="where">Built through: Self-set goals, autonomous projects, defensible portfolios</p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <span class="title">How techniques and habits combine into capabilities</span>
+          <span class="terms">SDL &middot; IS &middot; AB</span>
+        </summary>
+        <div class="details-body">
+          <p class="foundations-intro">Techniques and habits combine into observable capabilities &mdash; the evidence of growth.</p>
+          <div class="built-from-list">
+            <div class="built-from-item sdl">
+              <span class="built-from-badge sdl">SDL</span>
+              <div class="built-from-content">
+                <h4>Self-Directed Learner</h4>
+                <p>Develop meta-learning architecture for rapid expertise acquisition. Know how to learn what you don&rsquo;t yet know.</p>
+                <p class="built-from"><strong>Built from:</strong> Reading + Writing + Know Yourself + Take the Lead</p>
+              </div>
+            </div>
+            <div class="built-from-item is">
+              <span class="built-from-badge is">IS</span>
+              <div class="built-from-content">
+                <h4>Integrative Solver</h4>
+                <p>Operate at intersections where human value concentrates &mdash; connecting domains, stakeholders, and contexts.</p>
+                <p class="built-from"><strong>Built from:</strong> Listening + Talking + Slow Down + Know Yourself</p>
+              </div>
+            </div>
+            <div class="built-from-item ab">
+              <span class="built-from-badge ab">AB</span>
+              <div class="built-from-content">
+                <h4>Adaptive Builder</h4>
+                <p>Iterate toward value through cycles of building, testing, and refining. Ship, learn, improve.</p>
+                <p class="built-from"><strong>Built from:</strong> Writing + Talking + Take the Lead + Slow Down</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
