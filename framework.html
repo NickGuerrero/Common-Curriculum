@@ -219,6 +219,23 @@
       line-height: 1.7;
     }
 
+    /* Nested card inside a colored layer card: become a lighter shade of
+       the parent's color so the inherited white text stays readable. */
+    .layer-card--blue .nested-card,
+    .layer-card--green .nested-card {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.25);
+      border-left-color: rgba(255,255,255,0.6);
+    }
+    .layer-card--blue .nested-card > summary,
+    .layer-card--green .nested-card > summary { color: rgba(255,255,255,0.95); }
+    .layer-card--blue .nested-card > summary:hover,
+    .layer-card--green .nested-card > summary:hover { background: rgba(255,255,255,0.08); }
+    .layer-card--blue .nested-card > summary::before,
+    .layer-card--green .nested-card > summary::before { color: rgba(255,255,255,0.7); }
+    .layer-card--blue .nested-card__body p,
+    .layer-card--green .nested-card__body p { color: #fff; }
+
     /* "How They Work Together" body styling */
     .how-it-works ul {
       margin: 0;
