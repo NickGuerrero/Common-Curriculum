@@ -85,13 +85,35 @@
       border-top: 1px solid #f1f5f9;
     }
 
-    /* Layer color modifiers */
-    .layer-card--blue { border-left-color: var(--fw-blue); }
-    .layer-card--blue .layer-card__title { color: var(--fw-blue-dark); }
-    .layer-card--blue > summary:hover { background: var(--fw-blue-bg); }
-    .layer-card--green { border-left-color: var(--fw-green); }
-    .layer-card--green .layer-card__title { color: var(--fw-green-dark); }
-    .layer-card--green > summary:hover { background: var(--fw-green-bg); }
+    /* Layer color modifiers — solid color background, white text */
+    .layer-card--blue {
+      background: var(--fw-blue);
+      border-color: var(--fw-blue);
+      border-left-color: var(--fw-blue);
+    }
+    .layer-card--blue .layer-card__title { color: #fff; }
+    .layer-card--blue .layer-card__tagline { color: rgba(255,255,255,0.85); }
+    .layer-card--blue > summary:hover { background: var(--fw-blue-dark); }
+    .layer-card--blue > summary::after { color: rgba(255,255,255,0.9); }
+    .layer-card--blue .layer-card__body { border-top-color: rgba(255,255,255,0.2); }
+    .layer-card--blue .layer-card__body p { color: #fff; }
+    .layer-card--blue .section-title { color: rgba(255,255,255,0.85); }
+
+    .layer-card--green {
+      background: var(--fw-green);
+      border-color: var(--fw-green);
+      border-left-color: var(--fw-green);
+    }
+    .layer-card--green .layer-card__title { color: #fff; }
+    .layer-card--green .layer-card__tagline { color: rgba(255,255,255,0.85); }
+    .layer-card--green > summary:hover { background: var(--fw-green-dark); }
+    .layer-card--green > summary::after { color: rgba(255,255,255,0.9); }
+    .layer-card--green .layer-card__body { border-top-color: rgba(255,255,255,0.2); }
+    .layer-card--green .layer-card__body p { color: #fff; }
+    .layer-card--green .section-title { color: rgba(255,255,255,0.85); }
+    .layer-card--green .how-it-works ul,
+    .layer-card--green .how-it-works ul li,
+    .layer-card--green .how-it-works ul strong { color: #fff; }
 
     /* Outcomes & capabilities rows: two- and three-column grids */
     .layer-row {
@@ -100,11 +122,10 @@
       margin-bottom: 12px;
     }
     .layer-row--two { grid-template-columns: 1fr 1fr; }
-    .layer-row--three { grid-template-columns: 1fr 1fr 1fr; }
+    .layer-row--three { grid-template-columns: 1fr; }
     .layer-row .layer-card { margin-bottom: 0; }
     @media (max-width: 720px) {
-      .layer-row--two,
-      .layer-row--three { grid-template-columns: 1fr; }
+      .layer-row--two { grid-template-columns: 1fr; }
     }
 
     /* Outcome card head: small uppercase label */
@@ -113,32 +134,25 @@
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--fw-blue-dark);
+      color: rgba(255,255,255,0.95);
       margin: 0 0 4px 0;
     }
     .layer-card--blue .outcome-question {
       margin: 0;
       font-size: 15px;
       font-style: italic;
-      color: #1f3a5f;
+      color: #fff;
       line-height: 1.55;
     }
-    .layer-card--blue .layer-card__body p {
-      margin: 0 0 10px 0;
-      color: #374151;
-      font-size: 15px;
-      line-height: 1.7;
-    }
-    .layer-card--blue .layer-card__body p:last-child { margin-bottom: 0; }
 
-    /* Capability card head: badge */
+    /* Capability card head: badge (inverted — white on green) */
     .cap-badge {
       flex-shrink: 0;
       width: 44px;
       height: 44px;
       border-radius: 8px;
-      background: var(--fw-green);
-      color: white;
+      background: white;
+      color: var(--fw-green-dark);
       font-weight: 700;
       font-size: 13px;
       display: flex;
