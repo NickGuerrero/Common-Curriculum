@@ -265,6 +265,57 @@
       color: #374151;
       line-height: 1.7;
     }
+
+    /* Symbiotic Thinking — the practice that the techniques + habits
+       express and that develops the three capabilities. Visually anchored
+       at the top of Foundations with a teal accent (matching the
+       Superagency outcome) so the connection to the outcomes reads. */
+    .symbiotic-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-left: 4px solid #14b8a6;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    .symbiotic-card__header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .symbiotic-card__icon {
+      font-size: 28px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .symbiotic-card__label {
+      margin: 0 0 4px 0;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f766e;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .symbiotic-card__title {
+      margin: 0 0 4px 0;
+      font-size: 22px;
+      font-weight: 700;
+      color: #115e59;
+    }
+    .symbiotic-card__tagline {
+      margin: 0;
+      font-size: 14px;
+      color: #475569;
+      font-style: italic;
+    }
+    .symbiotic-card p {
+      margin: 0 0 12px 0;
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .symbiotic-card p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
@@ -408,6 +459,33 @@
 
     <!-- Foundations: collapsible details blocks -->
     <p class="foundations-heading">Foundations</p>
+
+    <!-- Symbiotic Thinking: the practice everything below expresses and
+         everything above is built on. Visible (not collapsed) so its
+         framing role reads at a glance. -->
+    <div class="symbiotic-card">
+      <div class="symbiotic-card__header">
+        <span class="symbiotic-card__icon">&#x1F9E0;</span>
+        <div>
+          <p class="symbiotic-card__label">The Practice</p>
+          <h2 class="symbiotic-card__title">Symbiotic Thinking</h2>
+          <p class="symbiotic-card__tagline">Working with AI and people as cognitive partners &mdash; not tools to delegate to, not oracles to defer to.</p>
+        </div>
+      </div>
+      <p>
+        Symbiotic Thinking is the foundational practice this course is built on: a human-led pursuit of better ideas than any party &mdash; you, an AI, or a peer &mdash; could reach alone. You stay in the driver&rsquo;s seat. AI and people are thinking partners you push back on, contribute to, and converge with.
+      </p>
+      <p>
+        The <strong>techniques</strong> below (reading, writing, talking, listening) are how Symbiotic Thinking is expressed. The <strong>habits</strong> (slow down, know yourself, take the lead) are the dispositions it demands. Practicing it across the sprints is what develops the three capabilities above &mdash; and the capabilities are what produce Superagency and the Human Value Proposition.
+      </p>
+      <div class="pedagogy-section">
+        <h3>How we think about developing this in learners</h3>
+        <p>
+          We treat Symbiotic Thinking as something practiced, not lectured. Every sprint puts students into AI and peer conversations with a stake &mdash; a problem they own, a decision they have to defend. Handwritten reflection precedes prompting; structured peer conversations precede solo conclusions. Across the semester, students learn to push back, contribute, and converge with cognitive partners rather than accept first answers &mdash; and to name in their portfolio when they did it well and when they didn&rsquo;t.
+        </p>
+      </div>
+    </div>
+
     <div class="foundations">
 
       <details>
