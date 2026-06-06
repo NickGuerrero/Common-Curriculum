@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Week 1 Self-Check | Career Intelligence — Week 1</title>
+  <title>Week 1 Self-Check | Career Intelligence &mdash; Week 1</title>
+  <link rel="stylesheet" href="../../css/activity-styles.css">
   <style>
     :root {
       --bg: #fafafa;
@@ -23,7 +24,9 @@
       color: var(--text);
       background: var(--bg);
     }
-    .activity { max-width: 760px; margin: 0 auto; }
+    /* CI page wrapper renamed to .ci-page to avoid collision with the
+       activity-engine's own .activity class scope. */
+    .ci-page { max-width: 760px; margin: 0 auto; }
     .banner {
       background: #fff7ed;
       border: 1px solid #fdba74;
@@ -63,33 +66,14 @@
       letter-spacing: 0.06em;
     }
     .goal p { margin: 0; }
-    section {
+    .intro {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 16px 20px;
+      padding: 14px 18px;
       margin: 0 0 16px;
     }
-    section h2 {
-      margin: 0 0 10px;
-      font-size: 17px;
-      font-weight: 700;
-    }
-    section p { margin: 8px 0; }
-    ol, ul { padding-left: 22px; margin: 8px 0; }
-    li { margin-bottom: 6px; }
-    a { color: var(--accent); word-break: break-all; }
-    .placeholder {
-      background: #fef3c7;
-      border: 2px dashed #f59e0b;
-      border-radius: var(--radius);
-      padding: 10px 14px;
-      margin: 12px 0;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 13px;
-      color: #92400e;
-      font-weight: 700;
-    }
+    .intro p { margin: 6px 0; }
     .submit {
       background: #ecfdf5;
       border: 1px solid #6ee7b7;
@@ -106,86 +90,49 @@
       letter-spacing: 0.06em;
     }
     .submit p { margin: 4px 0; }
-    .submit ul { margin: 6px 0; }
-    .examples { margin: 12px 0; }
-    .examples details {
-      background: #f9fafb;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      margin: 6px 0;
-      overflow: hidden;
-    }
-    .examples details > summary {
-      padding: 10px 14px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 14px;
-      list-style: none;
-    }
-    .examples details > summary::-webkit-details-marker { display: none; }
-    .examples details > summary::before {
-      content: '\25B8';
-      display: inline-block;
-      margin-right: 8px;
-      font-size: 11px;
-      color: var(--muted);
-      transition: transform 0.2s ease;
-    }
-    .examples details[open] > summary::before { transform: rotate(90deg); }
-    .examples details[open] > summary { border-bottom: 1px solid var(--border); }
-    .examples .example-body { padding: 10px 14px 12px; font-size: 14px; color: #333; }
-    .examples .example-body em { color: var(--accent); font-style: normal; font-weight: 600; }
-    .example-strong > summary { color: #047857; }
-    .example-mid > summary { color: #a16207; }
-    .example-weak > summary { color: #b91c1c; }
     footer {
       text-align: center;
       margin: 28px 0 8px;
       opacity: 0.55;
     }
     footer img { height: 22px; }
-</style>
+  </style>
 </head>
 <body>
-  <div class="activity">
+  <div class="ci-page">
     <div class="banner">More than 80% of this design is AI &mdash; a careful review will shift this to 40% AI.</div>
     <p class="meta">Career Intelligence &middot; Week 1 &middot; Orientation &amp; Know Your Niche</p>
     <h1>Week 1 Self-Check</h1>
 
     <div class="goal">
       <h2>Learning goal</h2>
-      <p>Check your own week. Confirm the artifacts are in place, and notice where the thinking is solid versus where it&rsquo;s still vague. The work is yours to know &mdash; this check is what makes that real.</p>
+      <p>Own your learning by checking if you benefitted from the activities.</p>
     </div>
 
-    <section>
-      <h2>What to do</h2>
-      <ol>
-        <li><strong>Review on your own first.</strong> Walk back through this week&rsquo;s artifacts:
-          <ul>
-            <li>Handwritten Know Yourself reflection (page + typed copy)</li>
-            <li>Initial Know Yourself Dojo JSON</li>
-            <li>Updated Know Yourself Dojo JSON</li>
-            <li>Know the Market research + Dojo JSON</li>
-            <li>Niche Doc start</li>
-          </ul>
-        </li>
-        <li><strong>Run it past AI</strong> for a quick gut-check &mdash; ask where the thinking is thin or generic. Use what&rsquo;s useful, ignore what isn&rsquo;t.</li>
-        <li><strong>Verify with a human.</strong> Show your Niche Doc start to a peer, TA, or instructor and ask what they hear. AI alone is not a check &mdash; a person will catch what AI smooths over.</li>
-      </ol>
-    </section>
+    <div class="intro">
+      <p>Four metacognitive questions. AI will sparring-partner with you on each &mdash; pushing you past surface answers. When you've worked through all four, download the JSON and upload it in Canvas.</p>
+    </div>
+
+    <div id="activity-container"></div>
 
     <div class="submit">
       <h2>Submit to Canvas</h2>
-      <p><strong>Submission type:</strong> Text entry</p>
-      <p><strong>What to submit:</strong> A short note (3&ndash;5 sentences) with three things:</p>
-      <ul>
-        <li>What feels <strong>solid</strong> &mdash; specific, your own, something you&rsquo;d defend</li>
-        <li>What feels <strong>shaky</strong> &mdash; generic, borrowed, or you&rsquo;re not sure you believe it yet</li>
-        <li>One thing you want to <strong>revisit</strong> next week</li>
-      </ul>
+      <p><strong>Submission type:</strong> File upload</p>
+      <p><strong>What to submit:</strong> The JSON file the reflection produces &mdash; download it from the form above when you reach the end.</p>
     </div>
 
-    <footer><img src="../logo.png" alt="Computing Talent Initiative"></footer>
+    <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>
   </div>
+
+  <script src="../../js/activity-components.js"></script>
+  <script src="../../js/activity-engine.js"></script>
+  <script>
+    ActivityEngine.init({
+      containerId: 'activity-container',
+      configUrl: '../../activities/career-intelligence/week-1-self-check.json',
+      courseTheme: 'cst349',
+      canvasUrl: 'https://cti-courses.instructure.com/courses/183/assignments/6868'
+    });
+  </script>
 </body>
 </html>
