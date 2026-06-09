@@ -229,7 +229,7 @@ const ActivityEngine = (function() {
             </p>
 
             <button class="activity__download-btn" id="activity-download-btn" disabled>
-              Copy responses for Google Doc
+              Copy responses into clipboard
             </button>
 
             ${canvasAssignmentUrl ? `
@@ -340,10 +340,11 @@ const ActivityEngine = (function() {
         showHintsAfterAttempt: question.showHintsAfterAttempt || config.settings?.showHintsAfterAttempt || 2,
         showExplanationAfterAttempt: question.showExplanationAfterAttempt || config.settings?.showExplanationAfterAttempt || 5,
         response: state.responses[question.id],
-        onAnswer: (answer, isCorrect) => handleAnswer(question.id, answer, isCorrect),
+        onAnswer: (answer, isCorrect, isAutoSave) => handleAnswer(question.id, answer, isCorrect, isAutoSave),
         onSkip: () => handleSkip(question.id),
         courseTheme: courseTheme,
         aiEndpoint: config.settings?.aiEndpoint || null,
+        hideSaveButton: !!config.settings?.hideSaveButton,
         getAllResponses: () => state.responses,
         questionConfig: questionConfigMap
       });
@@ -435,7 +436,7 @@ const ActivityEngine = (function() {
   }
 
   /**
-   * Recompute whether the "Copy responses for Google Doc" button should be enabled.
+   * Recompute whether the "Copy responses into clipboard" button should be enabled.
    * Enabled iff: student name >= 2 chars AND partner selected (when roster
    * present) AND every required question is substantially answered.
    * Also surfaces a tooltip / hint message explaining what's still missing.
@@ -950,7 +951,7 @@ const ActivityEngine = (function() {
 
     /**
      * Exposed for test harnesses. Internal use only — the UI path runs this via
-     * handleDownload() when the student clicks "Copy responses for Google Doc".
+     * handleDownload() when the student clicks "Copy responses into clipboard".
      */
     _copyMarkdownToClipboard(markdown) {
       return copyMarkdownToClipboard(markdown);
