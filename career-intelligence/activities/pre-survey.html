@@ -144,10 +144,44 @@
       opacity: 0.55;
     }
     footer img { height: 22px; }
+
+    /* Context-aware navigation: back-link is hidden by default and shown
+       only when the inline context script tags <html> with .ctx-web
+       (i.e. when ?context=web or the page is opened outside an iframe). */
+    .back-link {
+      display: none;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      margin: 0 0 12px;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .ctx-web .back-link { display: inline-block; }
 </style>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      if (ctx !== 'canvas') {
+        document.documentElement.classList.add('ctx-web');
+      }
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
+          try {
+            var u = new URL(a.getAttribute('href'), location.href);
+            if (!u.searchParams.has('context')) {
+              u.searchParams.set('context', ctx);
+              a.href = u.href;
+            }
+          } catch (e) { /* leave as-is */ }
+        });
+      });
+    })();
+  </script>
 </head>
 <body>
   <div class="activity">
+    <a class="back-link" href="../canvas/home.html?context=web" data-keep-context>&larr; Back to Week 1 overview</a>
     <p class="meta">Career Intelligence &middot; Week 1 &middot; Orientation &amp; Know Your Niche</p>
     <h1>Career Intelligence Pre-Evaluation Summer 2026</h1>
 
