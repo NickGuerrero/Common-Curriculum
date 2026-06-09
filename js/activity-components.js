@@ -299,7 +299,9 @@ const ActivityComponents = (function() {
     charCount.innerHTML = `<span id="charcount-${question.id}">${textarea.value.length}</span> characters${minLength ? ` (minimum ${minLength})` : ''}`;
     container.appendChild(charCount);
 
-    // Save button
+    // Save button (suppressed when options.hideSaveButton is true — autosave
+    // already persists state; the sparring/feedback button below acts as the
+    // single affordance per question)
     const saveBtn = createElement('button', 'activity-open__save', 'Save Response');
     if (options.response?.answer) {
       saveBtn.textContent = 'Update Response';
@@ -314,6 +316,12 @@ const ActivityComponents = (function() {
       openAutosaveTimer = setTimeout(function() {
         if (typeof options.onAnswer === 'function') {
           options.onAnswer(textarea.value.trim(), null, true);
+        }
+        // With hideSaveButton on, autosave is the only persistence path —
+        // mirror the visual "saved" feedback the explicit Save button used to
+        // provide so the student gets a clear signal once minLength is met.
+        if (options.hideSaveButton && (!minLength || textarea.value.trim().length >= minLength)) {
+          updateQuestionStatus(question.id, { answer: textarea.value.trim(), attempts: 1, correct: null, skipped: false });
         }
       }, 600);
     }
@@ -350,7 +358,9 @@ const ActivityComponents = (function() {
       updateQuestionStatus(question.id, { answer: value, attempts: 1, correct: null, skipped: false });
     });
 
-    container.appendChild(saveBtn);
+    if (!options.hideSaveButton) {
+      container.appendChild(saveBtn);
+    }
 
     // --- AI Sparring Partner panel (opt-in via question.aiSparringPartner) ---
     // When configured, shows a "Think this through with AI" button that opens
@@ -489,12 +499,13 @@ const ActivityComponents = (function() {
       : {};
     const buttonLabel = spConfig.buttonLabel || 'Think this through with AI';
     const systemPrompt = spConfig.systemPrompt || DEFAULT_SPARRING_SYSTEM_PROMPT;
+    const hideOptionalHint = !!spConfig.hideOptionalHint;
 
     const wrapper = createElement('div', 'activity-sparring');
 
     const toggleBtn = createElement('button', 'activity-sparring__toggle-btn');
     toggleBtn.type = 'button';
-    toggleBtn.innerHTML = '<span class="activity-sparring__toggle-icon">&#9776;</span> ' + escapeHtml(buttonLabel) + ' <span class="activity-sparring__toggle-hint">(optional)</span>';
+    toggleBtn.innerHTML = '<span class="activity-sparring__toggle-icon">&#9776;</span> ' + escapeHtml(buttonLabel) + (hideOptionalHint ? '' : ' <span class="activity-sparring__toggle-hint">(optional)</span>');
 
     const panel = createElement('div', 'activity-sparring__panel');
     panel.style.display = 'none';
