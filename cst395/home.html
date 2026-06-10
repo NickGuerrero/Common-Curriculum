@@ -1,291 +1,538 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Studio | CST395</title>
-  <link rel="stylesheet" href="../css/shared-styles.css">
-  <style>
-    :root {
-      --theme-primary: #14b8a6;
-      --theme-dark: #0d9488;
-      --theme-light: #f0fdfa;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CST395 — AI-Native Solution Engineering</title>
+<style>
+:root{
+--blue:#0374B5; --blue-dark:#0a5a8a; --text:#2D3B45; --muted:#6B7780;
+--border:#C7CDD1; --border-light:#E8EAEC;
+--modhead:#F5F5F5; --goal-bg:#F3F8FB; --goal-border:#0374B5;
+--check-bg:#F2FAF5; --check-border:#0B874B; --check:#0B874B; --warn:#9B6A00;
+--teal:#0d9488; --teal-light:#f0fdfa;
+--font:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{font-family:var(--font);color:var(--text);background:#fff;font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased;}
+a{color:var(--blue);text-decoration:none;}
+a:hover{text-decoration:underline;color:var(--blue-dark);}
 
-    /* Get Started Card */
-    .get-started {
-      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-      border: 2px solid #10b981;
-      border-radius: var(--radius-lg);
-      padding: var(--space-5);
-      margin-bottom: var(--space-6);
-    }
-    .get-started__header {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      margin-bottom: var(--space-4);
-    }
-    .get-started__icon {
-      font-size: 1.5rem;
-    }
-    .get-started__title {
-      font-size: var(--text-xl);
-      font-weight: 700;
-      color: #065f46;
-      margin: 0;
-    }
-    .get-started__intro {
-      color: #047857;
-      margin-bottom: var(--space-4);
-      font-size: var(--text-sm);
-    }
-    .get-started__list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .get-started__item {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-3);
-      padding: var(--space-3) var(--space-4);
-      background: white;
-      border-radius: var(--radius-md);
-      margin-bottom: var(--space-2);
-      border: 1px solid #a7f3d0;
-    }
-    .get-started__item:last-child {
-      margin-bottom: 0;
-    }
-    .get-started__checkbox {
-      width: 20px;
-      height: 20px;
-      border: 2px solid #10b981;
-      border-radius: 4px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .get-started__item-content {
-      flex: 1;
-    }
-    .get-started__item-title {
-      font-weight: 600;
-      color: #065f46;
-      margin-bottom: var(--space-1);
-    }
-    .get-started__item-title a {
-      color: #065f46;
-      text-decoration: underline;
-    }
-    .get-started__item-desc {
-      font-size: var(--text-sm);
-      color: #047857;
-      margin: 0;
-    }
-    .get-started__item--discussion {
-      background: #f0fdf4;
-    }
-    .get-started__discussion-prompts {
-      font-size: var(--text-sm);
-      color: #065f46;
-      margin: var(--space-2) 0 0 0;
-      padding-left: var(--space-4);
-    }
-    .get-started__discussion-prompts li {
-      margin-bottom: var(--space-1);
-    }
-    .get-started__link {
-      display: inline-block;
-      margin-top: var(--space-3);
-      padding: var(--space-2) var(--space-4);
-      background: #10b981;
-      color: white;
-      border-radius: var(--radius-md);
-      font-weight: 600;
-      font-size: var(--text-sm);
-      text-decoration: none;
-    }
-    .get-started__link:hover {
-      background: #059669;
-      text-decoration: none;
-    }
-  </style>
+.page{max-width:1040px;margin:0 auto;padding:22px 22px 56px;}
+
+.course-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border-bottom:1px solid var(--border-light);padding-bottom:16px;margin-bottom:18px;}
+.course-header .eyebrow{font-size:11px;font-weight:700;color:var(--teal);letter-spacing:.7px;text-transform:uppercase;}
+.course-header h1{font-size:23px;font-weight:700;margin:3px 0 4px;}
+.course-header .sub{font-size:14px;color:var(--text);font-weight:600;}
+.course-header .lead{color:var(--muted);font-size:13px;max-width:640px;margin-top:6px;}
+.cti-logo{height:34px;width:auto;display:block;opacity:.9;}
+.cti-logo-fallback{display:none;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.3px;text-align:right;line-height:1.2;}
+
+/* Program arc — the value story at a glance */
+.arc{margin:0 0 22px;}
+.arc .arc-caption{font-size:12.5px;color:var(--muted);margin:0 0 9px;}
+.arc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.arc-card{border:1px solid var(--border);border-radius:6px;padding:11px 12px;background:#FCFDFE;}
+.arc-card .s{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);}
+.arc-card .nm{font-size:14.5px;font-weight:700;margin:2px 0 1px;color:var(--text);}
+.arc-card .th{font-size:12px;color:var(--blue-dark);font-weight:600;}
+.arc-card .who{font-size:11.5px;color:var(--muted);margin-top:5px;}
+.arc-card .who b{color:var(--text);font-weight:600;}
+@media(max-width:720px){.arc-grid{grid-template-columns:repeat(2,1fr);}}
+
+.module{border:1px solid var(--border);border-radius:4px;margin-bottom:16px;overflow:hidden;}
+details.module > summary{list-style:none;cursor:pointer;}
+details.module > summary::-webkit-details-marker{display:none;}
+.module-head{background:var(--modhead);border-bottom:1px solid var(--border);padding:11px 14px;display:flex;align-items:center;gap:12px;}
+details.module:not([open]) > .module-head{border-bottom:none;}
+.module-head .name{font-size:15px;font-weight:700;color:var(--text);flex:1;}
+.module-head .tag{font-size:12px;color:var(--muted);white-space:nowrap;}
+.module-head .chev{display:inline-block;font-size:11px;color:var(--muted);transition:transform .15s ease;flex-shrink:0;}
+details.module[open] > .module-head .chev{transform:rotate(90deg);}
+.module-head:hover{background:#EFEFEF;}
+
+.goal{background:var(--goal-bg);border-left:4px solid var(--goal-border);padding:11px 14px;}
+.goal .label{font-size:10.5px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--blue);margin-bottom:3px;}
+.goal .text{font-size:14px;color:var(--text);}
+.goal ul{margin:4px 0 0;padding-left:18px;}
+.goal li{margin:1px 0;}
+.prereq{padding:8px 14px 4px;color:var(--muted);font-size:12.5px;display:flex;gap:7px;align-items:flex-start;border-bottom:1px solid var(--border-light);}
+.prereq svg{width:14px;height:14px;flex:0 0 14px;margin-top:2px;}
+.prereq b{color:var(--text);font-weight:600;}
+
+.items{padding:2px 0 4px;}
+.item{display:flex;gap:11px;padding:11px 14px 11px 26px;border-bottom:1px solid var(--border-light);align-items:flex-start;}
+.item:last-child{border-bottom:none;}
+.item .ico{flex:0 0 18px;margin-top:1px;color:var(--muted);}
+.item .ico svg{width:18px;height:18px;display:block;}
+.item .body{flex:1;min-width:0;}
+.item .title{font-size:14.5px;font-weight:600;}
+.item .meta{color:var(--muted);font-size:12px;margin-top:2px;}
+.submit-pill{display:inline-block;margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.3px;color:#fff;background:var(--blue);border-radius:3px;padding:2px 9px;}
+.submit-pill:hover{background:var(--blue-dark);text-decoration:none;color:#fff;}
+.canvas-only{display:none;}
+
+.group-label{padding:10px 14px 4px;font-size:10.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);background:#FAFBFC;border-bottom:1px solid var(--border-light);}
+
+.item.selfcheck{background:var(--check-bg);}
+.item.selfcheck .ico{color:var(--check);}
+.selfcheck .badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--check);border-radius:3px;padding:1px 6px;margin-left:8px;vertical-align:middle;}
+.selfcheck .badge.optional{background:#7C8A93;}
+.selfcheck .verify{margin-top:5px;font-size:12.5px;color:#3d5346;display:flex;gap:6px;align-items:flex-start;}
+.selfcheck .verify svg{width:14px;height:14px;flex:0 0 14px;margin-top:2px;}
+
+.instructor{margin-top:26px;background:#FAFBFC;border:1px solid var(--border-light);border-radius:6px;padding:14px 16px;text-align:center;}
+.instructor .nm{font-weight:700;color:var(--text);margin-bottom:3px;}
+.instructor .links{font-size:12.5px;color:var(--muted);}
+
+.page-footer{margin-top:22px;padding-top:16px;border-top:1px solid var(--border-light);display:flex;align-items:center;gap:10px;color:var(--muted);font-size:11.5px;flex-wrap:wrap;}
+.page-footer img{height:20px;opacity:.55;}
+.page-footer .fb{margin-left:auto;}
+</style>
 </head>
 <body>
-  <div class="container">
+<div class="page">
 
-    <!-- Identity Header -->
-    <header style="margin-bottom:24px;">
-      <span style="font-size:12px;font-weight:700;color:#0d9488;letter-spacing:0.06em;text-transform:uppercase;">AI-Native Solution Engineering</span>
-      <h1 style="font-size:24px;font-weight:700;color:#111827;margin:4px 0;">Becoming an Architect.</h1>
-      <p style="font-size:14px;color:#6b7280;margin:0;">Your goal is Superagency. Your method is Symbiotic Thinking.</p>
-    </header>
+<div class="course-header">
+<div>
+<div class="eyebrow">CST395 &middot; AI-Native Solution Engineering</div>
+<h1>Becoming an Architect</h1>
+<div class="sub">Your goal is Superagency. Your method is Symbiotic Thinking.</div>
+<div class="lead">Each sprint, the problem gets harder and the person you're solving for gets further from your own experience. By the end, you'll have evidence that you can enter an unfamiliar domain, find a real problem, and build something that addresses it &mdash; using AI as a partner, not a crutch.</div>
+</div>
+<div>
+<img class="cti-logo" src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+<div class="cti-logo-fallback">Computing Talent<br>Initiative</div>
+</div>
+</div>
 
-    <!-- Course Framing -->
-    <p style="font-size:14px;color:#4b5563;line-height:1.6;max-width:600px;margin:0 0 24px 0;">Each sprint, the problem gets harder and the person you're solving for gets further from your own experience. By the end, you'll have evidence that you can enter an unfamiliar domain, find a real problem, and build something that addresses it — using AI as a partner, not a crutch.</p>
+<!-- PROGRAM ARC -->
+<div class="arc">
+<p class="arc-caption">Four sprints, four stakeholders, one story about becoming someone who can solve problems beyond their reach. Scaffolding falls away as your independence grows.</p>
+<div class="arc-grid">
+<div class="arc-card"><div class="s">Sprint 1</div><div class="nm">Foundation</div><div class="th">Superagency Over Self</div><div class="who">You solve for: <b>Yourself</b></div></div>
+<div class="arc-card"><div class="s">Sprint 2</div><div class="nm">Mirror</div><div class="th">Learning Through Others</div><div class="who">You solve for: <b>A close acquaintance</b></div></div>
+<div class="arc-card"><div class="s">Sprint 3</div><div class="nm">Complexity</div><div class="th">Navigating Ambiguity</div><div class="who">You solve for: <b>An external entity</b></div></div>
+<div class="arc-card"><div class="s">Sprint 4</div><div class="nm">Mastery</div><div class="th">Full Autonomy</div><div class="who">You solve for: <b>Your choice</b></div></div>
+</div>
+</div>
 
-    <!-- Journey Arc -->
-    <div id="journey-pills"></div>
+<!-- GET STARTED -->
+<details class="module" open>
+<summary class="module-head"><span class="name">Get Started</span><span class="tag">Orientation</span><span class="chev">&#9656;</span></summary>
+<div class="goal">
+<div class="label">What you'll get from this module</div>
+<div class="text"><ul>
+<li>Understand what this course is and how it works</li>
+<li>Meet your instructor and your peers</li>
+<li>Set a baseline so you can measure your own growth by the end</li>
+</ul></div>
+</div>
+<div class="prereq">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg>
+<span><b>Start here.</b> Everything else unlocks once you've set your baseline.</span>
+</div>
+<div class="items">
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/quizzes/141970">Course Pre-Survey</a></div><div class="meta">Quiz &middot; ~10 min &middot; a baseline our evaluation team uses to measure how much the course helps you</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/quizzes/141970">Take in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/discussion_topics/345054">Introduce Yourself</a></div><div class="meta">Discussion &middot; who you are, what you understand this course to be, and how you'll get the most from it</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/discussion_topics/345054">Post in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></span>
+<div class="body"><div class="title"><a href="../profsathya.html">Meet your instructor</a></div><div class="meta">Page &middot; how to connect with Prof. Sathya through the semester</div></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+<div class="body"><div class="title"><a href="overview.html">Course overview</a></div><div class="meta">Page &middot; what this course is about and how it's structured</div></div>
+</div>
+</div>
+</details>
 
-    <!-- You Are Here -->
-    <div id="you-are-here" style="margin-bottom:24px;"></div>
+<!-- SPRINT 1 — WEEK 1 -->
+<details class="module">
+<summary class="module-head"><span class="name">Sprint 1 &middot; Week 1 &mdash; Orientation &amp; Problem Discovery</span><span class="tag">Foundation</span><span class="chev">&#9656;</span></summary>
+<div class="goal"><div class="label">What you'll be able to do</div><div class="text"><ul>
+<li>Find a real problem in your own life that's worth solving</li>
+<li>Direct AI toward that problem instead of waiting for instructions</li>
+<li>See why the first answer to "why" is rarely the real problem</li>
+</ul></div></div>
+<div class="prereq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span><b>Builds on:</b> your Get Started baseline. You're ready once you've set up and know what the course is asking of you.</span></div>
+<div class="items">
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+<div class="body"><div class="title"><a href="activities/superagency-prep.html" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/564067">S1: Superagency Challenge</a></div><div class="meta">Assignment &middot; pick a real challenge and push past what you could do alone</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/564067">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item selfcheck">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/564070">S1: Productive Reflection #1</a><span class="badge">Reflection</span></div><div class="meta">Reflect on the week's purpose and your own engagement &mdash; not a checkbox that work got done</div><div class="verify"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M3 21v-2a5 5 0 0 1 5-5h3"/><path d="M16 14l2 2 4-4"/></svg><span>Compare your thinking with a peer &mdash; a second human read catches what self-reflection misses.</span></div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/564070">Submit in Canvas &rarr;</a></div>
+</div>
+</div>
+</details>
 
-    <!-- Get Started (pre-semester + weeks 1-2 only) -->
-    <section id="get-started-section" style="display:none;">
-      <div class="get-started">
-        <header class="get-started__header">
-          <span class="get-started__icon">🚀</span>
-          <h2 class="get-started__title">Get Started Here</h2>
-        </header>
-        <p class="get-started__intro">Before diving into the course, complete these steps:</p>
-        <ul class="get-started__list">
-          <li class="get-started__item">
-            <span class="get-started__checkbox"></span>
-            <div class="get-started__item-content">
-              <p class="get-started__item-title"><a href="https://csumb.instructure.com/courses/33084/quizzes/141970" target="_blank" id="survey-link">Complete the Pre-course Survey</a></p>
-              <p class="get-started__item-desc">I am working with an external evaluation team to measure course effectiveness. Your responses to this survey will help us improve the course.</p>
-            </div>
-          </li>
-          <li class="get-started__item">
-            <span class="get-started__checkbox"></span>
-            <div class="get-started__item-content">
-              <p class="get-started__item-title"><a href="../profsathya.html">Get to know your instructor</a></p>
-              <p class="get-started__item-desc">Learn about Prof. Sathya and how to connect throughout the semester.</p>
-            </div>
-          </li>
-          <li class="get-started__item">
-            <span class="get-started__checkbox"></span>
-            <div class="get-started__item-content">
-              <p class="get-started__item-title"><a href="overview.html">Explore the Course Overview</a></p>
-              <p class="get-started__item-desc">Understand what this course is about and how it's structured.</p>
-            </div>
-          </li>
-          <li class="get-started__item get-started__item--discussion">
-            <span class="get-started__checkbox"></span>
-            <div class="get-started__item-content">
-              <p class="get-started__item-title">Introduce Yourself</p>
-              <p class="get-started__item-desc">Post in the discussion forum answering:</p>
-              <ol class="get-started__discussion-prompts">
-                <li>Your name</li>
-                <li>How long you've been at CSUMB</li>
-                <li>Something about you (where you're from, hobbies, something interesting)</li>
-                <li>What do you understand this course is about?</li>
-                <li>What will you do to get the most out of this course?</li>
-                <li>What about Prof. Sathya's background, philosophy, or approach caught your attention?</li>
-                <li><em>(Optional)</em> Is there anything you'd like this course to cover?</li>
-              </ol>
-              <a href="https://csumb.instructure.com/courses/33084/discussion_topics/345054" target="_blank" class="get-started__link" id="discussion-link">Go to Discussion Forum →</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
+<!-- SPRINT 1 — WEEK 2 -->
+<details class="module">
+<summary class="module-head"><span class="name">Sprint 1 &middot; Week 2 &mdash; Understanding Before Building</span><span class="tag">Foundation</span><span class="chev">&#9656;</span></summary>
+<div class="goal"><div class="label">What you'll be able to do</div><div class="text"><ul>
+<li>Trace a problem to its root cause instead of treating the symptom</li>
+<li>Turn that root cause into a deliberate solution architecture</li>
+<li>Reflect productively on how your own thinking is changing</li>
+</ul></div></div>
+<div class="prereq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span><b>Builds on:</b> the problem you found in Week 1. The analysis only pays off once you have a real problem to dig into.</span></div>
+<div class="items">
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+<div class="body"><div class="title"><a href="activities/five-whys-check.html" data-canvas-href="https://csumb.instructure.com/courses/33084/quizzes/144732">S1: Problem Analysis (5 Whys)</a></div><div class="meta">Quiz &middot; keep asking "why" until you reach the cause that actually matters</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/quizzes/144732">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h6v6"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/quizzes/144733">S1: Solution Architecture</a></div><div class="meta">Quiz &middot; design the shape of a solution that addresses the root, not the symptom</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/quizzes/144733">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item selfcheck">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/quizzes/144734">S1: Productive Reflection #2</a><span class="badge">Reflection</span></div><div class="meta">What did you learn this week that you didn't know before it started?</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/quizzes/144734">Submit in Canvas &rarr;</a></div>
+</div>
+</div>
+</details>
 
-    <!-- Quick Links -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:24px;">
-      <a href="sprint-3-notes.html" style="background:#f0fdfa;border:2px solid #14b8a6;border-radius:8px;padding:12px;text-decoration:none;text-align:center;">
-        <div style="font-size:16px;margin-bottom:4px;">&#128211;</div>
-        <div style="font-weight:600;color:#0f766e;font-size:13px;">S3 Notes: UMPIRE</div>
-      </a>
-      <a href="overview.html" style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px;text-decoration:none;text-align:center;">
-        <div style="font-size:16px;margin-bottom:4px;">📋</div>
-        <div style="font-weight:500;color:#374151;font-size:13px;">Course Overview</div>
-      </a>
-      <a href="peer-conversations.html" style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px;text-decoration:none;text-align:center;">
-        <div style="font-size:16px;margin-bottom:4px;">🤝</div>
-        <div style="font-weight:500;color:#374151;font-size:13px;">Peer Conversations</div>
-      </a>
-      <a href="capabilities.html" style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px;text-decoration:none;text-align:center;">
-        <div style="font-size:16px;margin-bottom:4px;">🎯</div>
-        <div style="font-weight:500;color:#374151;font-size:13px;">Capabilities</div>
-      </a>
-      <a href="concepts.html" style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px;text-decoration:none;text-align:center;">
-        <div style="font-size:16px;margin-bottom:4px;">💡</div>
-        <div style="font-weight:500;color:#374151;font-size:13px;">Concepts</div>
-      </a>
-    </div>
+<!-- SPRINT 1 — WEEK 3 -->
+<details class="module">
+<summary class="module-head"><span class="name">Sprint 1 &middot; Week 3 &mdash; Strategic Building</span><span class="tag">Foundation</span><span class="chev">&#9656;</span></summary>
+<div class="goal"><div class="label">What you'll be able to do</div><div class="text"><ul>
+<li>Make design decisions on purpose and explain why you made them</li>
+<li>Go deep in a focused working session rather than skating the surface</li>
+<li>Build with intent &mdash; output you can defend, not just output</li>
+</ul></div></div>
+<div class="prereq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span><b>Builds on:</b> your root-cause analysis and solution architecture from Week 2.</span></div>
+<div class="items">
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></span>
+<div class="body"><div class="title"><a href="activities/design-decision-analysis.html" data-canvas-href="https://csumb.instructure.com/courses/33084/quizzes/144806">S1: Design Decision Analysis</a></div><div class="meta">Quiz &middot; surface the trade-offs behind each choice you made</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/quizzes/144806">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6M10 17v4M14 17v4"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/quizzes/144807">S1: Dojo Depth Session</a></div><div class="meta">Quiz &middot; a focused deep-practice session on your hardest open question</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/quizzes/144807">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item selfcheck">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/quizzes/144808">S1: Productive Reflection #3</a><span class="badge">Reflection</span></div><div class="meta">Did the week's design actually serve its purpose &mdash; and did you?</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/quizzes/144808">Submit in Canvas &rarr;</a></div>
+</div>
+</div>
+</details>
 
-    <!-- Instructor Info -->
-    <footer style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:16px;text-align:center;">
-      <p style="margin:0 0 8px 0;font-weight:600;color:#374151;">Dr. Sathya Narayanan</p>
-      <p style="margin:0;font-size:13px;color:#6b7280;">
-        <a href="mailto:snarayanan@csumb.edu">snarayanan@csumb.edu</a> •
-        <a href="https://bit.ly/profsathya" target="_blank">Schedule Office Hours</a> •
-        @profsathya on Slack
-      </p>
-    </footer>
+<!-- SPRINT 1 — WEEK 4 -->
+<details class="module">
+<summary class="module-head"><span class="name">Sprint 1 &middot; Week 4 &mdash; Reflection &amp; Human Value</span><span class="tag">Foundation &middot; Close</span><span class="chev">&#9656;</span></summary>
+<div class="goal"><div class="label">What you'll be able to do</div><div class="text"><ul>
+<li>Show honest growth with evidence &mdash; not a polished highlight reel</li>
+<li>Name the human value in what you built</li>
+<li>Carry what you learned forward into Sprint 2</li>
+</ul></div></div>
+<div class="items">
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><polygon points="10 8.5 16 12 10 15.5 10 8.5" fill="currentColor" stroke="none"/></svg></span>
+<div class="body"><div class="title"><a href="activities/sprint-1-demo.html" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/582111">S1: Sprint 1 Demo Discussion</a></div><div class="meta">Discussion &middot; the best demos show honest growth with evidence at every turn</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/582111">Open in Canvas &rarr;</a></div>
+</div>
+<div class="item selfcheck">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/582112">S2: Sprint 1&ndash;2 Bridge Reflection</a><span class="badge">Reflection</span></div><div class="meta">Connect what Sprint 1 taught you to the shift coming in Sprint 2</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/582112">Submit in Canvas &rarr;</a></div>
+</div>
+</div>
+</details>
 
-  </div>
+<!-- SPRINT 2 — WEEK 1 -->
+<details class="module">
+<summary class="module-head"><span class="name">Sprint 2 &middot; Week 1 &mdash; Partner Discovery</span><span class="tag">Mirror</span><span class="chev">&#9656;</span></summary>
+<div class="goal"><div class="label">What you'll be able to do</div><div class="text"><ul>
+<li>Learn someone else's world before you build anything for them</li>
+<li>Set goals jointly with a partner you're solving for</li>
+<li>Replace guessing with real discovery</li>
+</ul></div></div>
+<div class="items">
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+<div class="body"><div class="title"><a href="activities/s2-orientation.html" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/582113">S2: Sprint 2 Orientation</a></div><div class="meta">Assignment &middot; the shift from solving for yourself to solving for someone else</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/582113">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+<div class="body"><div class="title"><a href="activities/s2-goal-setting.html" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/582114">S2: Goal Setting Part I &mdash; Preparation</a></div><div class="meta">Assignment &middot; prepare what you need to know before setting goals with your partner</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/582114">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M3 21v-2a5 5 0 0 1 5-5h3"/><path d="M16 14l2 2 4-4"/></svg></span>
+<div class="body"><div class="title"><a href="activities/s2-goal-setting.html" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/582115">S2: Goal Setting Part II &mdash; Partner Goals</a></div><div class="meta">Assignment &middot; agree on goals together with the person you're building for</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/582115">Submit in Canvas &rarr;</a></div>
+</div>
+</div>
+</details>
 
-  <script src="../config/cst395-config.js"></script>
-  <script src="../js/components.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      addNavigationIfNeeded();
+<!-- SPRINT 2 — WEEK 2 -->
+<details class="module">
+<summary class="module-head"><span class="name">Sprint 2 &middot; Week 2 &mdash; Discovery &amp; Domain Learning</span><span class="tag">Mirror</span><span class="chev">&#9656;</span></summary>
+<div class="goal"><div class="label">What you'll be able to do</div><div class="text"><ul>
+<li>Surface and test the assumptions you're carrying into the build</li>
+<li>Deepen your understanding of your partner's domain through discovery</li>
+<li>Combine partner insight with your own judgment</li>
+</ul></div></div>
+<div class="prereq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span><b>Builds on:</b> the partner goals you set in Week 1. Discovery works once you know whose problem you're solving.</span></div>
+<div class="items">
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/582875">S2: Discovery Deep Dive</a></div><div class="meta">Assignment &middot; go deep on your partner's real needs and context</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/582875">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9l-8 13.9A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3.2l-8-13.9a2 2 0 0 0-3.4 0z"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/582876">S2: Assumption Audit</a></div><div class="meta">Assignment &middot; name what you're assuming, then check it against reality</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/582876">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item selfcheck">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/582877">S2: Productive Reflection #4</a><span class="badge">Reflection</span></div><div class="meta">Where did discovery change your mind about the problem?</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/582877">Submit in Canvas &rarr;</a></div>
+</div>
+</div>
+</details>
 
-      var CONFIG = CST395_CONFIG;
-      var resolved = getResolvedCurrentWeek(CONFIG);
-      var currentWeek = resolved.week;
+<!-- SPRINT 2 — WEEK 3 -->
+<details class="module">
+<summary class="module-head"><span class="name">Sprint 2 &middot; Week 3 &mdash; Building &amp; Iteration</span><span class="tag">Mirror</span><span class="chev">&#9656;</span></summary>
+<div class="goal"><div class="label">What you'll be able to do</div><div class="text"><ul>
+<li>Plan a demo that proves value to your partner</li>
+<li>Build a learning plan for the domain you're working in</li>
+<li>Prepare to show work that someone else can judge</li>
+</ul></div></div>
+<div class="prereq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span><b>Builds on:</b> your discovery and assumption-testing from Week 2.</span></div>
+<div class="items">
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/582878">S2: Week 6 Preparation</a></div><div class="meta">Assignment &middot; set yourself up for the build-and-show week ahead</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/582878">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><polygon points="10 8.5 16 12 10 15.5 10 8.5" fill="currentColor" stroke="none"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/582879">S2: Demo Design</a></div><div class="meta">Assignment &middot; design a demo that shows value, not just features</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/582879">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6M10 17v4M14 17v4"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/582880">S2: Domain Learning Plan</a></div><div class="meta">Assignment &middot; map what you still need to learn to serve this domain well</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/582880">Submit in Canvas &rarr;</a></div>
+</div>
+</div>
+</details>
 
-      // Journey pills (navigate to sprint pages)
-      var currentSprint = currentWeek ? CONFIG.weekDates[currentWeek].sprint : 0;
-      renderJourneyPills(CONFIG, currentSprint, 'journey-pills');
+<!-- SPRINT 2 — WEEK 4 -->
+<details class="module">
+<summary class="module-head"><span class="name">Sprint 2 &middot; Week 4 &mdash; Value Through Another's Eyes</span><span class="tag">Mirror &middot; Close</span><span class="chev">&#9656;</span></summary>
+<div class="goal"><div class="label">What you'll be able to do</div><div class="text"><ul>
+<li>Ship a working prototype with a build log that shows your reasoning</li>
+<li>Be evaluated by the very person you built for</li>
+<li>See your value through someone else's eyes</li>
+</ul></div></div>
+<div class="prereq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span><b>Builds on:</b> your demo design and domain learning plan from Week 3.</span></div>
+<div class="items">
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/582881">S2: Prototype v1 + Build Log</a></div><div class="meta">Assignment &middot; a working build, plus the log of decisions behind it</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/582881">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M3 21v-2a5 5 0 0 1 5-5h3"/><path d="M16 14l2 2 4-4"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/582887">S2: Partner Evaluation</a></div><div class="meta">Assignment &middot; your partner judges whether it actually helped them</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/582887">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item selfcheck">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/582882">S2: Productive Reflection #5</a><span class="badge">Reflection</span></div><div class="meta">What did building for someone else teach you that building for yourself couldn't?</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/582882">Submit in Canvas &rarr;</a></div>
+</div>
+</div>
+</details>
 
-      // You Are Here card
-      var youAreHere = document.getElementById('you-are-here');
-      if (currentWeek && youAreHere) {
-        var weekData = CONFIG.weekDates[currentWeek];
-        var sprint = weekData.sprint;
-        var sprintData = CONFIG.sprints[sprint];
-        var btnText = resolved.isGap
-          ? 'Continue to Sprint ' + sprint + ' \u2192'
-          : 'Go to this week\u2019s work \u2192';
-        var subtitle = resolved.isGap
-          ? resolved.gapMessage
-          : 'Week ' + currentWeek + ': ' + weekData.title;
+<!-- SPRINT 3 — WEEK 1 -->
+<details class="module">
+<summary class="module-head"><span class="name">Sprint 3 &middot; Week 1 &mdash; Entering Unfamiliar Territory</span><span class="tag">Complexity</span><span class="chev">&#9656;</span></summary>
+<div class="goal"><div class="label">What you'll be able to do</div><div class="text"><ul>
+<li>Enter a domain far from your own experience and get your bearings</li>
+<li>Stake a clear claim about what the real problem is</li>
+<li>Start a weekly rhythm of building and reflecting</li>
+</ul></div></div>
+<div class="items">
+<div class="item selfcheck">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/582886">S2: Sprint 2&rarr;3 Bridge Reflection</a><span class="badge">Reflection</span></div><div class="meta">Carry what you learned about others into a problem with no easy access</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/582886">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+<div class="body"><div class="title"><a href="activities/s3-claims-discussion.html" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/584778">S3 Prep: Claims in Practice</a></div><div class="meta">Discussion &middot; pressure-test the claims behind a real external problem</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/584778">Open in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/584779">S3: Problem Stake Brief</a></div><div class="meta">Assignment &middot; state the problem you're claiming and why it matters</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/584779">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item selfcheck">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/584780">S3: Weekly Build Reflection #1</a><span class="badge">Reflection</span></div><div class="meta">Log the week's hypothesis, your moves, and what you'd change next</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/584780">Submit in Canvas &rarr;</a></div>
+</div>
+</div>
+</details>
 
-        youAreHere.innerHTML =
-          '<div style="background:var(--theme-light,#f0fdfa);border:2px solid var(--theme-primary,#14b8a6);border-radius:12px;padding:20px;">' +
-            '<div style="font-size:12px;font-weight:700;color:var(--theme-dark,#0d9488);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">You are here</div>' +
-            '<div style="font-size:20px;font-weight:700;color:#111827;margin-bottom:4px;">Sprint ' + sprint + ': ' + sprintData.name + '</div>' +
-            '<div style="font-size:14px;color:#4b5563;margin-bottom:4px;">' + subtitle + '</div>' +
-            '<div style="font-size:13px;color:#6b7280;margin-bottom:16px;">Stakeholder: ' + (sprintData.stakeholder || '') + '</div>' +
-            '<a href="sprint-' + sprint + '.html#zone-b" style="display:inline-block;background:var(--theme-primary,#14b8a6);color:white;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;">' + btnText + '</a>' +
-          '</div>';
-      } else if (!currentWeek && youAreHere) {
-        // Post-semester
-        var today = new Date();
-        var week1Start = new Date(CONFIG.weekDates[1].start + 'T00:00:00');
-        if (today > week1Start) {
-          youAreHere.innerHTML =
-            '<div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:20px;text-align:center;">' +
-              '<div style="font-size:18px;font-weight:700;color:#111827;">Course Complete</div>' +
-              '<div style="font-size:14px;color:#6b7280;margin-top:4px;">Congratulations on finishing the journey!</div>' +
-            '</div>';
-        }
+<!-- SPRINT 3 — WEEK 2 -->
+<details class="module">
+<summary class="module-head"><span class="name">Sprint 3 &middot; Week 2 &mdash; Stakeholder Discovery Without Access</span><span class="tag">Complexity</span><span class="chev">&#9656;</span></summary>
+<div class="goal"><div class="label">What you'll be able to do</div><div class="text"><ul>
+<li>Discover stakeholder needs even when you can't talk to them directly</li>
+<li>Defend your problem stake with evidence, out loud</li>
+<li>Ship a first build, then review it honestly</li>
+</ul></div></div>
+<div class="items">
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M3 21v-2a5 5 0 0 1 5-5h3"/><path d="M16 14l2 2 4-4"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/586678">S3: Problem Stake Defense</a></div><div class="meta">Assignment &middot; defend your problem claim against the evidence</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/586678">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/586994">S3: Build Plan v1</a></div><div class="meta">Assignment &middot; a plan you can act on this week</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/586994">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/586995">S3: Build v1</a></div><div class="meta">Assignment &middot; your first working build for an unfamiliar domain</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/586995">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item selfcheck">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/586996">S3: Build Review</a><span class="badge">Reflection</span></div><div class="meta">Review your build against what the stakeholder actually needs</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/586996">Submit in Canvas &rarr;</a></div>
+</div>
+</div>
+</details>
+
+<!-- SPRINT 3 — WEEK 3 -->
+<details class="module">
+<summary class="module-head"><span class="name">Sprint 3 &middot; Week 3 &mdash; Simple Over Sophisticated</span><span class="tag">Complexity &middot; Close</span><span class="chev">&#9656;</span></summary>
+<div class="goal"><div class="label">What you'll be able to do</div><div class="text"><ul>
+<li>Choose the simple solution that actually gets used over the clever one that doesn't</li>
+<li>Revise your plan based on what your build taught you</li>
+<li>Find value at the intersection of real need and what's feasible</li>
+</ul></div></div>
+<div class="prereq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span><b>Builds on:</b> your first build and review from Week 2.</span></div>
+<div class="items">
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.74 1 6.4 2.6"/><path d="M21 4v6h-6"/></svg></span>
+<div class="body"><div class="title"><a href="activities/s3-w11-codesign.html" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/586997">S3: Revised Plan</a></div><div class="meta">Assignment &middot; fold what you learned back into a sharper plan</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/586997">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/586998">S3: Build v2</a></div><div class="meta">Assignment &middot; a second build that's simpler and more usable than the first</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/586998">Submit in Canvas &rarr;</a></div>
+</div>
+</div>
+</details>
+
+<!-- SPRINT 4 -->
+<details class="module">
+<summary class="module-head"><span class="name">Sprint 4 &mdash; Mastery</span><span class="tag">Full Autonomy</span><span class="chev">&#9656;</span></summary>
+<div class="goal"><div class="label">What you'll be able to do</div><div class="text"><ul>
+<li>Run a full solution cycle with the scaffolding mostly gone</li>
+<li>Map your work to the capabilities framework &mdash; Symbiotic Thinking, Self-Directed Learning, Integrative Solving</li>
+<li>Defend your portfolio against the question every employer asks: "What can you do, and how do you know?"</li>
+</ul></div></div>
+<div class="items">
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/588985">S4: Sprint 4 Goal Statement</a></div><div class="meta">Assignment &middot; set your own goal for a problem of your choosing</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/588985">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6M10 17v4M14 17v4"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/589782">S4: Framework Track &mdash; Symbiotic Thinking</a></div><div class="meta">Assignment &middot; show how you work with AI as a thinking partner</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/589782">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6M10 17v4M14 17v4"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/590207">S4: Framework Track &mdash; SDL / IS / AB Mapping</a></div><div class="meta">Assignment &middot; map your growth across the course's core capabilities</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/590207">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/590160">S4: Sprint 4 Solution Brief</a></div><div class="meta">Assignment &middot; the capstone brief &mdash; this IS your portfolio</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/590160">Submit in Canvas &rarr;</a></div>
+</div>
+</div>
+</details>
+
+<!-- EXTRA CREDIT -->
+<details class="module">
+<summary class="module-head"><span class="name">Extra Credit &amp; Course Close</span><span class="tag">Optional</span><span class="chev">&#9656;</span></summary>
+<div class="goal"><div class="label">What you'll get from this module</div><div class="text"><ul>
+<li>Close the loop on the course evaluation that measures your growth</li>
+<li>Look back across the whole semester to consolidate what you learned</li>
+<li>Earn credit by making your own growth visible and evidence-backed</li>
+</ul></div></div>
+<div class="items">
+<div class="item">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/quizzes/146409">Course Post-Survey</a></div><div class="meta">Quiz &middot; the bookend to your pre-survey &mdash; how far you've come</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/quizzes/146409">Take in Canvas &rarr;</a></div>
+</div>
+<div class="item selfcheck">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/588986">S4: Look-back 1 &mdash; Problem Selection</a><span class="badge optional">Extra Credit</span></div><div class="meta">Revisit how you chose your problems across the semester</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/588986">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item selfcheck">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/590208">S4: Look-back 2 &mdash; Assumption Audit</a><span class="badge optional">Extra Credit</span></div><div class="meta">Look back at the assumptions you carried and tested</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/590208">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item selfcheck">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/590209">S4: Look-back 3 &mdash; Sprint 3 Solution Brief</a><span class="badge optional">Extra Credit</span></div><div class="meta">Revisit your hardest sprint with fresh eyes</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/590209">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item selfcheck">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/590210">S4: Look-back 4 &mdash; Build v1&rarr;v2 Iteration</a><span class="badge optional">Extra Credit</span></div><div class="meta">Trace how your build changed from first to second version</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/590210">Submit in Canvas &rarr;</a></div>
+</div>
+<div class="item selfcheck">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span>
+<div class="body"><div class="title"><a href="#" data-canvas-href="https://csumb.instructure.com/courses/33084/assignments/590211">S4: Look-back 5 &mdash; Look-back on your Look-backs</a><span class="badge optional">Extra Credit</span></div><div class="meta">Reflect on what the act of looking back revealed</div><a class="canvas-only submit-pill" href="https://csumb.instructure.com/courses/33084/assignments/590211">Submit in Canvas &rarr;</a></div>
+</div>
+</div>
+</details>
+
+<div class="instructor">
+<div class="nm">Dr. Sathya Narayanan</div>
+<div class="links"><a href="mailto:snarayanan@csumb.edu">snarayanan@csumb.edu</a> &middot; <a href="https://bit.ly/profsathya" target="_blank" rel="noopener">Schedule office hours</a> &middot; @profsathya on Slack</div>
+</div>
+
+<footer class="page-footer">
+<img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="" onerror="this.style.display='none'">
+<span>Computing Talent Initiative &middot; CSU Monterey Bay &mdash; CST395</span>
+<span class="fb">Anonymous feedback: <a href="https://forms.gle/ssHfShC6QECbW7WQ6" target="_blank" rel="noopener">forms.gle/ssHfShC6QECbW7WQ6</a></span>
+</footer>
+
+</div>
+
+<!-- Context-aware link resolution: students inside Canvas (or with
+?context=canvas) follow the Canvas item URLs and see the "Submit in
+Canvas" actions; stakeholders viewing the page directly on the web get
+the public HTML pages, carry ?context=web through to them, and never
+see Canvas-only submit chrome. No visual change to the layout either way. -->
+<script>
+(function(){
+  var ctx = new URLSearchParams(location.search).get('context')
+    || (window.self !== window.top ? 'canvas' : 'web');
+  document.documentElement.setAttribute('data-context', ctx);
+
+  document.querySelectorAll('a[data-canvas-href]').forEach(function(a){
+    var canvas = a.getAttribute('data-canvas-href');
+    if (ctx === 'canvas') {
+      a.href = canvas;
+    } else {
+      var h = a.getAttribute('href');
+      if (h && h !== '#' && !/^https?:/i.test(h)) {
+        // relative public HTML page → keep it, propagate ?context=web
+        try {
+          var u = new URL(h, location.href);
+          u.searchParams.set('context', 'web');
+          a.href = u.pathname + u.search + u.hash;
+        } catch (e) { /* leave as-is */ }
+      } else {
+        // no dedicated web page → fall back to the Canvas item so the link still works
+        a.href = canvas;
       }
+    }
+  });
 
-      // Get Started section: pre-semester + weeks 1-2
-      var getStartedSection = document.getElementById('get-started-section');
-      if (getStartedSection) {
-        var today2 = new Date(); today2.setHours(0,0,0,0);
-        var week1Start2 = new Date(CONFIG.weekDates[1].start + 'T00:00:00');
-        var isBeforeSemester = today2 < week1Start2;
-        if (isBeforeSemester || (currentWeek !== null && currentWeek <= 2)) {
-          getStartedSection.style.display = 'block';
-        }
-      }
-
-      initDateSimulator();
-    });
-  </script>
-
-  <footer style="text-align:center;padding:24px 16px;margin-top:40px;border-top:1px solid #e5e7eb;">
-    <p style="margin:0;font-size:12px;color:#9ca3af;">
-      Please provide (anonymous) feedback: <a href="https://forms.gle/ssHfShC6QECbW7WQ6" target="_blank" style="color:#6366f1;">https://forms.gle/ssHfShC6QECbW7WQ6</a>
-    </p>
-  </footer>
-
+  // Reveal Canvas-only submit actions only inside Canvas / canvas context.
+  if (ctx === 'canvas') {
+    document.querySelectorAll('.canvas-only').forEach(function(el){ el.style.display = 'inline-block'; });
+  }
+})();
+</script>
 </body>
 </html>
