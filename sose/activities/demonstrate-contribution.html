@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demonstrate your contribution — SOSE</title>
+<style>
+:root{--blue:#0374B5;--blue-dark:#0a5a8a;--text:#2D3B45;--muted:#6B7780;--border:#C7CDD1;--border-light:#E8EAEC;--goal-bg:#F3F8FB;--goal-border:#0374B5;--teal:#0d9488;--font:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif;}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;}
+body{font-family:var(--font);color:var(--text);background:#fff;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+a{color:var(--blue);text-decoration:none;}a:hover{text-decoration:underline;color:var(--blue-dark);}
+.page{max-width:820px;margin:0 auto;padding:22px 22px 56px;}
+.back{font-size:12px;color:var(--muted);display:inline-block;margin-bottom:16px;}
+.back:hover{color:var(--blue);text-decoration:none;}
+.act-header{border-bottom:1px solid var(--border-light);padding-bottom:14px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;}
+.act-header .eyebrow{font-size:11px;font-weight:700;color:var(--teal);letter-spacing:.6px;text-transform:uppercase;}
+.act-header h1{font-size:23px;font-weight:700;margin:4px 0 5px;}
+.act-header .context{color:var(--muted);font-size:13px;max-width:560px;}
+.cti-logo{height:30px;opacity:.9;}
+.outcome{background:var(--goal-bg);border-left:4px solid var(--goal-border);border-radius:0 6px 6px 0;padding:12px 16px;margin-bottom:22px;}
+.outcome .label{font-size:10.5px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--blue);margin-bottom:3px;}
+.outcome .text{font-size:14.5px;color:var(--text);}
+.block{margin-bottom:22px;}
+.block h2{font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 8px;}
+.block p{margin:0;font-size:14.5px;}
+.block ol,.block ul{margin:2px 0 0;padding-left:20px;}
+.block li{margin:5px 0;font-size:14.5px;}
+.video-spot{margin:0 0 22px;}
+.video-frame{position:relative;background:#0f1722;border:1px solid var(--border);border-radius:8px;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#9fb0c4;}
+.video-frame .play{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;}
+.video-frame .vtext{font-size:12.5px;font-weight:600;letter-spacing:.3px;}
+.video-cap{font-size:11.5px;color:var(--muted);margin-top:6px;}
+.video-embed{width:100%;aspect-ratio:16/9;border:0;border-radius:8px;}
+.show{background:#FAFBFC;border:1px solid var(--border-light);border-radius:6px;padding:12px 16px;margin-bottom:22px;}
+.show .label{font-size:10.5px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+.show .text{font-size:14px;color:var(--text);}
+.act-footer{margin-top:26px;padding-top:14px;border-top:1px solid var(--border-light);display:flex;align-items:center;gap:9px;color:var(--muted);font-size:11.5px;}
+.act-footer img{height:18px;opacity:.55;}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back" href="../home.html">&larr; Summer Open Source Experience</a>
+<div class="act-header">
+<div>
+<div class="eyebrow">SOSE &middot; Phase 1 · Find & Fix &middot; Weeks 1–2</div>
+<h1>Demonstrate your contribution &amp; have it reviewed</h1>
+<div class="context">Close the loop: show working evidence and respond to real review.</div>
+</div>
+<img class="cti-logo" src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="CTI" onerror="this.style.display='none'">
+</div>
+
+<div class="outcome"><div class="label">Learning outcome</div><div class="text">You can present a contribution as working evidence and respond to feedback from maintainers and peers.</div></div>
+
+<div class="block"><h2>The activity</h2><p>Show what you built and engage with the review it draws — the work isn’t done until someone else has looked.</p></div>
+
+<div class="video-spot">
+<div class="video-frame"><div class="play">&#9654;</div><div class="vtext">Video walkthrough &mdash; add embed here</div></div>
+<div class="video-cap">Drop a short walkthrough here. Replace the box above with your embed.</div>
+<!-- VIDEO EMBED: replace the .video-frame div above with, for example:
+     <iframe class="video-embed" src="https://www.youtube.com/embed/VIDEO_ID" title="Walkthrough" allowfullscreen></iframe> -->
+</div>
+
+<div class="block"><h2>How to do it</h2><ol>
+<li>Walk through what you changed and why, with the working result.</li>
+<li>Invite review — from maintainers on the PR and from a peer.</li>
+<li>Address the feedback and iterate until it’s accepted or clearly resolved.</li>
+</ol></div>
+
+<div class="show"><div class="label">What to show</div><div class="text">Your reviewed PR (merged or with a feedback thread) and 2–3 sentences on what the review taught you.</div></div>
+
+<footer class="act-footer">
+<img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="" onerror="this.style.display='none'">
+<span>Computing Talent Initiative &middot; Summer Open Source Experience</span>
+</footer>
+</div>
+</body>
+</html>
