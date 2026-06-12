@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concept: Self-Directed Learning With AI | Sprint 4: Close The Learning Gap</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #e0e0e0;
+      --accent: #2c5282;
+      --accent-light: #ebf4ff;
+      --radius: 8px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 20px 16px;
+      font: 16px/1.65 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .activity { max-width: 760px; margin: 0 auto; }
+    .meta {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 6px;
+    }
+    h1 { font-size: 22px; font-weight: 700; margin: 0 0 18px; line-height: 1.3; }
+    .goal {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin: 0 0 20px;
+    }
+    .goal h2, .submit h2 {
+      margin: 0 0 6px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .goal h2 { color: var(--accent); }
+    .goal p { margin: 0; }
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin: 0 0 16px;
+    }
+    section h2 { margin: 0 0 10px; font-size: 17px; font-weight: 700; }
+    section h3 { margin: 16px 0 8px; font-size: 15px; }
+    section p { margin: 8px 0; }
+    ol, ul { padding-left: 22px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    code {
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      padding: 1px 4px;
+      font-size: 0.92em;
+    }
+    pre {
+      background: #111827;
+      color: #f9fafb;
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      overflow-x: auto;
+    }
+    pre code { background: transparent; border: 0; color: inherit; padding: 0; }
+    a { color: var(--accent); word-break: break-word; }
+    .submit {
+      background: #ecfdf5;
+      border: 1px solid #6ee7b7;
+      border-left: 4px solid #10b981;
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin: 22px 0 12px;
+    }
+    .submit h2 { color: #065f46; }
+    .submit p { margin: 4px 0; }
+    footer { text-align: center; margin: 28px 0 8px; opacity: 0.55; }
+    footer img { height: 22px; }
+    .back-link {
+      display: none;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      margin: 0 0 12px;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .ctx-web .back-link { display: inline-block; }
+  </style>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      if (ctx !== 'canvas') {
+        document.documentElement.classList.add('ctx-web');
+      }
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
+          try {
+            var u = new URL(a.getAttribute('href'), location.href);
+            if (!u.searchParams.has('context')) {
+              u.searchParams.set('context', ctx);
+              a.href = u.href;
+            }
+          } catch (e) { }
+        });
+      });
+    })();
+  </script>
+</head>
+<body>
+  <div class="activity">
+    <a class="back-link" href="../sprint-4.html?context=web" data-keep-context>&larr; Back to Module</a>
+    <p class="meta">course1 &middot; Sprint 4 &middot; Sprint 4: Close The Learning Gap &middot; Page</p>
+    <h1>Concept: Self-Directed Learning With AI</h1>
+
+    <div class="goal">
+      <h2>Learning goal</h2>
+      <p>Understand Concept: Self-Directed Learning With AI and connect it to the work in this module.</p>
+    </div>
+
+    <section>
+<h2 id="self-directed-learning-starts-with-a-choice">Self-Directed Learning Starts With A Choice</h2>
+<p>You do not need to learn everything about the problem. You need to decide what knowledge or skill gap most affects your ability to move the problem forward. That decision is part of the work.</p>
+</section>
+
+<section>
+<h2 id="ai-can-accelerate-learning">AI Can Accelerate Learning</h2>
+<p>AI can explain, sequence, quiz, compare, and generate examples. It can help you move faster through unfamiliar material. It can also sound confident when it is wrong, incomplete, or too generic. Use AI as learning infrastructure, not as a final authority.</p>
+</section>
+
+<section>
+<h2 id="verification-matters">Verification Matters</h2>
+<p>Important claims should be checked against sources appropriate to the problem: documentation, expert input, stakeholder conversation, observation, data, policy, or practice. Verification does not mean endless research. It means enough checking for the course stage and decision at hand.</p>
+</section>
+
+<section>
+<h2 id="strategic-ignorance-matters">Strategic Ignorance Matters</h2>
+<p>A focused learner decides what to set aside. Naming what you are not learning yet is not laziness. It is scope control. The key is to explain why the exclusion is reasonable and what risk it creates.</p>
+</section>
+
+<section>
+<h2 id="practice-this-in-your-work">Practice This In Your Work</h2>
+<ul>
+<li>Name the smallest learning gap that matters next.</li>
+<li>Ask AI to sequence learning, not just summarize content.</li>
+<li>Use at least one source besides AI for important claims.</li>
+<li>Write what you are choosing not to learn yet.</li>
+<li>Connect learning back to the problem frame.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<p>Before you move to the next activity, write one sentence in your notes that names the decision you need to make next. If the sentence could apply to anyone, add more of your own context.</p>
+</section>
+
+    <div class="submit">
+      <h2>Submit to Canvas</h2>
+      <p>Read this page in full. No Canvas submission is required.</p>
+      <p><a href="https://cti-courses.instructure.com/courses/180/pages/concept-self-directed-learning-with-ai" target="_blank" rel="noopener">Open the Canvas page</a></p>
+    </div>
+
+    <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>
+  </div>
+</body>
+</html>

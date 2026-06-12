@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Gap Inventory | Sprint 4: Close The Learning Gap</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #e0e0e0;
+      --accent: #2c5282;
+      --accent-light: #ebf4ff;
+      --radius: 8px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 20px 16px;
+      font: 16px/1.65 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .activity { max-width: 760px; margin: 0 auto; }
+    .meta {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 6px;
+    }
+    h1 { font-size: 22px; font-weight: 700; margin: 0 0 18px; line-height: 1.3; }
+    .goal {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin: 0 0 20px;
+    }
+    .goal h2, .submit h2 {
+      margin: 0 0 6px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .goal h2 { color: var(--accent); }
+    .goal p { margin: 0; }
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin: 0 0 16px;
+    }
+    section h2 { margin: 0 0 10px; font-size: 17px; font-weight: 700; }
+    section h3 { margin: 16px 0 8px; font-size: 15px; }
+    section p { margin: 8px 0; }
+    ol, ul { padding-left: 22px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    code {
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      padding: 1px 4px;
+      font-size: 0.92em;
+    }
+    pre {
+      background: #111827;
+      color: #f9fafb;
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      overflow-x: auto;
+    }
+    pre code { background: transparent; border: 0; color: inherit; padding: 0; }
+    a { color: var(--accent); word-break: break-word; }
+    .submit {
+      background: #ecfdf5;
+      border: 1px solid #6ee7b7;
+      border-left: 4px solid #10b981;
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin: 22px 0 12px;
+    }
+    .submit h2 { color: #065f46; }
+    .submit p { margin: 4px 0; }
+    footer { text-align: center; margin: 28px 0 8px; opacity: 0.55; }
+    footer img { height: 22px; }
+    .back-link {
+      display: none;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      margin: 0 0 12px;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .ctx-web .back-link { display: inline-block; }
+  </style>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      if (ctx !== 'canvas') {
+        document.documentElement.classList.add('ctx-web');
+      }
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
+          try {
+            var u = new URL(a.getAttribute('href'), location.href);
+            if (!u.searchParams.has('context')) {
+              u.searchParams.set('context', ctx);
+              a.href = u.href;
+            }
+          } catch (e) { }
+        });
+      });
+    })();
+  </script>
+</head>
+<body>
+  <div class="activity">
+    <a class="back-link" href="../sprint-4.html?context=web" data-keep-context>&larr; Back to Module</a>
+    <p class="meta">course1 &middot; Sprint 4 &middot; Sprint 4: Close The Learning Gap &middot; Assignment</p>
+    <h1>Knowledge Gap Inventory</h1>
+
+    <div class="goal">
+      <h2>Learning goal</h2>
+      <p>Apply the core idea from Knowledge Gap Inventory in a focused Canvas submission.</p>
+    </div>
+
+    <section>
+<h2 id="purpose">Purpose</h2>
+<p>Identify what you need to learn next, what you already understand well enough, and what you can safely ignore for now.</p>
+</section>
+
+<section>
+<h2 id="task-instructions">Task Instructions</h2>
+<ol>
+<li>Review your stakeholder validation report and revised Goal Plan.</li>
+<li>List possible knowledge or skill gaps that affect the problem.</li>
+<li>Separate essential learning from optional learning.</li>
+<li>Name sources that could help you learn or verify the gap.</li>
+</ol>
+</section>
+
+<section>
+<h2 id="deliverable">Deliverable</h2>
+<p>Submit a text entry with:</p>
+<ul>
+<li>What you understand well enough.</li>
+<li>What you do not understand yet.</li>
+<li>What would change your problem frame if you learned it.</li>
+<li>What you can safely ignore for now.</li>
+<li>What sources could help: AI, documentation, articles, stakeholder conversation, observation, data, expert, or peer.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="submission-format">Submission Format</h2>
+<p>Text entry in Canvas.</p>
+</section>
+
+<section>
+<h2 id="evidence-of-success">Evidence Of Success</h2>
+<p>Your submission should be specific enough that another person can understand your context, your reasoning, and what you are ready to do next. Do not submit a polished AI answer without showing your own judgment.</p>
+</section>
+
+<section>
+<h2 id="portfolio-capture">Portfolio Capture</h2>
+<p>This inventory becomes the input for your Dojo learning path design.</p>
+</section>
+
+    <div class="submit">
+      <h2>Submit to Canvas</h2>
+      <p>Use the Canvas assignment to submit your work.</p>
+      <p><a href="https://cti-courses.instructure.com/courses/180/assignments/6899" target="_blank" rel="noopener">Open the Canvas assignment</a></p>
+    </div>
+
+    <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>
+  </div>
+</body>
+</html>

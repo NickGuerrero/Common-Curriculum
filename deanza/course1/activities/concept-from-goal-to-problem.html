@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concept: From Goal To Problem | Sprint 1: Frame What Is Worth Solving</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #e0e0e0;
+      --accent: #2c5282;
+      --accent-light: #ebf4ff;
+      --radius: 8px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 20px 16px;
+      font: 16px/1.65 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .activity { max-width: 760px; margin: 0 auto; }
+    .meta {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 6px;
+    }
+    h1 { font-size: 22px; font-weight: 700; margin: 0 0 18px; line-height: 1.3; }
+    .goal {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin: 0 0 20px;
+    }
+    .goal h2, .submit h2 {
+      margin: 0 0 6px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .goal h2 { color: var(--accent); }
+    .goal p { margin: 0; }
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin: 0 0 16px;
+    }
+    section h2 { margin: 0 0 10px; font-size: 17px; font-weight: 700; }
+    section h3 { margin: 16px 0 8px; font-size: 15px; }
+    section p { margin: 8px 0; }
+    ol, ul { padding-left: 22px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    code {
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      padding: 1px 4px;
+      font-size: 0.92em;
+    }
+    pre {
+      background: #111827;
+      color: #f9fafb;
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      overflow-x: auto;
+    }
+    pre code { background: transparent; border: 0; color: inherit; padding: 0; }
+    a { color: var(--accent); word-break: break-word; }
+    .submit {
+      background: #ecfdf5;
+      border: 1px solid #6ee7b7;
+      border-left: 4px solid #10b981;
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin: 22px 0 12px;
+    }
+    .submit h2 { color: #065f46; }
+    .submit p { margin: 4px 0; }
+    footer { text-align: center; margin: 28px 0 8px; opacity: 0.55; }
+    footer img { height: 22px; }
+    .back-link {
+      display: none;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      margin: 0 0 12px;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .ctx-web .back-link { display: inline-block; }
+  </style>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      if (ctx !== 'canvas') {
+        document.documentElement.classList.add('ctx-web');
+      }
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
+          try {
+            var u = new URL(a.getAttribute('href'), location.href);
+            if (!u.searchParams.has('context')) {
+              u.searchParams.set('context', ctx);
+              a.href = u.href;
+            }
+          } catch (e) { }
+        });
+      });
+    })();
+  </script>
+</head>
+<body>
+  <div class="activity">
+    <a class="back-link" href="../sprint-1.html?context=web" data-keep-context>&larr; Back to Module</a>
+    <p class="meta">course1 &middot; Sprint 1 &middot; Sprint 1: Frame What Is Worth Solving &middot; Page</p>
+    <h1>Concept: From Goal To Problem</h1>
+
+    <div class="goal">
+      <h2>Learning goal</h2>
+      <p>Understand Concept: From Goal To Problem and connect it to the work in this module.</p>
+    </div>
+
+    <section>
+<h2 id="a-goal-is-not-yet-a-problem">A Goal Is Not Yet A Problem</h2>
+<p>A goal names a direction: get promoted, reduce delays, improve onboarding, support a community, or build a stronger portfolio. A problem names the specific condition that makes the goal hard to reach. The course begins by separating those two things because AI can easily produce solutions for the wrong frame.</p>
+</section>
+
+<section>
+<h2 id="surface-requests-hide-underlying-problems">Surface Requests Hide Underlying Problems</h2>
+<p>A surface request often starts as something like make a dashboard, write a policy, automate the emails, or use AI for scheduling. The underlying problem may involve unclear handoffs, missing information, conflicting incentives, mistrust, or a process no one owns. Your job is to find the problem beneath the request before you chase a solution.</p>
+</section>
+
+<section>
+<h2 id="use-the-abstraction-ladder">Use The Abstraction Ladder</h2>
+<p>Move down to concrete examples and incidents. Move across to patterns. Move up to causes and purposes. Then move back down to a narrower problem that can be worked on during this course. The best frame is not the broadest one. It is the one that is real, current, connected to actual people, and workable.</p>
+</section>
+
+<section>
+<h2 id="the-first-frame-is-provisional">The First Frame Is Provisional</h2>
+<p>You do not need to be certain in Sprint 1. You need a frame that is honest enough to test. A strong first frame names what you know, what you assume, who is affected, and what evidence you need next.</p>
+</section>
+
+<section>
+<h2 id="practice-this-in-your-work">Practice This In Your Work</h2>
+<ul>
+<li>Write the goal in one sentence.</li>
+<li>Write the first problem statement in one sentence.</li>
+<li>Name one concrete example that shows the problem.</li>
+<li>Name one assumption that could be wrong.</li>
+<li>Name one real person or role affected by the problem.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<p>Before you move to the next activity, write one sentence in your notes that names the decision you need to make next. If the sentence could apply to anyone, add more of your own context.</p>
+</section>
+
+    <div class="submit">
+      <h2>Submit to Canvas</h2>
+      <p>Read this page in full. No Canvas submission is required.</p>
+      <p><a href="https://cti-courses.instructure.com/courses/180/pages/concept-from-goal-to-problem" target="_blank" rel="noopener">Open the Canvas page</a></p>
+    </div>
+
+    <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>
+  </div>
+</body>
+</html>
