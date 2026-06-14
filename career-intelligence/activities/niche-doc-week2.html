@@ -26,10 +26,29 @@
     .submit p{margin:4px 0;}
     footer{text-align:center;margin:28px 0 8px;opacity:.55;}
     footer img{height:22px;}
-  </style>
+      .back-link{display:none;font-size:13px;color:var(--accent);text-decoration:none;margin:0 0 12px;}
+    .back-link:hover{text-decoration:underline;}
+    .ctx-web .back-link{display:inline-block;}
+</style>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      if (ctx !== 'canvas') { document.documentElement.classList.add('ctx-web'); }
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
+          try {
+            var u = new URL(a.getAttribute('href'), location.href);
+            if (!u.searchParams.has('context')) { u.searchParams.set('context', ctx); a.href = u.href; }
+          } catch (e) {}
+        });
+      });
+    })();
+  </script>
 </head>
 <body>
   <div class="ci-page">
+    <a class="back-link" href="../canvas/home.html?context=web" data-keep-context>&larr; Back to Week 2 overview</a>
     <div class="banner">More than 80% of this activity is AI-designed. A careful human review will revise it.</div>
     <p class="meta">Career Intelligence &middot; Week 2 &middot; Develop &amp; Articulate Your Niche</p>
     <h1>Niche Doc &mdash; Week 2 Update</h1>
@@ -48,6 +67,15 @@
       <li>Open your <a href="https://docs.google.com/spreadsheets/d/13tI6tN726mxxBgg3BxJd6HKcCfk8Lh8hPsjg3l3UKoE/edit?gid=1732606815#gid=1732606815" target="_blank" rel="noopener">Niche Doc</a> (your own copy from Week 1).</li>
       <li>Fold in what surfaced this week: the <strong>Resume Story Swap</strong>, your <strong>10 analyzed job postings</strong>, and your sharpened role-type hypotheses.</li>
       <li>Tighten your niche one-liner so it is more specific than last week.</li>
+    </ol>
+
+    <h2 class="sec">Name your 2&ndash;3 role types</h2>
+    <p>Before you tighten the one-liner, work these through with an AI sparring-partner:</p>
+    <ol class="steps">
+      <li>Name your 2&ndash;3 role types in plain words.</li>
+      <li>For each, the 3&ndash;5 phrases or requirements that showed up again and again across your 10 postings.</li>
+      <li>Which role type has the most evidence in your background? Which is more aspiration than evidence right now?</li>
+      <li>What&rsquo;s one thing still missing before this niche is fully backed by evidence?</li>
     </ol>
 
     <div class="submit">

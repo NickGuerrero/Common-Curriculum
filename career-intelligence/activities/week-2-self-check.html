@@ -127,11 +127,30 @@
       opacity: 0.55;
     }
     footer img { height: 22px; }
-  </style>
+      .back-link{display:none;font-size:13px;color:var(--accent);text-decoration:none;margin:0 0 12px;}
+    .back-link:hover{text-decoration:underline;}
+    .ctx-web .back-link{display:inline-block;}
+</style>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      if (ctx !== 'canvas') { document.documentElement.classList.add('ctx-web'); }
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
+          try {
+            var u = new URL(a.getAttribute('href'), location.href);
+            if (!u.searchParams.has('context')) { u.searchParams.set('context', ctx); a.href = u.href; }
+          } catch (e) {}
+        });
+      });
+    })();
+  </script>
 </head>
 <body>
   <div class="ci-page">
-    <p class="meta">Career Intelligence &middot; Week 2 &middot; Know Yourself &amp; Know the Market</p>
+    <a class="back-link" href="../canvas/home.html?context=web" data-keep-context>&larr; Back to Week 2 overview</a>
+    <p class="meta">Career Intelligence &middot; Week 2 &middot; Develop &amp; Articulate Your Niche</p>
     <h1>Week 2 Self-Check</h1>
 
     <div class="goal">
@@ -158,10 +177,13 @@
       </li>
     </ol>
 
+    <div style="background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:12px 16px;margin:0 0 16px;color:#92400e;">
+      <strong>Do question 1 by hand.</strong> Write your role types out on paper, then photograph it &mdash; writing by hand makes you commit to specifics instead of hedging. Type your answers to questions 2 and 3.
+    </div>
+
     <div class="submit">
       <h2>Submit to Canvas</h2>
-      <p><strong>Submission type:</strong> Text entry</p>
-      <p><strong>What to submit:</strong> A short reflection &mdash; a few sentences answering the three questions above, in your own words.</p>
+      <p><strong>Submit:</strong> a photo of your handwritten answer to question 1, plus typed answers to questions 2 and 3.</p>
     </div>
 
     <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>

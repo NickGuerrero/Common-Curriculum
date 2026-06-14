@@ -34,10 +34,29 @@
     .submit p{margin:4px 0;}
     footer{text-align:center;margin:28px 0 8px;opacity:.55;}
     footer img{height:22px;}
-  </style>
+      .back-link{display:none;font-size:13px;color:var(--accent);text-decoration:none;margin:0 0 12px;}
+    .back-link:hover{text-decoration:underline;}
+    .ctx-web .back-link{display:inline-block;}
+</style>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      if (ctx !== 'canvas') { document.documentElement.classList.add('ctx-web'); }
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
+          try {
+            var u = new URL(a.getAttribute('href'), location.href);
+            if (!u.searchParams.has('context')) { u.searchParams.set('context', ctx); a.href = u.href; }
+          } catch (e) {}
+        });
+      });
+    })();
+  </script>
 </head>
 <body>
   <div class="ci-page">
+    <a class="back-link" href="../canvas/home.html?context=web" data-keep-context>&larr; Back to Week 2 overview</a>
     <div class="banner">More than 80% of this activity is AI-designed. A careful human review will revise it.</div>
     <p class="meta">Career Intelligence &middot; Week 2 &middot; Develop &amp; Articulate Your Niche</p>
     <h1>Curate &amp; Analyze 10 Jobs Aligned to Your Niche</h1>
@@ -50,15 +69,23 @@
 
     <h2 class="sec">What to do</h2>
     <ol class="steps">
+      <li>Start from the <strong>job-search prompt</strong> below &mdash; paste it into your AI tool with your own niche filled in.</li>
       <li>Find <strong>10 real postings</strong> across several organizations where your niche is explicit, and log them in the tracker.</li>
       <li>Pull the requirements they repeat &mdash; AI can help, then verify &mdash; and mark where your resume matches or doesn&rsquo;t.</li>
+      <li>Sort your 10 into <strong>2&ndash;3 role types</strong> &mdash; group the postings that ask for the same kind of work, and name each group in plain words.</li>
     </ol>
 
+    <div style="background:#f7f9fc;border:1px solid #cdd9e5;border-left:4px solid var(--accent);border-radius:var(--radius);padding:12px 16px;margin:12px 0;">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-bottom:6px;">Job-search prompt &mdash; fill in your niche</div>
+      <p style="margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;line-height:1.6;">I&rsquo;m an early-career candidate targeting roles as a <strong>[YOUR NICHE &mdash; e.g., &ldquo;backend engineer for data-heavy products: APIs, databases, performance&rdquo;]</strong>. Find 10 real, currently-open job postings from different companies where this niche is explicit in the responsibilities or requirements. For each, give the company, title, link, and the 3&ndash;5 exact phrases in the posting that match my niche. Then group the 10 into 2&ndash;3 role types and tell me, in one line each, what kind of work distinguishes each type. Don&rsquo;t invent postings &mdash; only ones you can link to.</p>
+    </div>
+
     <div class="lens">
-      <strong>Two checks</strong>
+      <strong>Three checks</strong>
       <ul>
         <li><strong>Niche explicit?</strong> If you can&rsquo;t point to the words that match your niche, it&rsquo;s a generic job &mdash; swap it.</li>
         <li><strong>Can&rsquo;t find 10?</strong> Your niche may be too narrow &mdash; adjust rather than force-fit.</li>
+        <li><strong>Real role types?</strong> If a group is just a list of companies, say what the work actually is &mdash; or merge it into another type.</li>
       </ul>
     </div>
 
@@ -74,7 +101,7 @@
 
     <div class="submit">
       <h2>Capture &amp; submit</h2>
-      <p><a href="https://docs.google.com/spreadsheets/d/1Xhkslc7Yul6NijDL0wut16_aHepJ2tF9xLQjf2nGpRk/copy" target="_blank" rel="noopener"><strong>Make a copy of the job tracker</strong></a>, then log your 10 niche-aligned jobs &mdash; company, position, status, link, and notes on the requirements they repeat.</p>
+      <p><a href="https://docs.google.com/spreadsheets/d/1Xhkslc7Yul6NijDL0wut16_aHepJ2tF9xLQjf2nGpRk/copy" target="_blank" rel="noopener"><strong>Make a copy of the job tracker</strong></a>, then log your 10 niche-aligned jobs &mdash; company, position, status, link, the requirements they repeat, and which of your 2&ndash;3 role types each belongs to.</p>
       <p><strong>Submit:</strong> the link to your copy of the tracker (set sharing so anyone with the link can view).</p>
     </div>
 

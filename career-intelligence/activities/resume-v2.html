@@ -26,10 +26,29 @@
     .submit p{margin:4px 0;}
     footer{text-align:center;margin:28px 0 8px;opacity:.55;}
     footer img{height:22px;}
-  </style>
+      .back-link{display:none;font-size:13px;color:var(--accent);text-decoration:none;margin:0 0 12px;}
+    .back-link:hover{text-decoration:underline;}
+    .ctx-web .back-link{display:inline-block;}
+</style>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      if (ctx !== 'canvas') { document.documentElement.classList.add('ctx-web'); }
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
+          try {
+            var u = new URL(a.getAttribute('href'), location.href);
+            if (!u.searchParams.has('context')) { u.searchParams.set('context', ctx); a.href = u.href; }
+          } catch (e) {}
+        });
+      });
+    })();
+  </script>
 </head>
 <body>
   <div class="ci-page">
+    <a class="back-link" href="../canvas/home.html?context=web" data-keep-context>&larr; Back to Week 2 overview</a>
     <div class="banner">More than 80% of this activity is AI-designed. A careful human review will revise it.</div>
     <p class="meta">Career Intelligence &middot; Week 2 &middot; Develop &amp; Articulate Your Niche</p>
     <h1>Submit Your Resume v2</h1>
@@ -46,6 +65,18 @@
       <li>Add evidence where it was <strong>silent</strong> on your niche.</li>
       <li>Keep your own voice &mdash; use AI for confirmation, not rewrites.</li>
     </ol>
+
+    <h2 class="sec">Reflection that guides the revision</h2>
+    <p>Work these through with an AI sparring-partner before you submit. It should push for specifics &mdash; a tool, a number, a result &mdash; and keep your own voice.</p>
+    <ol class="steps">
+      <li>In one line, what is your niche right now?</li>
+      <li>List each item your partner flagged as <strong>drifting</strong> (pointing at a different role).</li>
+      <li>List where your resume is <strong>silent</strong> on your niche &mdash; no evidence yet.</li>
+      <li>For each drift: cut it, move it down, or reframe it &mdash; and write the new line.</li>
+      <li>For each gap: what real experience adds evidence? Write the bullet &mdash; what you did, the tools, the result.</li>
+      <li>Read it top to bottom: does the through-line point at your niche in the first third of the page?</li>
+    </ol>
+
     <div class="submit">
       <h2>Submit to Canvas</h2>
       <p><strong>Submit:</strong> the link to your updated resume (the living Google Doc you started in Week 1). Set sharing so anyone with the link can view.</p>

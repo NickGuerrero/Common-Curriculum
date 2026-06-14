@@ -49,10 +49,29 @@
     .submit p{margin:4px 0;}
     footer{text-align:center;margin:28px 0 8px;opacity:.55;}
     footer img{height:22px;}
-  </style>
+      .back-link{display:none;font-size:13px;color:var(--accent);text-decoration:none;margin:0 0 12px;}
+    .back-link:hover{text-decoration:underline;}
+    .ctx-web .back-link{display:inline-block;}
+</style>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      if (ctx !== 'canvas') { document.documentElement.classList.add('ctx-web'); }
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
+          try {
+            var u = new URL(a.getAttribute('href'), location.href);
+            if (!u.searchParams.has('context')) { u.searchParams.set('context', ctx); a.href = u.href; }
+          } catch (e) {}
+        });
+      });
+    })();
+  </script>
 </head>
 <body>
   <div class="ci-page">
+    <a class="back-link" href="../canvas/home.html?context=web" data-keep-context>&larr; Back to Week 2 overview</a>
     <div class="banner">More than 80% of this activity is AI-designed. A careful human review will revise it.</div>
     <p class="meta">Career Intelligence &middot; Week 2 &middot; Develop &amp; Articulate Your Niche</p>
     <h1>Resume Story Swap</h1>
@@ -77,6 +96,7 @@
         <li>Does the through-line point at the niche?</li>
         <li>Which items support it &mdash; which are off-target or missing?</li>
         <li>Where would a recruiter for that niche get confused?</li>
+        <li>Where could this niche describe almost any CS grad? Name one way it isn&rsquo;t yet specific to <em>this</em> person &mdash; and how they&rsquo;d revise it.</li>
       </ul>
     </div>
     <h2 class="sec">See it in action</h2>
