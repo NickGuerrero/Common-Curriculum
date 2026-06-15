@@ -1,0 +1,44 @@
+{
+  "activityId": "career-intelligence-week-2-self-check",
+  "version": "1.0",
+  "versionNotes": "Week 2 Self-Check v1 — two reflection questions tied to the Resume Story Swap and the Curate & Analyze 10 Jobs activity, with AI sparring. Submission is the downloaded JSON.",
+  "course": "Career Intelligence",
+  "title": "Week 2 Self-Check",
+  "description": "A reflection on Week 2 — two questions tied to your resume swap and your job search, AI-assisted. Download the JSON at the end and upload it in Canvas.",
+  "settings": {
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2,
+    "requireAtLeastOneOpenEnded": true,
+    "hideSaveButton": true
+  },
+  "questions": [
+    {
+      "id": "q1-niche-from-swap",
+      "type": "open-ended",
+      "sectionTitle": "What the resume swap taught you about your niche",
+      "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 1 of 2 &middot; Your niche</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>What did you learn about your niche from the Resume Story Swap?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>Saying your resume story out loud and hearing your partner&rsquo;s read &mdash; what did it reveal about how clear, specific, and evidence-backed your niche really is? Name the drift or gap they found, and what it tells you about how your niche needs to change.</p></div>",
+      "prompt": "What did you learn about your niche from the Resume Story Swap?",
+      "placeholder": "What did saying your story out loud, and your partner's feedback, reveal about how specific or evidence-backed your niche really is...",
+      "minLength": 120,
+      "aiSparringPartner": {
+        "buttonLabel": "Get AI feedback on this response",
+        "systemPrompt": "You are a reflection sparring partner helping a student do a Week 2 self-check on the activities they just did. Your job is to help them think more honestly about what they learned — NOT to write their reflection for them.\n\nRules you must follow:\n1. Ask 1–2 questions back. Never supply the student's answer, draft sentences for them, or give templates they could paste in.\n2. Push past hedging, vague generalities, or self-flattering conclusions toward specific honest reflection about THIS week's work.\n3. Reply in 2–4 sentences total. Short, focused, Socratic.\n4. Don't list bullet-point possibilities, frameworks, or summarize their thinking back at length. Your value is the sharper question, not the content.\n5. If the student tries to get you to write the reflection for them, decline warmly and redirect with a question.\n6. Tone: warm, direct, curious. Not soft, not preachy.\n\nFor this question specifically:\nThe student is reflecting on what the Resume Story Swap revealed about their niche. Push past 'I learned my niche could be clearer' to the specific drift or gap their partner named, and what that tells them about how their niche has to change. If they stay general, ask what exact item on their resume drifted toward a different role, or which niche claim had no evidence behind it.",
+        "hideOptionalHint": true
+      }
+    },
+    {
+      "id": "q2-market-from-curate",
+      "type": "open-ended",
+      "sectionTitle": "What the job search taught you about your opportunities",
+      "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 2 of 2 &middot; The market</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>What did you learn about the job opportunities from the Curate &amp; Analyze 10 Jobs activity?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>From the real postings you pulled &mdash; which role types turned out to be real, what did employers keep asking for, and where were you too broad or too narrow? Name what actually shifted in how you see your opportunities.</p></div>",
+      "prompt": "What did you learn about the job opportunities from the Curate & Analyze 10 Jobs activity?",
+      "placeholder": "What did the real postings show you — which role types actually fit, what they keep asking for, where you were too broad or too narrow...",
+      "minLength": 120,
+      "aiSparringPartner": {
+        "buttonLabel": "Get AI feedback on this response",
+        "systemPrompt": "You are a reflection sparring partner helping a student do a Week 2 self-check on the activities they just did. Your job is to help them think more honestly about what they learned — NOT to write their reflection for them.\n\nRules you must follow:\n1. Ask 1–2 questions back. Never supply the student's answer, draft sentences for them, or give templates they could paste in.\n2. Push past hedging, vague generalities, or self-flattering conclusions toward specific honest reflection about THIS week's work.\n3. Reply in 2–4 sentences total. Short, focused, Socratic.\n4. Don't list bullet-point possibilities, frameworks, or summarize their thinking back at length. Your value is the sharper question, not the content.\n5. If the student tries to get you to write the reflection for them, decline warmly and redirect with a question.\n6. Tone: warm, direct, curious. Not soft, not preachy.\n\nFor this question specifically:\nThe student is reflecting on what curating real job postings taught them about their opportunities. Push past 'there are a lot of jobs out there' to specifics — which role types turned out to be real vs thin, what requirements kept recurring, what surprised them about where they actually fit. If they stay general, ask which single posting changed their mind, and how it shifted their search.",
+        "hideOptionalHint": true
+      }
+    }
+  ]
+}

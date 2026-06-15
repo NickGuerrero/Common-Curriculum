@@ -61,50 +61,6 @@
       margin: 0 0 16px;
     }
     .intro p { margin: 6px 0; }
-    .questions {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px;
-      counter-reset: q-counter;
-    }
-    .questions li {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px 18px 16px 60px;
-      margin: 0 0 12px;
-      position: relative;
-      counter-increment: q-counter;
-    }
-    .questions li::before {
-      content: counter(q-counter);
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .questions .q-lead {
-      display: block;
-      font-weight: 700;
-      font-size: 16px;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-    .questions .q-body {
-      display: block;
-      color: var(--text);
-      font-size: 15px;
-      line-height: 1.6;
-    }
     .submit {
       background: #ecfdf5;
       border: 1px solid #6ee7b7;
@@ -127,72 +83,41 @@
       opacity: 0.55;
     }
     footer img { height: 22px; }
-      .back-link{display:none;font-size:13px;color:var(--accent);text-decoration:none;margin:0 0 12px;}
-    .back-link:hover{text-decoration:underline;}
-    .ctx-web .back-link{display:inline-block;}
-</style>
-  <script>
-    (function() {
-      var ctx = new URLSearchParams(location.search).get('context')
-        || (window.self !== window.top ? 'canvas' : 'web');
-      if (ctx !== 'canvas') { document.documentElement.classList.add('ctx-web'); }
-      document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
-          try {
-            var u = new URL(a.getAttribute('href'), location.href);
-            if (!u.searchParams.has('context')) { u.searchParams.set('context', ctx); a.href = u.href; }
-          } catch (e) {}
-        });
-      });
-    })();
-  </script>
+  </style>
 </head>
 <body>
   <div class="ci-page">
-    <a class="back-link" href="../canvas/home.html?context=web" data-keep-context>&larr; Back to Week 2 overview</a>
     <p class="meta">Career Intelligence &middot; Week 2 &middot; Develop &amp; Articulate Your Niche</p>
     <h1>Week 2 Self-Check</h1>
 
     <div class="goal">
       <h2>Learning goal</h2>
-      <p>Make sure your niche is specific and backed by real postings before you build your search on it.</p>
+      <p>Step back and name what this week&rsquo;s work taught you &mdash; about your niche, and about the jobs you&rsquo;re aiming at.</p>
     </div>
 
     <div class="intro">
-      <p>Three questions to reflect on. Write a few honest sentences for each &mdash; this is for your own thinking, not for a grade. There are no wrong answers; not sure yet is a fine place to be, as long as you say why.</p>
+      <p>Two reflection questions, tied to this week&rsquo;s work &mdash; your Resume Story Swap and your job search. AI will sparring-partner with you on each, pushing past surface answers. When you&rsquo;ve worked through both, download the JSON and upload it in Canvas.</p>
     </div>
 
-    <ol class="questions">
-      <li>
-        <span class="q-lead">Where are you now?</span>
-        <span class="q-body">Name the one to three specific role types you are considering after this week &mdash; specific enough to act on, not just a job in tech. What in your own background points you toward them?</span>
-      </li>
-      <li>
-        <span class="q-lead">What did the market show you?</span>
-        <span class="q-body">Across the job postings you looked at this week, what skills, words, or requirements kept coming up &mdash; and where does your current niche match them, or miss them?</span>
-      </li>
-      <li>
-        <span class="q-lead">What is still rough?</span>
-        <span class="q-body">Where does your niche still feel too broad, too narrow, or like a guess rather than evidence-backed &mdash; and what is one thing you will do next to sharpen it?</span>
-      </li>
-    </ol>
-
-    <div style="background:#f5f8fb;border:1px solid #cdd9e5;border-left:4px solid var(--accent);border-radius:8px;padding:12px 16px;margin:0 0 16px;">
-      <strong>What an honest answer looks like</strong> (for &ldquo;what is still rough?&rdquo;)
-      <p style="margin:6px 0 0;">Surface: <em>&ldquo;My niche is still a little broad.&rdquo;</em></p>
-      <p style="margin:4px 0 0;">Specific: <em>&ldquo;&lsquo;Data engineer&rsquo; still covers both analytics and infrastructure roles, and they want different skills. I&rsquo;ll read 5 more postings this week and pick one.&rdquo;</em></p>
-    </div>
-
-    <div style="background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:12px 16px;margin:0 0 16px;color:#92400e;">
-      <strong>Do question 1 by hand.</strong> Write your role types out on paper, then photograph it &mdash; writing by hand makes you commit to specifics instead of hedging. Type your answers to questions 2 and 3.
-    </div>
+    <div id="activity-container"></div>
 
     <div class="submit">
       <h2>Submit to Canvas</h2>
-      <p><strong>Submit:</strong> a photo of your handwritten answer to question 1, plus typed answers to questions 2 and 3.</p>
+      <p><strong>Submission type:</strong> File upload</p>
+      <p><strong>What to submit:</strong> The JSON file the reflection produces &mdash; download it from the form above when you reach the end.</p>
     </div>
 
     <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>
   </div>
+
+  <script src="../../js/activity-components.js"></script>
+  <script src="../../js/activity-engine.js"></script>
+  <script>
+    ActivityEngine.init({
+      containerId: 'activity-container',
+      configUrl: '../../activities/career-intelligence/week-2-self-check.json',
+      courseTheme: 'cst349'
+    });
+  </script>
 </body>
 </html>
