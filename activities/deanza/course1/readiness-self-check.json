@@ -1,0 +1,32 @@
+{
+  "activityId": "course1-readiness-self-check",
+  "version": "1.0",
+  "course": "course1",
+  "title": "Readiness Self-Check",
+  "description": "Use AI follow-up questions to check whether your final readiness judgment is evidence-backed and readable.",
+  "settings": {
+    "aiEndpoint": "https://ai-assisted-pedagogy.netlify.app/.netlify/functions/ai-proxy",
+    "exportMode": "json",
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2
+  },
+  "questions": [
+    {
+      "id": "q1-readiness-judgment",
+      "type": "ai-discussion",
+      "prompt": "State your current readiness judgment for carrying the problem forward. Explain the evidence behind it, the strongest condition or limitation, and what your human contribution adds that AI alone could not.\n",
+      "placeholder": "Choose ready, ready with conditions, or not ready yet. Then explain the evidence, the condition or limitation, and the judgment you contributed.\n",
+      "minLength": 130,
+      "numQuestions": 3,
+      "aiContext": "This is a Sprint 5 concept check on synthesis and readiness. The participant should select and connect evidence into a coherent argument, not paste prior assignments together. Push for stakeholder integration, evidence quality, readable reasoning, and a readiness judgment that can include conditions or not ready yet. Challenge overconfident claims and vague statements about human contribution.\n",
+      "generateButtonText": "Get Follow-up Questions",
+      "loadingText": "Generating follow-up questions...",
+      "discussionPrompt": "Use the follow-up questions to revise your readiness judgment. Your refined response should be honest, evidence-backed, and clear enough for an outside reader.\n",
+      "summaryLabel": "Your Refined Readiness Check",
+      "summaryPlaceholder": "Rewrite your readiness judgment. Include the evidence, stakeholder grounding, condition or limitation, and what your judgment contributed beyond AI.\n",
+      "saveButtonText": "Save Response",
+      "updateButtonText": "Update Response",
+      "digDeeperText": "Dig deeper with AI guidance"
+    }
+  ]
+}

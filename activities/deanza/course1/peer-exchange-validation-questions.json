@@ -1,0 +1,32 @@
+{
+  "activityId": "course1-peer-exchange-validation-questions",
+  "version": "1.0",
+  "course": "course1",
+  "title": "Peer Exchange: Validation Questions",
+  "description": "Use AI follow-up questions to improve the questions you will ask a real stakeholder.",
+  "settings": {
+    "aiEndpoint": "https://ai-assisted-pedagogy.netlify.app/.netlify/functions/ai-proxy",
+    "exportMode": "json",
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2
+  },
+  "questions": [
+    {
+      "id": "q1-validation-questions",
+      "type": "ai-discussion",
+      "prompt": "Share three validation questions you plan to ask, the stakeholder role you hope to ask, and what you need to learn from the conversation.\n",
+      "placeholder": "Include the stakeholder role, your three draft questions, and the assumption or uncertainty each question is meant to test.\n",
+      "minLength": 120,
+      "numQuestions": 3,
+      "aiContext": "This is Sprint 3 of Reframing Problems with AI. The participant is preparing questions for a real stakeholder conversation. Push for listening rather than pitching, evidence rather than approval, and questions that uncover needs, constraints, tensions, and assumptions. Challenge yes-or-no questions, leading questions, and questions that ask stakeholders to solve the participant's assignment.\n",
+      "generateButtonText": "Get Follow-up Questions",
+      "loadingText": "Generating follow-up questions...",
+      "discussionPrompt": "Use these questions to refine your validation plan. Your final response should include stronger stakeholder questions and explain what each one is meant to test.\n",
+      "summaryLabel": "Your Refined Validation Questions",
+      "summaryPlaceholder": "Rewrite your validation questions. Include the stakeholder role, what each question tests, and what would count as useful evidence.\n",
+      "saveButtonText": "Save Response",
+      "updateButtonText": "Update Response",
+      "digDeeperText": "Dig deeper with AI guidance"
+    }
+  ]
+}

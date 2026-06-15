@@ -1,0 +1,32 @@
+{
+  "activityId": "course1-self-directed-learning-check",
+  "version": "1.0",
+  "course": "course1",
+  "title": "Self-Directed Learning Check",
+  "description": "Use AI follow-up questions to check whether your learning plan is focused, problem-linked, and verifiable.",
+  "settings": {
+    "aiEndpoint": "https://ai-assisted-pedagogy.netlify.app/.netlify/functions/ai-proxy",
+    "exportMode": "json",
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2
+  },
+  "questions": [
+    {
+      "id": "q1-learning-gap-check",
+      "type": "ai-discussion",
+      "prompt": "Describe one knowledge gap that matters for your problem, how AI can help you learn it, and how you will verify an important claim outside AI.\n",
+      "placeholder": "Name the gap, why it matters to the problem, how AI fits into the learning path, and the source or person you will use to verify important claims.\n",
+      "minLength": 120,
+      "numQuestions": 3,
+      "aiContext": "This is a Sprint 4 concept check on focused self-directed learning with AI. The participant should connect the learning gap to the problem rather than a disconnected research interest. Push for strategic ignorance, a practical learning path, and verification through documentation, expert input, data, stakeholder evidence, or another appropriate source. Challenge overbroad topics and unverified AI explanations.\n",
+      "generateButtonText": "Get Follow-up Questions",
+      "loadingText": "Generating follow-up questions...",
+      "discussionPrompt": "Use the follow-up questions to revise your answer. Your refined response should show a focused learning gap, a bounded AI-supported learning plan, and a verification step.\n",
+      "summaryLabel": "Your Refined Learning Check",
+      "summaryPlaceholder": "Rewrite your answer with the learning gap, why it matters, how you will use AI, what you are choosing not to learn yet, and how you will verify claims.\n",
+      "saveButtonText": "Save Response",
+      "updateButtonText": "Update Response",
+      "digDeeperText": "Dig deeper with AI guidance"
+    }
+  ]
+}

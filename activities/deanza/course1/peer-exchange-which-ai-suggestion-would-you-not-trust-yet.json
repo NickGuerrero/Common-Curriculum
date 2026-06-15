@@ -1,0 +1,32 @@
+{
+  "activityId": "course1-peer-exchange-which-ai-suggestion-would-you-not-trust-yet",
+  "version": "1.0",
+  "course": "course1",
+  "title": "Peer Exchange: Which AI Suggestion Would You Not Trust Yet?",
+  "description": "Use AI follow-up questions to sharpen your skepticism about a plausible but unverified AI suggestion.",
+  "settings": {
+    "aiEndpoint": "https://ai-assisted-pedagogy.netlify.app/.netlify/functions/ai-proxy",
+    "exportMode": "json",
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2
+  },
+  "questions": [
+    {
+      "id": "q1-untrusted-suggestion",
+      "type": "ai-discussion",
+      "prompt": "Describe one AI suggestion that looked plausible but is not yet trustworthy. Explain why it looked plausible and what you would need to confirm before using it.\n",
+      "placeholder": "Name the suggestion, where it came from, why it seemed useful, and what evidence or stakeholder input would be needed before you rely on it.\n",
+      "minLength": 100,
+      "numQuestions": 3,
+      "aiContext": "This is Sprint 2 of Reframing Problems with AI. The participant is learning to direct AI with context, choices, and confirmation while maintaining judgment. Push for the difference between fluency and evidence. Ask what assumption might be hidden, which stakeholder might see the suggestion differently, and what confirmation evidence would help.\n",
+      "generateButtonText": "Get Follow-up Questions",
+      "loadingText": "Generating follow-up questions...",
+      "discussionPrompt": "Use these questions to refine your skepticism. Your final response should name what you do not trust yet and the exact confirmation step that would make the suggestion more usable.\n",
+      "summaryLabel": "Your Refined Trust Check",
+      "summaryPlaceholder": "Rewrite your trust check. Include the suggestion, why it was tempting, what remains unverified, and what you will do before relying on it.\n",
+      "saveButtonText": "Save Response",
+      "updateButtonText": "Update Response",
+      "digDeeperText": "Dig deeper with AI guidance"
+    }
+  ]
+}

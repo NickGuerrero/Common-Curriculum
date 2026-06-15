@@ -1,0 +1,32 @@
+{
+  "activityId": "course1-peer-exchange-what-are-you-choosing-not-to-learn",
+  "version": "1.0",
+  "course": "course1",
+  "title": "Peer Exchange: What Are You Choosing Not To Learn?",
+  "description": "Use AI follow-up questions to test whether your learning exclusions are strategic and responsible.",
+  "settings": {
+    "aiEndpoint": "https://ai-assisted-pedagogy.netlify.app/.netlify/functions/ai-proxy",
+    "exportMode": "json",
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2
+  },
+  "questions": [
+    {
+      "id": "q1-strategic-exclusion",
+      "type": "ai-discussion",
+      "prompt": "Name one thing you are choosing not to learn yet, why you are setting it aside, and what risk that choice creates.\n",
+      "placeholder": "Be specific about the topic, why it is outside your current learning path, and what could go wrong because you are not learning it now.\n",
+      "minLength": 100,
+      "numQuestions": 3,
+      "aiContext": "This is Sprint 4 of Reframing Problems with AI. The participant is learning to focus a self-directed learning path by naming both learning gaps and strategic exclusions. Push for the connection to the actual problem, the risk created or reduced by the exclusion, and the minimum check that would make the exclusion responsible. Challenge curiosity-driven sprawl and exclusions that avoid a necessary knowledge gap.\n",
+      "generateButtonText": "Get Follow-up Questions",
+      "loadingText": "Generating follow-up questions...",
+      "discussionPrompt": "Use these questions to refine the exclusion. Your final response should make clear why this is a focused choice rather than avoidance.\n",
+      "summaryLabel": "Your Refined Learning Exclusion",
+      "summaryPlaceholder": "Rewrite your exclusion decision. Include why it is reasonable now, what risk it creates, and the minimum check that will keep the risk responsible.\n",
+      "saveButtonText": "Save Response",
+      "updateButtonText": "Update Response",
+      "digDeeperText": "Dig deeper with AI guidance"
+    }
+  ]
+}

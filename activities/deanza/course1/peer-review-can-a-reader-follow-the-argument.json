@@ -1,0 +1,32 @@
+{
+  "activityId": "course1-peer-review-can-a-reader-follow-the-argument",
+  "version": "1.0",
+  "course": "course1",
+  "title": "Peer Review: Can A Reader Follow The Argument?",
+  "description": "Use AI follow-up questions to test whether an outside reader can follow your problem, evidence, and readiness claim.",
+  "settings": {
+    "aiEndpoint": "https://ai-assisted-pedagogy.netlify.app/.netlify/functions/ai-proxy",
+    "exportMode": "json",
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2
+  },
+  "questions": [
+    {
+      "id": "q1-reader-follow-argument",
+      "type": "ai-discussion",
+      "prompt": "Share your executive summary, one section you worry is weak, and one specific question you need answered before final submission.\n",
+      "placeholder": "Include the problem you are carrying forward, the evidence you think is strongest, where the argument may lose a reader, and the question you want tested.\n",
+      "minLength": 140,
+      "numQuestions": 3,
+      "aiContext": "This is Sprint 5 of Reframing Problems with AI. The participant is turning prior artifacts into a coherent readiness argument. Push for a clear problem, evidence that supports the claim, stakeholder integration, visible human judgment, and places where a reader could get lost. Challenge pasted summaries, unsupported readiness claims, and places where AI polish hides weak evidence.\n",
+      "generateButtonText": "Get Follow-up Questions",
+      "loadingText": "Generating follow-up questions...",
+      "discussionPrompt": "Use these questions to refine the argument. Your final response should name what an outside reader can follow, where the evidence is thin, and what you will revise before final submission.\n",
+      "summaryLabel": "Your Refined Reader Check",
+      "summaryPlaceholder": "Rewrite your reader check. Include the problem, strongest evidence, weak section, revision plan, and what your human judgment adds.\n",
+      "saveButtonText": "Save Response",
+      "updateButtonText": "Update Response",
+      "digDeeperText": "Dig deeper with AI guidance"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peer Exchange: What Problem Sits Beneath It? | Sprint 1: Frame What Is Worth Solving</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 20px 16px;
+      font: 16px/1.65 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      color: #111827;
+      background: #f8fafc;
+    }
+    .activity { max-width: 760px; margin: 0 auto; }
+    .meta {
+      font-size: 12px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 6px;
+    }
+    h1 { font-size: 24px; line-height: 1.25; margin: 0 0 18px; }
+    section, .launch, .submit {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 0 0 16px;
+    }
+    section h2, .launch h2, .submit h2 { margin: 0 0 10px; font-size: 17px; }
+    .launch {
+      border-left: 4px solid #4f46e5;
+      background: #eef2ff;
+    }
+    .submit {
+      border-left: 4px solid #059669;
+      background: #ecfdf5;
+    }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+    a.button, a.secondary {
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    a.button { color: #fff; background: #4f46e5; }
+    a.secondary { color: #065f46; background: #d1fae5; }
+    a { color: #4f46e5; word-break: break-word; }
+    .back-link {
+      display: none;
+      font-size: 13px;
+      margin: 0 0 12px;
+    }
+    .ctx-web .back-link { display: inline-block; }
+  </style>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      if (ctx !== 'canvas') {
+        document.documentElement.classList.add('ctx-web');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div class="activity">
+    <a class="back-link" href="../sprint-1.html?context=web">&larr; Back to Module</a>
+    <p class="meta">course1 &middot; Sprint 1 &middot; Sprint 1: Frame What Is Worth Solving &middot; Discussion &middot; 10 points</p>
+    <h1>Peer Exchange: What Problem Sits Beneath It?</h1>
+
+    <section>
+<h2 id="purpose">Purpose</h2>
+<p>Use AI as a careful listener. The goal is not to have AI solve the problem for you. The goal is to hear whether your current frame names a real underlying problem or still sounds like a surface request.</p>
+</section>
+
+<section>
+<h2 id="how-it-works">How It Works</h2>
+<ol>
+<li>Write your revised problem statement, what changed from your starting goal, and one point where you are unsure.</li>
+<li>Generate AI follow-up questions.</li>
+<li>Use the questions to revise your thinking.</li>
+<li>Use the deeper AI guidance button for another round if your answer still feels generic or solution-first.</li>
+<li>Save the refined response in the activity.</li>
+</ol>
+</section>
+
+<section>
+<h2 id="what-to-submit">What To Submit</h2>
+<p>Download the JSON response file from the activity and upload it to Canvas. Your final response should make your human judgment visible: what changed, what you still need to test, and why this frame is stronger than your starting goal.</p>
+</section>
+
+    <div class="launch">
+      <h2>Start the AI activity</h2>
+      <p>Complete the interactive activity in one sitting on the same device. Your responses are saved in this browser while you work.</p>
+      <div class="actions">
+        <a class="button" href="../activities/peer-exchange-what-problem-sits-beneath-it.html?context=web">Open activity &rarr;</a>
+      </div>
+    </div>
+
+    <div class="submit">
+      <h2>Submit to Canvas</h2>
+      <p>When you finish, copy or download the JSON response file from the activity and upload it to the Canvas assignment.</p>
+      <div class="actions"><a class="secondary" href="https://cti-courses.instructure.com/courses/180/assignments/6943" target="_blank" rel="noopener">Submit on Canvas</a></div>
+    </div>
+  </div>
+</body>
+</html>

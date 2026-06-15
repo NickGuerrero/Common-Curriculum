@@ -1,0 +1,32 @@
+{
+  "activityId": "course1-problem-framing-check",
+  "version": "1.0",
+  "course": "course1",
+  "title": "Problem Framing Check",
+  "description": "Use AI follow-up questions to check whether you can apply the goal-to-problem distinction to your own work.",
+  "settings": {
+    "aiEndpoint": "https://ai-assisted-pedagogy.netlify.app/.netlify/functions/ai-proxy",
+    "exportMode": "json",
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2
+  },
+  "questions": [
+    {
+      "id": "q1-goal-problem-check",
+      "type": "ai-discussion",
+      "prompt": "Explain the difference between your starting goal, any surface request you noticed, and the underlying problem you are now trying to frame.\n",
+      "placeholder": "Name the starting goal, the surface request if there is one, and the specific condition that makes the goal hard to reach.\n",
+      "minLength": 100,
+      "numQuestions": 3,
+      "aiContext": "This is a low-stakes Sprint 1 concept check. The participant should show that a goal names a desired direction while a problem names the condition making that direction hard to reach. Push them to avoid solution-first phrasing, broad aspirations, and unsupported claims. Ask for one kind of evidence that could make the first problem frame stronger.\n",
+      "generateButtonText": "Get Follow-up Questions",
+      "loadingText": "Generating follow-up questions...",
+      "discussionPrompt": "Use the follow-up questions to revise your answer. Your refined response should show the distinction between goal, surface request, underlying problem, and evidence.\n",
+      "summaryLabel": "Your Refined Check Response",
+      "summaryPlaceholder": "Rewrite your answer so an outside reader can see the goal, the underlying problem, and one piece of evidence that would strengthen the frame.\n",
+      "saveButtonText": "Save Response",
+      "updateButtonText": "Update Response",
+      "digDeeperText": "Dig deeper with AI guidance"
+    }
+  ]
+}

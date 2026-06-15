@@ -1,0 +1,32 @@
+{
+  "activityId": "course1-stakeholder-validation-check",
+  "version": "1.0",
+  "course": "course1",
+  "title": "Stakeholder Validation Check",
+  "description": "Use AI follow-up questions to check whether your validation plan seeks evidence rather than approval.",
+  "settings": {
+    "aiEndpoint": "https://ai-assisted-pedagogy.netlify.app/.netlify/functions/ai-proxy",
+    "exportMode": "json",
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2
+  },
+  "questions": [
+    {
+      "id": "q1-validation-evidence-check",
+      "type": "ai-discussion",
+      "prompt": "Describe one assumption in your current problem frame, the stakeholder who can help test it, and the question you would ask to seek evidence rather than approval.\n",
+      "placeholder": "Name the assumption, the stakeholder role, your draft validation question, and what evidence would change your understanding.\n",
+      "minLength": 110,
+      "numQuestions": 3,
+      "aiContext": "This is a Sprint 3 concept check on stakeholder validation. The participant should distinguish real listening and evidence from approval-seeking. Push them to mark needs as known, inferred, or validated. Challenge attempts to replace a real stakeholder conversation with AI prediction or peer approval. Ask whether the question invites listening rather than pitching.\n",
+      "generateButtonText": "Get Follow-up Questions",
+      "loadingText": "Generating follow-up questions...",
+      "discussionPrompt": "Use the follow-up questions to revise your answer. Your refined response should show the assumption, the right stakeholder, and what evidence would confirm or complicate the problem frame.\n",
+      "summaryLabel": "Your Refined Validation Check",
+      "summaryPlaceholder": "Rewrite your answer with the assumption, stakeholder role, validation question, evidence status, and what you would change if the evidence contradicted you.\n",
+      "saveButtonText": "Save Response",
+      "updateButtonText": "Update Response",
+      "digDeeperText": "Dig deeper with AI guidance"
+    }
+  ]
+}

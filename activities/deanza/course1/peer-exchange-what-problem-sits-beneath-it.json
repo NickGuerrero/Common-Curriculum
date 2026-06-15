@@ -1,0 +1,32 @@
+{
+  "activityId": "course1-peer-exchange-what-problem-sits-beneath-it",
+  "version": "1.0",
+  "course": "course1",
+  "title": "Peer Exchange: What Problem Sits Beneath It?",
+  "description": "Use AI follow-up questions to test whether your current frame names the real problem or only a surface request.",
+  "settings": {
+    "aiEndpoint": "https://ai-assisted-pedagogy.netlify.app/.netlify/functions/ai-proxy",
+    "exportMode": "json",
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2
+  },
+  "questions": [
+    {
+      "id": "q1-problem-beneath",
+      "type": "ai-discussion",
+      "prompt": "Share your revised problem statement, what changed from your starting goal, and one place where you are still unsure.\n",
+      "placeholder": "Include enough context that the AI can see the difference between your starting goal, the surface request, and the underlying problem you now see.\n",
+      "minLength": 100,
+      "numQuestions": 3,
+      "aiContext": "This is Sprint 1 of Reframing Problems with AI. The participant is learning to move from a broad goal or surface request to a specific, testable underlying problem. Push for concrete people, constraints, evidence, and causes. Challenge polished but vague problem statements, solution-first wording, and claims that do not show what changed from the starting goal.\n",
+      "generateButtonText": "Get Follow-up Questions",
+      "loadingText": "Generating follow-up questions...",
+      "discussionPrompt": "Use these questions to sharpen the frame. Then write a refined response that names the real problem, what still needs evidence, and what you would test next.\n",
+      "summaryLabel": "Your Refined Problem Frame",
+      "summaryPlaceholder": "Write the problem frame you would carry forward now. Include what changed, what still feels uncertain, and the next evidence you need.\n",
+      "saveButtonText": "Save Response",
+      "updateButtonText": "Update Response",
+      "digDeeperText": "Dig deeper with AI guidance"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "activityId": "course1-directing-ai-check",
+  "version": "1.0",
+  "course": "course1",
+  "title": "Directing AI Check",
+  "description": "Use AI follow-up questions to check how well you provided context, considered choices, and planned confirmation.",
+  "settings": {
+    "aiEndpoint": "https://ai-assisted-pedagogy.netlify.app/.netlify/functions/ai-proxy",
+    "exportMode": "json",
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2
+  },
+  "questions": [
+    {
+      "id": "q1-context-choices-confirmation",
+      "type": "ai-discussion",
+      "prompt": "Describe one recent AI interaction from this sprint. What context did you provide, what choices or tradeoffs did you ask AI to surface, and what still needs confirmation outside AI?\n",
+      "placeholder": "Use a real prompt or output. Name the context you gave, the options AI returned, and the evidence you would need before acting on the output.\n",
+      "minLength": 110,
+      "numQuestions": 3,
+      "aiContext": "This is a Sprint 2 concept check on directing AI deliberately. The participant should show context, choices, and confirmation in a real AI interaction. Push vague answers toward specific constraints, audience, purpose, tradeoffs, assumptions, and external verification. Challenge any claim that confidence from AI is the same as confirmed evidence.\n",
+      "generateButtonText": "Get Follow-up Questions",
+      "loadingText": "Generating follow-up questions...",
+      "discussionPrompt": "Use the follow-up questions to revise your answer. Your refined response should show how your judgment improved or limited the AI output.\n",
+      "summaryLabel": "Your Refined Check Response",
+      "summaryPlaceholder": "Rewrite your answer with concrete context, the choices or tradeoffs AI surfaced, and the confirmation step needed before using the output.\n",
+      "saveButtonText": "Save Response",
+      "updateButtonText": "Update Response",
+      "digDeeperText": "Dig deeper with AI guidance"
+    }
+  ]
+}
