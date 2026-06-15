@@ -1,0 +1,32 @@
+{
+  "activityId": "course1-sprint-4-reflection-what-i-learned-and-how-i-know",
+  "version": "1.0",
+  "course": "course1",
+  "title": "Sprint 4 Reflection: What I Learned And How I Know",
+  "description": "Use AI follow-up questions to refine your reflection on what you learned, how you know, and what remains uncertain.",
+  "settings": {
+    "aiEndpoint": "https://ai-assisted-pedagogy.netlify.app/.netlify/functions/ai-proxy",
+    "exportMode": "json",
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2
+  },
+  "questions": [
+    {
+      "id": "q1-sprint-4-reflection",
+      "type": "ai-discussion",
+      "prompt": "Draft your Sprint 4 reflection. Explain what you learned, how you know you learned it well enough for this course stage, what AI explained well, what you had to verify elsewhere, and what you are still not ready to claim.\n",
+      "placeholder": "Use your learning path, sources, AI prompts, verification notes, and current problem frame. Separate AI explanation from evidence you checked.\n",
+      "minLength": 150,
+      "numQuestions": 3,
+      "aiContext": "This is the Sprint 4 reflection for Reframing Problems with AI. The participant is reflecting on a focused learning path, what AI helped explain, what was verified elsewhere, and what remains uncertain. Ask follow-up questions that separate learning from exposure, evidence from confidence, and verified claims from claims they should not make yet. Do not rewrite the reflection for them.\n",
+      "generateButtonText": "Get Follow-up Questions",
+      "loadingText": "Generating follow-up questions...",
+      "discussionPrompt": "Use these questions to revise your reflection. Your refined version should show what you learned, how you know enough for this stage, and where your uncertainty remains.\n",
+      "summaryLabel": "Your Refined Sprint 4 Reflection",
+      "summaryPlaceholder": "Write the final version you want to submit. Include what you learned, how you know, what AI explained well, what you verified elsewhere, and what you are not ready to claim.\n",
+      "saveButtonText": "Save Reflection",
+      "updateButtonText": "Update Reflection",
+      "digDeeperText": "Dig deeper with AI guidance"
+    }
+  ]
+}

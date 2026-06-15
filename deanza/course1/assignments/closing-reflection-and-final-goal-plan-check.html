@@ -5,96 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Closing Reflection and Final Goal Plan Check | Sprint 5: Synthesize And Show Readiness</title>
   <style>
-    :root {
-      --bg: #fafafa;
-      --surface: #ffffff;
-      --text: #1a1a1a;
-      --muted: #555;
-      --border: #e0e0e0;
-      --accent: #2c5282;
-      --accent-light: #ebf4ff;
-      --radius: 8px;
-    }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       padding: 20px 16px;
       font: 16px/1.65 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      color: var(--text);
-      background: var(--bg);
+      color: #111827;
+      background: #f8fafc;
     }
     .activity { max-width: 760px; margin: 0 auto; }
     .meta {
       font-size: 12px;
-      color: var(--muted);
+      color: #64748b;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       margin: 0 0 6px;
     }
-    h1 { font-size: 22px; font-weight: 700; margin: 0 0 18px; line-height: 1.3; }
-    .goal {
-      background: var(--accent-light);
-      border-left: 4px solid var(--accent);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      margin: 0 0 20px;
-    }
-    .goal h2, .submit h2 {
-      margin: 0 0 6px;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .goal h2 { color: var(--accent); }
-    .goal p { margin: 0; }
-    section {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px 20px;
+    h1 { font-size: 24px; line-height: 1.25; margin: 0 0 18px; }
+    section, .launch, .submit {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 20px;
       margin: 0 0 16px;
     }
-    section h2 { margin: 0 0 10px; font-size: 17px; font-weight: 700; }
-    section h3 { margin: 16px 0 8px; font-size: 15px; }
-    section p { margin: 8px 0; }
-    ol, ul { padding-left: 22px; margin: 8px 0; }
-    li { margin-bottom: 6px; }
-    code {
-      background: #f3f4f6;
-      border: 1px solid #e5e7eb;
-      border-radius: 4px;
-      padding: 1px 4px;
-      font-size: 0.92em;
+    section h2, .launch h2, .submit h2 { margin: 0 0 10px; font-size: 17px; }
+    .launch {
+      border-left: 4px solid #4f46e5;
+      background: #eef2ff;
     }
-    pre {
-      background: #111827;
-      color: #f9fafb;
-      border-radius: var(--radius);
-      padding: 12px 14px;
-      overflow-x: auto;
-    }
-    pre code { background: transparent; border: 0; color: inherit; padding: 0; }
-    a { color: var(--accent); word-break: break-word; }
     .submit {
+      border-left: 4px solid #059669;
       background: #ecfdf5;
-      border: 1px solid #6ee7b7;
-      border-left: 4px solid #10b981;
-      border-radius: var(--radius);
-      padding: 14px 18px;
-      margin: 22px 0 12px;
     }
-    .submit h2 { color: #065f46; }
-    .submit p { margin: 4px 0; }
-    footer { text-align: center; margin: 28px 0 8px; opacity: 0.55; }
-    footer img { height: 22px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+    a.button, a.secondary {
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    a.button { color: #fff; background: #4f46e5; }
+    a.secondary { color: #065f46; background: #d1fae5; }
+    a { color: #4f46e5; word-break: break-word; }
     .back-link {
       display: none;
       font-size: 13px;
-      color: var(--accent);
-      text-decoration: none;
       margin: 0 0 12px;
     }
-    .back-link:hover { text-decoration: underline; }
     .ctx-web .back-link { display: inline-block; }
   </style>
   <script>
@@ -104,30 +63,14 @@
       if (ctx !== 'canvas') {
         document.documentElement.classList.add('ctx-web');
       }
-      document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
-          try {
-            var u = new URL(a.getAttribute('href'), location.href);
-            if (!u.searchParams.has('context')) {
-              u.searchParams.set('context', ctx);
-              a.href = u.href;
-            }
-          } catch (e) { }
-        });
-      });
     })();
   </script>
 </head>
 <body>
   <div class="activity">
-    <a class="back-link" href="../sprint-5.html?context=web" data-keep-context>&larr; Back to Module</a>
-    <p class="meta">course1 &middot; Sprint 5 &middot; Sprint 5: Synthesize And Show Readiness &middot; Assignment</p>
+    <a class="back-link" href="../sprint-5.html?context=web">&larr; Back to Module</a>
+    <p class="meta">course1 &middot; Sprint 5 &middot; Sprint 5: Synthesize And Show Readiness &middot; Quiz &middot; 10 points</p>
     <h1>Closing Reflection and Final Goal Plan Check</h1>
-
-    <div class="goal">
-      <h2>Learning goal</h2>
-      <p>Apply the core idea from Closing Reflection and Final Goal Plan Check in a focused Canvas submission.</p>
-    </div>
 
     <section>
 <h2 id="purpose">Purpose</h2>
@@ -138,14 +81,17 @@
 <h2 id="task-instructions">Task Instructions</h2>
 <ol>
 <li>Review your Week 1 goal, final report, stakeholder evidence, learning journey, and readiness claim.</li>
-<li>Write honestly about change over time. Do not make the course sound cleaner than it was.</li>
-<li>End with the next move you can actually take.</li>
+<li>Write an initial reflection in the activity. Be honest about change over time. Do not make the course sound cleaner than it was.</li>
+<li>Generate AI follow-up questions and use them to identify what is still vague, generic, or unsupported.</li>
+<li>Revise your reflection so it ends with a next move you can actually take.</li>
+<li>Use the deeper AI guidance button if your answer does not yet show where your judgment mattered.</li>
+<li>Save the refined response in the activity.</li>
 </ol>
 </section>
 
 <section>
 <h2 id="deliverable">Deliverable</h2>
-<p>Submit a text entry with:</p>
+<p>Your refined reflection should answer:</p>
 <ul>
 <li>What changed most in how you frame problems.</li>
 <li>What role AI played across the course.</li>
@@ -157,12 +103,12 @@
 
 <section>
 <h2 id="submission-format">Submission Format</h2>
-<p>Text entry in Canvas.</p>
+<p>Download the JSON response file from the activity and upload it to Canvas.</p>
 </section>
 
 <section>
 <h2 id="evidence-of-success">Evidence Of Success</h2>
-<p>Your submission should be specific enough that another person can understand your context, your reasoning, and what you are ready to do next. Do not submit a polished AI answer without showing your own judgment.</p>
+<p>Your final response should be specific enough that another person can understand your context, your reasoning, and what you are ready to do next. Do not submit a polished AI answer without showing your own judgment.</p>
 </section>
 
 <section>
@@ -170,13 +116,19 @@
 <p>Save this reflection with the final report. It shows the metacognitive arc of the course.</p>
 </section>
 
-    <div class="submit">
-      <h2>Submit to Canvas</h2>
-      <p>Use the Canvas assignment to submit your work.</p>
-      <p><a href="https://cti-courses.instructure.com/courses/180/assignments/6969" target="_blank" rel="noopener">Open the Canvas assignment</a></p>
+    <div class="launch">
+      <h2>Start the AI activity</h2>
+      <p>Complete the interactive activity in one sitting on the same device. Your responses are saved in this browser while you work.</p>
+      <div class="actions">
+        <a class="button" href="../activities/closing-reflection-and-final-goal-plan-check.html?context=web">Open activity &rarr;</a>
+      </div>
     </div>
 
-    <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>
+    <div class="submit">
+      <h2>Submit to Canvas</h2>
+      <p>When you finish, copy or download the JSON response file from the activity and upload it to the Canvas assignment.</p>
+      <div class="actions"><a class="secondary" href="https://cti-courses.instructure.com/courses/180/assignments/6969" target="_blank" rel="noopener">Submit on Canvas</a></div>
+    </div>
   </div>
 </body>
 </html>

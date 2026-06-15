@@ -1,0 +1,32 @@
+{
+  "activityId": "course1-sprint-3-reflection-and-mid-course-goal-plan-revision",
+  "version": "1.0",
+  "course": "course1",
+  "title": "Sprint 3 Reflection and Mid-Course Goal Plan Revision",
+  "description": "Use AI follow-up questions to refine your mid-course reflection and Goal Plan revision.",
+  "settings": {
+    "aiEndpoint": "https://ai-assisted-pedagogy.netlify.app/.netlify/functions/ai-proxy",
+    "exportMode": "json",
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2
+  },
+  "questions": [
+    {
+      "id": "q1-sprint-3-reflection",
+      "type": "ai-discussion",
+      "prompt": "Draft your Sprint 3 reflection. Explain what a real person helped you see that AI did not, what part of your frame changed, what tension or conflict you are carrying forward, and how your Goal Plan should change for the rest of the course.\n",
+      "placeholder": "Use your stakeholder map, validation notes, revised problem statement, and current Goal Plan. Separate what a stakeholder actually said from what you inferred.\n",
+      "minLength": 150,
+      "numQuestions": 3,
+      "aiContext": "This is the Sprint 3 mid-course reflection for Reframing Problems with AI. The participant is comparing AI anticipation with real stakeholder evidence and revising their Goal Plan. Ask follow-up questions that distinguish real evidence from inference, identify tensions they should not smooth over, and make the Goal Plan revision concrete. Do not rewrite the reflection for them.\n",
+      "generateButtonText": "Get Follow-up Questions",
+      "loadingText": "Generating follow-up questions...",
+      "discussionPrompt": "Use these questions to revise your reflection. Your refined version should show what changed because of stakeholder evidence and how your Goal Plan now adapts.\n",
+      "summaryLabel": "Your Refined Mid-Course Reflection",
+      "summaryPlaceholder": "Write the final version you want to submit. Include what a real person revealed, what changed in your frame, what tension remains, and your revised Goal Plan.\n",
+      "saveButtonText": "Save Reflection",
+      "updateButtonText": "Update Reflection",
+      "digDeeperText": "Dig deeper with AI guidance"
+    }
+  ]
+}

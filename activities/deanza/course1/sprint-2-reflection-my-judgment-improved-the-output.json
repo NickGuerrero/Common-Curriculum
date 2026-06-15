@@ -1,0 +1,32 @@
+{
+  "activityId": "course1-sprint-2-reflection-my-judgment-improved-the-output",
+  "version": "1.0",
+  "course": "course1",
+  "title": "Sprint 2 Reflection: My Judgment Improved The Output",
+  "description": "Use AI follow-up questions to refine your reflection on how your direction and critique improved the AI interaction.",
+  "settings": {
+    "aiEndpoint": "https://ai-assisted-pedagogy.netlify.app/.netlify/functions/ai-proxy",
+    "exportMode": "json",
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2
+  },
+  "questions": [
+    {
+      "id": "q1-sprint-2-reflection",
+      "type": "ai-discussion",
+      "prompt": "Draft your Sprint 2 reflection. Explain where you took the lead, what AI made easier, what AI made riskier, which choice you are carrying forward, and why that choice is defensible right now.\n",
+      "placeholder": "Use one specific AI interaction from this sprint. Include your first prompt, your later pushback, and the choice you are carrying forward.\n",
+      "minLength": 150,
+      "numQuestions": 3,
+      "aiContext": "This is the Sprint 2 reflection for Reframing Problems with AI. The participant is reflecting on how context, choices, confirmation, critique, and pushback changed the AI output. Ask follow-up questions that separate AI convenience from AI risk, expose the participant's judgment, and test whether the carried-forward choice is defensible with the evidence they currently have. Do not rewrite the reflection for them.\n",
+      "generateButtonText": "Get Follow-up Questions",
+      "loadingText": "Generating follow-up questions...",
+      "discussionPrompt": "Use these questions to revise your reflection. Your refined version should show how your judgment changed the output and what still needs confirmation.\n",
+      "summaryLabel": "Your Refined Sprint 2 Reflection",
+      "summaryPlaceholder": "Write the final version you want to submit. Include where you led, what AI made easier and riskier, the choice you are carrying forward, and why it is defensible now.\n",
+      "saveButtonText": "Save Reflection",
+      "updateButtonText": "Update Reflection",
+      "digDeeperText": "Dig deeper with AI guidance"
+    }
+  ]
+}

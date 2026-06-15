@@ -1,0 +1,32 @@
+{
+  "activityId": "course1-closing-reflection-and-final-goal-plan-check",
+  "version": "1.0",
+  "course": "course1",
+  "title": "Closing Reflection and Final Goal Plan Check",
+  "description": "Use AI follow-up questions to refine your closing reflection and next responsible move.",
+  "settings": {
+    "aiEndpoint": "https://ai-assisted-pedagogy.netlify.app/.netlify/functions/ai-proxy",
+    "exportMode": "json",
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2
+  },
+  "questions": [
+    {
+      "id": "q1-closing-reflection",
+      "type": "ai-discussion",
+      "prompt": "Draft your closing reflection. Explain what changed most in how you frame problems, what role AI played across the course, where your own judgment mattered most, what would have been worse if you had handed this problem to AI, and your next move.\n",
+      "placeholder": "Use your Week 1 goal, final report, stakeholder evidence, learning journey, readiness claim, and current Goal Plan. Write honestly about the course arc.\n",
+      "minLength": 150,
+      "numQuestions": 3,
+      "aiContext": "This is the closing reflection for Reframing Problems with AI. The participant is explaining how their problem framing changed across the course, what AI contributed, where human judgment mattered, and what responsible next move they can take. Ask follow-up questions that make the course arc concrete, surface the participant's judgment, and test whether the next move is specific and responsible. Do not rewrite the reflection for them.\n",
+      "generateButtonText": "Get Follow-up Questions",
+      "loadingText": "Generating follow-up questions...",
+      "discussionPrompt": "Use these questions to revise your closing reflection. Your refined version should show the course arc, AI's role, your judgment, and your next move.\n",
+      "summaryLabel": "Your Refined Closing Reflection",
+      "summaryPlaceholder": "Write the final version you want to submit. Include what changed, AI's role, where your judgment mattered, what would have been worse if AI had taken over, and your next move.\n",
+      "saveButtonText": "Save Reflection",
+      "updateButtonText": "Update Reflection",
+      "digDeeperText": "Dig deeper with AI guidance"
+    }
+  ]
+}
