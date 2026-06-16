@@ -116,6 +116,7 @@ describe('Canvas LTI progress integration', () => {
     process.env.LTI_STATE_SECRET = 'state-secret';
     process.env.PROGRESS_JWT_SECRET = 'progress-secret';
     process.env.CANVAS_JWKS_URL = 'https://canvas.example.edu/jwks';
+    process.env.LTI_ISSUER = 'https://canvas.instructure.com';
     process.env.LTI_ALLOWED_TARGET_ORIGINS = 'https://profsathya.github.io';
 
     global.fetch = async (url) => {
@@ -127,7 +128,7 @@ describe('Canvas LTI progress integration', () => {
     const state = lib.signHmacJwt(
       {
         type: 'lti_state',
-        iss: 'https://canvas.example.edu',
+        iss: 'https://canvas.instructure.com',
         nonce: 'nonce-2',
         target_link_uri: target,
       },
@@ -136,7 +137,7 @@ describe('Canvas LTI progress integration', () => {
     );
     const idToken = signRsJwt(
       {
-        iss: 'https://canvas.example.edu',
+        iss: 'https://canvas.instructure.com',
         aud: 'client-123',
         nonce: 'nonce-2',
         sub: 'opaque-user',

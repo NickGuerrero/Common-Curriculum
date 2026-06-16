@@ -207,11 +207,14 @@ Optional variables:
 
 ```bash
 CANVAS_JWKS_URL=https://sso.canvaslms.com/api/lti/security/jwks
-LTI_ISSUER=https://cti-courses.instructure.com
+LTI_ISSUER=https://canvas.instructure.com
 LTI_DEPLOYMENT_ID=canvas_deployment_id
 PROGRESS_TOKEN_TTL_SECONDS=600
 LTI_DEFAULT_TARGET_LINK_URI=https://profsathya.github.io/Common-Curriculum/deanza/course1/home.html
 ```
+
+For Instructure-hosted Canvas, `LTI_ISSUER` is the Canvas platform issuer, not the
+school-specific Canvas URL. Production launches use `https://canvas.instructure.com`.
 
 Canvas custom LTI parameters required by the progress launch:
 
