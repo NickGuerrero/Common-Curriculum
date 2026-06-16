@@ -55,6 +55,14 @@
   .item .body{flex:1;min-width:0;}
   .item .title{font-size:14.5px;font-weight:600;}
   .item .meta{color:var(--muted);font-size:12px;margin-top:2px;}
+  .progress-status{font-size:12px;color:var(--muted);margin:-10px 0 14px;}
+  .progress-check{margin-left:auto;display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:11.5px;white-space:nowrap;padding-left:10px;}
+  .progress-box{width:18px;height:18px;border:1.5px solid var(--border);border-radius:3px;background:#fff;display:inline-flex;align-items:center;justify-content:center;}
+  .progress-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  .item[data-progress-state="loading"] .progress-box{background:linear-gradient(90deg,#fff,#F2F4F5,#fff);}
+  .item[data-progress-state="complete"] .progress-box{border-color:var(--check);background:var(--check);color:#fff;}
+  .item[data-progress-state="complete"] .progress-box::after{content:"";width:9px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg);margin-top:-2px;}
+  .item[data-progress-state="complete"] .title a{color:#24543A;}
   .group-label{padding:10px 14px 4px;font-size:10.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);background:#FAFBFC;border-bottom:1px solid var(--border-light);}
   .item.selfcheck{background:var(--check-bg);}
   .item.selfcheck .ico{color:var(--check);}
@@ -79,21 +87,22 @@
         <div class="cti-logo-fallback">Computing Talent<br>Initiative</div>
       </div>
     </div>
+    <div class="progress-status" id="progress-status" hidden></div>
     <details class="module" open><summary class="module-head"><span class="name">Sprint 2: Direct AI Deliberately</span><span class="tag">AI Direction</span><span class="chev">&#9656;</span></summary><div class="goal"><div class="label">Module Learning Goals</div><div class="text"><ul class="goal-list">
 <li>Give AI enough context, constraints, and standards to make its output useful.</li>
 <li>Judge AI suggestions instead of accepting the first fluent answer.</li>
 <li>Document how your choices improved the work.</li>
 </ul></div></div><div class="prereq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg><span>Builds on the problem frame from Sprint 1. AI can help only after you can explain what needs to be explored.</span></div><div class="items"><div class="group-label">Sprint Week 1: Start here</div>
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="activities/start-here-direct-ai-deliberately.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/pages/start-here-direct-ai-deliberately-3">Start Here: Direct AI Deliberately</a></div><div class="meta">Page - orient to deliberate AI direction and the sprint rhythm</div></div></div>
+<div class="item" data-progress-id="course1-sprints-sprint-2-start-here-direct-ai-deliberately" data-canvas-module-item-id="17718" data-completion-requirement="must_view" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="activities/start-here-direct-ai-deliberately.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/pages/start-here-direct-ai-deliberately-3">Start Here: Direct AI Deliberately</a></div><div class="meta">Page - orient to deliberate AI direction and the sprint rhythm</div></div><span class="progress-check" aria-label="Progress unavailable" title="Progress unavailable"><span class="progress-box"></span><span class="progress-label">Progress unavailable</span></span></div>
 <div class="group-label">Sprint Week 1: Practice direction</div>
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="activities/concept-context-choices-confirmation.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/pages/concept-context-choices-confirmation-3">Concept: Context, Choices, Confirmation</a></div><div class="meta">Page - learn the context, choices, and confirmation pattern</div></div></div>
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="assignments/dojo-lab-3cs-exploration-round-1.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/assignments/6947">Dojo Lab: 3Cs Exploration Round 1</a></div><div class="meta">Dojo activity - run a focused Symbiotic Thinking Dojo exploration round on your real problem</div></div></div>
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="assignments/ai-output-assessment-and-pushback.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/assignments/6948">AI Output Assessment and Pushback</a></div><div class="meta">Assignment - push back on weak, generic, or unverified AI output</div></div></div>
+<div class="item" data-progress-id="course1-sprints-sprint-2-concept-context-choices-confirmation" data-canvas-module-item-id="17719" data-completion-requirement="must_view" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="activities/concept-context-choices-confirmation.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/pages/concept-context-choices-confirmation-3">Concept: Context, Choices, Confirmation</a></div><div class="meta">Page - learn the context, choices, and confirmation pattern</div></div><span class="progress-check" aria-label="Progress unavailable" title="Progress unavailable"><span class="progress-box"></span><span class="progress-label">Progress unavailable</span></span></div>
+<div class="item" data-progress-id="course1-sprints-sprint-2-dojo-lab-3cs-exploration-round-1" data-canvas-module-item-id="17720" data-completion-requirement="must_submit" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="assignments/dojo-lab-3cs-exploration-round-1.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/assignments/6947">Dojo Lab: 3Cs Exploration Round 1</a></div><div class="meta">Dojo activity - run a focused Symbiotic Thinking Dojo exploration round on your real problem</div></div><span class="progress-check" aria-label="Progress unavailable" title="Progress unavailable"><span class="progress-box"></span><span class="progress-label">Progress unavailable</span></span></div>
+<div class="item" data-progress-id="course1-sprints-sprint-2-ai-output-assessment-and-pushback" data-canvas-module-item-id="17721" data-completion-requirement="must_submit" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="assignments/ai-output-assessment-and-pushback.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/assignments/6948">AI Output Assessment and Pushback</a></div><div class="meta">Assignment - push back on weak, generic, or unverified AI output</div></div><span class="progress-check" aria-label="Progress unavailable" title="Progress unavailable"><span class="progress-box"></span><span class="progress-label">Progress unavailable</span></span></div>
 <div class="group-label">Sprint Week 2: Compare, check, and reflect</div>
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="assignments/peer-exchange-which-ai-suggestion-would-you-not-trust-yet.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/assignments/6949">Peer Exchange: Which AI Suggestion Would You Not Trust Yet?</a></div><div class="meta">AI activity - test what remains unverified in a plausible AI suggestion</div></div></div>
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="assignments/ai-exploration-log-and-3cs-application-log.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/assignments/6950">AI Exploration Log and 3Cs Application Log</a></div><div class="meta">Assignment - preserve prompts, choices, outputs, and judgment calls</div></div></div>
-<div class="item selfcheck"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="assignments/directing-ai-check.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/assignments/6951">Directing AI Check</a><span class="badge">Self-check</span></div><div class="meta">AI self-check - refine context, choices, and confirmation for one AI interaction</div><div class="verify"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M3 21v-2a5 5 0 0 1 5-5h3"/><path d="M16 14l2 2 4-4"/></svg><span>Show one AI output and your pushback notes to a peer. Ask whether your standard is clear.</span></div></div></div>
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h6v6"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="assignments/sprint-2-reflection-my-judgment-improved-the-output.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/assignments/6952">Sprint 2 Reflection: My Judgment Improved The Output</a></div><div class="meta">AI reflection activity - refine where your judgment changed the result</div></div></div></div></details>
+<div class="item" data-progress-id="course1-sprints-sprint-2-peer-exchange-which-ai-suggestion-would-you-not-trust-yet" data-canvas-module-item-id="17722" data-completion-requirement="must_submit" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="assignments/peer-exchange-which-ai-suggestion-would-you-not-trust-yet.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/assignments/6949">Peer Exchange: Which AI Suggestion Would You Not Trust Yet?</a></div><div class="meta">AI activity - test what remains unverified in a plausible AI suggestion</div></div><span class="progress-check" aria-label="Progress unavailable" title="Progress unavailable"><span class="progress-box"></span><span class="progress-label">Progress unavailable</span></span></div>
+<div class="item" data-progress-id="course1-sprints-sprint-2-ai-exploration-log-and-3cs-application-log" data-canvas-module-item-id="17723" data-completion-requirement="must_submit" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="assignments/ai-exploration-log-and-3cs-application-log.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/assignments/6950">AI Exploration Log and 3Cs Application Log</a></div><div class="meta">Assignment - preserve prompts, choices, outputs, and judgment calls</div></div><span class="progress-check" aria-label="Progress unavailable" title="Progress unavailable"><span class="progress-box"></span><span class="progress-label">Progress unavailable</span></span></div>
+<div class="item selfcheck" data-progress-id="course1-sprints-sprint-2-directing-ai-check" data-canvas-module-item-id="17724" data-completion-requirement="must_submit" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="assignments/directing-ai-check.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/assignments/6951">Directing AI Check</a><span class="badge">Self-check</span></div><div class="meta">AI self-check - refine context, choices, and confirmation for one AI interaction</div><div class="verify"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M3 21v-2a5 5 0 0 1 5-5h3"/><path d="M16 14l2 2 4-4"/></svg><span>Show one AI output and your pushback notes to a peer. Ask whether your standard is clear.</span></div></div><span class="progress-check" aria-label="Progress unavailable" title="Progress unavailable"><span class="progress-box"></span><span class="progress-label">Progress unavailable</span></span></div>
+<div class="item" data-progress-id="course1-sprints-sprint-2-sprint-2-reflection-my-judgment-improved-the-output" data-canvas-module-item-id="17725" data-completion-requirement="must_submit" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h6v6"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="assignments/sprint-2-reflection-my-judgment-improved-the-output.html?context=web" data-canvas-href="https://cti-courses.instructure.com/courses/180/assignments/6952">Sprint 2 Reflection: My Judgment Improved The Output</a></div><div class="meta">AI reflection activity - refine where your judgment changed the result</div></div><span class="progress-check" aria-label="Progress unavailable" title="Progress unavailable"><span class="progress-box"></span><span class="progress-label">Progress unavailable</span></span></div></div></details>
     <footer class="page-footer">
       <img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="" onerror="this.style.display='none'">
       <span>Computing Talent Initiative - De Anza College - Reframing Problems with AI</span>
@@ -121,6 +130,90 @@
           a.href = u.pathname + u.search + u.hash;
         } catch (e) { }
       });
+
+      var progressEndpoint = "https://canvas-progress-lti.netlify.app/.netlify/functions/canvas-progress";
+      var courseKey = "course1";
+      var statusEl = document.getElementById('progress-status');
+      function setStatus(text, visible) {
+        if (!statusEl) return;
+        statusEl.textContent = text || '';
+        statusEl.hidden = !visible;
+      }
+      function setItemState(item, state, label) {
+        item.setAttribute('data-progress-state', state);
+        var check = item.querySelector('.progress-check');
+        var labelEl = item.querySelector('.progress-label');
+        if (check) {
+          check.setAttribute('aria-label', label);
+          check.setAttribute('title', label);
+        }
+        if (labelEl) labelEl.textContent = label;
+      }
+      function progressToken() {
+        var params = new URLSearchParams(location.search);
+        var fromQuery = params.get('progress_token');
+        var hash = new URLSearchParams((location.hash || '').replace(/^#/, ''));
+        var fromHash = hash.get('progress_token');
+        var token = fromHash || fromQuery || sessionStorage.getItem('canvas_progress_token');
+        if (fromHash || fromQuery) {
+          try {
+            sessionStorage.setItem('canvas_progress_token', token);
+            params.delete('progress_token');
+            hash.delete('progress_token');
+            var next = location.pathname + (params.toString() ? '?' + params.toString() : '') + (hash.toString() ? '#' + hash.toString() : '');
+            history.replaceState(null, '', next);
+          } catch (e) { }
+        }
+        return token;
+      }
+      function loadProgress() {
+        var items = Array.prototype.slice.call(document.querySelectorAll('.item[data-progress-id]'));
+        if (!items.length) return;
+        if (ctx !== 'canvas') {
+          items.forEach(function(item) { setItemState(item, 'unavailable', 'Progress available in Canvas'); });
+          return;
+        }
+        var token = progressToken();
+        if (!token) {
+          setStatus('Progress is unavailable until this page is opened through Canvas.', true);
+          items.forEach(function(item) { setItemState(item, 'unavailable', 'Progress unavailable'); });
+          return;
+        }
+        items.forEach(function(item) { setItemState(item, 'loading', 'Checking progress'); });
+        setStatus('Checking Canvas progress...', true);
+        var url = new URL(progressEndpoint, location.href);
+        if (courseKey) url.searchParams.set('course', courseKey);
+        fetch(url.href, { headers: { Authorization: 'Bearer ' + token } })
+          .then(function(response) {
+            if (!response.ok) throw new Error('Progress request failed');
+            return response.json();
+          })
+          .then(function(data) {
+            var byModuleItem = {};
+            (data.items || []).forEach(function(item) {
+              if (item.moduleItemId != null) byModuleItem[String(item.moduleItemId)] = item;
+            });
+            var completeCount = 0;
+            items.forEach(function(row) {
+              var moduleItemId = row.getAttribute('data-canvas-module-item-id');
+              var progress = moduleItemId ? byModuleItem[String(moduleItemId)] : null;
+              if (progress && progress.completed) {
+                completeCount += 1;
+                setItemState(row, 'complete', 'Completed in Canvas');
+              } else if (progress) {
+                setItemState(row, 'incomplete', 'Not completed in Canvas');
+              } else {
+                setItemState(row, 'unavailable', 'Progress unavailable for this item');
+              }
+            });
+            setStatus(completeCount + ' of ' + items.length + ' items completed in Canvas.', true);
+          })
+          .catch(function() {
+            setStatus('Canvas progress could not be loaded right now.', true);
+            items.forEach(function(item) { setItemState(item, 'unavailable', 'Progress unavailable'); });
+          });
+      }
+      loadProgress();
     })();
   </script>
 </body>
