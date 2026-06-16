@@ -33,3 +33,6 @@ build/
 # Source of truth: config/*.csv files
 # Generated files: config/*-config.js
 # Do NOT add config/*.js to gitignore!
+
+# Local Netlify folder
+.netlify

@@ -186,6 +186,48 @@ CANVAS_API_TOKEN=your_canvas_api_token_here
 
 Get your Canvas API token from: Canvas → Account → Settings → Approved Integrations → New Access Token
 
+### Canvas LTI Progress Homepage
+
+The De Anza hosted homepage progress feature uses Netlify Functions plus a Canvas LTI 1.3 launch. The static GitHub Pages homepage remains public output; learner progress is fetched only after Canvas launches the tool and the launch is validated.
+
+Configure the Netlify site with:
+
+```bash
+CANVAS_API_BASE_URL=https://cti-courses.instructure.com
+CANVAS_API_TOKEN=server_side_canvas_token
+LTI_CLIENT_ID=canvas_developer_key_client_id
+LTI_REDIRECT_URI=https://canvas-progress-lti.netlify.app/.netlify/functions/canvas-lti-launch
+LTI_STATE_SECRET=random_long_secret
+PROGRESS_JWT_SECRET=random_long_secret
+PROGRESS_ALLOWED_ORIGINS=https://profsathya.github.io
+LTI_ALLOWED_TARGET_ORIGINS=https://profsathya.github.io
+```
+
+Optional variables:
+
+```bash
+CANVAS_JWKS_URL=https://sso.canvaslms.com/api/lti/security/jwks
+LTI_ISSUER=https://cti-courses.instructure.com
+LTI_DEPLOYMENT_ID=canvas_deployment_id
+PROGRESS_TOKEN_TTL_SECONDS=600
+LTI_DEFAULT_TARGET_LINK_URI=https://profsathya.github.io/Common-Curriculum/deanza/course1/home.html
+```
+
+Canvas custom LTI parameters required by the progress launch:
+
+```text
+canvas_course_id=$Canvas.course.id
+canvas_user_id=$Canvas.user.id
+```
+
+Use these function URLs in the Canvas LTI developer key:
+
+```text
+OIDC login/initiate URL: https://canvas-progress-lti.netlify.app/.netlify/functions/canvas-lti-login
+Redirect URL: https://canvas-progress-lti.netlify.app/.netlify/functions/canvas-lti-launch
+Target link URI: https://profsathya.github.io/Common-Curriculum/deanza/<course>/home.html
+```
+
 ## GitHub Actions
 
 The repository includes a GitHub Actions workflow for automated Canvas synchronization. Trigger it manually from the Actions tab with the desired action and course.
