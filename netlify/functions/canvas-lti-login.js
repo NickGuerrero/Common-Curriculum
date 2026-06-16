@@ -1,5 +1,6 @@
 const crypto = require('node:crypto');
 const {
+  formBody,
   jsonResponse,
   redirect,
   signHmacJwt,
@@ -11,11 +12,13 @@ function oidcAuthUrl(issuer, env = process.env) {
 }
 
 exports.handler = async (event) => {
-  if (event.httpMethod !== 'GET') {
+  if (!['GET', 'POST'].includes(event.httpMethod)) {
     return jsonResponse(405, { error: 'Method not allowed' });
   }
 
-  const params = event.queryStringParameters || {};
+  const params = event.httpMethod === 'POST'
+    ? Object.fromEntries(formBody(event).entries())
+    : event.queryStringParameters || {};
   const clientId = params.client_id || process.env.LTI_CLIENT_ID;
   const redirectUri = process.env.LTI_REDIRECT_URI;
   const target = params.target_link_uri || process.env.LTI_DEFAULT_TARGET_LINK_URI;

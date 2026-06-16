@@ -5,6 +5,7 @@ const { describe, it, beforeEach, afterEach } = require('node:test');
 const lib = require('../netlify/functions/canvas-progress-lib');
 const progress = require('../netlify/functions/canvas-progress');
 const launch = require('../netlify/functions/canvas-lti-launch');
+const login = require('../netlify/functions/canvas-lti-login');
 
 const CUSTOM_CLAIM = 'https://purl.imsglobal.org/spec/lti/claim/custom';
 
@@ -73,6 +74,35 @@ describe('Canvas LTI progress integration', () => {
     });
 
     assert.equal(payload.sub, 'opaque-user');
+  });
+
+  it('accepts Canvas OIDC login initiation as POST form data', async () => {
+    process.env.LTI_CLIENT_ID = 'client-123';
+    process.env.LTI_REDIRECT_URI = 'https://canvas-progress-lti.netlify.app/.netlify/functions/canvas-lti-launch';
+    process.env.LTI_STATE_SECRET = 'state-secret';
+    process.env.LTI_ALLOWED_TARGET_ORIGINS = 'https://profsathya.github.io';
+
+    const target = 'https://profsathya.github.io/Common-Curriculum/deanza/course1/home.html';
+    const result = await login.handler({
+      httpMethod: 'POST',
+      body: new URLSearchParams({
+        iss: 'https://canvas.example.edu',
+        client_id: 'client-123',
+        login_hint: 'login-hint',
+        lti_message_hint: 'message-hint',
+        target_link_uri: target,
+      }).toString(),
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    });
+
+    assert.equal(result.statusCode, 302);
+    const location = new URL(result.headers.Location);
+    assert.equal(location.origin + location.pathname, 'https://canvas.example.edu/api/lti/authorize_redirect');
+    assert.equal(location.searchParams.get('response_mode'), 'form_post');
+    assert.equal(location.searchParams.get('redirect_uri'), process.env.LTI_REDIRECT_URI);
+    const state = lib.verifyHmacJwt(location.searchParams.get('state'), 'state-secret', 'lti_state');
+    assert.equal(state.target_link_uri, target);
+    assert.equal(state.nonce, location.searchParams.get('nonce'));
   });
 
   it('launches to the hosted page with a short-lived progress token', async () => {
