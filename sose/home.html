@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Summer Open Source Experience — Find the Gap</title>
+<title>Summer Open Source Experience — Home</title>
 <style>
 :root{
 --blue:#0374B5; --blue-dark:#0a5a8a; --text:#2D3B45; --muted:#6B7780;
@@ -21,25 +21,12 @@ a:hover{text-decoration:underline;color:var(--blue-dark);}
 
 .page{max-width:1040px;margin:0 auto;padding:22px 22px 56px;}
 
-.course-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border-bottom:1px solid var(--border-light);padding-bottom:16px;margin-bottom:18px;}
+.course-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border-bottom:1px solid var(--border-light);padding-bottom:16px;margin-bottom:20px;}
 .course-header .eyebrow{font-size:11px;font-weight:700;color:var(--teal);letter-spacing:.7px;text-transform:uppercase;}
 .course-header h1{font-size:23px;font-weight:700;margin:3px 0 4px;}
-.course-header .sub{font-size:14px;color:var(--text);font-weight:600;}
-.course-header .lead{color:var(--muted);font-size:13px;max-width:660px;margin-top:6px;}
+.course-header .lead{color:var(--muted);font-size:13.5px;max-width:660px;}
 .cti-logo{height:34px;width:auto;display:block;opacity:.9;}
 .cti-logo-fallback{display:none;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.3px;text-align:right;line-height:1.2;}
-
-/* Program arc */
-.arc{margin:0 0 22px;}
-.arc .arc-caption{font-size:12.5px;color:var(--muted);margin:0 0 9px;}
-.arc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-.arc-card{border:1px solid var(--border);border-radius:6px;padding:11px 12px;background:#FCFDFE;}
-.arc-card .s{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);}
-.arc-card .nm{font-size:14.5px;font-weight:700;margin:2px 0 1px;color:var(--text);}
-.arc-card .th{font-size:12px;color:var(--blue-dark);font-weight:600;}
-.arc-card .who{font-size:11.5px;color:var(--muted);margin-top:5px;}
-.arc-card .who b{color:var(--text);font-weight:600;}
-@media(max-width:720px){.arc-grid{grid-template-columns:1fr;}}
 
 .module{border:1px solid var(--border);border-radius:4px;margin-bottom:16px;overflow:hidden;}
 details.module > summary{list-style:none;cursor:pointer;}
@@ -51,6 +38,15 @@ details.module:not([open]) > .module-head{border-bottom:none;}
 .module-head .chev{display:inline-block;font-size:11px;color:var(--muted);transition:transform .15s ease;flex-shrink:0;}
 details.module[open] > .module-head .chev{transform:rotate(90deg);}
 .module-head:hover{background:#EFEFEF;}
+
+/* Muted (not ready yet) — for modules not yet active */
+.module.module--muted{opacity:.68;}
+.module.module--muted .module-head{background:#ECECEE;}
+.module.module--muted .module-head:hover{background:#E4E4E6;}
+.module.module--muted .name,
+.module.module--muted .tag{color:#7C8A93;}
+.module-head .not-ready{display:none;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#5F6B73;background:#D8DCDF;border-radius:3px;padding:1px 7px;}
+.module.module--muted .module-head .not-ready{display:inline-block;}
 
 .goal{background:var(--goal-bg);border-left:4px solid var(--goal-border);padding:11px 14px;}
 .goal .label{font-size:10.5px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--blue);margin-bottom:3px;}
@@ -70,6 +66,9 @@ details.module[open] > .module-head .chev{transform:rotate(90deg);}
 .item .title{font-size:14.5px;font-weight:600;color:var(--text);}
 .item .meta{color:var(--muted);font-size:12px;margin-top:2px;}
 
+/* Group labels inside an item list (mirror Canvas sub-headers) */
+.group-label{padding:10px 14px 4px;font-size:10.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);background:#FAFBFC;border-bottom:1px solid var(--border-light);}
+
 .item.selfcheck{background:var(--check-bg);}
 .item.selfcheck .ico{color:var(--check);}
 .selfcheck .badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--check);border-radius:3px;padding:1px 6px;margin-left:8px;vertical-align:middle;}
@@ -84,9 +83,8 @@ details.module[open] > .module-head .chev{transform:rotate(90deg);}
 <div class="course-header">
 <div>
 <div class="eyebrow">Summer Open Source Experience</div>
-<h1>Find the Gap. Go For It.</h1>
-<div class="sub">Spot a real gap in an open-source project's ecosystem — and build the confidence to take it on.</div>
-<div class="lead">Over eight weeks you go from fixing your first issue to finding a gap no one has taken on, and pursuing it. You learn the project fast, find the real need by talking to the people in it, and build toward it with AI and the community as partners — not autopilot.</div>
+<h1>Your path through the program</h1>
+<div class="lead">Each module opens with what you'll learn and why, so you always know where you are and what you're building toward. Start with Getting Started with SOSE below.</div>
 </div>
 <div>
 <img class="cti-logo" src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
@@ -94,64 +92,31 @@ details.module[open] > .module-head .chev{transform:rotate(90deg);}
 </div>
 </div>
 
-<!-- PROGRAM ARC -->
-<div class="arc">
-<p class="arc-caption">From fixing your first issue to taking on a gap you choose yourself — the scaffolding tapers, and what you're willing to attempt grows.</p>
-<div class="arc-grid">
-<div class="arc-card"><div class="s">Phase 1 &middot; Wk 1–2</div><div class="nm">Find &amp; Fix</div><div class="th">A bounded first win</div><div class="who">Support: <b>High</b></div></div>
-<div class="arc-card"><div class="s">Phase 2 &middot; Wk 3–5</div><div class="nm">Discover the Gap</div><div class="th">Find the real need</div><div class="who">Support: <b>Medium</b></div></div>
-<div class="arc-card"><div class="s">Phase 3 &middot; Wk 6–8</div><div class="nm">Go For It</div><div class="th">Pursue your own gap</div><div class="who">Support: <b>Low</b></div></div>
-</div>
-</div>
-
-<!-- PHASE 1 -->
+<!-- MODULE: Getting Started with SOSE -->
 <details class="module" open>
-<summary class="module-head"><span class="name">Phase 1 &mdash; Find &amp; Fix an Issue</span><span class="tag">Weeks 1–2</span><span class="chev">&#9656;</span></summary>
+<summary class="module-head"><span class="name">Getting Started with SOSE</span><span class="tag">Orientation</span><span class="chev">&#9656;</span></summary>
 <div class="goal"><div class="label">What you'll be able to do</div><div class="text"><ul>
-<li>Land in a real open-source project and learn how its community works</li>
-<li>Find a bounded issue and ship your first real contribution</li>
-<li>Work with AI and the codebase as thinking partners — not autopilot</li>
+<li>Understand what the Summer Open Source Experience asks of you &mdash; and decide to commit to it</li>
+<li>Build a foundation for learning and working with AI: how it shapes your learning, and where your human value lies</li>
+<li>Use the UMPIRE method to drive your project, and understand why it works</li>
 </ul></div></div>
-<div class="prereq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg><span><b>Start here.</b> A first, bounded win to build your footing before you go looking for bigger gaps.</span></div>
+<div class="prereq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg><span><b>Start here.</b> This first module sets you up before the project work begins.</span></div>
 <div class="items">
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span><div class="body"><div class="title"><a href="activities/onboard.html" target="_blank" rel="noopener">Onboard to a project</a></div><div class="meta">Set up, read the contributing guide, and learn how the community works</div></div></div>
-<div class="item selfcheck"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span><div class="body"><div class="title"><a href="activities/reflect-what-to-learn.html" target="_blank" rel="noopener">Reflect: what do you actually need to learn here?</a><span class="badge">Reflection</span></div><div class="meta">By hand, before you prompt — name what to learn and what you can skip</div></div></div>
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></span><div class="body"><div class="title"><a href="activities/first-issue.html" target="_blank" rel="noopener">Find &amp; address a good first issue</a></div><div class="meta">A bounded fix you can ship — build, test, and open a pull request</div></div></div>
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><polygon points="10 8.5 16 12 10 15.5 10 8.5" fill="currentColor" stroke="none"/></svg></span><div class="body"><div class="title"><a href="activities/demonstrate-contribution.html" target="_blank" rel="noopener">Demonstrate your contribution &amp; have it reviewed</a></div><div class="meta">Working evidence, reviewed by the community — not a plan</div></div></div>
-</div>
-</details>
 
-<!-- PHASE 2 -->
-<details class="module">
-<summary class="module-head"><span class="name">Phase 2 &mdash; Discover the Gap</span><span class="tag">Weeks 3–5</span><span class="chev">&#9656;</span></summary>
-<div class="goal"><div class="label">What you'll be able to do</div><div class="text"><ul>
-<li>Learn the project's ecosystem deeply enough to see what's missing</li>
-<li>Talk to maintainers and users to find the real gap, not the obvious one</li>
-<li>Name a gap worth pursuing — where need, code, and community meet</li>
-</ul></div></div>
-<div class="prereq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span><b>Builds on:</b> your first contribution. Now you widen the lens from one issue to the whole ecosystem.</span></div>
-<div class="items">
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><div class="body"><div class="title"><a href="activities/ecosystem-audit.html" target="_blank" rel="noopener">Ecosystem audit</a></div><div class="meta">Map what exists, what's neglected, and where people feel friction</div></div></div>
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><div class="body"><div class="title"><a href="activities/conversations.html" target="_blank" rel="noopener">Maintainer &amp; user conversations</a></div><div class="meta">Listen for the real problem behind the obvious one</div></div></div>
-<div class="item selfcheck"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span><div class="body"><div class="title"><a href="activities/reflect-your-value.html" target="_blank" rel="noopener">Reflect: where does your value concentrate?</a><span class="badge">Reflection</span></div><div class="meta">What can you see or do here that others can't yet?</div></div></div>
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><div class="body"><div class="title"><a href="activities/gap-statement.html" target="_blank" rel="noopener">Gap statement</a></div><div class="meta">Name the gap, with evidence, and why it's worth going after</div></div></div>
-</div>
-</details>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span><div class="body"><div class="title"><a href="https://cti-courses.instructure.com/courses/28/assignments/6115" data-canvas-href="https://cti-courses.instructure.com/courses/28/assignments/6115" target="_blank" rel="noopener">SOSE Contract Review [11:07]</a></div><div class="meta">Video + agreement &middot; understand what you're committing to</div></div></div>
 
-<!-- PHASE 3 -->
-<details class="module">
-<summary class="module-head"><span class="name">Phase 3 &mdash; Go For It</span><span class="tag">Weeks 6–8</span><span class="chev">&#9656;</span></summary>
-<div class="goal"><div class="label">What you'll be able to do</div><div class="text"><ul>
-<li>Commit to the gap you chose and pursue it with confidence in your own judgment</li>
-<li>Build toward it under uncertainty — simple and working beats sophisticated and stuck</li>
-<li>Show the value you created, and what you specifically brought to it</li>
-</ul></div></div>
-<div class="prereq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span><b>Builds on:</b> a gap you can defend. This is the part that asks for nerve.</span></div>
-<div class="items">
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><div class="body"><div class="title"><a href="activities/commit-plan.html" target="_blank" rel="noopener">Commit &amp; plan your approach</a></div><div class="meta">You set the goal and the bar — take the lead</div></div></div>
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.7 1 6.4 2.6"/><path d="M21 4v6h-6"/></svg></span><div class="body"><div class="title"><a href="activities/build-iterate.html" target="_blank" rel="noopener">Build &rarr; review &rarr; revise</a></div><div class="meta">Ship something small that works, then make it better</div></div></div>
-<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><polygon points="10 8.5 16 12 10 15.5 10 8.5" fill="currentColor" stroke="none"/></svg></span><div class="body"><div class="title"><a href="activities/demonstrate-evidence.html" target="_blank" rel="noopener">Demonstrate with working evidence</a></div><div class="meta">Proof of value, not plans</div></div></div>
-<div class="item selfcheck"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span><div class="body"><div class="title"><a href="activities/closing-reflection.html" target="_blank" rel="noopener">Closing reflection</a><span class="badge">Reflection</span></div><div class="meta">What would have been worse if you'd simply handed this to AI?</div></div></div>
+<div class="group-label">Foundation for using AI</div>
+
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h6v6"/></svg></span><div class="body"><div class="title"><a href="https://cti-courses.instructure.com/courses/28/quizzes/2654" data-canvas-href="https://cti-courses.instructure.com/courses/28/quizzes/2654" target="_blank" rel="noopener">Foundations for Using AI: Learning Goals</a></div><div class="meta">Quiz &middot; the goals for this section &middot; 3 pts</div></div></div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><polygon points="10 8.5 16 12 10 15.5 10 8.5" fill="currentColor" stroke="none"/></svg></span><div class="body"><div class="title"><a href="https://cti-courses.instructure.com/courses/28/assignments/6106" data-canvas-href="https://cti-courses.instructure.com/courses/28/assignments/6106" target="_blank" rel="noopener">PlayPosit: Impact of using AI on Learning (14:33)</a></div><div class="meta">Interactive video &middot; 14:33 &middot; 1 pt</div></div></div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><polygon points="10 8.5 16 12 10 15.5 10 8.5" fill="currentColor" stroke="none"/></svg></span><div class="body"><div class="title"><a href="https://cti-courses.instructure.com/courses/28/assignments/6107" data-canvas-href="https://cti-courses.instructure.com/courses/28/assignments/6107" target="_blank" rel="noopener">PlayPosit: Understand Human Value in the Age of AI (15:54)</a></div><div class="meta">Interactive video &middot; 15:54 &middot; 1 pt</div></div></div>
+
+<div class="group-label">UMPIRE for SOSE</div>
+
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><div class="body"><div class="title"><a href="https://cti-courses.instructure.com/courses/28/pages/motivation-for-using-umpire" data-canvas-href="https://cti-courses.instructure.com/courses/28/pages/motivation-for-using-umpire" target="_blank" rel="noopener">Motivation for using UMPIRE</a></div><div class="meta">Page &middot; why a method helps</div></div></div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><div class="body"><div class="title"><a href="https://cti-courses.instructure.com/courses/28/pages/explanation-of-the-umpire-canvas-modules" data-canvas-href="https://cti-courses.instructure.com/courses/28/pages/explanation-of-the-umpire-canvas-modules" target="_blank" rel="noopener">Explanation of the UMPIRE Canvas modules</a></div><div class="meta">Page &middot; how the modules map to UMPIRE</div></div></div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><div class="body"><div class="title"><a href="https://cti-courses.instructure.com/courses/28/pages/why-umpire" data-canvas-href="https://cti-courses.instructure.com/courses/28/pages/why-umpire" target="_blank" rel="noopener">Why UMPIRE</a></div><div class="meta">Page</div></div></div>
+<div class="item selfcheck"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span><div class="body"><div class="title"><a href="https://cti-courses.instructure.com/courses/28/quizzes/1142" data-canvas-href="https://cti-courses.instructure.com/courses/28/quizzes/1142" target="_blank" rel="noopener">Quiz: UMPIRE for Project</a><span class="badge">Check</span></div><div class="meta">Quiz &middot; check your understanding before the project &middot; 2 pts</div></div></div>
 </div>
 </details>
 
@@ -161,5 +126,24 @@ details.module[open] > .module-head .chev{transform:rotate(90deg);}
 </footer>
 
 </div>
+
+<!-- Context-aware links: when this page is embedded in Canvas (in an iframe,
+     or opened with ?context=canvas), every activity link resolves to its
+     Canvas item via data-canvas-href. Viewed directly on the web, links stay
+     as authored. Today the default href already points to the Canvas item
+     (the activities live only in Canvas); when an activity later gets its own
+     public HTML page, point the default href there and this script keeps the
+     in-Canvas link working with no other change. -->
+<script>
+(function(){
+  var ctx = new URLSearchParams(location.search).get('context')
+    || (window.self !== window.top ? 'canvas' : 'web');
+  if (ctx === 'canvas') {
+    document.querySelectorAll('a[data-canvas-href]').forEach(function(a){
+      a.href = a.getAttribute('data-canvas-href');
+    });
+  }
+})();
+</script>
 </body>
 </html>
