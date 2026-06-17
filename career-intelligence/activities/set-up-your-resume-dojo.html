@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set Up Your Resume Dojo | Career Intelligence</title>
+  <link rel="stylesheet" href="../../css/activity-styles.css">
+  <style>
+    :root{--bg:#fafafa;--surface:#fff;--text:#1a1a1a;--muted:#555;--border:#e0e0e0;--accent:#2c5282;--accent-light:#ebf4ff;--radius:8px;}
+    *{box-sizing:border-box;}
+    body{margin:0;padding:20px 16px;font:16px/1.65 -apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color:var(--text);background:var(--bg);}
+    .ci-page{max-width:760px;margin:0 auto;}
+    .meta{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px;}
+    h1{font-size:22px;font-weight:700;margin:0 0 18px;line-height:1.3;}
+    h2.sec{font-size:16px;margin:24px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+    .goal{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:var(--radius);padding:14px 16px;margin:0 0 16px;}
+    .goal h2{margin:0 0 6px;font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;}
+    .goal p{margin:0;}
+    .intro{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin:0 0 8px;}
+    .intro p{margin:0;}
+    ol.steps{padding-left:20px;margin:6px 0;} ol.steps li{margin:7px 0;}
+    ul.plain{padding-left:20px;margin:6px 0;} ul.plain li{margin:6px 0;}
+    .tool{border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin:10px 0;background:var(--surface);}
+    .tool h3{margin:0 0 6px;font-size:15px;}
+    .tool .tag{font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-light);padding:1px 7px;border-radius:10px;margin-left:6px;}
+    .config{background:#0f172a;color:#e2e8f0;border-radius:var(--radius);padding:14px 16px;margin:10px 0;font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;}
+    .download{display:inline-block;background:var(--accent);color:#fff;border-radius:6px;padding:8px 14px;font-weight:600;font-size:14px;text-decoration:none;margin:6px 0;}
+    .download:hover{background:#22436b;}
+    .callout{background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:var(--radius);padding:12px 16px;margin:14px 0;font-size:14px;color:#7c5b12;}
+    .submit{background:#ecfdf5;border:1px solid #6ee7b7;border-left:4px solid #10b981;border-radius:var(--radius);padding:14px 18px;margin:20px 0 12px;}
+    .submit h2{margin:0 0 8px;font-size:12px;color:#065f46;text-transform:uppercase;letter-spacing:.06em;}
+    .submit p{margin:4px 0;}
+    footer{text-align:center;margin:28px 0 8px;opacity:.55;} footer img{height:22px;}
+    .back-link{display:none;font-size:13px;color:var(--accent);text-decoration:none;margin:0 0 12px;}
+    .back-link:hover{text-decoration:underline;}
+    .ctx-web .back-link{display:inline-block;}
+  </style>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      if (ctx !== 'canvas') { document.documentElement.classList.add('ctx-web'); }
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
+          try { var u = new URL(a.getAttribute('href'), location.href);
+            if (!u.searchParams.has('context')) { u.searchParams.set('context', ctx); a.href = u.href; }
+          } catch (e) {}
+        });
+      });
+    })();
+  </script>
+</head>
+<body>
+  <div class="ci-page">
+    <a class="back-link" href="../canvas/home.html?context=web" data-keep-context>&larr; Back to the program overview</a>
+    <p class="meta">Career Intelligence &middot; Week 3 &middot; Live session</p>
+    <h1>Set Up Your Resume Dojo</h1>
+
+    <div class="goal">
+      <h2>Learning goal</h2>
+      <p>Stand up an AI project that reviews your resume the way a coach would &mdash; so you can keep sharpening it on your own, for every role you target.</p>
+    </div>
+
+    <div class="intro">
+      <p>You <em>could</em> paste a long prompt into a fresh chat every time. But a <strong>project</strong> lets you set it up once: your instructions and the Resume Dojo Handbook stay loaded, your resume and the job posting stay in context, and you reuse it for every application. Learning to use projects is a skill worth having on its own.</p>
+    </div>
+
+    <h2 class="sec">What you&rsquo;ll need</h2>
+    <ul class="plain">
+      <li><strong>The Resume Dojo Handbook</strong> (the AI&rsquo;s method) &mdash; <a href="../resources/resume-dojo-project.pdf" target="_blank" rel="noopener">download the PDF</a>.</li>
+      <li>Your <strong>current resume</strong>.</li>
+      <li><strong>One real job posting</strong> you&rsquo;re targeting.</li>
+    </ul>
+
+    <h2 class="sec">Set it up &mdash; pick your tool</h2>
+    <p>The idea is the same everywhere: create a project, paste the <strong>configuration</strong> (below) into its instructions, add the <strong>Handbook PDF</strong> as a knowledge file, then attach your resume and the posting.</p>
+
+    <div class="tool">
+      <h3>ChatGPT <span class="tag">Projects</span></h3>
+      <ol class="steps">
+        <li>Left sidebar &rarr; <strong>Projects</strong> &rarr; <strong>New project</strong>.</li>
+        <li>Open the project&rsquo;s <strong>&hellip;</strong> menu &rarr; <strong>Project settings / Instructions</strong> and paste the configuration below.</li>
+        <li>Upload the <strong>Resume Dojo Handbook</strong> PDF to the project&rsquo;s files.</li>
+        <li>Start a chat in the project and attach your <strong>resume</strong> and the <strong>job posting</strong>. (Works on free and paid accounts.)</li>
+      </ol>
+    </div>
+    <div class="tool">
+      <h3>Claude <span class="tag">Projects</span></h3>
+      <ol class="steps">
+        <li>Left sidebar &rarr; <strong>Projects</strong> &rarr; <strong>New project</strong>.</li>
+        <li>Paste the configuration below into the project&rsquo;s <strong>custom instructions</strong>.</li>
+        <li>Under <strong>Files</strong> (the project knowledge base), click <strong>+</strong> and add the <strong>Handbook</strong> PDF.</li>
+        <li>Start a chat inside the project and attach your <strong>resume</strong> and the <strong>job posting</strong>.</li>
+      </ol>
+    </div>
+    <div class="tool">
+      <h3>Gemini <span class="tag">Gems</span></h3>
+      <ol class="steps">
+        <li>Open <strong>Gems</strong> &rarr; <strong>New Gem</strong> (Gem manager).</li>
+        <li>Paste the configuration below into <strong>Instructions</strong>.</li>
+        <li>Under <strong>Knowledge</strong>, click <strong>Add files &rarr; Upload files</strong> and add the <strong>Handbook</strong> PDF.</li>
+        <li>Open the Gem and attach your <strong>resume</strong> and the <strong>job posting</strong>. (Up to 10 knowledge files.)</li>
+      </ol>
+    </div>
+
+    <h2 class="sec">Paste this as your project&rsquo;s instructions</h2>
+    <div class="config">You are my Resume Dojo. Follow the Resume Dojo Handbook I've added to this project as your method.
+
+You are the Sensei: run the session and bring in the characters from the Handbook -- Framer, Challenger, Auditor, Reflector, Connector, and Writer -- choosing whoever fits the moment.
+
+Rules:
+- You don't make my decisions: what each line says, the evidence, and what to cut are mine. You can help me write it well -- grammar, structure, phrasing, rewrites -- once I've told you what to convey; offer options I choose from, and never invent anything I didn't give you.
+- One focused question at a time. Wait for my answer.
+- Favor "what" and "how" questions for concrete details; use "why" to make me justify a choice with evidence, not to fish for motives I can't access.
+- After each round, make me name the specific change I'll make.
+- Keep my voice; flag anything that sounds generic or AI-written.
+- Truth only -- surface real evidence, never invent it.
+
+When I'm ready, ask me for my target role (or the job posting) and my current resume, then start Round 1 of the Handbook. One question at a time.</div>
+    <p style="font-size:13.5px;color:#555;margin:10px 0 0;">Review and personalize these instructions in any way you&rsquo;d like &mdash; make them yours.</p>
+
+    <div class="callout"><strong>No project yet?</strong> You can still run it: open any chat and paste the full Handbook text (in the PDF) as your first message. You&rsquo;ll just need to paste it again each new chat &mdash; which is exactly why a project is worth setting up.</div>
+
+    <div class="submit">
+      <h2>Submit to Canvas</h2>
+      <p><strong>Submission type:</strong> File upload</p>
+      <p><strong>What to submit:</strong> a screenshot of your Resume Dojo project showing the configuration in the instructions and the Handbook added as a file &mdash; so we know you&rsquo;re set up to keep iterating.</p>
+    </div>
+
+    <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>
+  </div>
+</body>
+</html>

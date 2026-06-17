@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Review Workshop | Career Intelligence — Week 3</title>
+  <style>
+    :root {
+      --bg: #fafafa; --surface: #ffffff; --text: #1a1a1a; --muted: #555;
+      --border: #e0e0e0; --accent: #2c5282; --accent-light: #ebf4ff;
+      --have-bg: #ecfdf5; --have-bd: #6ee7b7; --have-tx: #065f46;
+      --ph-bg: #f8fafc; --ph-bd: #94a3b8; --radius: 8px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 20px 16px; font: 16px/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; color: var(--text); background: var(--bg); }
+    .wrap { max-width: 780px; margin: 0 auto; }
+    .meta { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 6px; }
+    h1 { font-size: 23px; font-weight: 700; margin: 0 0 6px; line-height: 1.3; }
+    .lead { color: var(--muted); margin: 0 0 22px; }
+    section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin: 0 0 16px; }
+    section h2 { margin: 0 0 4px; font-size: 17px; font-weight: 700; }
+    section .hint { color: var(--muted); font-size: 13.5px; margin: 0 0 10px; }
+    ol, ul { padding-left: 22px; margin: 8px 0; }
+    li { margin-bottom: 8px; }
+    a { color: var(--accent); }
+    /* what you should have */
+    .have { background: var(--have-bg); border: 1px solid var(--have-bd); border-left: 4px solid #10b981; }
+    .have h2 { color: var(--have-tx); }
+    .have ul { list-style: none; padding-left: 4px; }
+    .have li { padding-left: 26px; position: relative; }
+    .have li::before { content: '\2713'; position: absolute; left: 0; top: -1px; color: #10b981; font-weight: 700; }
+    /* session plan placeholder */
+    .placeholder { background: var(--ph-bg); border: 2px dashed var(--ph-bd); border-radius: var(--radius); padding: 16px 18px; margin: 10px 0 0; }
+    .placeholder .ph-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #64748b; margin-bottom: 6px; }
+    .placeholder p { margin: 6px 0; }
+    details.shape { margin-top: 12px; border-top: 1px solid var(--border); padding-top: 10px; }
+    details.shape summary { cursor: pointer; font-size: 13.5px; font-weight: 600; color: var(--accent); list-style: none; }
+    details.shape summary::-webkit-details-marker { display: none; }
+    details.shape summary::before { content: '\25B8'; display: inline-block; margin-right: 7px; font-size: 11px; color: var(--muted); transition: transform .2s; }
+    details.shape[open] summary::before { transform: rotate(90deg); }
+    details.shape .body { font-size: 14px; color: #333; margin-top: 8px; }
+    /* target questions */
+    .target { background: var(--accent-light); border: 1px solid #bcd4ee; border-left: 4px solid var(--accent); }
+    .target h2 { color: #1d3a5f; }
+    .target ol { counter-reset: q; list-style: none; padding-left: 0; }
+    .target ol li { counter-increment: q; padding-left: 40px; position: relative; margin-bottom: 12px; font-weight: 500; }
+    .target ol li::before { content: counter(q); position: absolute; left: 0; top: -2px; width: 26px; height: 26px; background: var(--accent); color: #fff; border-radius: 50%; text-align: center; line-height: 26px; font-size: 14px; font-weight: 700; }
+    .small { font-size: 13px; color: var(--muted); }
+    footer { text-align: center; margin: 26px 0 8px; opacity: 0.55; }
+    footer img { height: 22px; }
+    .back-link { display: none; font-size: 13px; color: var(--accent); text-decoration: none; margin: 0 0 12px; }
+    .ctx-web .back-link { display: inline-block; }
+  </style>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      if (ctx !== 'canvas') document.documentElement.classList.add('ctx-web');
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
+          try { var u = new URL(a.getAttribute('href'), location.href);
+            if (!u.searchParams.has('context')) { u.searchParams.set('context', ctx); a.href = u.href; }
+          } catch (e) {}
+        });
+      });
+    })();
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back-link" href="../canvas/home.html?context=web" data-keep-context>&larr; Back to the program overview</a>
+
+    <p class="meta">Week 3 &middot; Live session</p>
+    <h1>Resume Review Workshop</h1>
+    <p class="lead">Where Week&nbsp;2 (your resume and niche) becomes a resume that proves your fit &mdash; and gets you ready to begin Own Your Search in Week&nbsp;4.</p>
+
+    <section class="have">
+      <h2>What you should have</h2>
+      <p class="hint">Bring these so the workshop has something real to work on:</p>
+      <ul>
+        <li>Your current resume &mdash; the <strong>Resume v2</strong> you built in Week&nbsp;2.</li>
+        <li><strong>One real job posting</strong> you&rsquo;re targeting &mdash; ideally one you&rsquo;ve already tailored your resume toward.</li>
+        <li>Your <strong>Niche Doc</strong> &mdash; your 2&ndash;3 role types and the evidence behind them.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Session plan</h2>
+      <p class="hint">Designed by Jeff &mdash; a scaffold, not a script.</p>
+      <div class="placeholder">
+        <div class="ph-label">Session plan &mdash; to be added</div>
+        <p>Run the session however works best: open with a live critique of a volunteer&rsquo;s resume, walk through one strong example project, demo the Resume Dojo, or your own approach. The only target is the three questions below &mdash; design the time so students can answer them by the end.</p>
+        <details class="shape">
+          <summary>Need a starting point? One possible shape</summary>
+          <div class="body">
+            <strong>Open</strong> &mdash; frame the bridge: the resume now has to <em>prove</em> the niche. Optionally model the lens with one live critique.<br>
+            <strong>Work</strong> &mdash; students apply the same lens to their own resume (your critique, a peer, or the Resume Dojo) and check their niche against the evidence.<br>
+            <strong>Close</strong> &mdash; each student names their top resume change. Point them to setting up the Resume Dojo and the take-home review.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="target">
+      <h2>The target &mdash; students thinking for themselves about their resume</h2>
+      <p class="hint">By the end, a student should be able to reason about their own resume &mdash; judge what&rsquo;s working, what&rsquo;s weak, and what to change &mdash; without being told. The three questions below are <strong>examples</strong> of what that sounds like; use them, or pick three of your own that get at the same independent thinking.</p>
+      <ol>
+        <li>If a recruiter reads only the top third of your resume for ten seconds, what specifically tells them you fit this role &mdash; and what&rsquo;s missing?</li>
+        <li>What is the strongest piece of evidence on your resume for the role you&rsquo;re targeting, and which claim is weakest or hardest to back up?</li>
+        <li>Which one bullet will you rewrite first, and what specific result or number will you add to make it stronger?</li>
+      </ol>
+    </section>
+
+    <p class="small">After the session, students set up their <strong>Resume Dojo</strong> and run the guided review on their own, then complete the Week&nbsp;3 self-check.</p>
+
+    <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>
+  </div>
+</body>
+</html>

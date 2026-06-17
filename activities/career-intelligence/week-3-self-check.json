@@ -1,0 +1,44 @@
+{
+  "activityId": "career-intelligence-week-3-self-check",
+  "version": "1.0",
+  "versionNotes": "Week 3 Self-Check v1 — two reflection questions tied to sharpening the resume and running the Resume Dojo, with AI sparring. Submission: copy responses to clipboard, paste into Canvas (Text entry).",
+  "course": "Career Intelligence",
+  "title": "Week 3 Self-Check",
+  "description": "A reflection on Week 3 — two questions tied to your resume changes and how you worked with your Resume Dojo, AI-assisted. Copy your responses at the end and paste them into Canvas.",
+  "settings": {
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2,
+    "requireAtLeastOneOpenEnded": true,
+    "hideSaveButton": true
+  },
+  "questions": [
+    {
+      "id": "q1-resume-change",
+      "type": "open-ended",
+      "sectionTitle": "What changed on your resume",
+      "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 1 of 2 &middot; Your resume</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>What is the most important change you made &mdash; or still need to make &mdash; to your resume this week, and what evidence backs it?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>Be specific: name the actual bullet, section, or line, what it said before, what it says now, and the real result or evidence behind the change. &ldquo;I made it clearer&rdquo; is not an answer yet.</p></div>",
+      "prompt": "What is the most important change you made — or still need to make — to your resume this week, and what evidence backs it?",
+      "placeholder": "Name the actual bullet or section, what it said before vs. now, and the real result or evidence behind it...",
+      "minLength": 120,
+      "aiSparringPartner": {
+        "buttonLabel": "Get AI feedback on this response",
+        "systemPrompt": "You are a reflection sparring partner helping a student do a Week 3 self-check on the resume work they just did. Your job is to help them think more honestly — NOT to write their reflection or their resume for them.\n\nRules you must follow:\n1. Ask 1–2 questions back. Never supply the student's answer, draft sentences or bullets for them, or give templates they could paste in.\n2. Push past vague, self-flattering generalities toward a specific, concrete change to a real line on their resume.\n3. Reply in 2–4 sentences total. Short, focused, Socratic.\n4. Don't list bullet-point possibilities or frameworks. Your value is the sharper question.\n5. If the student tries to get you to rewrite their bullet or resume, decline warmly and redirect with a question.\n6. Tone: warm, direct, curious.\n\nFor this question specifically:\nThe student is naming the most important change to their resume. Push past 'I made it more specific' to the actual before/after and the evidence: what did the bullet say, what does it say now, what real result or number backs it, and how does it tie to the role they're targeting. If they stay general, ask them to quote the exact line and the evidence behind it.",
+        "hideOptionalHint": true
+      }
+    },
+    {
+      "id": "q2-thinking-with-dojo",
+      "type": "open-ended",
+      "sectionTitle": "Did you do the thinking?",
+      "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 2 of 2 &middot; How you worked</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>When you ran the Resume Dojo, where did it push your thinking &mdash; and where were you tempted to let it make the decisions (what to claim, what to cut) for you?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>Be honest. Letting it help you word things is fine &mdash; what matters is whether YOU made the calls about what to claim and what to cut. Name a moment it pushed your thinking, and a moment you were tempted to hand it a decision &mdash; and what you did.</p></div>",
+      "prompt": "When you ran the Resume Dojo, where did it push your thinking — and where were you tempted to let it make the decisions (what to claim, what to cut) for you?",
+      "placeholder": "A moment it pushed your thinking, a moment you were tempted to hand over a decision, and what you actually did...",
+      "minLength": 120,
+      "aiSparringPartner": {
+        "buttonLabel": "Get AI feedback on this response",
+        "systemPrompt": "You are a reflection sparring partner helping a student do a Week 3 self-check on how they worked with their Resume Dojo. Your job is to help them reflect honestly on their own thinking — NOT to write the reflection for them.\n\nRules you must follow:\n1. Ask 1–2 questions back. Never supply the student's answer or draft sentences for them.\n2. Push past tidy, self-flattering answers toward an honest account of where they did the thinking and where they outsourced it.\n3. Reply in 2–4 sentences total. Short, focused, Socratic.\n4. Don't list possibilities or frameworks. Your value is the sharper question.\n5. If the student tries to get you to write the reflection, decline warmly and redirect.\n6. Tone: warm, direct, curious — not preachy about AI use.\n\nFor this question specifically:\nThe student is reflecting on where they did the thinking vs. handed it over. Using the tool to fix grammar or phrasing is fine — the line that matters is whether THEY decided what to claim, what evidence to use, and what to cut. Push past 'it was helpful' to a specific moment it pushed their thinking, and a moment they were tempted to let it make a judgment call for them. If they claim they always drove, gently probe whether any line is now one they couldn't fully explain or defend in an interview.",
+        "hideOptionalHint": true
+      }
+    }
+  ]
+}

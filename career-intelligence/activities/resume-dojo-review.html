@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Dojo — Review Your Resume | Career Intelligence</title>
+  <link rel="stylesheet" href="../../css/activity-styles.css">
+  <style>
+    :root{--bg:#fafafa;--surface:#fff;--text:#1a1a1a;--muted:#555;--border:#e0e0e0;--accent:#2c5282;--accent-light:#ebf4ff;--radius:8px;}
+    *{box-sizing:border-box;}
+    body{margin:0;padding:20px 16px;font:16px/1.65 -apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color:var(--text);background:var(--bg);}
+    .ci-page{max-width:760px;margin:0 auto;}
+    .meta{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px;}
+    h1{font-size:22px;font-weight:700;margin:0 0 18px;line-height:1.3;}
+    h2.sec{font-size:16px;margin:24px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+    .goal{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:var(--radius);padding:14px 16px;margin:0 0 16px;}
+    .goal h2{margin:0 0 6px;font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;}
+    .goal p{margin:0;}
+    .intro{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin:0 0 8px;}
+    .intro p{margin:0;}
+    ol.steps{padding-left:20px;margin:6px 0;} ol.steps li{margin:8px 0;}
+    .callout{background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:var(--radius);padding:12px 16px;margin:14px 0;font-size:14px;color:#7c5b12;}
+    .submit{background:#ecfdf5;border:1px solid #6ee7b7;border-left:4px solid #10b981;border-radius:var(--radius);padding:14px 18px;margin:20px 0 12px;}
+    .submit h2{margin:0 0 8px;font-size:12px;color:#065f46;text-transform:uppercase;letter-spacing:.06em;}
+    .submit p{margin:4px 0;}
+    footer{text-align:center;margin:28px 0 8px;opacity:.55;} footer img{height:22px;}
+    .back-link{display:none;font-size:13px;color:var(--accent);text-decoration:none;margin:0 0 12px;}
+    .back-link:hover{text-decoration:underline;}
+    .ctx-web .back-link{display:inline-block;}
+  </style>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      if (ctx !== 'canvas') { document.documentElement.classList.add('ctx-web'); }
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
+          try { var u = new URL(a.getAttribute('href'), location.href);
+            if (!u.searchParams.has('context')) { u.searchParams.set('context', ctx); a.href = u.href; }
+          } catch (e) {}
+        });
+      });
+    })();
+  </script>
+</head>
+<body>
+  <div class="ci-page">
+    <a class="back-link" href="../canvas/home.html?context=web" data-keep-context>&larr; Back to the program overview</a>
+    <p class="meta">Career Intelligence &middot; Week 3 &middot; Take-home</p>
+    <h1>Resume Dojo &mdash; Review Your Resume</h1>
+
+    <div class="goal">
+      <h2>Learning goal</h2>
+      <p>Use your Resume Dojo to sharpen your own resume &mdash; and leave with concrete, evidence-backed changes you can defend, in your own voice.</p>
+    </div>
+
+    <div class="intro">
+      <p>This builds on the project you set up in <strong>Set Up Your Resume Dojo</strong>. If you haven&rsquo;t set it up yet, do that first.</p>
+    </div>
+
+    <h2 class="sec">What to do</h2>
+    <ol class="steps">
+      <li>Open your <strong>Resume Dojo</strong> project and attach (or confirm) your <strong>current resume</strong> and the <strong>job posting</strong> you&rsquo;re targeting.</li>
+      <li>Work through the rounds. The Dojo asks one question at a time &mdash; answer with real specifics: what you owned, what changed, the number.</li>
+      <li>You decide what each bullet should say and the evidence behind it; let the <strong>Writer</strong> help you word it sharply. Make the edits in your own resume document as you go.</li>
+      <li>At the end, ask for the <strong>recap</strong> &mdash; your target role, your strongest evidence, your emblem, and what&rsquo;s still thin.</li>
+    </ol>
+
+    <div class="callout"><strong>You direct; let it help with the words.</strong> Decide what each line should say and keep the evidence honest &mdash; then it&rsquo;s fine to let the Dojo help with grammar, structure, and phrasing. Just don&rsquo;t accept a line you couldn&rsquo;t explain in an interview.</div>
+
+    <h2 class="sec">After you finish</h2>
+    <p>Read your revised resume out loud to a peer or TA. The Dojo is your first mirror; a person is your second &mdash; they catch what it misses.</p>
+
+    <div class="submit">
+      <h2>Submit to Canvas</h2>
+      <p><strong>Submission type:</strong> Text entry</p>
+      <p><strong>What to submit:</strong> paste your Dojo&rsquo;s <strong>end-of-session recap</strong>, plus <strong>two lines</strong>: the single most important change you made to your resume, and why.</p>
+    </div>
+
+    <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>
+  </div>
+</body>
+</html>
