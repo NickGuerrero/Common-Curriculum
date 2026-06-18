@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dojo — Context Files | Career Intelligence</title>
+  <style>
+    :root{--bg:#fafafa;--surface:#fff;--text:#1a1a1a;--muted:#555;--border:#e0e0e0;--accent:#2c5282;--accent-light:#ebf4ff;--ok:#0b874b;--radius:8px;}
+    *{box-sizing:border-box;}
+    body{margin:0;padding:20px 16px;font:16px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color:var(--text);background:var(--bg);}
+    .wrap{max-width:780px;margin:0 auto;}
+    .meta{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px;}
+    h1{font-size:23px;font-weight:700;margin:0 0 6px;line-height:1.3;}
+    .lead{color:var(--muted);margin:0 0 18px;}
+    .how{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:var(--radius);padding:13px 16px;margin:0 0 20px;font-size:14px;}
+    .how a{color:var(--accent);}
+    .mod{border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin:0 0 12px;background:var(--surface);}
+    .mod.coming{opacity:.6;background:#f7f8f9;}
+    .mod .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+    .mod h2{margin:0;font-size:16px;font-weight:700;}
+    .badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;letter-spacing:.03em;}
+    .badge.v{color:#fff;background:var(--ok);}
+    .badge.wk{color:var(--accent);background:var(--accent-light);}
+    .badge.soon{color:#6b7280;background:#e5e7eb;text-transform:uppercase;font-size:10px;}
+    .mod p{margin:7px 0 8px;font-size:14px;color:#333;}
+    .dl a{display:inline-block;font-size:13px;font-weight:600;color:var(--accent);text-decoration:none;border:1px solid var(--accent);border-radius:6px;padding:5px 11px;margin-right:8px;}
+    .dl a:hover{background:var(--accent-light);}
+    .dl .txt{color:var(--muted);border-color:var(--border);font-weight:500;}
+    .refs{font-size:13px;color:var(--muted);margin:18px 0 0;}
+    .refs a{color:var(--accent);}
+    footer{text-align:center;margin:26px 0 8px;opacity:.55;} footer img{height:22px;}
+    .back-link{display:none;font-size:13px;color:var(--accent);text-decoration:none;margin:0 0 12px;}
+    .ctx-web .back-link{display:inline-block;}
+  </style>
+  <script>
+    (function(){var ctx=new URLSearchParams(location.search).get('context')||(window.self!==window.top?'canvas':'web');
+      if(ctx!=='canvas')document.documentElement.classList.add('ctx-web');
+      document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('a[data-keep-context]').forEach(function(a){try{var u=new URL(a.getAttribute('href'),location.href);if(!u.searchParams.has('context')){u.searchParams.set('context',ctx);a.href=u.href;}}catch(e){}});});})();
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back-link" href="../canvas/home.html?context=web" data-keep-context>&larr; Back to the program overview</a>
+    <p class="meta">Career Intelligence &middot; Symbiotic Thinking Dojo</p>
+    <h1>The Dojo &mdash; your context files</h1>
+    <p class="lead">A Dojo is an AI project you set up once and add to as the program goes. This page always has the latest version of each file.</p>
+
+    <div class="how">
+      <strong>How it works:</strong> set up your project once (see <a href="../activities/set-up-your-resume-dojo.html" data-keep-context>Set Up Your Resume Dojo</a>), then add the <strong>Dojo Core</strong> (always) plus the <strong>module</strong> for the work you&rsquo;re doing, and paste the configuration. Each module is a small file your AI uses as its method.
+    </div>
+
+    <div class="mod">
+      <div class="top"><h2>Dojo Core</h2><span class="badge v">v1.0</span><span class="badge wk">Add to every project</span></div>
+      <p>How every Dojo behaves &mdash; the seven characters (Sensei, Framer, Challenger, Auditor, Reflector, Connector, Writer) and the rules (you make the decisions; it helps you think and write; one question at a time; cite reputable sources).</p>
+      <div class="dl"><a href="dojo-core.pdf" target="_blank" rel="noopener">Download PDF</a><a class="txt" href="dojo-core.txt" target="_blank" rel="noopener">Text version</a></div>
+    </div>
+
+    <div class="mod">
+      <div class="top"><h2>Resume</h2><span class="badge v">v1.0</span><span class="badge wk">Week 3</span></div>
+      <p>Review and sharpen your resume for one specific role &mdash; the X/Y/Z bullet formula, ATS-safe basics, and the recruiter&rsquo;s-eye test.</p>
+      <div class="dl"><a href="resume-dojo.pdf" target="_blank" rel="noopener">Download PDF</a><a class="txt" href="resume-dojo.txt" target="_blank" rel="noopener">Text version</a></div>
+    </div>
+
+    <div class="mod coming">
+      <div class="top"><h2>Search Strategy</h2><span class="badge soon">Coming &middot; Week 4</span></div>
+      <p>Build and test your Search Strategy Hypothesis &mdash; where you&rsquo;re aiming, why you fit, the assumption you&rsquo;re testing, and how.</p>
+    </div>
+
+    <div class="mod coming">
+      <div class="top"><h2>Interview</h2><span class="badge soon">Coming</span></div>
+      <p>Practice the questions you&rsquo;ll actually be asked, build your behavioral stories, and prepare to connect &mdash; not just to qualify.</p>
+    </div>
+
+    <div class="mod coming">
+      <div class="top"><h2>Networking</h2><span class="badge soon">Coming</span></div>
+      <p>Build access and real professional relationships &mdash; especially when you&rsquo;re starting without a network.</p>
+    </div>
+
+    <p class="refs"><strong>Reference:</strong> <a href="apply-within-laszlo-bock.pdf" target="_blank" rel="noopener">Apply Within</a> &mdash; Laszlo Bock&rsquo;s free job-search playbook (former Google SVP of People Operations) that the Dojo modules draw on.</p>
+
+    <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>
+  </div>
+</body>
+</html>
