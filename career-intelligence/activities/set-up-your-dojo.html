@@ -23,7 +23,12 @@
     .tool{border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin:10px 0;background:var(--surface);}
     .tool h3{margin:0 0 6px;font-size:15px;}
     .tool .tag{font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-light);padding:1px 7px;border-radius:10px;margin-left:6px;}
-    .config{background:#0f172a;color:#e2e8f0;border-radius:var(--radius);padding:14px 16px;margin:10px 0;font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;}
+    .config-wrap{margin:10px 0;border:1px solid #1e293b;border-radius:var(--radius);overflow:hidden;}
+    .config-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#1e293b;color:#94a3b8;padding:6px 8px 6px 14px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
+    .copy-btn{background:#334155;color:#e2e8f0;border:1px solid #475569;border-radius:6px;padding:5px 14px;font:600 12px -apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;letter-spacing:0;text-transform:none;cursor:pointer;flex:none;}
+    .copy-btn:hover{background:#475569;}
+    .copy-btn.copied{background:#10b981;border-color:#10b981;color:#fff;}
+    .config{background:#0f172a;color:#e2e8f0;border-radius:0;padding:14px 16px;margin:0;font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;}
     .callout{background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:var(--radius);padding:12px 16px;margin:14px 0;font-size:14px;color:#7c5b12;}
     .note{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:var(--radius);padding:12px 16px;margin:14px 0;font-size:14px;}
     .submit{background:#ecfdf5;border:1px solid #6ee7b7;border-left:4px solid #10b981;border-radius:var(--radius);padding:14px 18px;margin:20px 0 12px;}
@@ -106,7 +111,9 @@
     <div class="note"><strong>Pick the model.</strong> In your tool&rsquo;s model selector, choose the latest, most capable model you have access to (the newest ChatGPT, Claude, or Gemini) &mdash; the Dojo coaches best when it can reason about your evidence. Worth knowing the tradeoff: a <strong>&ldquo;thinking&rdquo; / reasoning model</strong> gives sharper, more careful feedback but pauses longer before each reply; a faster standard model answers quickly with a little less depth. If the waits feel long, switch to the faster one; if the feedback feels shallow, switch to the advanced/thinking one.</div>
 
     <h2 class="sec">Paste this as your project&rsquo;s instructions</h2>
-    <div class="config">You are my Dojo -- a coach that sharpens my thinking. Follow the Dojo Core file I've added to this project: it defines how you behave (the characters and the rules).
+    <div class="config-wrap">
+      <div class="config-bar"><span>Project instructions</span><button type="button" class="copy-btn" id="copyConfig">Copy</button></div>
+      <div class="config" id="configText">You are my Dojo -- a coach that sharpens my thinking. Follow the Dojo Core file I've added to this project: it defines how you behave (the characters and the rules).
 
 For each kind of work I add a module file -- Resume, Search Strategy, Interview, Networking. Use whichever module is in the project as your method. If more than one is loaded, ask me which I want to work on right now.
 
@@ -115,6 +122,7 @@ The core rule: I make the decisions and do the thinking. You help me see what to
 Be warm and supportive, and be direct and honest -- you're a coach in my corner, not a critic and not a hype machine. Acknowledge real thinking when you see it; tell me plainly when something is weak or wrong and why; don't cushion a hard truth into vagueness. Keep it conversational, challenge shaky assumptions, and leave me room to think.
 
 To start: ask me which module I'm working on (or use the one I've added) and what I want to work on, then begin Round 1 of that module. One question at a time.</div>
+    </div>
 
     <p style="font-size:13.5px;color:#555;margin:10px 0 0;">Review and personalize these instructions in any way you&rsquo;d like &mdash; make them yours.</p>
 
@@ -130,5 +138,14 @@ To start: ask me which module I'm working on (or use the one I've added) and wha
 
     <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>
   </div>
+  <script>
+    (function(){
+      var btn = document.getElementById('copyConfig'), src = document.getElementById('configText');
+      if (!btn || !src) return;
+      function flash(){ btn.classList.add('copied'); btn.textContent = 'Copied!'; setTimeout(function(){ btn.classList.remove('copied'); btn.textContent = 'Copy'; }, 1800); }
+      function fallback(t){ var ta = document.createElement('textarea'); ta.value = t; ta.setAttribute('readonly',''); ta.style.position='fixed'; ta.style.top='-1000px'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); var ok=false; try { ok = document.execCommand('copy'); } catch(e){} document.body.removeChild(ta); if (ok) flash(); }
+      btn.addEventListener('click', function(){ var t = src.innerText; if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t).then(flash, function(){ fallback(t); }); } else { fallback(t); } });
+    })();
+  </script>
 </body>
 </html>
