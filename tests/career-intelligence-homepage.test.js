@@ -27,6 +27,9 @@ describe('Career Intelligence Canvas homepage', () => {
     assert.doesNotThrow(() => new Function(script));
     assert.match(script, /no learner progress was returned for this Canvas account/);
     assert.match(script, /mapped items completed in Canvas/);
+    assert.doesNotMatch(script, /progress-label/);
+    assert.doesNotMatch(script, /Completed in Canvas/);
+    assert.doesNotMatch(script, /Not completed in Canvas/);
   });
 
   it('keeps progress-map.json aligned with homepage rows', () => {

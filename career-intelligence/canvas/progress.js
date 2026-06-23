@@ -29,7 +29,7 @@
     check.className = 'progress-check';
     check.setAttribute('aria-label', 'Progress unavailable');
     check.setAttribute('title', 'Progress unavailable');
-    check.innerHTML = '<span class="progress-box"></span><span class="progress-label">Progress unavailable</span>';
+    check.innerHTML = '<span class="progress-box"></span>';
     row.appendChild(check);
     return check;
   }
@@ -44,10 +44,8 @@
   function setItemState(row, state, label) {
     row.setAttribute('data-progress-state', state);
     var check = ensureProgressCheck(row);
-    var labelEl = check.querySelector('.progress-label');
     check.setAttribute('aria-label', label);
     check.setAttribute('title', label);
-    if (labelEl) labelEl.textContent = label;
   }
 
   function progressToken() {
@@ -137,10 +135,10 @@
           if (progress && progress.completed) {
             completeCount += 1;
             matchedCount += 1;
-            setItemState(row, 'complete', 'Completed in Canvas');
+            setItemState(row, 'complete', 'Complete');
           } else if (progress) {
             matchedCount += 1;
-            setItemState(row, 'incomplete', 'Not completed in Canvas');
+            setItemState(row, 'incomplete', 'Incomplete');
           } else {
             setItemState(row, 'unavailable', 'Progress unavailable for this item');
           }
