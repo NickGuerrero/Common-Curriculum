@@ -38,6 +38,15 @@ function jsonResponse(data) {
   };
 }
 
+function statusResponse(status) {
+  return {
+    ok: false,
+    status,
+    json: async () => ({ error: status }),
+    headers: { get: () => null },
+  };
+}
+
 describe('Canvas LTI progress integration', () => {
   beforeEach(() => {
     originalEnv = { ...process.env };
@@ -351,6 +360,55 @@ describe('Canvas LTI progress integration', () => {
     assert.equal(body.items[0].moduleItemId, 17710);
     assert.equal(body.items[0].completed, true);
     assert.equal(urls.length, 2);
+  });
+
+  it('skips module item lists Canvas marks inaccessible for the signed learner', async () => {
+    process.env.PROGRESS_JWT_SECRET = 'progress-secret';
+    process.env.CANVAS_API_BASE_URL = 'https://canvas.example.edu';
+    process.env.CANVAS_API_TOKEN = 'canvas-token';
+    process.env.PROGRESS_ALLOWED_ORIGINS = 'https://profsathya.github.io';
+    const token = lib.signHmacJwt(
+      {
+        type: 'canvas_progress',
+        courseId: '183',
+        userId: '84',
+      },
+      'progress-secret',
+      600
+    );
+
+    global.fetch = async (url) => {
+      if (url.includes('/modules?')) {
+        return jsonResponse([{ id: 1928 }, { id: 1934 }, { id: 1935 }]);
+      }
+      if (url.includes('/modules/1928/items')) return statusResponse(404);
+      if (url.includes('/modules/1934/items')) return statusResponse(403);
+      return jsonResponse([
+        {
+          id: 17606,
+          module_id: 1935,
+          title: 'Week 1 Session Slides',
+          type: 'Page',
+          page_url: 'week-1-star-session-slides',
+          completion_requirement: { type: 'must_view', completed: false },
+        },
+      ]);
+    };
+
+    const result = await progress.handler({
+      httpMethod: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        origin: 'https://profsathya.github.io',
+      },
+    });
+
+    assert.equal(result.statusCode, 200);
+    const body = JSON.parse(result.body);
+    assert.equal(body.courseId, '183');
+    assert.equal(body.items.length, 1);
+    assert.equal(body.items[0].moduleItemId, 17606);
+    assert.equal(body.items[0].completed, false);
   });
 
   it('rejects progress requests for courses outside the allowlist before Canvas fetch', async () => {

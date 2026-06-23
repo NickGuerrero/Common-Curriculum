@@ -26,11 +26,19 @@ async function loadProgress(courseId, userId, env = process.env) {
   );
   const items = [];
   for (const module of modules) {
-    const moduleItems = await canvasGetAllPages(
-      baseUrl,
-      token,
-      `/api/v1/courses/${encodeURIComponent(courseId)}/modules/${encodeURIComponent(module.id)}/items?per_page=100&student_id=${encodeURIComponent(userId)}`
-    );
+    let moduleItems;
+    try {
+      moduleItems = await canvasGetAllPages(
+        baseUrl,
+        token,
+        `/api/v1/courses/${encodeURIComponent(courseId)}/modules/${encodeURIComponent(module.id)}/items?per_page=100&student_id=${encodeURIComponent(userId)}`
+      );
+    } catch (error) {
+      if (error.status === 403 || error.status === 404) {
+        continue;
+      }
+      throw error;
+    }
     items.push(...moduleItems.map(completionFromModuleItem));
   }
   return { courseId: String(courseId), items };

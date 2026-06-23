@@ -192,7 +192,11 @@ async function canvasGetAllPages(baseUrl, token, path) {
         Accept: 'application/json',
       },
     });
-    if (!response.ok) throw new Error(`Canvas API ${response.status}`);
+    if (!response.ok) {
+      const error = new Error(`Canvas API ${response.status}`);
+      error.status = response.status;
+      throw error;
+    }
     const data = await response.json();
     if (Array.isArray(data)) results.push(...data);
     const link = response.headers?.get ? response.headers.get('link') : null;
