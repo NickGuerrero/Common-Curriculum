@@ -24,6 +24,11 @@
     h2.sec .runtime{font-size:11px;font-weight:600;color:var(--muted);white-space:nowrap;text-transform:none;letter-spacing:0;}
     .video-frame{margin:0 0 10px;border-radius:6px;overflow:hidden;border:1px solid var(--border);background:#000;}
     .video-frame video{display:block;width:100%;height:auto;background:#000;}
+    .slides{margin:0 0 16px;}
+    .slides-lead{margin:0 0 8px;font-size:14.5px;} .slides-lead strong{color:var(--accent);}
+    .slide-frame{position:relative;padding-bottom:60%;height:0;overflow:hidden;border-radius:6px;border:1px solid var(--border);background:#000;}
+    .slide-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+    .slides-link{margin:8px 0 0;font-size:13.5px;} .slides-link a{color:var(--accent);}
     .goal{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:var(--radius);padding:13px 16px;margin:0 0 12px;}
     .goal h3{margin:0 0 5px;font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;}
     .goal p{margin:0;}
@@ -56,6 +61,14 @@
       <p>His talk is cut into <strong>eight short clips</strong>, each with one learning goal. Watch in order for the full arc, or jump to what you need &mdash; clips 1&ndash;4 build the mental model, clips 5&ndash;8 are the practical playbook. Captions are on by default. <strong>Total run time &asymp; 33 minutes.</strong></p>
     </div>
 
+    <div class="slides">
+      <p class="slides-lead">&#128202; <strong>Reference deck.</strong> Kevin's full slides &mdash; open them alongside the clips for the charts and data he walks through.</p>
+      <div class="slide-frame">
+        <iframe src="https://docs.google.com/presentation/d/1qUjcf6n6NMI6d9kvpInYc_9bqxdZLlof_JHOBzr2h-s/embed?start=false&amp;loop=false&amp;delayms=3000" allowfullscreen title="Kevin Connolly &mdash; Hiring: A Brief Perspective (slides)" loading="lazy"></iframe>
+      </div>
+      <p class="slides-link"><a href="https://docs.google.com/presentation/d/1qUjcf6n6NMI6d9kvpInYc_9bqxdZLlof_JHOBzr2h-s/edit" target="_blank" rel="noopener">Open the slides in Google Slides &#8599;</a></p>
+    </div>
+
     <nav class="toc">
       <p>The eight clips</p>
       <ol>
@@ -70,16 +83,9 @@
       </ol>
     </nav>
 
-    <!-- 1 -->
     <section class="clip" id="clip1">
       <h2 class="sec">1 &middot; The Insider's View <span class="runtime">3.5 min</span></h2>
-      <div class="video-frame">
-        <video controls preload="metadata" playsinline>
-          <source src="ashby-clips/01-insiders-view.mp4" type="video/mp4">
-          <track kind="captions" src="ashby-clips/01-insiders-view.vtt" srclang="en" label="English" default>
-          Your browser can't play this video. <a href="ashby-clips/01-insiders-view.mp4">Download the clip</a>.
-        </video>
-      </div>
+      <div class="video-frame"><video controls preload="metadata" playsinline><source src="ashby-clips/01-insiders-view.mp4" type="video/mp4"><track kind="captions" src="ashby-clips/01-insiders-view.vtt" srclang="en" label="English" default>Your browser can't play this video. <a href="ashby-clips/01-insiders-view.mp4">Download the clip</a>.</video></div>
       <div class="goal"><h3>Learning goal</h3><p>Adopt the <em>talent team's</em> perspective &mdash; the mental model behind every later lesson.</p></div>
       <p class="lead">Key takeaways</p>
       <ul class="plain">
@@ -87,19 +93,12 @@
         <li>The key reframe: a candidate thinks <em>"I'm a good fit."</em> The talent team thinks <em>"we have 1,500 applicants, ~100 are great, and we can only talk to 20."</em></li>
         <li>Ashby's public "Talent Trends" reports are the source of the data charts you'll see in later clips.</li>
       </ul>
-      <div class="discuss"><strong>Discuss.</strong> How does seeing hiring from the recruiter's side change how you'd write an application? Why might being a genuinely good fit still not be enough?</div>
+      <div class="discuss"><strong>Reflect.</strong> How does seeing hiring from the recruiter's side change how you'd write an application? Why might being a genuinely good fit still not be enough?</div>
     </section>
 
-    <!-- 2 -->
     <section class="clip" id="clip2">
       <h2 class="sec">2 &middot; Why Hiring Changed <span class="runtime">4.5 min</span></h2>
-      <div class="video-frame">
-        <video controls preload="metadata" playsinline>
-          <source src="ashby-clips/02-why-hiring-changed.mp4" type="video/mp4">
-          <track kind="captions" src="ashby-clips/02-why-hiring-changed.vtt" srclang="en" label="English" default>
-          Your browser can't play this video. <a href="ashby-clips/02-why-hiring-changed.mp4">Download the clip</a>.
-        </video>
-      </div>
+      <div class="video-frame"><video controls preload="metadata" playsinline><source src="ashby-clips/02-why-hiring-changed.mp4" type="video/mp4"><track kind="captions" src="ashby-clips/02-why-hiring-changed.vtt" srclang="en" label="English" default>Your browser can't play this video. <a href="ashby-clips/02-why-hiring-changed.mp4">Download the clip</a>.</video></div>
       <div class="goal"><h3>Learning goal</h3><p>Understand the post-COVID shifts and why AI screening is framed as <em>candidate-friendly</em>.</p></div>
       <p class="lead">Key takeaways</p>
       <ul class="plain">
@@ -107,19 +106,12 @@
         <li>Recruiters use AI at the "top of funnel" to avoid missing good candidates; AI interviewing can give more people an at-bat (e.g., 40 instead of 20).</li>
         <li>Hiring fraud is now a real concern in remote roles. A thin or mismatched profile (no LinkedIn, VPN, locations that don't line up) won't auto-reject you, but can flag you for review &mdash; transparency helps.</li>
       </ul>
-      <div class="discuss"><strong>Discuss.</strong> Is AI screening good or bad for applicants? Argue both sides. What can you do to <em>not</em> look like a suspicious profile?</div>
+      <div class="discuss"><strong>Reflect.</strong> Is AI screening good or bad for applicants? Argue both sides. What can you do to <em>not</em> look like a suspicious profile?</div>
     </section>
 
-    <!-- 3 -->
     <section class="clip" id="clip3">
       <h2 class="sec">3 &middot; The Human Behind the AI <span class="runtime">4.3 min</span></h2>
-      <div class="video-frame">
-        <video controls preload="metadata" playsinline>
-          <source src="ashby-clips/03-human-behind-the-ai.mp4" type="video/mp4">
-          <track kind="captions" src="ashby-clips/03-human-behind-the-ai.vtt" srclang="en" label="English" default>
-          Your browser can't play this video. <a href="ashby-clips/03-human-behind-the-ai.mp4">Download the clip</a>.
-        </video>
-      </div>
+      <div class="video-frame"><video controls preload="metadata" playsinline><source src="ashby-clips/03-human-behind-the-ai.mp4" type="video/mp4"><track kind="captions" src="ashby-clips/03-human-behind-the-ai.vtt" srclang="en" label="English" default>Your browser can't play this video. <a href="ashby-clips/03-human-behind-the-ai.mp4">Download the clip</a>.</video></div>
       <div class="goal"><h3>Learning goal</h3><p>Understand human-in-the-loop assessment and how expectations are shifting.</p></div>
       <p class="lead">Key takeaways</p>
       <ul class="plain">
@@ -127,19 +119,12 @@
         <li>Because everyone now uses AI on take-home tasks, answers converge &mdash; so recruiters increasingly test <strong>raw critical thinking and fundamentals</strong> (you'll be piloting these tools on the job).</li>
         <li>Application-volume and fraud spikes are concentrated in high-value tech; the picture is less certain for non-tech roles.</li>
       </ul>
-      <div class="discuss"><strong>Discuss.</strong> If everyone's take-home answers look the same with AI, how should employers assess real skill? What's the line between using AI as a tool and letting it do your thinking?</div>
+      <div class="discuss"><strong>Reflect.</strong> If everyone's take-home answers look the same with AI, how should employers assess real skill? What's the line between using AI as a tool and letting it do your thinking?</div>
     </section>
 
-    <!-- 4 -->
     <section class="clip" id="clip4">
       <h2 class="sec">4 &middot; Why Great Candidates Don't Get a Screen <span class="runtime">2.4 min</span></h2>
-      <div class="video-frame">
-        <video controls preload="metadata" playsinline>
-          <source src="ashby-clips/04-why-candidates-dont-get-a-screen.mp4" type="video/mp4">
-          <track kind="captions" src="ashby-clips/04-why-candidates-dont-get-a-screen.vtt" srclang="en" label="English" default>
-          Your browser can't play this video. <a href="ashby-clips/04-why-candidates-dont-get-a-screen.mp4">Download the clip</a>.
-        </video>
-      </div>
+      <div class="video-frame"><video controls preload="metadata" playsinline><source src="ashby-clips/04-why-candidates-dont-get-a-screen.mp4" type="video/mp4"><track kind="captions" src="ashby-clips/04-why-candidates-dont-get-a-screen.vtt" srclang="en" label="English" default>Your browser can't play this video. <a href="ashby-clips/04-why-candidates-dont-get-a-screen.mp4">Download the clip</a>.</video></div>
       <div class="goal"><h3>Learning goal</h3><p>Read the real data and depersonalize rejection.</p></div>
       <p class="lead">Key takeaways</p>
       <ul class="plain">
@@ -147,19 +132,12 @@
         <li>On average, only <strong>~18 applicants per role</strong> get a scheduled interview.</li>
         <li>The bottleneck is the top of the funnel: teams optimize for "picking the top 20," not screening everyone &mdash; so a strong candidate can be cut without a call. It's a numbers game, not always a verdict on you.</li>
       </ul>
-      <div class="discuss"><strong>Discuss.</strong> If only ~18 of 300 get interviewed, what's the smartest way to spend your application effort? How should this change <em>where</em> you apply?</div>
+      <div class="discuss"><strong>Reflect.</strong> If only ~18 of 300 get interviewed, what's the smartest way to spend your application effort? How should this change <em>where</em> you apply?</div>
     </section>
 
-    <!-- 5 -->
     <section class="clip" id="clip5">
       <h2 class="sec">5 &middot; Using AI the Right Way <span class="runtime">4.6 min</span></h2>
-      <div class="video-frame">
-        <video controls preload="metadata" playsinline>
-          <source src="ashby-clips/05-using-ai-the-right-way.mp4" type="video/mp4">
-          <track kind="captions" src="ashby-clips/05-using-ai-the-right-way.vtt" srclang="en" label="English" default>
-          Your browser can't play this video. <a href="ashby-clips/05-using-ai-the-right-way.mp4">Download the clip</a>.
-        </video>
-      </div>
+      <div class="video-frame"><video controls preload="metadata" playsinline><source src="ashby-clips/05-using-ai-the-right-way.mp4" type="video/mp4"><track kind="captions" src="ashby-clips/05-using-ai-the-right-way.vtt" srclang="en" label="English" default>Your browser can't play this video. <a href="ashby-clips/05-using-ai-the-right-way.mp4">Download the clip</a>.</video></div>
       <div class="goal"><h3>Learning goal</h3><p>Navigate AI-in-interview norms and avoid AI-written applications backfiring.</p></div>
       <p class="lead">Key takeaways</p>
       <ul class="plain">
@@ -167,19 +145,12 @@
         <li>AI-generated free-form answers are easy to spot at volume; Kevin says he can quickly reject hundreds for obvious LLM phrasing. A half-hearted application reads as "doesn't care."</li>
         <li>The winning move: research companies you <strong>genuinely care about</strong> and show it. Apply selectively where you'll stand out rather than blasting 100 generic applications.</li>
       </ul>
-      <div class="discuss"><strong>Discuss.</strong> When is using AI in an application helpful vs. harmful? How do you show real interest in a company without sounding generic?</div>
+      <div class="discuss"><strong>Reflect.</strong> When is using AI in an application helpful vs. harmful? How do you show real interest in a company without sounding generic?</div>
     </section>
 
-    <!-- 6 -->
     <section class="clip" id="clip6">
       <h2 class="sec">6 &middot; How Long Hiring Takes <span class="runtime">2.5 min</span></h2>
-      <div class="video-frame">
-        <video controls preload="metadata" playsinline>
-          <source src="ashby-clips/06-how-long-hiring-takes.mp4" type="video/mp4">
-          <track kind="captions" src="ashby-clips/06-how-long-hiring-takes.vtt" srclang="en" label="English" default>
-          Your browser can't play this video. <a href="ashby-clips/06-how-long-hiring-takes.mp4">Download the clip</a>.
-        </video>
-      </div>
+      <div class="video-frame"><video controls preload="metadata" playsinline><source src="ashby-clips/06-how-long-hiring-takes.mp4" type="video/mp4"><track kind="captions" src="ashby-clips/06-how-long-hiring-takes.vtt" srclang="en" label="English" default>Your browser can't play this video. <a href="ashby-clips/06-how-long-hiring-takes.mp4">Download the clip</a>.</video></div>
       <div class="goal"><h3>Learning goal</h3><p>Set realistic expectations about timelines and process.</p></div>
       <p class="lead">Key takeaways</p>
       <ul class="plain">
@@ -187,19 +158,12 @@
         <li>A typical structured tech process: recruiter screen &rarr; screen &rarr; assessment/take-home &rarr; on-site panel &rarr; offer (steps sometimes reordered), often with a background check.</li>
         <li>Candidates who get hired do <strong>~3.5&ndash;4 hours</strong> of interviews on average, with outliers up to ~7.</li>
       </ul>
-      <div class="discuss"><strong>Discuss.</strong> Knowing it takes roughly six weeks, how should you manage multiple applications at once? How do you stay engaged during long gaps without being pushy?</div>
+      <div class="discuss"><strong>Reflect.</strong> Knowing it takes roughly six weeks, how should you manage multiple applications at once? How do you stay engaged during long gaps without being pushy?</div>
     </section>
 
-    <!-- 7 -->
     <section class="clip" id="clip7">
       <h2 class="sec">7 &middot; Resumes, Portfolios &amp; New Roles <span class="runtime">7 min</span></h2>
-      <div class="video-frame">
-        <video controls preload="metadata" playsinline>
-          <source src="ashby-clips/07-resumes-portfolios-new-roles.mp4" type="video/mp4">
-          <track kind="captions" src="ashby-clips/07-resumes-portfolios-new-roles.vtt" srclang="en" label="English" default>
-          Your browser can't play this video. <a href="ashby-clips/07-resumes-portfolios-new-roles.mp4">Download the clip</a>.
-        </video>
-      </div>
+      <div class="video-frame"><video controls preload="metadata" playsinline><source src="ashby-clips/07-resumes-portfolios-new-roles.mp4" type="video/mp4"><track kind="captions" src="ashby-clips/07-resumes-portfolios-new-roles.vtt" srclang="en" label="English" default>Your browser can't play this video. <a href="ashby-clips/07-resumes-portfolios-new-roles.mp4">Download the clip</a>.</video></div>
       <div class="goal"><h3>Learning goal</h3><p>Make the "hard-decision" factors work in your favor.</p></div>
       <p class="lead">Key takeaways</p>
       <ul class="plain">
@@ -207,19 +171,12 @@
         <li>A personal portfolio site is now nearly free to build with AI &mdash; a high-value differentiator <em>if it works</em> (broken links hurt more than no site). Use it to show personality, interests, and projects.</li>
         <li>Note: Ashby's default review doesn't auto-click portfolio links (a human does), so make them easy to find. Emerging role to watch: the <strong>"forward-deployed engineer"</strong> at AI firms helping companies implement AI.</li>
       </ul>
-      <div class="discuss"><strong>Discuss.</strong> What three specific things would you put on a portfolio site for your target role? Rewrite one vague resume bullet to be concrete and verifiable.</div>
+      <div class="discuss"><strong>Reflect.</strong> What three specific things would you put on a portfolio site for your target role? Rewrite one vague resume bullet to be concrete and verifiable.</div>
     </section>
 
-    <!-- 8 -->
     <section class="clip" id="clip8">
       <h2 class="sec">8 &middot; Do's &amp; Don'ts: Networking &amp; Rejection <span class="runtime">4.4 min</span></h2>
-      <div class="video-frame">
-        <video controls preload="metadata" playsinline>
-          <source src="ashby-clips/08-networking-and-rejection.mp4" type="video/mp4">
-          <track kind="captions" src="ashby-clips/08-networking-and-rejection.vtt" srclang="en" label="English" default>
-          Your browser can't play this video. <a href="ashby-clips/08-networking-and-rejection.mp4">Download the clip</a>.
-        </video>
-      </div>
+      <div class="video-frame"><video controls preload="metadata" playsinline><source src="ashby-clips/08-networking-and-rejection.mp4" type="video/mp4"><track kind="captions" src="ashby-clips/08-networking-and-rejection.vtt" srclang="en" label="English" default>Your browser can't play this video. <a href="ashby-clips/08-networking-and-rejection.mp4">Download the clip</a>.</video></div>
       <div class="goal"><h3>Learning goal</h3><p>A practical outreach and resilience playbook.</p></div>
       <p class="lead">Key takeaways</p>
       <ul class="plain">
@@ -227,7 +184,7 @@
         <li><strong>Don't self-select out:</strong> you can express interest even when no role is posted (follow on LinkedIn/X, join talent communities) &mdash; it's far easier for a manager to engage when they aren't buried in applications.</li>
         <li><strong>Know the company cold</strong> on calls (a wrong assumption can fail you instantly). <strong>Take rejection gracefully</strong> &mdash; Kevin has rejected people and then hired them months later; an angry reply shuts the door for good.</li>
       </ul>
-      <div class="discuss"><strong>Discuss.</strong> Draft a three-sentence "zero-ask" outreach message to a company you admire. Why might a rejection sometimes be "dodging a bullet"?</div>
+      <div class="discuss"><strong>Reflect.</strong> Draft a three-sentence "zero-ask" outreach message to a company you admire. Why might a rejection sometimes be "dodging a bullet"?</div>
     </section>
 
     <div class="note" style="margin-top:26px;"><strong>One throughline.</strong> Almost every clip comes back to the same idea: hiring is a high-volume, time-pressured process, so the candidates who get noticed are the ones who make a recruiter's hard decision easy &mdash; be specific, be genuine, and target the places you actually care about.</div>
