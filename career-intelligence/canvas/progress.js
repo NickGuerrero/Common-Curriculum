@@ -115,24 +115,41 @@
       })
       .then(function (data) {
         var byModuleItem = {};
-        (data.items || []).forEach(function (item) {
+        var progressItems = data.items || [];
+
+        if (!progressItems.length) {
+          setStatus('Canvas progress is available for enrolled participants; no learner progress was returned for this Canvas account.', true);
+          rows.forEach(function (row) {
+            setItemState(row, 'unavailable', 'Progress unavailable for this Canvas account');
+          });
+          return;
+        }
+
+        progressItems.forEach(function (item) {
           if (item.moduleItemId != null) byModuleItem[String(item.moduleItemId)] = item;
         });
 
         var completeCount = 0;
+        var matchedCount = 0;
         rows.forEach(function (row) {
           var moduleItemId = row.getAttribute('data-canvas-module-item-id');
           var progress = moduleItemId ? byModuleItem[String(moduleItemId)] : null;
           if (progress && progress.completed) {
             completeCount += 1;
+            matchedCount += 1;
             setItemState(row, 'complete', 'Completed in Canvas');
           } else if (progress) {
+            matchedCount += 1;
             setItemState(row, 'incomplete', 'Not completed in Canvas');
           } else {
             setItemState(row, 'unavailable', 'Progress unavailable for this item');
           }
         });
-        setStatus(completeCount + ' of ' + rows.length + ' items completed in Canvas.', true);
+        if (matchedCount) {
+          setStatus(completeCount + ' of ' + matchedCount + ' mapped items completed in Canvas.', true);
+        } else {
+          setStatus('Canvas progress loaded, but no mapped homepage rows matched Canvas module items.', true);
+        }
       })
       .catch(function () {
         setStatus('Canvas progress could not be loaded right now.', true);
