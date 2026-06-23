@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Career Intelligence - Sprint 5</title>
+<style>
+  :root{
+    --blue:#0374B5; --blue-dark:#0a5a8a; --text:#2D3B45; --muted:#6B7780;
+    --border:#C7CDD1; --border-light:#E8EAEC;
+    --modhead:#F5F5F5; --goal-bg:#F3F8FB; --goal-border:#0374B5;
+    --check-bg:#F2FAF5; --check-border:#0B874B; --check:#0B874B; --warn:#9B6A00;
+    --font:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{font-family:var(--font);color:var(--text);background:#fff;font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased;}
+  a{color:var(--blue);text-decoration:none;}
+  a:hover{text-decoration:underline;color:var(--blue-dark);}
+  .page{max-width:1040px;margin:0 auto;padding:22px 22px 56px;}
+  .back-link{display:inline-block;font-size:13px;margin:0 0 14px;}
+  .course-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border-bottom:1px solid var(--border-light);padding-bottom:16px;margin-bottom:20px;}
+  .course-header h1{font-size:23px;font-weight:700;margin:0 0 4px;}
+  .course-header .lead{color:var(--muted);font-size:13.5px;max-width:660px;}
+  .cti-logo{height:34px;width:auto;display:block;opacity:.9;}
+  .cti-logo-fallback{display:none;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.3px;text-align:right;line-height:1.2;}
+  .module{border:1px solid var(--border);border-radius:4px;margin-bottom:20px;overflow:hidden;}
+  details.module > summary{list-style:none;cursor:pointer;}
+  details.module > summary::-webkit-details-marker{display:none;}
+  .module-head{background:var(--modhead);border-bottom:1px solid var(--border);padding:11px 14px;display:flex;align-items:center;gap:12px;}
+  details.module:not([open]) > .module-head{border-bottom:none;}
+  .module-head .name{font-size:15px;font-weight:700;color:var(--text);flex:1;}
+  .module-head .tag{font-size:12px;color:var(--muted);white-space:nowrap;}
+  .module-head .chev{display:inline-block;font-size:11px;color:var(--muted);transition:transform .15s ease;flex-shrink:0;}
+  details.module[open] > .module-head .chev{transform:rotate(90deg);}
+  .module-head:hover{background:#EFEFEF;}
+  .module.module--muted{opacity:.68;}
+  .module.module--muted .module-head{background:#ECECEE;}
+  .module.module--muted .module-head:hover{background:#E4E4E6;}
+  .module.module--muted .name,
+  .module.module--muted .tag{color:#7C8A93;}
+  .module-head .not-ready{display:none;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#5F6B73;background:#D8DCDF;border-radius:3px;padding:1px 7px;}
+  .module.module--muted .module-head .not-ready{display:inline-block;}
+  .goal{background:var(--goal-bg);border-left:4px solid var(--goal-border);padding:11px 14px;}
+  .goal .label{font-size:10.5px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--blue);margin-bottom:3px;}
+  .goal .text{font-size:14px;color:var(--text);}
+  .goal-list{margin:4px 0 0 0;padding-left:18px;}
+  .prereq{padding:8px 14px 4px;color:var(--muted);font-size:12.5px;display:flex;gap:7px;align-items:flex-start;border-bottom:1px solid var(--border-light);}
+  .prereq svg{width:14px;height:14px;flex:0 0 14px;margin-top:2px;}
+  .items{padding:2px 0 4px;}
+  .item{display:flex;gap:11px;padding:11px 14px 11px 26px;border-bottom:1px solid var(--border-light);align-items:flex-start;}
+  .item:last-child{border-bottom:none;}
+  .item .ico{flex:0 0 18px;margin-top:1px;color:var(--muted);}
+  .item .ico svg{width:18px;height:18px;display:block;}
+  .item .body{flex:1;min-width:0;}
+  .item .title{font-size:14.5px;font-weight:600;}
+  .item .meta{color:var(--muted);font-size:12px;margin-top:2px;}
+  .progress-status{font-size:12px;color:var(--muted);margin:-10px 0 14px;}
+  .progress-check{margin-left:auto;display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:11.5px;white-space:nowrap;padding-left:10px;}
+  .progress-box{width:18px;height:18px;border:1.5px solid var(--border);border-radius:3px;background:#fff;display:inline-flex;align-items:center;justify-content:center;}
+  .progress-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  .item[data-progress-state="loading"] .progress-box{background:linear-gradient(90deg,#fff,#F2F4F5,#fff);}
+  .item[data-progress-state="complete"] .progress-box{border-color:var(--check);background:var(--check);color:#fff;}
+  .item[data-progress-state="complete"] .progress-box::after{content:"";width:9px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg);margin-top:-2px;}
+  .item[data-progress-state="complete"] .title a{color:#24543A;}
+  .group-label{padding:10px 14px 4px;font-size:10.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);background:#FAFBFC;border-bottom:1px solid var(--border-light);}
+  .item.selfcheck{background:var(--check-bg);}
+  .item.selfcheck .ico{color:var(--check);}
+  .selfcheck .badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--check);border-radius:3px;padding:1px 6px;margin-left:8px;vertical-align:middle;}
+  .selfcheck .badge.optional{background:#7C8A93;}
+  .selfcheck .verify{margin-top:5px;font-size:12.5px;color:#3d5346;display:flex;gap:6px;align-items:flex-start;}
+  .selfcheck .verify svg{width:14px;height:14px;flex:0 0 14px;margin-top:2px;}
+  .page-footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--border-light);display:flex;align-items:center;gap:10px;color:var(--muted);font-size:11.5px;}
+  .page-footer img{height:20px;opacity:.55;}
+</style>
+</head>
+<body>
+  <div class="page">
+    <a class="back-link" href="home.html?context=web" data-keep-context>&larr; Back to course home</a>
+    <div class="course-header">
+      <div>
+        <h1>Career Intelligence</h1>
+        <div class="lead">Your path through the program. Each week shows what to build, what to test, and where the work carries forward.</div>
+      </div>
+      <div>
+        <img class="cti-logo" src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+        <div class="cti-logo-fallback">Computing Talent<br>Initiative</div>
+      </div>
+    </div>
+    <div class="progress-status" id="progress-status" hidden></div>
+    <details class="module" open><summary class="module-head"><span class="name">Week 6: Iteration 3, External Signal, and Synthesis</span><span class="tag">Own Your Search / Close</span><span class="chev">&#9656;</span></summary><div class="goal"><div class="label">Module Learning Goals</div><div class="text"><ul class="goal-list">
+<li>Show how your thinking changed from where you started.</li>
+<li>Name your strongest targets with evidence.</li>
+<li>Say what you will keep developing next.</li>
+</ul></div></div><div class="prereq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg><span>Builds on two completed search cycles and your living documents.</span></div><div class="items"><div class="group-label">Synthesis</div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="activities/networking-event-and-closing-synthesis-live.html?context=web">Networking Event and Closing Synthesis Live</a></div><div class="meta">Page - compare your start to now after external conversation</div></div></div>
+<div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="assignments/final-tailored-resume-and-fit-explanation.html?context=web">Final Tailored Resume and Fit Explanation</a></div><div class="meta">Assignment - submit the evidence-backed case and next development gaps</div></div></div>
+<div class="item selfcheck"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="assignments/program-synthesis-self-check.html?context=web">Program Synthesis Self-Check</a><span class="badge">Self-check</span></div><div class="meta">Self-check - compare assumptions then with evidence now</div><div class="verify"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M3 21v-2a5 5 0 0 1 5-5h3"/><path d="M16 14l2 2 4-4"/></svg><span>Walk a peer or TA through your synthesis out loud before you submit.</span></div></div></div></div></details>
+    <footer class="page-footer">
+      <img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="" onerror="this.style.display='none'">
+      <span>Computing Talent Initiative - CSU Monterey Bay - Career Intelligence</span>
+    </footer>
+  </div>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      document.querySelectorAll('a[data-canvas-href]').forEach(function(a) {
+        if (ctx === 'canvas') {
+          a.href = a.getAttribute('data-canvas-href');
+        } else {
+          try {
+            var u = new URL(a.getAttribute('href'), location.href);
+            u.searchParams.set('context', 'web');
+            a.href = u.pathname + u.search + u.hash;
+          } catch (e) { }
+        }
+      });
+      document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
+        try {
+          var u = new URL(a.getAttribute('href'), location.href);
+          u.searchParams.set('context', ctx === 'canvas' ? 'canvas' : 'web');
+          a.href = u.pathname + u.search + u.hash;
+        } catch (e) { }
+      });
+
+      var progressEndpoint = "https://canvas-progress-lti.netlify.app/.netlify/functions/canvas-progress";
+      var courseKey = "course5";
+      var statusEl = document.getElementById('progress-status');
+      function setStatus(text, visible) {
+        if (!statusEl) return;
+        statusEl.textContent = text || '';
+        statusEl.hidden = !visible;
+      }
+      function setItemState(item, state, label) {
+        item.setAttribute('data-progress-state', state);
+        var check = item.querySelector('.progress-check');
+        var labelEl = item.querySelector('.progress-label');
+        if (check) {
+          check.setAttribute('aria-label', label);
+          check.setAttribute('title', label);
+        }
+        if (labelEl) labelEl.textContent = label;
+      }
+      function progressToken() {
+        var params = new URLSearchParams(location.search);
+        var fromQuery = params.get('progress_token');
+        var hash = new URLSearchParams((location.hash || '').replace(/^#/, ''));
+        var fromHash = hash.get('progress_token');
+        var token = fromHash || fromQuery || sessionStorage.getItem('canvas_progress_token');
+        if (fromHash || fromQuery) {
+          try {
+            sessionStorage.setItem('canvas_progress_token', token);
+            params.delete('progress_token');
+            hash.delete('progress_token');
+            var next = location.pathname + (params.toString() ? '?' + params.toString() : '') + (hash.toString() ? '#' + hash.toString() : '');
+            history.replaceState(null, '', next);
+          } catch (e) { }
+        }
+        return token;
+      }
+      function loadProgress() {
+        var items = Array.prototype.slice.call(document.querySelectorAll('.item[data-progress-id]'));
+        if (!items.length) return;
+        if (ctx !== 'canvas') {
+          items.forEach(function(item) { setItemState(item, 'unavailable', 'Progress available in Canvas'); });
+          return;
+        }
+        var token = progressToken();
+        if (!token) {
+          setStatus('Progress is unavailable until this page is opened through Canvas.', true);
+          items.forEach(function(item) { setItemState(item, 'unavailable', 'Progress unavailable'); });
+          return;
+        }
+        items.forEach(function(item) { setItemState(item, 'loading', 'Checking progress'); });
+        setStatus('Checking Canvas progress...', true);
+        var url = new URL(progressEndpoint, location.href);
+        if (courseKey) url.searchParams.set('course', courseKey);
+        fetch(url.href, { headers: { Authorization: 'Bearer ' + token } })
+          .then(function(response) {
+            if (!response.ok) throw new Error('Progress request failed');
+            return response.json();
+          })
+          .then(function(data) {
+            var byModuleItem = {};
+            (data.items || []).forEach(function(item) {
+              if (item.moduleItemId != null) byModuleItem[String(item.moduleItemId)] = item;
+            });
+            var completeCount = 0;
+            items.forEach(function(row) {
+              var moduleItemId = row.getAttribute('data-canvas-module-item-id');
+              var progress = moduleItemId ? byModuleItem[String(moduleItemId)] : null;
+              if (progress && progress.completed) {
+                completeCount += 1;
+                setItemState(row, 'complete', 'Completed in Canvas');
+              } else if (progress) {
+                setItemState(row, 'incomplete', 'Not completed in Canvas');
+              } else {
+                setItemState(row, 'unavailable', 'Progress unavailable for this item');
+              }
+            });
+            setStatus(completeCount + ' of ' + items.length + ' items completed in Canvas.', true);
+          })
+          .catch(function() {
+            setStatus('Canvas progress could not be loaded right now.', true);
+            items.forEach(function(item) { setItemState(item, 'unavailable', 'Progress unavailable'); });
+          });
+      }
+      loadProgress();
+    })();
+  </script>
+</body>
+</html>

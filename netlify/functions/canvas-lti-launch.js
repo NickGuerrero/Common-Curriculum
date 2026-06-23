@@ -1,10 +1,13 @@
 const {
   appendProgressToken,
+  allowedValues,
+  audienceAllowed,
   formBody,
   jsonResponse,
   redirect,
   signHmacJwt,
   targetAllowed,
+  valueAllowed,
   verifyHmacJwt,
   verifyLtiIdToken,
 } = require('./canvas-progress-lib');
@@ -44,9 +47,9 @@ exports.handler = async (event) => {
   const idToken = params.get('id_token');
   const secret = process.env.LTI_STATE_SECRET || process.env.PROGRESS_JWT_SECRET;
   const progressSecret = process.env.PROGRESS_JWT_SECRET;
-  const clientId = process.env.LTI_CLIENT_ID;
+  const clientIds = allowedValues(process.env.LTI_CLIENT_ID, process.env.LTI_ALLOWED_CLIENT_IDS);
 
-  if (!stateToken || !idToken || !secret || !progressSecret || !clientId) {
+  if (!stateToken || !idToken || !secret || !progressSecret || !clientIds.length) {
     return jsonResponse(400, { error: 'Missing required LTI launch configuration or parameters' });
   }
 
@@ -58,12 +61,16 @@ exports.handler = async (event) => {
 
     const ltiPayload = await verifyLtiIdToken(idToken, {
       issuer: process.env.LTI_ISSUER || state.iss,
-      clientId,
       nonce: state.nonce,
       jwksUrl: jwksUrlForIssuer(state.iss),
     });
 
-    if (process.env.LTI_DEPLOYMENT_ID && ltiPayload[DEPLOYMENT_CLAIM] !== process.env.LTI_DEPLOYMENT_ID) {
+    if (!audienceAllowed(ltiPayload.aud, clientIds)) {
+      return jsonResponse(403, { error: 'Unexpected LTI audience' });
+    }
+
+    const deploymentIds = allowedValues(process.env.LTI_DEPLOYMENT_ID, process.env.LTI_ALLOWED_DEPLOYMENT_IDS);
+    if (!valueAllowed(ltiPayload[DEPLOYMENT_CLAIM], deploymentIds)) {
       return jsonResponse(403, { error: 'Unexpected LTI deployment' });
     }
 
@@ -72,6 +79,10 @@ exports.handler = async (event) => {
       return jsonResponse(400, {
         error: 'LTI launch is missing Canvas course/user custom parameters',
       });
+    }
+    const courseIds = allowedValues('', process.env.PROGRESS_ALLOWED_COURSE_IDS);
+    if (!valueAllowed(ids.courseId, courseIds)) {
+      return jsonResponse(403, { error: 'Unexpected Canvas course' });
     }
 
     const progressToken = signHmacJwt(

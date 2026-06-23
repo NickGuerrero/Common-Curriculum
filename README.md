@@ -209,9 +209,14 @@ Optional variables:
 CANVAS_JWKS_URL=https://sso.canvaslms.com/api/lti/security/jwks
 LTI_ISSUER=https://canvas.instructure.com
 LTI_DEPLOYMENT_ID=canvas_deployment_id
+LTI_ALLOWED_CLIENT_IDS=canvas_developer_key_client_id,second_client_id
+LTI_ALLOWED_DEPLOYMENT_IDS=canvas_deployment_id,second_deployment_id
+PROGRESS_ALLOWED_COURSE_IDS=180,183
 PROGRESS_TOKEN_TTL_SECONDS=600
 LTI_DEFAULT_TARGET_LINK_URI=https://profsathya.github.io/Common-Curriculum/deanza/course1/home.html
 ```
+
+For one Canvas install, `LTI_CLIENT_ID` and `LTI_DEPLOYMENT_ID` are enough. For multiple Canvas courses or tool installs, keep those single-value variables if desired and add the comma-separated allowlists above. When `PROGRESS_ALLOWED_COURSE_IDS` is set, both the LTI launch and progress endpoint reject courses outside the allowlist before fetching Canvas progress.
 
 For Instructure-hosted Canvas, `LTI_ISSUER` is the Canvas platform issuer, not the
 school-specific Canvas URL. Production launches use `https://canvas.instructure.com`.

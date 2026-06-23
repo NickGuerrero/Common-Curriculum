@@ -8,6 +8,7 @@ const launch = require('../netlify/functions/canvas-lti-launch');
 const login = require('../netlify/functions/canvas-lti-login');
 
 const CUSTOM_CLAIM = 'https://purl.imsglobal.org/spec/lti/claim/custom';
+const DEPLOYMENT_CLAIM = 'https://purl.imsglobal.org/spec/lti/claim/deployment_id';
 
 let originalEnv;
 let originalFetch;
@@ -105,6 +106,27 @@ describe('Canvas LTI progress integration', () => {
     assert.equal(state.nonce, location.searchParams.get('nonce'));
   });
 
+  it('accepts OIDC login when client_id is in the multi-course allowlist', async () => {
+    process.env.LTI_ALLOWED_CLIENT_IDS = 'client-abc, client-xyz';
+    process.env.LTI_REDIRECT_URI = 'https://canvas-progress-lti.netlify.app/.netlify/functions/canvas-lti-launch';
+    process.env.LTI_STATE_SECRET = 'state-secret';
+    process.env.LTI_ALLOWED_TARGET_ORIGINS = 'https://profsathya.github.io';
+
+    const result = await login.handler({
+      httpMethod: 'POST',
+      body: new URLSearchParams({
+        iss: 'https://canvas.example.edu',
+        client_id: 'client-xyz',
+        login_hint: 'login-hint',
+        lti_message_hint: 'message-hint',
+        target_link_uri: 'https://profsathya.github.io/Common-Curriculum/deanza/course5/home.html',
+      }).toString(),
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    });
+
+    assert.equal(result.statusCode, 302);
+  });
+
   it('launches to the hosted page with a short-lived progress token', async () => {
     const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', { modulusLength: 2048 });
     const jwk = publicKey.export({ format: 'jwk' });
@@ -169,6 +191,117 @@ describe('Canvas LTI progress integration', () => {
     assert.equal(progressPayload.userId, '42');
   });
 
+  it('launches when audience and deployment are in allowlists', async () => {
+    const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', { modulusLength: 2048 });
+    const jwk = publicKey.export({ format: 'jwk' });
+    jwk.kid = 'launch-key';
+    jwk.use = 'sig';
+    jwk.alg = 'RS256';
+
+    process.env.LTI_ALLOWED_CLIENT_IDS = 'client-123, client-456';
+    process.env.LTI_ALLOWED_DEPLOYMENT_IDS = 'deployment-1, deployment-2';
+    process.env.PROGRESS_ALLOWED_COURSE_IDS = '180, 183';
+    process.env.LTI_STATE_SECRET = 'state-secret';
+    process.env.PROGRESS_JWT_SECRET = 'progress-secret';
+    process.env.CANVAS_JWKS_URL = 'https://canvas.example.edu/jwks';
+    process.env.LTI_ISSUER = 'https://canvas.instructure.com';
+    process.env.LTI_ALLOWED_TARGET_ORIGINS = 'https://profsathya.github.io';
+
+    global.fetch = async () => jsonResponse({ keys: [jwk] });
+
+    const target = 'https://profsathya.github.io/Common-Curriculum/career-intelligence/course5/home.html';
+    const state = lib.signHmacJwt(
+      {
+        type: 'lti_state',
+        iss: 'https://canvas.instructure.com',
+        nonce: 'nonce-3',
+        target_link_uri: target,
+      },
+      'state-secret',
+      600
+    );
+    const idToken = signRsJwt(
+      {
+        iss: 'https://canvas.instructure.com',
+        aud: 'client-456',
+        nonce: 'nonce-3',
+        sub: 'opaque-user',
+        [DEPLOYMENT_CLAIM]: 'deployment-2',
+        [CUSTOM_CLAIM]: {
+          canvas_course_id: '183',
+          canvas_user_id: '84',
+        },
+      },
+      privateKey,
+      'launch-key'
+    );
+
+    const result = await launch.handler({
+      httpMethod: 'POST',
+      body: new URLSearchParams({ state, id_token: idToken }).toString(),
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    });
+
+    assert.equal(result.statusCode, 302);
+    const location = new URL(result.headers.Location);
+    const hash = new URLSearchParams(location.hash.replace(/^#/, ''));
+    const progressPayload = lib.verifyHmacJwt(hash.get('progress_token'), 'progress-secret', 'canvas_progress');
+    assert.equal(progressPayload.courseId, '183');
+    assert.equal(progressPayload.userId, '84');
+  });
+
+  it('rejects LTI launches for courses outside the allowlist', async () => {
+    const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', { modulusLength: 2048 });
+    const jwk = publicKey.export({ format: 'jwk' });
+    jwk.kid = 'launch-key';
+    jwk.use = 'sig';
+    jwk.alg = 'RS256';
+
+    process.env.LTI_ALLOWED_CLIENT_IDS = 'client-123';
+    process.env.PROGRESS_ALLOWED_COURSE_IDS = '183';
+    process.env.LTI_STATE_SECRET = 'state-secret';
+    process.env.PROGRESS_JWT_SECRET = 'progress-secret';
+    process.env.CANVAS_JWKS_URL = 'https://canvas.example.edu/jwks';
+    process.env.LTI_ISSUER = 'https://canvas.instructure.com';
+    process.env.LTI_ALLOWED_TARGET_ORIGINS = 'https://profsathya.github.io';
+
+    global.fetch = async () => jsonResponse({ keys: [jwk] });
+
+    const state = lib.signHmacJwt(
+      {
+        type: 'lti_state',
+        iss: 'https://canvas.instructure.com',
+        nonce: 'nonce-4',
+        target_link_uri: 'https://profsathya.github.io/Common-Curriculum/deanza/course1/home.html',
+      },
+      'state-secret',
+      600
+    );
+    const idToken = signRsJwt(
+      {
+        iss: 'https://canvas.instructure.com',
+        aud: 'client-123',
+        nonce: 'nonce-4',
+        sub: 'opaque-user',
+        [CUSTOM_CLAIM]: {
+          canvas_course_id: '180',
+          canvas_user_id: '42',
+        },
+      },
+      privateKey,
+      'launch-key'
+    );
+
+    const result = await launch.handler({
+      httpMethod: 'POST',
+      body: new URLSearchParams({ state, id_token: idToken }).toString(),
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    });
+
+    assert.equal(result.statusCode, 403);
+    assert.deepEqual(JSON.parse(result.body), { error: 'Unexpected Canvas course' });
+  });
+
   it('fetches progress for the signed learner, not a request-supplied student_id', async () => {
     process.env.PROGRESS_JWT_SECRET = 'progress-secret';
     process.env.CANVAS_API_BASE_URL = 'https://canvas.example.edu';
@@ -218,5 +351,34 @@ describe('Canvas LTI progress integration', () => {
     assert.equal(body.items[0].moduleItemId, 17710);
     assert.equal(body.items[0].completed, true);
     assert.equal(urls.length, 2);
+  });
+
+  it('rejects progress requests for courses outside the allowlist before Canvas fetch', async () => {
+    process.env.PROGRESS_JWT_SECRET = 'progress-secret';
+    process.env.PROGRESS_ALLOWED_COURSE_IDS = '183';
+    process.env.PROGRESS_ALLOWED_ORIGINS = 'https://profsathya.github.io';
+    const token = lib.signHmacJwt(
+      {
+        type: 'canvas_progress',
+        courseId: '180',
+        userId: '42',
+      },
+      'progress-secret',
+      600
+    );
+    global.fetch = async () => {
+      throw new Error('Canvas should not be called');
+    };
+
+    const result = await progress.handler({
+      httpMethod: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        origin: 'https://profsathya.github.io',
+      },
+    });
+
+    assert.equal(result.statusCode, 403);
+    assert.deepEqual(JSON.parse(result.body), { error: 'Unexpected Canvas course' });
   });
 });

@@ -114,6 +114,24 @@ function parseAllowlist(value, fallback) {
     .filter(Boolean);
 }
 
+function allowedValues(primary, allowlistValue) {
+  return [...new Set([
+    ...parseAllowlist(primary, ''),
+    ...parseAllowlist(allowlistValue, ''),
+  ])];
+}
+
+function valueAllowed(value, allowlist) {
+  if (!allowlist.length) return true;
+  return allowlist.includes('*') || allowlist.includes(String(value));
+}
+
+function audienceAllowed(audience, allowlist) {
+  if (!allowlist.length) return true;
+  const values = Array.isArray(audience) ? audience : [audience];
+  return values.some((value) => valueAllowed(value, allowlist));
+}
+
 function corsHeaders(event, env = process.env) {
   const allowlist = parseAllowlist(env.PROGRESS_ALLOWED_ORIGINS, 'https://profsathya.github.io');
   const origin = event.headers?.origin || event.headers?.Origin || '';
@@ -208,9 +226,12 @@ module.exports = {
   formBody,
   jsonResponse,
   parseAllowlist,
+  allowedValues,
+  audienceAllowed,
   redirect,
   signHmacJwt,
   targetAllowed,
+  valueAllowed,
   verifyHmacJwt,
   verifyLtiIdToken,
 };

@@ -1,10 +1,12 @@
 const crypto = require('node:crypto');
 const {
+  allowedValues,
   formBody,
   jsonResponse,
   redirect,
   signHmacJwt,
   targetAllowed,
+  valueAllowed,
 } = require('./canvas-progress-lib');
 
 function oidcAuthUrl(issuer, env = process.env) {
@@ -27,7 +29,8 @@ exports.handler = async (event) => {
   if (!params.iss || !params.login_hint || !params.lti_message_hint || !clientId || !redirectUri || !target || !secret) {
     return jsonResponse(400, { error: 'Missing required LTI login configuration or parameters' });
   }
-  if (process.env.LTI_CLIENT_ID && clientId !== process.env.LTI_CLIENT_ID) {
+  const clientIds = allowedValues(process.env.LTI_CLIENT_ID, process.env.LTI_ALLOWED_CLIENT_IDS);
+  if (clientIds.length && !valueAllowed(clientId, clientIds)) {
     return jsonResponse(400, { error: 'Unexpected LTI client_id' });
   }
   if (!targetAllowed(target)) {

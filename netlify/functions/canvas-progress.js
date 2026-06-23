@@ -1,8 +1,10 @@
 const {
+  allowedValues,
   canvasGetAllPages,
   completionFromModuleItem,
   corsHeaders,
   jsonResponse,
+  valueAllowed,
   verifyHmacJwt,
 } = require('./canvas-progress-lib');
 
@@ -47,6 +49,10 @@ exports.handler = async (event) => {
     const token = bearerToken(event);
     if (!token) return jsonResponse(401, { error: 'Missing bearer token' }, cors);
     const payload = verifyHmacJwt(token, process.env.PROGRESS_JWT_SECRET, 'canvas_progress');
+    const courseIds = allowedValues('', process.env.PROGRESS_ALLOWED_COURSE_IDS);
+    if (!valueAllowed(payload.courseId, courseIds)) {
+      return jsonResponse(403, { error: 'Unexpected Canvas course' }, cors);
+    }
     const progress = await loadProgress(payload.courseId, payload.userId);
     return jsonResponse(
       200,
