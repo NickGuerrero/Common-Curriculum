@@ -16,7 +16,7 @@ describe('Career Intelligence Canvas homepage', () => {
 
     assert.equal(progressIds.length, 19);
     assert.equal(moduleItemIds.length, 19);
-    assert.match(html, /<script src="progress\.js"><\/script>/);
+    assert.match(html, /<script src="progress\.js\?v=\d+"><\/script>/);
     assert.match(html, /href="\.\.\/activities\/breakout-1-get-to-know-you\.html"/);
     assert.match(html, /data-canvas-href="https:\/\/cti-courses\.instructure\.com\/courses\/183\/assignments\/6862"/);
   });
