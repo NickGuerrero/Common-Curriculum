@@ -128,7 +128,7 @@ describe('Canvas LTI progress integration', () => {
         client_id: 'client-xyz',
         login_hint: 'login-hint',
         lti_message_hint: 'message-hint',
-        target_link_uri: 'https://profsathya.github.io/Common-Curriculum/deanza/course5/home.html',
+        target_link_uri: 'https://profsathya.github.io/Common-Curriculum/deanza/example-course/home.html',
       }).toString(),
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
     });
@@ -218,7 +218,7 @@ describe('Canvas LTI progress integration', () => {
 
     global.fetch = async () => jsonResponse({ keys: [jwk] });
 
-    const target = 'https://profsathya.github.io/Common-Curriculum/career-intelligence/course5/home.html';
+    const target = 'https://profsathya.github.io/Common-Curriculum/career-intelligence/canvas/home.html';
     const state = lib.signHmacJwt(
       {
         type: 'lti_state',

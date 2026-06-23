@@ -82,6 +82,15 @@
   .selfcheck .verify{margin-top:5px;font-size:12.5px;color:#3d5346;display:flex;gap:6px;align-items:flex-start;}
   .selfcheck .verify svg{width:14px;height:14px;flex:0 0 14px;margin-top:2px;}
 
+
+  .progress-status{font-size:12px;color:var(--muted);margin:-8px 0 14px;}
+  .progress-check{margin-left:auto;display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:11.5px;white-space:nowrap;padding-left:10px;}
+  .progress-box{width:15px;height:15px;border:1.5px solid #A6B0B8;border-radius:3px;background:#fff;display:inline-flex;align-items:center;justify-content:center;}
+  .item[data-progress-state="complete"] .progress-box{background:var(--check);border-color:var(--check);}
+  .item[data-progress-state="complete"] .progress-box::after{content:"";width:7px;height:4px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg);margin-top:-1px;}
+  .item[data-progress-state="incomplete"] .progress-box{border-color:#7C8A93;}
+  .item[data-progress-state="loading"] .progress-box{border-color:var(--blue);}
+
   .page-footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--border-light);display:flex;align-items:center;gap:10px;color:var(--muted);font-size:11.5px;}
   .page-footer img{height:20px;opacity:.55;}
 </style>
@@ -99,6 +108,8 @@
         <div class="cti-logo-fallback">Computing Talent<br>Initiative</div>
       </div>
     </div>
+
+    <div id="progress-status" class="progress-status" hidden></div>
 
     <!-- WEEK 1 -->
     <details class="module" open>
@@ -121,18 +132,18 @@
 
         <div class="group-label">Before the session</div>
 
-        <div class="item">
+        <div class="item" data-progress-id="career-intelligence-pre-evaluation-summer-2026" data-canvas-module-item-id="17605" data-completion-requirement="must_view" data-progress-state="unavailable">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></span>
           <div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/pre-survey.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6861">Career Intelligence Pre-Evaluation Summer 2026</a></div><div class="meta">~10 min &middot; before the session &middot; baseline</div></div>
         </div>
-        <div class="item">
+        <div class="item" data-progress-id="submit-your-current-resume" data-canvas-module-item-id="17614" data-completion-requirement="must_submit" data-progress-state="unavailable">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></span>
           <div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/resume.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6857">Submit Your Current Resume</a></div><div class="meta">Google Doc link &middot; you will keep updating it throughout the program</div></div>
         </div>
 
         <div class="group-label">Live session &mdash; missing it never blocks you</div>
 
-        <div class="item">
+        <div class="item" data-progress-id="week-1-session-slides" data-canvas-module-item-id="17606" data-completion-requirement="must_view" data-progress-state="unavailable">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 18v3M16 18v3"/></svg></span>
           <div class="body"><div class="title"><a target="_blank" rel="noopener" href="../sessions/week-1-class.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/pages/week-1-star-session-slides">Week 1 Session Slides</a></div><div class="meta">Page &middot; the deck embedded</div></div>
         </div>
@@ -140,34 +151,34 @@
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><polygon points="10 8.5 16 12 10 15.5 10 8.5" fill="currentColor" stroke="none"/></svg></span>
           <div class="body"><div class="title"><a target="_blank" rel="noopener" href="https://csumb.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d939b293-2551-4414-a80f-b464003a4f26">Session Recording &mdash; Monday</a></div><div class="meta">Panopto &middot; watch if you missed it or want to revisit</div></div>
         </div>
-        <div class="item">
+        <div class="item" data-progress-id="human-connections" data-canvas-module-item-id="17607" data-completion-requirement="must_submit" data-progress-state="unavailable">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
           <div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/breakout-1-get-to-know-you.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6862">Human Connections</a></div><div class="meta">Breakout 1 &middot; trios &middot; submit your trio's Google Doc link</div></div>
         </div>
-        <div class="item">
+        <div class="item" data-progress-id="human-ai-connections" data-canvas-module-item-id="17608" data-completion-requirement="must_submit" data-progress-state="unavailable">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
           <div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/breakout-2-know-yourself-dojo.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6863">Human + AI Connections</a></div><div class="meta">Breakout 2 &middot; pairs &middot; submit your Dojo JSON</div></div>
         </div>
 
         <div class="group-label">This week's work &mdash; unlocks after the Career Intelligence Pre-Evaluation Summer 2026; sequential in Canvas</div>
 
-        <div class="item">
+        <div class="item" data-progress-id="handwritten-know-yourself-reflection" data-canvas-module-item-id="17609" data-completion-requirement="must_submit" data-progress-state="unavailable">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h6v6"/></svg></span>
           <div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/handwritten-know-yourself-reflection.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6864">Handwritten Know Yourself Reflection</a></div><div class="meta">By hand, then photo + typed copy</div></div>
         </div>
-        <div class="item">
+        <div class="item" data-progress-id="update-your-know-yourself-dojo-json" data-canvas-module-item-id="17610" data-completion-requirement="must_submit" data-progress-state="unavailable">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.74 1 6.4 2.6"/><path d="M21 4v6h-6"/></svg></span>
           <div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/update-know-yourself-dojo.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6865">Update Your Know Yourself Dojo JSON</a></div><div class="meta">Fold the reflection back in</div></div>
         </div>
-        <div class="item">
+        <div class="item" data-progress-id="know-the-market-research-dojo-json" data-canvas-module-item-id="17611" data-completion-requirement="must_submit" data-progress-state="unavailable">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
           <div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/know-the-market.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6866">Know the Market &mdash; Research + Dojo JSON</a></div><div class="meta">Real postings, real people</div></div>
         </div>
-        <div class="item">
+        <div class="item" data-progress-id="start-your-niche-doc" data-canvas-module-item-id="17612" data-completion-requirement="must_submit" data-progress-state="unavailable">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
           <div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/niche-doc.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6867">Start Your Niche Doc</a></div><div class="meta">Where Know Yourself meets Know the Market</div></div>
         </div>
-        <div class="item selfcheck">
+        <div class="item selfcheck" data-progress-id="week-1-self-check" data-canvas-module-item-id="17613" data-completion-requirement="must_submit" data-progress-state="unavailable">
           <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span>
           <div class="body">
             <div class="title"><a target="_blank" rel="noopener" href="../activities/week-1-self-check.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6868">Week 1 Self-Check</a><span class="badge">Self-check</span></div>
@@ -187,14 +198,14 @@
 
         <div class="group-label">Live session</div>
 
-        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/resume-story-swap.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6870">Resume Story Swap</a></div><div class="meta">Breakout &middot; in pairs &mdash; say the story your resume tells; your partner marks where it drifts from your niche or isn&rsquo;t yet specific to you</div></div></div>
-        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/curate-analyze-jobs.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6871">Curate &amp; Analyze 10 Jobs Aligned to Your Niche</a></div><div class="meta">Breakout &middot; start in class with the job-search prompt, finish as homework &mdash; 10 postings sorted into 2&ndash;3 role types</div></div></div>
+        <div class="item" data-progress-id="resume-story-swap" data-canvas-module-item-id="17665" data-completion-requirement="must_submit" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/resume-story-swap.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6870">Resume Story Swap</a></div><div class="meta">Breakout &middot; in pairs &mdash; say the story your resume tells; your partner marks where it drifts from your niche or isn&rsquo;t yet specific to you</div></div></div>
+        <div class="item" data-progress-id="curate-analyze-10-jobs-aligned-to-your-niche" data-canvas-module-item-id="17666" data-completion-requirement="must_submit" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/curate-analyze-jobs.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6871">Curate &amp; Analyze 10 Jobs Aligned to Your Niche</a></div><div class="meta">Breakout &middot; start in class with the job-search prompt, finish as homework &mdash; 10 postings sorted into 2&ndash;3 role types</div></div></div>
 
         <div class="group-label">This week's work</div>
 
-        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/resume-v2.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6872">Submit Your Resume v2</a></div><div class="meta">Assignment &middot; revise your resume so it tells your niche story more clearly &mdash; guided by an AI reflection</div></div></div>
-        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/niche-doc-week2.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6877">Niche Doc &mdash; Week 2 Update</a></div><div class="meta">Assignment &middot; name your 2&ndash;3 role types and fold this week into your living Niche Doc</div></div></div>
-        <div class="item selfcheck"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/week-2-self-check.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6869">Week 2 Self-Check</a><span class="badge">Self-check</span></div><div class="meta">At the end of the week &mdash; do question 1 by hand, then check whether your niche is sharper and your resume shows it</div><div class="verify"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M3 21v-2a5 5 0 0 1 5-5h3"/><path d="M16 14l2 2 4-4"/></svg><span>Pressure-test your niche and resume story with a peer or TA, not only with AI.</span></div></div></div>
+        <div class="item" data-progress-id="submit-your-resume-v2" data-canvas-module-item-id="17667" data-completion-requirement="must_submit" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/resume-v2.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6872">Submit Your Resume v2</a></div><div class="meta">Assignment &middot; revise your resume so it tells your niche story more clearly &mdash; guided by an AI reflection</div></div></div>
+        <div class="item" data-progress-id="niche-doc-week-2-update" data-canvas-module-item-id="17668" data-completion-requirement="must_submit" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/niche-doc-week2.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6877">Niche Doc &mdash; Week 2 Update</a></div><div class="meta">Assignment &middot; name your 2&ndash;3 role types and fold this week into your living Niche Doc</div></div></div>
+        <div class="item selfcheck" data-progress-id="week-2-self-check" data-canvas-module-item-id="17669" data-completion-requirement="must_submit" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/week-2-self-check.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6869">Week 2 Self-Check</a><span class="badge">Self-check</span></div><div class="meta">At the end of the week &mdash; do question 1 by hand, then check whether your niche is sharper and your resume shows it</div><div class="verify"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M3 21v-2a5 5 0 0 1 5-5h3"/><path d="M16 14l2 2 4-4"/></svg><span>Pressure-test your niche and resume story with a peer or TA, not only with AI.</span></div></div></div>
       </div>
     </details>
 
@@ -206,13 +217,13 @@
       <div class="items">
         <div class="group-label">Live session</div>
 
-        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 18v3M16 18v3"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../sessions/week-3-class.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/pages/resume-review-workshop">Resume Review Workshop</a></div><div class="meta">Live &middot; what to have ready, the session plan, and the three questions you should be able to answer by the end</div></div></div>
-        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.74 1 6.4 2.6"/><path d="M21 4v6h-6"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/set-up-your-dojo.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6971">Set up your Dojo</a></div><div class="meta">Live activity &middot; stand up your AI Dojo once &mdash; add the Core, then the Resume module &mdash; and reuse it for every kind of work</div></div></div>
+        <div class="item" data-progress-id="resume-review-workshop" data-canvas-module-item-id="17750" data-completion-requirement="must_view" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 18v3M16 18v3"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../sessions/week-3-class.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/pages/resume-review-workshop">Resume Review Workshop</a></div><div class="meta">Live &middot; what to have ready, the session plan, and the three questions you should be able to answer by the end</div></div></div>
+        <div class="item" data-progress-id="set-up-your-dojo" data-canvas-module-item-id="17751" data-completion-requirement="must_submit" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.74 1 6.4 2.6"/><path d="M21 4v6h-6"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/set-up-your-dojo.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6971">Set up your Dojo</a></div><div class="meta">Live activity &middot; stand up your AI Dojo once &mdash; add the Core, then the Resume module &mdash; and reuse it for every kind of work</div></div></div>
 
         <div class="group-label">Take-home this week</div>
 
-        <div class="item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/resume-dojo-review.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6972">Resume Dojo &mdash; review your resume</a></div><div class="meta">Project &middot; run the guided resume review on your own &mdash; it pushes your thinking, you keep your voice</div></div></div>
-        <div class="item selfcheck"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/week-3-self-check.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6973">Week 3 Self-Check</a><span class="badge">Self-check</span></div><div class="meta">At the end of the week &mdash; does your resume make your niche obvious, and can you defend it?</div><div class="verify"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M3 21v-2a5 5 0 0 1 5-5h3"/><path d="M16 14l2 2 4-4"/></svg><span>Check with a peer or TA, not only with AI.</span></div></div></div>
+        <div class="item" data-progress-id="resume-dojo-review" data-canvas-module-item-id="17752" data-completion-requirement="must_submit" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/resume-dojo-review.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6972">Resume Dojo &mdash; review your resume</a></div><div class="meta">Project &middot; run the guided resume review on your own &mdash; it pushes your thinking, you keep your voice</div></div></div>
+        <div class="item selfcheck" data-progress-id="week-3-self-check" data-canvas-module-item-id="17753" data-completion-requirement="must_submit" data-progress-state="unavailable"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg></span><div class="body"><div class="title"><a target="_blank" rel="noopener" href="../activities/week-3-self-check.html" data-canvas-href="https://cti-courses.instructure.com/courses/183/assignments/6973">Week 3 Self-Check</a><span class="badge">Self-check</span></div><div class="meta">At the end of the week &mdash; does your resume make your niche obvious, and can you defend it?</div><div class="verify"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z"/><path d="M3 21v-2a5 5 0 0 1 5-5h3"/><path d="M16 14l2 2 4-4"/></svg><span>Check with a peer or TA, not only with AI.</span></div></div></div>
       </div>
     </details>
 
@@ -268,26 +279,7 @@
     </footer>
 
   </div>
-  <!-- Context-aware link resolution: students inside Canvas (or with
-       ?context=canvas) follow the Canvas item URLs; partners viewing the
-       page directly get the public web pages and carry ?context=web
-       through to those pages. No visual change either way. -->
-  <script>
-    (function() {
-      var ctx = new URLSearchParams(location.search).get('context')
-        || (window.self !== window.top ? 'canvas' : 'web');
-      document.querySelectorAll('a[data-canvas-href]').forEach(function(a) {
-        if (ctx === 'canvas') {
-          a.href = a.getAttribute('data-canvas-href');
-        } else {
-          try {
-            var u = new URL(a.getAttribute('href'), location.href);
-            u.searchParams.set('context', 'web');
-            a.href = u.pathname + u.search + u.hash;
-          } catch (e) { /* leave as-is */ }
-        }
-      });
-    })();
-  </script>
+  <!-- Link routing and learner-specific Canvas progress. -->
+  <script src="progress.js"></script>
 </body>
 </html>

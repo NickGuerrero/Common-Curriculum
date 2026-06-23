@@ -1,0 +1,140 @@
+{
+  "courseKey": "career-intelligence",
+  "canvasCourseId": 183,
+  "progressEndpoint": "https://canvas-progress-lti.netlify.app/.netlify/functions/canvas-progress",
+  "items": [
+    {
+      "id": "career-intelligence-pre-evaluation-summer-2026",
+      "title": "Career Intelligence Pre-Evaluation Summer 2026",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6861",
+      "canvasModuleItemId": 17605,
+      "completionRequirement": "must_view"
+    },
+    {
+      "id": "submit-your-current-resume",
+      "title": "Submit Your Current Resume",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6857",
+      "canvasModuleItemId": 17614,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "week-1-session-slides",
+      "title": "Week 1 Session Slides",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/pages/week-1-star-session-slides",
+      "canvasModuleItemId": 17606,
+      "completionRequirement": "must_view"
+    },
+    {
+      "id": "human-connections",
+      "title": "Human Connections",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6862",
+      "canvasModuleItemId": 17607,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "human-ai-connections",
+      "title": "Human + AI Connections",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6863",
+      "canvasModuleItemId": 17608,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "handwritten-know-yourself-reflection",
+      "title": "Handwritten Know Yourself Reflection",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6864",
+      "canvasModuleItemId": 17609,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "update-your-know-yourself-dojo-json",
+      "title": "Update Your Know Yourself Dojo JSON",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6865",
+      "canvasModuleItemId": 17610,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "know-the-market-research-dojo-json",
+      "title": "Know the Market - Research + Dojo JSON",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6866",
+      "canvasModuleItemId": 17611,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "start-your-niche-doc",
+      "title": "Start Your Niche Doc",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6867",
+      "canvasModuleItemId": 17612,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "week-1-self-check",
+      "title": "Week 1 Self-Check",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6868",
+      "canvasModuleItemId": 17613,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "resume-story-swap",
+      "title": "Resume Story Swap",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6870",
+      "canvasModuleItemId": 17665,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "curate-analyze-10-jobs-aligned-to-your-niche",
+      "title": "Curate & Analyze 10 Jobs Aligned to Your Niche",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6871",
+      "canvasModuleItemId": 17666,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "submit-your-resume-v2",
+      "title": "Submit Your Resume v2",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6872",
+      "canvasModuleItemId": 17667,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "niche-doc-week-2-update",
+      "title": "Niche Doc - Week 2 Update",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6877",
+      "canvasModuleItemId": 17668,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "week-2-self-check",
+      "title": "Week 2 Self-Check",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6869",
+      "canvasModuleItemId": 17669,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "resume-review-workshop",
+      "title": "Resume Review Workshop",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/pages/resume-review-workshop",
+      "canvasModuleItemId": 17750,
+      "completionRequirement": "must_view"
+    },
+    {
+      "id": "set-up-your-dojo",
+      "title": "Set Up Your Dojo",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6971",
+      "canvasModuleItemId": 17751,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "resume-dojo-review",
+      "title": "Resume Dojo - Review Your Resume",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6972",
+      "canvasModuleItemId": 17752,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "week-3-self-check",
+      "title": "Week 3 Self-Check",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6973",
+      "canvasModuleItemId": 17753,
+      "completionRequirement": "must_submit"
+    }
+  ]
+}
