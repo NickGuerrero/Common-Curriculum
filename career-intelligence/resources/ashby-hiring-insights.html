@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inside Hiring with Ashby | Career Intelligence</title>
+  <link rel="stylesheet" href="../../css/activity-styles.css">
+  <style>
+    :root{--bg:#fafafa;--surface:#fff;--text:#1a1a1a;--muted:#555;--border:#e0e0e0;--accent:#2c5282;--accent-light:#ebf4ff;--radius:8px;}
+    *{box-sizing:border-box;}
+    body{margin:0;padding:20px 16px;font:16px/1.65 -apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color:var(--text);background:var(--bg);}
+    .ci-page{max-width:760px;margin:0 auto;}
+    .meta{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px;}
+    h1{font-size:22px;font-weight:700;margin:0 0 14px;line-height:1.3;}
+    .intro{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin:0 0 14px;}
+    .intro p{margin:0 0 8px;} .intro p:last-child{margin:0;}
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px 12px 18px;margin:0 0 8px;}
+    .toc p{margin:0 0 6px;font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;}
+    .toc ol{margin:0;padding-left:20px;} .toc li{margin:3px 0;font-size:14.5px;}
+    .toc a{color:var(--accent);text-decoration:none;} .toc a:hover{text-decoration:underline;}
+    .toc .rt{color:var(--muted);font-size:12px;}
+    section.clip{scroll-margin-top:14px;}
+    h2.sec{font-size:16px;margin:30px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+    h2.sec .runtime{font-size:11px;font-weight:600;color:var(--muted);white-space:nowrap;text-transform:none;letter-spacing:0;}
+    .video-frame{margin:0 0 10px;border-radius:6px;overflow:hidden;border:1px solid var(--border);background:#000;}
+    .video-frame video{display:block;width:100%;height:auto;background:#000;}
+    .goal{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:var(--radius);padding:13px 16px;margin:0 0 12px;}
+    .goal h3{margin:0 0 5px;font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;}
+    .goal p{margin:0;}
+    .lead{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:12px 0 4px;}
+    ul.plain{padding-left:20px;margin:4px 0;} ul.plain li{margin:6px 0;}
+    .discuss{background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:var(--radius);padding:12px 16px;margin:12px 0 0;font-size:14.5px;color:#7c5b12;}
+    .discuss strong{color:#92510a;}
+    .note{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:var(--radius);padding:12px 16px;margin:14px 0;font-size:14px;}
+    footer{text-align:center;margin:30px 0 8px;opacity:.55;} footer img{height:22px;}
+    .back-link{display:none;font-size:13px;color:var(--accent);text-decoration:none;margin:0 0 12px;}
+    .back-link:hover{text-decoration:underline;}
+    .ctx-web .back-link{display:inline-block;}
+  </style>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      if (ctx !== 'canvas') { document.documentElement.classList.add('ctx-web'); }
+    })();
+  </script>
+</head>
+<body>
+  <div class="ci-page">
+    <a class="back-link" href="../canvas/home.html?context=web">&larr; Back to the program overview</a>
+    <p class="meta">Career Intelligence &middot; Guest Session &middot; Hiring &amp; AI</p>
+    <h1>Inside Hiring with Ashby</h1>
+
+    <div class="intro">
+      <p><strong>Kevin Connolly</strong> leads data and recruiting analytics at <strong>Ashby</strong> &mdash; an applicant tracking system used by 4,500+ companies, from OpenAI and Shopify to two-person startups. In this guest session he answers the questions students most want answered about hiring and AI, with real data from across thousands of recruiting teams.</p>
+      <p>His talk is cut into <strong>eight short clips</strong>, each with one learning goal. Watch in order for the full arc, or jump to what you need &mdash; clips 1&ndash;4 build the mental model, clips 5&ndash;8 are the practical playbook. Captions are on by default. <strong>Total run time &asymp; 33 minutes.</strong></p>
+    </div>
+
+    <nav class="toc">
+      <p>The eight clips</p>
+      <ol>
+        <li><a href="#clip1">The Insider's View</a> <span class="rt">&middot; 3.5 min</span></li>
+        <li><a href="#clip2">Why Hiring Changed</a> <span class="rt">&middot; 4.5 min</span></li>
+        <li><a href="#clip3">The Human Behind the AI</a> <span class="rt">&middot; 4.3 min</span></li>
+        <li><a href="#clip4">Why Great Candidates Don't Get a Screen</a> <span class="rt">&middot; 2.4 min</span></li>
+        <li><a href="#clip5">Using AI the Right Way</a> <span class="rt">&middot; 4.6 min</span></li>
+        <li><a href="#clip6">How Long Hiring Takes</a> <span class="rt">&middot; 2.5 min</span></li>
+        <li><a href="#clip7">Resumes, Portfolios &amp; New Roles</a> <span class="rt">&middot; 7 min</span></li>
+        <li><a href="#clip8">Do's &amp; Don'ts: Networking &amp; Rejection</a> <span class="rt">&middot; 4.4 min</span></li>
+      </ol>
+    </nav>
+
+    <!-- 1 -->
+    <section class="clip" id="clip1">
+      <h2 class="sec">1 &middot; The Insider's View <span class="runtime">3.5 min</span></h2>
+      <div class="video-frame">
+        <video controls preload="metadata" playsinline>
+          <source src="ashby-clips/01-insiders-view.mp4" type="video/mp4">
+          <track kind="captions" src="ashby-clips/01-insiders-view.vtt" srclang="en" label="English" default>
+          Your browser can't play this video. <a href="ashby-clips/01-insiders-view.mp4">Download the clip</a>.
+        </video>
+      </div>
+      <div class="goal"><h3>Learning goal</h3><p>Adopt the <em>talent team's</em> perspective &mdash; the mental model behind every later lesson.</p></div>
+      <p class="lead">Key takeaways</p>
+      <ul class="plain">
+        <li>Kevin's path: physics PhD &rarr; 10+ years in startups &rarr; 5.5 years at Ashby, leading its data team and recruiting analytics aggregated across thousands of companies.</li>
+        <li>The key reframe: a candidate thinks <em>"I'm a good fit."</em> The talent team thinks <em>"we have 1,500 applicants, ~100 are great, and we can only talk to 20."</em></li>
+        <li>Ashby's public "Talent Trends" reports are the source of the data charts you'll see in later clips.</li>
+      </ul>
+      <div class="discuss"><strong>Discuss.</strong> How does seeing hiring from the recruiter's side change how you'd write an application? Why might being a genuinely good fit still not be enough?</div>
+    </section>
+
+    <!-- 2 -->
+    <section class="clip" id="clip2">
+      <h2 class="sec">2 &middot; Why Hiring Changed <span class="runtime">4.5 min</span></h2>
+      <div class="video-frame">
+        <video controls preload="metadata" playsinline>
+          <source src="ashby-clips/02-why-hiring-changed.mp4" type="video/mp4">
+          <track kind="captions" src="ashby-clips/02-why-hiring-changed.vtt" srclang="en" label="English" default>
+          Your browser can't play this video. <a href="ashby-clips/02-why-hiring-changed.mp4">Download the clip</a>.
+        </video>
+      </div>
+      <div class="goal"><h3>Learning goal</h3><p>Understand the post-COVID shifts and why AI screening is framed as <em>candidate-friendly</em>.</p></div>
+      <p class="lead">Key takeaways</p>
+      <ul class="plain">
+        <li>Remote work opened jobs to national and global applicant pools, so applications per job roughly <strong>tripled</strong>.</li>
+        <li>Recruiters use AI at the "top of funnel" to avoid missing good candidates; AI interviewing can give more people an at-bat (e.g., 40 instead of 20).</li>
+        <li>Hiring fraud is now a real concern in remote roles. A thin or mismatched profile (no LinkedIn, VPN, locations that don't line up) won't auto-reject you, but can flag you for review &mdash; transparency helps.</li>
+      </ul>
+      <div class="discuss"><strong>Discuss.</strong> Is AI screening good or bad for applicants? Argue both sides. What can you do to <em>not</em> look like a suspicious profile?</div>
+    </section>
+
+    <!-- 3 -->
+    <section class="clip" id="clip3">
+      <h2 class="sec">3 &middot; The Human Behind the AI <span class="runtime">4.3 min</span></h2>
+      <div class="video-frame">
+        <video controls preload="metadata" playsinline>
+          <source src="ashby-clips/03-human-behind-the-ai.mp4" type="video/mp4">
+          <track kind="captions" src="ashby-clips/03-human-behind-the-ai.vtt" srclang="en" label="English" default>
+          Your browser can't play this video. <a href="ashby-clips/03-human-behind-the-ai.mp4">Download the clip</a>.
+        </video>
+      </div>
+      <div class="goal"><h3>Learning goal</h3><p>Understand human-in-the-loop assessment and how expectations are shifting.</p></div>
+      <p class="lead">Key takeaways</p>
+      <ul class="plain">
+        <li>AI scores candidates against job criteria for speed and comprehensiveness, but <strong>a human always makes the final decision</strong> &mdash; Ashby never lets AI auto-reject. The "I changed one keyword and got rejected, so it's an evil system" story is usually stressed recruiters, not the AI.</li>
+        <li>Because everyone now uses AI on take-home tasks, answers converge &mdash; so recruiters increasingly test <strong>raw critical thinking and fundamentals</strong> (you'll be piloting these tools on the job).</li>
+        <li>Application-volume and fraud spikes are concentrated in high-value tech; the picture is less certain for non-tech roles.</li>
+      </ul>
+      <div class="discuss"><strong>Discuss.</strong> If everyone's take-home answers look the same with AI, how should employers assess real skill? What's the line between using AI as a tool and letting it do your thinking?</div>
+    </section>
+
+    <!-- 4 -->
+    <section class="clip" id="clip4">
+      <h2 class="sec">4 &middot; Why Great Candidates Don't Get a Screen <span class="runtime">2.4 min</span></h2>
+      <div class="video-frame">
+        <video controls preload="metadata" playsinline>
+          <source src="ashby-clips/04-why-candidates-dont-get-a-screen.mp4" type="video/mp4">
+          <track kind="captions" src="ashby-clips/04-why-candidates-dont-get-a-screen.vtt" srclang="en" label="English" default>
+          Your browser can't play this video. <a href="ashby-clips/04-why-candidates-dont-get-a-screen.mp4">Download the clip</a>.
+        </video>
+      </div>
+      <div class="goal"><h3>Learning goal</h3><p>Read the real data and depersonalize rejection.</p></div>
+      <p class="lead">Key takeaways</p>
+      <ul class="plain">
+        <li>Applications per hire rose from ~100 (2021) to <strong>~300</strong>; Kevin's own recent data hire drew ~1,500 applicants.</li>
+        <li>On average, only <strong>~18 applicants per role</strong> get a scheduled interview.</li>
+        <li>The bottleneck is the top of the funnel: teams optimize for "picking the top 20," not screening everyone &mdash; so a strong candidate can be cut without a call. It's a numbers game, not always a verdict on you.</li>
+      </ul>
+      <div class="discuss"><strong>Discuss.</strong> If only ~18 of 300 get interviewed, what's the smartest way to spend your application effort? How should this change <em>where</em> you apply?</div>
+    </section>
+
+    <!-- 5 -->
+    <section class="clip" id="clip5">
+      <h2 class="sec">5 &middot; Using AI the Right Way <span class="runtime">4.6 min</span></h2>
+      <div class="video-frame">
+        <video controls preload="metadata" playsinline>
+          <source src="ashby-clips/05-using-ai-the-right-way.mp4" type="video/mp4">
+          <track kind="captions" src="ashby-clips/05-using-ai-the-right-way.vtt" srclang="en" label="English" default>
+          Your browser can't play this video. <a href="ashby-clips/05-using-ai-the-right-way.mp4">Download the clip</a>.
+        </video>
+      </div>
+      <div class="goal"><h3>Learning goal</h3><p>Navigate AI-in-interview norms and avoid AI-written applications backfiring.</p></div>
+      <p class="lead">Key takeaways</p>
+      <ul class="plain">
+        <li>Two camps: some teams say <em>"use AI in our process &mdash; we want to see how you use it,"</em> others say <em>"no AI, we want the raw you."</em> Norms aren't settled, so clarify when you can.</li>
+        <li>AI-generated free-form answers are easy to spot at volume; Kevin says he can quickly reject hundreds for obvious LLM phrasing. A half-hearted application reads as "doesn't care."</li>
+        <li>The winning move: research companies you <strong>genuinely care about</strong> and show it. Apply selectively where you'll stand out rather than blasting 100 generic applications.</li>
+      </ul>
+      <div class="discuss"><strong>Discuss.</strong> When is using AI in an application helpful vs. harmful? How do you show real interest in a company without sounding generic?</div>
+    </section>
+
+    <!-- 6 -->
+    <section class="clip" id="clip6">
+      <h2 class="sec">6 &middot; How Long Hiring Takes <span class="runtime">2.5 min</span></h2>
+      <div class="video-frame">
+        <video controls preload="metadata" playsinline>
+          <source src="ashby-clips/06-how-long-hiring-takes.mp4" type="video/mp4">
+          <track kind="captions" src="ashby-clips/06-how-long-hiring-takes.vtt" srclang="en" label="English" default>
+          Your browser can't play this video. <a href="ashby-clips/06-how-long-hiring-takes.mp4">Download the clip</a>.
+        </video>
+      </div>
+      <div class="goal"><h3>Learning goal</h3><p>Set realistic expectations about timelines and process.</p></div>
+      <p class="lead">Key takeaways</p>
+      <ul class="plain">
+        <li>Median time-to-hire for engineering roles &asymp; <strong>40 days</strong> (average closer to 45&ndash;50); it's fairly stable, driven mostly by scheduling gaps between steps.</li>
+        <li>A typical structured tech process: recruiter screen &rarr; screen &rarr; assessment/take-home &rarr; on-site panel &rarr; offer (steps sometimes reordered), often with a background check.</li>
+        <li>Candidates who get hired do <strong>~3.5&ndash;4 hours</strong> of interviews on average, with outliers up to ~7.</li>
+      </ul>
+      <div class="discuss"><strong>Discuss.</strong> Knowing it takes roughly six weeks, how should you manage multiple applications at once? How do you stay engaged during long gaps without being pushy?</div>
+    </section>
+
+    <!-- 7 -->
+    <section class="clip" id="clip7">
+      <h2 class="sec">7 &middot; Resumes, Portfolios &amp; New Roles <span class="runtime">7 min</span></h2>
+      <div class="video-frame">
+        <video controls preload="metadata" playsinline>
+          <source src="ashby-clips/07-resumes-portfolios-new-roles.mp4" type="video/mp4">
+          <track kind="captions" src="ashby-clips/07-resumes-portfolios-new-roles.vtt" srclang="en" label="English" default>
+          Your browser can't play this video. <a href="ashby-clips/07-resumes-portfolios-new-roles.mp4">Download the clip</a>.
+        </video>
+      </div>
+      <div class="goal"><h3>Learning goal</h3><p>Make the "hard-decision" factors work in your favor.</p></div>
+      <p class="lead">Key takeaways</p>
+      <ul class="plain">
+        <li>At the top of the funnel recruiters have the least information, so marginal details decide: be <strong>specific, not vague</strong>; typos and fluff hurt when 25&ndash;30 strong candidates compete.</li>
+        <li>A personal portfolio site is now nearly free to build with AI &mdash; a high-value differentiator <em>if it works</em> (broken links hurt more than no site). Use it to show personality, interests, and projects.</li>
+        <li>Note: Ashby's default review doesn't auto-click portfolio links (a human does), so make them easy to find. Emerging role to watch: the <strong>"forward-deployed engineer"</strong> at AI firms helping companies implement AI.</li>
+      </ul>
+      <div class="discuss"><strong>Discuss.</strong> What three specific things would you put on a portfolio site for your target role? Rewrite one vague resume bullet to be concrete and verifiable.</div>
+    </section>
+
+    <!-- 8 -->
+    <section class="clip" id="clip8">
+      <h2 class="sec">8 &middot; Do's &amp; Don'ts: Networking &amp; Rejection <span class="runtime">4.4 min</span></h2>
+      <div class="video-frame">
+        <video controls preload="metadata" playsinline>
+          <source src="ashby-clips/08-networking-and-rejection.mp4" type="video/mp4">
+          <track kind="captions" src="ashby-clips/08-networking-and-rejection.vtt" srclang="en" label="English" default>
+          Your browser can't play this video. <a href="ashby-clips/08-networking-and-rejection.mp4">Download the clip</a>.
+        </video>
+      </div>
+      <div class="goal"><h3>Learning goal</h3><p>A practical outreach and resilience playbook.</p></div>
+      <p class="lead">Key takeaways</p>
+      <ul class="plain">
+        <li><strong>Do</strong> research companies deeply and read many postings for a role to map its core skills and your own gaps. <strong>Don't</strong> cold-ask busy hiring managers for "a quick chat" during active hiring &mdash; send a <strong>"zero-ask" note</strong> instead ("I've read the role, I'm excited, hope we get to talk &mdash; I understand if not").</li>
+        <li><strong>Don't self-select out:</strong> you can express interest even when no role is posted (follow on LinkedIn/X, join talent communities) &mdash; it's far easier for a manager to engage when they aren't buried in applications.</li>
+        <li><strong>Know the company cold</strong> on calls (a wrong assumption can fail you instantly). <strong>Take rejection gracefully</strong> &mdash; Kevin has rejected people and then hired them months later; an angry reply shuts the door for good.</li>
+      </ul>
+      <div class="discuss"><strong>Discuss.</strong> Draft a three-sentence "zero-ask" outreach message to a company you admire. Why might a rejection sometimes be "dodging a bullet"?</div>
+    </section>
+
+    <div class="note" style="margin-top:26px;"><strong>One throughline.</strong> Almost every clip comes back to the same idea: hiring is a high-volume, time-pressured process, so the candidates who get noticed are the ones who make a recruiter's hard decision easy &mdash; be specific, be genuine, and target the places you actually care about.</div>
+
+    <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+WEBVTT
+
+1
+00:00:01.340 --> 00:00:24.350
+Kevin Connolly: And then the role of AI in assessment, I think I put a few comments in there already, but, one thing I really wanted to emphasize is that there's always a human on the other side, at least for all the AI features that Ashby generates. There is… it's not only, like, a legally dubious thing to do, but there's no world in which we just are like, we'll let AI make these decisions and, like, archive or reject candidates or anything like that. It's all about facilitating
+
+2
+00:00:24.350 --> 00:00:29.520
+Kevin Connolly: How quickly we can assess accurately whether somebody's a good fit for a role or not.
+
+3
+00:00:29.520 --> 00:00:31.429
+Kevin Connolly: And then the human always makes their decision.
+
+4
+00:00:31.510 --> 00:00:47.079
+Kevin Connolly: So it's just about, like, there is scoring, which sounds maybe unfair in some sense, but it's like, here's job criteria. Do you match the job criteria or not? A human would be doing that anyway. AI tries to do that, higher comprehensiveness and higher accuracy, and then a human still makes the decision.
+
+5
+00:00:47.210 --> 00:01:04.819
+Kevin Connolly: I read a lot of… because I do product work, I read a lot of candidate comments on Reddit and Twitter, where they say, like, I submitted this keyword resume, and I got through, and I submitted my other one, I got rejected, therefore it's an evil system. It's really just not like that. Like, I have seen the inside of
+
+6
+00:01:05.170 --> 00:01:21.440
+Kevin Connolly: like, many, many recruiting teams, and it's just, like, at worst, it's stressed out recruiters that are, like, really, really busy, and they're just probably making poor decisions. So, the AI systems are there to… to help you out. I see a hand raised.
+
+7
+00:01:21.440 --> 00:01:22.290
+Sathya Narayanan: Yes, yeah.
+
+8
+00:01:22.860 --> 00:01:42.469
+Sathya Narayanan: Maybe you are addressing this a little bit later, Kevin, in which case, please, you can… you can ignore the question. So, is the… is A also changing… I'm assuming the answer is yes, but, like, what the expectations are, right? Like, what you are looking for, what the recruiters are looking for in the resume.
+
+9
+00:01:42.600 --> 00:01:45.289
+Sathya Narayanan: In… Yeah. I think there will be.
+
+10
+00:01:45.290 --> 00:01:51.900
+Kevin Connolly: Yeah, per… per role, there are probably some… some roles that are more AI-forward.
+
+11
+00:01:52.040 --> 00:01:55.780
+Kevin Connolly: And their expectations,
+
+12
+00:01:56.190 --> 00:02:06.040
+Kevin Connolly: I don't… I don't want to make something up. I don't think I have a great answer to that. I'd say, like, when I hire data analysts, I have a take-home
+
+13
+00:02:06.210 --> 00:02:11.390
+Kevin Connolly: problem that's like a technical analysis on a simulated dataset, and it's gone from…
+
+14
+00:02:12.130 --> 00:02:18.920
+Kevin Connolly: People used to get it wrong to… I get all sorts of varied answers, and now basically everybody passes with kind of the same answer.
+
+15
+00:02:19.050 --> 00:02:28.669
+Kevin Connolly: And I don't want to attribute judgment too strictly here, but, like, clearly people are just using AI to, like, get to the answers, so now I have to rethink,
+
+16
+00:02:29.170 --> 00:02:43.119
+Kevin Connolly: what do I care about? Like, of course people, I expect them to actually use AI tools when they're in the company, why not? It's like, we have a calculator, you should use it. But I also want to test for, like, raw capacity, critical thinking, like, the foundations of
+
+17
+00:02:43.470 --> 00:02:47.859
+Kevin Connolly: Just skilled thinking, because they will be piloting these tools.
+
+18
+00:02:47.980 --> 00:02:51.060
+Kevin Connolly: At least as far as we know, for the foreseeable future.
+
+19
+00:02:51.250 --> 00:02:59.500
+Kevin Connolly: So in that sense, things are changing, but I don't know if, like, the job requirements so specifically, I think that would really vary role by role.
+
+20
+00:03:01.350 --> 00:03:08.170
+Sathya Narayanan: And maybe one related follow-up on that, like, so, do… How much of…
+
+21
+00:03:08.980 --> 00:03:17.919
+Sathya Narayanan: what you are saying is happening in, like, kind of non-tech roles also? Like, kind of, more applications, fraud, and all that, or is it more, like, kind of only in the tech?
+
+22
+00:03:18.400 --> 00:03:20.560
+Kevin Connolly: Yeah, I think the fraud rules…
+
+23
+00:03:20.770 --> 00:03:30.110
+Kevin Connolly: I don't have the data offhand. I would assume it's just concentrated in high-value tech companies, because those are the ones you want to break into, but there might be some other
+
+24
+00:03:30.240 --> 00:03:34.889
+Kevin Connolly: Other industries that… are, I mean, our uptick as well.
+
+25
+00:03:36.660 --> 00:03:40.899
+Sathya Narayanan: And the number of applications going up, like, is that happening for non-tech roles also, or…
+
+26
+00:03:40.900 --> 00:03:49.110
+Kevin Connolly: The… the… this is where maybe, like, Ashby's data is a little bit biased. We tend to be tech-forward, so we have to, like.
+
+27
+00:03:49.320 --> 00:03:54.980
+Kevin Connolly: over… 4,500 customers now, and they're, like, a pretty big spread of industry, but they're all…
+
+28
+00:03:55.700 --> 00:03:58.060
+Kevin Connolly: Not, not all, absolutely, but there's…
+
+29
+00:03:59.380 --> 00:04:05.690
+Kevin Connolly: At the categorical, like, software engineer, through account sales, so that sort of…
+
+30
+00:04:05.940 --> 00:04:09.110
+Kevin Connolly: Level, yes, it's going up, but
+
+31
+00:04:09.300 --> 00:04:14.060
+Kevin Connolly: before I, you know, commit to a statement about, like, everywhere is going up, I'd probably want to revisit it.
+
+32
+00:04:14.250 --> 00:04:16.179
+Sathya Narayanan: Sure, no, that's up, that's it, but thank you, yeah.
+
+33
+00:04:17.240 --> 00:04:18.000
+Kevin Connolly: M…
+
