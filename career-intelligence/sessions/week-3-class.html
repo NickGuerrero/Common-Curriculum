@@ -35,6 +35,14 @@
     .target ol li { counter-increment: q; padding-left: 40px; position: relative; margin-bottom: 12px; font-weight: 500; }
     .target ol li::before { content: counter(q); position: absolute; left: 0; top: -2px; width: 26px; height: 26px; background: var(--accent); color: #fff; border-radius: 50%; text-align: center; line-height: 26px; font-size: 14px; font-weight: 700; }
     .small { font-size: 13px; color: var(--muted); }
+    .recording h2 { color: var(--accent); }
+    .recording .hint { margin-bottom: 14px; }
+    .rec-clip { border-top: 1px solid var(--border); padding-top: 14px; margin-top: 14px; }
+    .rec-clip:first-of-type { border-top: 0; padding-top: 2px; margin-top: 6px; }
+    .rec-clip h3 { margin: 0 0 4px; font-size: 15px; font-weight: 700; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+    .rec-clip h3 .rt { font-size: 11px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+    .rec-desc { margin: 0 0 10px; font-size: 13.5px; color: var(--muted); }
+    .rec-clip video { width: 100%; height: auto; display: block; border-radius: 6px; border: 1px solid var(--border); background: #000; }
     footer { text-align: center; margin: 26px 0 8px; opacity: 0.55; }
     footer img { height: 22px; }
     .back-link { display: none; font-size: 13px; color: var(--accent); text-decoration: none; margin: 0 0 12px; }
@@ -81,6 +89,91 @@
         <li>What is the strongest piece of evidence on your resume for the role you&rsquo;re targeting, and which claim is weakest or hardest to back up?</li>
         <li>Which one bullet will you rewrite first, and what specific result or number will you add to make it stronger?</li>
       </ol>
+    </section>
+
+    <section class="recording">
+      <h2>Watch the recording</h2>
+      <p class="hint">Couldn&rsquo;t make it, or want to revisit a part? Jeff&rsquo;s full workshop, in short clips &mdash; captions are on by default.</p>
+      <div class="rec-clip">
+        <h3>1 &middot; Why Resumes Matter &amp; Today&rsquo;s Plan <span class="rt">~4.5 min</span></h3>
+        <p class="rec-desc">One shot at a first impression, and the &ldquo;make a different adjustment&rdquo; mindset.</p>
+        <video controls preload="metadata" playsinline>
+          <source src="week3-clips/01-why-resumes-matter.mp4" type="video/mp4">
+          <track kind="captions" src="week3-clips/01-why-resumes-matter.vtt" srclang="en" label="English" default>
+        </video>
+      </div>
+      <div class="rec-clip">
+        <h3>2 &middot; Psychology of the Recruiter: The Top Third <span class="rt">~6.5 min</span></h3>
+        <p class="rec-desc">The 3&ndash;5 second scan, and why the top third of the page decides yes or no.</p>
+        <video controls preload="metadata" playsinline>
+          <source src="week3-clips/02-psychology-top-third.mp4" type="video/mp4">
+          <track kind="captions" src="week3-clips/02-psychology-top-third.vtt" srclang="en" label="English" default>
+        </video>
+      </div>
+      <div class="rec-clip">
+        <h3>3 &middot; What to Put in the Top Third <span class="rt">~3 min</span></h3>
+        <p class="rec-desc">Relevant experience, achievements with context, and passion projects.</p>
+        <video controls preload="metadata" playsinline>
+          <source src="week3-clips/03-what-goes-up-top.mp4" type="video/mp4">
+          <track kind="captions" src="week3-clips/03-what-goes-up-top.vtt" srclang="en" label="English" default>
+        </video>
+      </div>
+      <div class="rec-clip">
+        <h3>4 &middot; The Human Element (Your Tiebreaker) <span class="rt">~3.5 min</span></h3>
+        <p class="rec-desc">Why a human touch breaks ties in an AI-flooded pile &mdash; the F1-marshal story.</p>
+        <video controls preload="metadata" playsinline>
+          <source src="week3-clips/04-human-element.mp4" type="video/mp4">
+          <track kind="captions" src="week3-clips/04-human-element.vtt" srclang="en" label="English" default>
+        </video>
+      </div>
+      <div class="rec-clip">
+        <h3>5 &middot; Live: North-Star the Job Description <span class="rt">~7 min</span></h3>
+        <p class="rec-desc">Pulling the top three &ldquo;wants&rdquo; from a real posting before touching the resume.</p>
+        <video controls preload="metadata" playsinline>
+          <source src="week3-clips/05-read-the-job-description.mp4" type="video/mp4">
+          <track kind="captions" src="week3-clips/05-read-the-job-description.vtt" srclang="en" label="English" default>
+        </video>
+      </div>
+      <div class="rec-clip">
+        <h3>6 &middot; Live: Build a Highlights Section <span class="rt">~9.5 min</span></h3>
+        <p class="rec-desc">Turning those wants into a &ldquo;quality : evidence&rdquo; block at the top of the resume.</p>
+        <video controls preload="metadata" playsinline>
+          <source src="week3-clips/06-build-highlights.mp4" type="video/mp4">
+          <track kind="captions" src="week3-clips/06-build-highlights.vtt" srclang="en" label="English" default>
+        </video>
+      </div>
+      <div class="rec-clip">
+        <h3>7 &middot; Q&amp;A: How Many, What Order &amp; Showing You Care <span class="rt">~10 min</span></h3>
+        <p class="rec-desc">Bullet count, section ordering, and signaling genuine interest.</p>
+        <video controls preload="metadata" playsinline>
+          <source src="week3-clips/07-qa-count-order-care.mp4" type="video/mp4">
+          <track kind="captions" src="week3-clips/07-qa-count-order-care.vtt" srclang="en" label="English" default>
+        </video>
+      </div>
+      <div class="rec-clip">
+        <h3>8 &middot; Emblems, the &ldquo;Closer&rdquo; &amp; Your Exercise <span class="rt">~10 min</span></h3>
+        <p class="rec-desc">Extreme interests, recruiter language like &ldquo;closer,&rdquo; then the do-it-yourself instructions.</p>
+        <video controls preload="metadata" playsinline>
+          <source src="week3-clips/08-emblems-closer-exercise.mp4" type="video/mp4">
+          <track kind="captions" src="week3-clips/08-emblems-closer-exercise.vtt" srclang="en" label="English" default>
+        </video>
+      </div>
+      <div class="rec-clip">
+        <h3>9 &middot; Debrief: A Student Example <span class="rt">~7.5 min</span></h3>
+        <p class="rec-desc">A peer applies it end-to-end with live feedback.</p>
+        <video controls preload="metadata" playsinline>
+          <source src="week3-clips/09-student-debrief.mp4" type="video/mp4">
+          <track kind="captions" src="week3-clips/09-student-debrief.vtt" srclang="en" label="English" default>
+        </video>
+      </div>
+      <div class="rec-clip">
+        <h3>10 &middot; Wrap-Up &amp; Closing Tips <span class="rt">~9.5 min</span></h3>
+        <p class="rec-desc">Accomplishment vs. process statements, the Dojo, and free-response &amp; portfolio tips.</p>
+        <video controls preload="metadata" playsinline>
+          <source src="week3-clips/10-wrapup-closing-tips.mp4" type="video/mp4">
+          <track kind="captions" src="week3-clips/10-wrapup-closing-tips.vtt" srclang="en" label="English" default>
+        </video>
+      </div>
     </section>
 
     <p class="small">After the workshop, you&rsquo;ll set up your <strong>Resume Dojo</strong> and run the guided review on your own, then complete the Week&nbsp;3 self-check.</p>
