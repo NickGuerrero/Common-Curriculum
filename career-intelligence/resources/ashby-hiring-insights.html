@@ -191,5 +191,15 @@
 
     <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>
   </div>
+  <script>
+    /* default-playback-rate: start every clip at 1.25x; viewers can still change speed */
+    (function(){
+      function setRate(v){ try { v.defaultPlaybackRate = 1.25; v.playbackRate = 1.25; } catch(e){} }
+      document.querySelectorAll('video').forEach(function(v){
+        setRate(v);
+        v.addEventListener('loadedmetadata', function(){ setRate(v); });
+      });
+    })();
+  </script>
 </body>
 </html>
