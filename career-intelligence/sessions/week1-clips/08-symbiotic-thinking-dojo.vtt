@@ -1,0 +1,122 @@
+WEBVTT
+
+1
+00:00:02.740 --> 00:00:13.280
+Sathya Narayanan: Right, so keep that in mind. I'd like to introduce the idea of, like, kind of symbiotic thinking through this dojo that we have built. We call it a symbiotic thinking dojo.
+
+2
+00:00:13.460 --> 00:00:20.909
+Sathya Narayanan: the idea behind this tool, and I'll show you an example, and I actually kind of did the example ahead of time, so we are not
+
+3
+00:00:21.010 --> 00:00:27.419
+Sathya Narayanan: waiting for AI to respond. So let's say this is the dojo, and you are going to get access to it right now.
+
+4
+00:00:27.450 --> 00:00:35.239
+Sathya Narayanan: I'm joining this dojo, and I say learn… I want… I didn't even say I want to learn programming, which is not smart, but anyway, I just said learn programming.
+
+5
+00:00:35.250 --> 00:00:51.199
+Sathya Narayanan: And then it comes back and asks about, like, you know, that's a broad exciting goal before we dive in. Why do you… why are you interested in it? Are you thinking about what? Like, kind of, it's asking questions. And I did the same thing in ChatGPT. I kind of went and said, learn programming.
+
+6
+00:00:54.490 --> 00:01:08.429
+Sathya Narayanan: Oh my god, sorry, I should have scrolled up. Learn programming, and here is what it gave, right? It kind of came up with that plan, the Python, it made a choice for you, and then it kind of gave you this all thing so that you can learn programming, right?
+
+7
+00:01:09.190 --> 00:01:25.400
+Sathya Narayanan: Not that what ChatGPT is doing is necessarily wrong or bad, we can talk about that, but the idea here is, instead of the tool kind of doing a lot of things, we have built a version of the tool which has this
+
+8
+00:01:25.730 --> 00:01:33.959
+Sathya Narayanan: guardrail layer on top of it that forces you to think, right? Instead of giving you, like, this big answer, it kind of gave you…
+
+9
+00:01:33.960 --> 00:01:49.870
+Sathya Narayanan: why are you interested in it, right? And, do you… like, what kind of experience level do you have, right? And then, again, I'm… I was trying to be as minimalist as possible, just to… you could do better than what I'm doing here. I just say, like, I would like to be able to automate things in my life.
+
+10
+00:01:49.870 --> 00:02:00.670
+Sathya Narayanan: And then it's, again, like, so it's having… the symbiotic relationship here is you are becoming a thinking partner where both of you are…
+
+11
+00:02:00.720 --> 00:02:14.379
+Sathya Narayanan: bringing ideas and value into the conversation, rather than you… it's not the number of words that count, but instead, like, rather than, like, kind of this large plan is just coming from AI, right? AI is just producing stuff.
+
+12
+00:02:14.380 --> 00:02:20.749
+Sathya Narayanan: and I'm consuming in this example, while here is an AI that helps you think through stuff.
+
+13
+00:02:20.750 --> 00:02:24.069
+Sathya Narayanan: Right? And that's what we are trying to experiment here.
+
+14
+00:02:24.070 --> 00:02:41.600
+Sathya Narayanan: I should caution, like, I'm not trying to say, like, oh, here is this brilliantly done tool that we have done, and it's the best… like, I'm not saying that. There's probably some problems with how we have designed it, and we want to learn from you, so that's why, you know, Nancy started by saying this is an experiment. We are trying to learn.
+
+15
+00:02:41.600 --> 00:02:51.570
+Sathya Narayanan: we have learned some things, and we want to share them with you so that you can do better, but at the same time, we are also trying to learn, right? So… so that's what we are building with this tool.
+
+16
+00:02:52.110 --> 00:03:03.780
+Sathya Narayanan: So I just showed you an example, but I'm actually going to give you access to it so that you can use it in a particular way. And the way I would like you to… I would like you to use it is,
+
+17
+00:03:05.340 --> 00:03:19.280
+Sathya Narayanan: we… when we talked about know your niche as the first part, right? The first part we are trying to do is know your niche, and within know your niche, the first thing you need to do is know yourself, kind of know about your own strengths.
+
+18
+00:03:19.280 --> 00:03:35.790
+Sathya Narayanan: And the second thing you will do is kind of know the market, right? So there are kind of two parts to it. You want to understand yourself, and then you want to understand the market, and then see the intersection, and then, okay, this is where I fit, right? If you think about the pre-eval, we ask some questions about it.
+
+19
+00:03:35.870 --> 00:03:48.400
+Sathya Narayanan: for you to think about it, and you are given your answers, but our hope is to help you refine those answers to be more valuable and precise. And the way we are trying to do that is using
+
+20
+00:03:48.400 --> 00:04:07.729
+Sathya Narayanan: So you have… we have given you a link here, so if you click on this link, it'll open up a dojo, and this is a practice dojo that we have completely configured. It starts by asking you a question, right? It starts with something from your own experience.
+
+21
+00:04:09.090 --> 00:04:16.000
+Sathya Narayanan: saying that I'm creative, or good communicator, or good listener, or good hard worker, and all that, which…
+
+22
+00:04:16.290 --> 00:04:21.359
+Sathya Narayanan: is good, we believe that, that's great, but that's not a good enough
+
+23
+00:04:21.699 --> 00:04:38.840
+Sathya Narayanan: starting point of an answer, and we need to dig into it. Or maybe it's a starting point of an answer, and we need to dig into it. So the tool is actually asking you, do you want to think about… like, it's going to guide you through this process, and there is some research behind it, which is kind of even referenced here.
+
+24
+00:04:38.890 --> 00:04:54.060
+Sathya Narayanan: what research tells us is, like, you want to look at something you were doing where you lost track of time. Sorry, I think I picked it by clicking on it, but it's okay. Or something where people always come to you.
+
+25
+00:04:54.060 --> 00:05:03.429
+Sathya Narayanan: in your group, do people always come to you for something, right? And if you're not sure, pick either one of them. And then it will ask you some follow-up questions.
+
+26
+00:05:03.860 --> 00:05:11.570
+Sathya Narayanan: And then you answer those questions. And then it'll ask you some follow-up questions. So here is a tool that is going to help you think about
+
+27
+00:05:11.740 --> 00:05:25.290
+Sathya Narayanan: what is unique for you, right? Jeff talked about, like, some of the students, like, you know, you have a three-year… you finished a degree in three years, that's great, that's one… one thing. There's probably more to you if there are two or three of you who all graduated in 3 years.
+
+28
+00:05:25.440 --> 00:05:29.040
+Sathya Narayanan: What does each of you get? How do you differentiate yourself?
+
+29
+00:05:29.100 --> 00:05:46.129
+Sathya Narayanan: Right? We all have our own names, which differentiates us, hopefully, right? Most of us have different names. But then our… we all have a degree in a particular subject matter. Some of us finished it in 3 years, 4 years is a differentiation, the major is a differentiation, but that still doesn't uniquely differentiate you.
+
+30
+00:05:46.130 --> 00:05:51.739
+Sathya Narayanan: So you want to keep digging in, and this tool is going to help you… help you do that, right?
+
