@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set Up Your Search Experiment &mdash; 10 + 10 | Career Intelligence &mdash; Week 4</title>
+  <link rel="stylesheet" href="../../css/activity-styles.css">
+  <style>
+    :root{--bg:#fafafa;--surface:#fff;--text:#1a1a1a;--muted:#555;--border:#e0e0e0;--accent:#2c5282;--accent-light:#ebf4ff;--green:#2d875e;--green-bg:#e9f2ec;--radius:8px;}
+    *{box-sizing:border-box;}
+    body{margin:0;padding:20px 16px;font:16px/1.65 -apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color:var(--text);background:var(--bg);}
+    .ci-page{max-width:760px;margin:0 auto;}
+    .meta{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px;}
+    h1{font-size:22px;font-weight:700;margin:0 0 18px;line-height:1.3;}
+    h2.sec{font-size:16px;margin:24px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+    .goal{background:var(--accent-light);border-left:4px solid var(--accent);border-radius:var(--radius);padding:14px 16px;margin:0 0 16px;}
+    .goal h2{margin:0 0 6px;font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;}
+    .goal p{margin:0;}
+    .intro{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin:0 0 8px;}
+    .intro p{margin:0;}
+    ol.steps{padding-left:20px;margin:6px 0;}
+    ol.steps li{margin:10px 0;}
+    .ab{display:flex;gap:12px;margin:12px 0;flex-wrap:wrap;}
+    .ab .col{flex:1;min-width:240px;border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;}
+    .ab .col.a{background:#eff5fb;}
+    .ab .col.b{background:var(--green-bg);}
+    .ab .col .tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;}
+    .ab .col.a .tag{color:var(--accent);}
+    .ab .col.b .tag{color:var(--green);}
+    .ab .col p{margin:0;font-size:14px;}
+    .prompt{background:#f7f9fc;border:1px solid #cdd9e5;border-left:4px solid var(--accent);border-radius:var(--radius);padding:12px 16px;margin:12px 0;}
+    .prompt .label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-bottom:6px;}
+    .prompt p{margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.7;}
+    .lens{background:#f5f8fb;border:1px solid #cdd9e5;border-left:4px solid var(--accent);border-radius:var(--radius);padding:12px 16px;margin:14px 0;}
+    .lens ul{margin:6px 0 0;padding-left:18px;}
+    .lens li{margin:6px 0;}
+    details.ex{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin:10px 0;overflow:hidden;}
+    details.ex>summary{cursor:pointer;padding:11px 16px;font-weight:600;list-style:none;background:#f7f8fa;}
+    details.ex>summary::-webkit-details-marker{display:none;}
+    details.ex .ex-body{padding:12px 16px;border-top:1px solid var(--border);}
+    details.ex .ex-body p{margin:8px 0;}
+    .submit{background:#ecfdf5;border:1px solid #6ee7b7;border-left:4px solid #10b981;border-radius:var(--radius);padding:14px 18px;margin:20px 0 12px;}
+    .submit h2{margin:0 0 8px;font-size:12px;color:#065f46;text-transform:uppercase;letter-spacing:.06em;}
+    .submit p{margin:4px 0;}
+    footer{text-align:center;margin:28px 0 8px;opacity:.55;}
+    footer img{height:22px;}
+    .back-link{display:none;font-size:13px;color:var(--accent);text-decoration:none;margin:0 0 12px;}
+    .back-link:hover{text-decoration:underline;}
+    .ctx-web .back-link{display:inline-block;}
+  </style>
+  <script>
+    (function() {
+      var ctx = new URLSearchParams(location.search).get('context')
+        || (window.self !== window.top ? 'canvas' : 'web');
+      if (ctx !== 'canvas') { document.documentElement.classList.add('ctx-web'); }
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[data-keep-context]').forEach(function(a) {
+          try {
+            var u = new URL(a.getAttribute('href'), location.href);
+            if (!u.searchParams.has('context')) { u.searchParams.set('context', ctx); a.href = u.href; }
+          } catch (e) {}
+        });
+      });
+    })();
+  </script>
+</head>
+<body>
+  <div class="ci-page">
+    <a class="back-link" href="../canvas/home.html?context=web" data-keep-context>&larr; Back to Week 4 overview</a>
+    <p class="meta">Career Intelligence &middot; Week 4 &middot; Begin Own Your Search</p>
+    <h1>Set Up Your Search Experiment &mdash; 10 + 10</h1>
+
+    <div class="goal">
+      <h2>Learning goals</h2>
+      <ul style="margin:4px 0 0;padding-left:18px;">
+        <li>Turn your job search into a fair experiment you can actually learn from, not a numbers game.</li>
+        <li>Leave with a runnable plan: a geography bet, 10 + 10 applications, and the signal you&rsquo;ll watch.</li>
+      </ul>
+    </div>
+
+    <div class="intro">
+      <p>This week you test <strong>one variable: geography</strong> &mdash; <em>where</em> you aim. You&rsquo;ll set up a fair test between the region you&rsquo;d default to and a region you have ties to, send 10 applications into each, and watch what comes back. A &ldquo;no&rdquo; or silence is data, not failure.</p>
+    </div>
+
+    <h2 class="sec">What to do</h2>
+    <ol class="steps">
+      <li><strong>Pick your two regions.</strong>
+        <div class="ab">
+          <div class="col a"><div class="tag">A &middot; Control</div><p>The region you&rsquo;d default to &mdash; the one everyone applies to.</p></div>
+          <div class="col b"><div class="tag">B &middot; Experimental</div><p>A region you have ties to: you&rsquo;re from or near there, or it has an economic sector unique to that region that fits you.</p></div>
+        </div>
+      </li>
+      <li><strong>Write your bet &mdash; by hand first, then type it.</strong> One clear line:
+        <div class="prompt">
+          <div class="label">Your bet</div>
+          <p>Aiming at [region B] beats only chasing [region A], because [your real reason to win B: you&rsquo;re local, or your background fits the region&rsquo;s industry].</p>
+        </div>
+      </li>
+      <li><strong>Make it a fair test.</strong> Use <strong>one resume for both regions</strong>, built to make your reason to win B visible (your location, or how your background fits the region&rsquo;s sector). Change only the region &mdash; otherwise a &ldquo;no&rdquo; in B won&rsquo;t tell you anything.</li>
+      <li><strong>Find your 10 + 10.</strong> Line up <strong>10 real postings in region A</strong> and <strong>10 in region B</strong>, each a genuine fit. Aim for <strong>3&ndash;5 quality (not spray-and-pray) per day</strong> across the week. A few quick ones on top are fine &mdash; just keep them separate. Use your <strong>Search Strategy Dojo</strong> to help (below).</li>
+      <li><strong>Name your skill-to-learn.</strong> As you read the postings, watch for the one technology or process that keeps showing up. Pick it, and note how you&rsquo;ll start learning it on your own &mdash; that&rsquo;s how you close the gap your search reveals.</li>
+      <li><strong>Log everything and start sending.</strong> Record each application in your <strong>Search Log</strong> (a new tab on your application tracker), then start sending. Responses come in over the next two weeks.</li>
+    </ol>
+
+    <h2 class="sec">Use your Search Strategy Dojo</h2>
+    <div class="prompt">
+      <div class="label">In your AI Dojo</div>
+      <p>Add the <strong>Search Strategy</strong> module to your Dojo (<a href="../resources/dojo-library.html" data-keep-context>Dojo library</a>), then let it coach you: your two regions, your bet, the fair-test setup, your 10 + 10, and the signal you&rsquo;ll watch. At the end, paste its summary block straight into your Search Log &mdash; no re-typing.</p>
+    </div>
+
+    <details class="ex">
+      <summary>Worked example &mdash; one student&rsquo;s geography bet</summary>
+      <div class="ex-body">
+        <p style="margin:0 0 6px;"><strong>Andre &mdash; backend / data niche.</strong></p>
+        <p><em>Bet:</em> &ldquo;Salinas Valley agtech &mdash; a sector that&rsquo;s big here and almost nowhere else, where my data-pipeline work fits &mdash; beats only chasing the crowded Bay Area.&rdquo;</p>
+        <p><em>Fair test:</em> one resume that leads with his pipeline, framed for the industry, sent to 10 Bay Area general roles (A) and 10 Salinas agtech roles (B).</p>
+        <p><em>What came back:</em> Bay Area, silence (lost in the pile); agtech, 2 replies &mdash; one asked about his pipeline directly.</p>
+        <p><em>Lesson + adjustment:</em> the Bay Area silence wasn&rsquo;t about him, it was the crowded lane; the region-unique sector read his background as directly relevant. He shifted weight toward his tie region and sharpened the resume line that named the local-industry fit.</p>
+      </div>
+    </details>
+
+    <div class="lens">
+      <strong>Before you submit, check four things</strong>
+      <ul>
+        <li><strong>Is B specific?</strong> A real region with a real reason you&rsquo;d win there &mdash; not &ldquo;somewhere cheaper.&rdquo;</li>
+        <li><strong>Could a peer tell A from B?</strong> If the two groups blur together, it isn&rsquo;t a test yet.</li>
+        <li><strong>One resume, edge visible?</strong> Same resume to both, with your reason to win B on the page.</li>
+        <li><strong>Is your signal real?</strong> Name what you&rsquo;ll actually watch (reply rate, a recruiter reply, an interview) &mdash; and remember silence is data.</li>
+      </ul>
+    </div>
+
+    <div class="submit">
+      <h2>Capture &amp; submit</h2>
+      <p><strong>Make a copy of your Search Log</strong> (a new <em>Search Strategy</em> tab on your application tracker) and fill in: region (A or B), your bet, your reason to win B, what you sent and when, the signal you&rsquo;re watching, and your skill-to-learn.</p>
+      <p><strong>Submit:</strong> the link to your Search Log (set sharing so anyone with the link can view). Then start sending &mdash; 3&ndash;5 quality applications a day.</p>
+    </div>
+
+    <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>
+  </div>
+</body>
+</html>

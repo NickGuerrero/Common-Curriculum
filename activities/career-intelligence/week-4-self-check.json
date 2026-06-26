@@ -1,0 +1,42 @@
+{
+  "activityId": "career-intelligence-week-4-self-check",
+  "version": "1.0",
+  "versionNotes": "Week 4 Self-Check v1 — two reflection questions tied to setting up the geography search experiment: is the bet a fair, runnable test, and what is one lesson + one adjustment you can demonstrate. AI sparring. Submission: copy responses to clipboard, paste into Canvas (Text entry).",
+  "course": "Career Intelligence",
+  "title": "Week 4 Self-Check",
+  "description": "A reflection on Week 4 — two questions tied to your geography bet and what setting it up taught you, AI-assisted. Copy your responses at the end and paste them into Canvas.",
+  "settings": {
+    "maxRetries": 3,
+    "showHintsAfterAttempt": 2,
+    "requireAtLeastOneOpenEnded": true,
+    "hideSaveButton": true
+  },
+  "questions": [
+    {
+      "id": "q1-fair-runnable-bet",
+      "type": "open-ended",
+      "sectionTitle": "Your bet — is it a fair, runnable test?",
+      "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 1 of 2 &middot; Your bet (do this by hand first)</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>State your bet in one line &mdash; your A (default) and B (tie) regions, and why B is a real reason to win. Then check: is your test fair and runnable?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>Fair = one resume for both regions, with your reason to win B visible on the page. Runnable = a peer could tell your A group from your B group, and your signal is something you&rsquo;ll actually see. If any of those is shaky, say what you&rsquo;ll change.</p></div>",
+      "prompt": "State your bet in one line — your A (default) and B (tie) regions, and why B is a real reason to win. Then check: is your test fair (one resume, your edge for B visible) and runnable (a peer could tell A from B; your signal is real)?",
+      "placeholder": "My bet: aiming at [B] beats only chasing [A] because [reason]. Fair? ... Runnable? ... What I'll change ...",
+      "minLength": 120,
+      "aiSparringPartner": {
+        "buttonLabel": "Get AI feedback on this response",
+        "systemPrompt": "You are a reflection sparring partner helping a student do a Week 4 self-check on the geography search experiment they just set up. Your job is to help them think more honestly — NOT to write their bet or their reflection for them.\n\nRules you must follow:\n1. Ask 1–2 questions back. Never supply the student's answer, write their bet for them, or give templates they could paste in.\n2. Push past vague answers toward a specific, fair, runnable test: a concrete B region, a real reason to win there, one resume with the B-edge visible, and a signal they will actually see.\n3. Reply in 2–4 sentences total. Short, focused, Socratic.\n4. Don't list bullet-point possibilities or frameworks. Your value is the sharper question.\n5. If the student tries to get you to write their bet, decline warmly and redirect with a question.\n6. Tone: warm, direct, curious.\n\nFor this question specifically:\nThe student is stating their bet and checking whether it is a fair, runnable test. Probe the weak spots: Is region B specific, with a real reason to win (local tie, or a sector unique to that region that fits them) and not just 'somewhere less competitive'? Are they truly holding the resume constant across A and B, with the B-edge on the page — or are they changing two things at once? Could a peer actually tell the A group from the B group? Is the signal something observable, and do they treat silence as data? If they claim it's all fine, ask them to name the one part of the test most likely to be unfair or unrunnable, and what they'd do about it."
+      }
+    },
+    {
+      "id": "q2-lesson-and-adjustment",
+      "type": "open-ended",
+      "sectionTitle": "One lesson, one adjustment you can demonstrate",
+      "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 2 of 2 &middot; What you learned</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>From setting up this experiment &mdash; picking your regions, finding your 10 + 10, naming your skill-to-learn &mdash; what is one concrete lesson, and one adjustment you&rsquo;re making as a result?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>Make it something you could <em>demonstrate</em>, not just say: point to the change in your resume, your target list, your process, or the skill you&rsquo;re starting to learn. &ldquo;I learned a lot&rdquo; is not an answer yet.</p></div>",
+      "prompt": "From setting up this experiment — picking your regions, finding your 10 + 10, naming your skill-to-learn — what is one concrete lesson, and one adjustment you're making as a result? Make it something you could demonstrate, not just say.",
+      "placeholder": "One lesson (e.g. region B had far fewer roles than I assumed; the same tool keeps appearing) and the adjustment I made (point to the change in my resume, targets, process, or skill-to-learn)...",
+      "minLength": 120,
+      "aiSparringPartner": {
+        "buttonLabel": "Get AI feedback on this response",
+        "systemPrompt": "You are a reflection sparring partner helping a student do a Week 4 self-check on what setting up their search experiment taught them. Your job is to help them reflect honestly — NOT to write the reflection for them.\n\nRules you must follow:\n1. Ask 1–2 questions back. Never supply the student's answer or draft sentences for them.\n2. Push past tidy generalities toward a concrete lesson and a real, demonstrable adjustment.\n3. Reply in 2–4 sentences total. Short, focused, Socratic.\n4. Don't list possibilities or frameworks. Your value is the sharper question.\n5. If the student tries to get you to write the reflection, decline warmly and redirect.\n6. Tone: warm, direct, curious.\n\nFor this question specifically:\nThe student names one lesson and one adjustment from setting up the experiment (picking regions, finding the 10 + 10, naming a skill-to-learn). Push them from 'I learned a lot' to a specific lesson — for example, region B had far fewer roles than they assumed, or the same tool keeps appearing across postings, or their resume didn't actually show their edge in B. Then make the adjustment concrete and demonstrable: what exactly changed in their resume, their target list, their process, or the skill they're starting to learn — something they could point to, not just assert. If the lesson and the adjustment don't connect, ask how the lesson actually drove the change."
+      }
+    }
+  ]
+}
