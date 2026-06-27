@@ -51,10 +51,13 @@ input[type=search]{flex:1;min-width:200px}
 <div class="disclaimer">⚠ This job board and the connection data were built by Claude (Cowork) — there could be errors. Please review the information carefully before acting on it.</div>
 <header><div class="wrap">
 <h1>CTI &middot; Warm-Path Job Board</h1>
-<p>481 entry-level &amp; new-grad openings across 35 companies &mdash; each one a place where the CTI network can open a door for you.</p>
+<p>481 entry-level &amp; new-grad openings across 35 companies &mdash; each one a place where the CTI network can make a connection for you.</p>
 <p style="font-size:12.5px;opacity:.85">Updated 2026-06-27 &middot; Computing Talent Initiative</p>
 </div></header>
-<div class="gate wrap"><b>How this works:</b> Browse freely to see what's out there and where you have a warm path. To <b>request an introduction</b>, first complete your Career Intelligence activities and your 1:1 with the team &mdash; then we'll personally connect you to the right person.</div>
+<div class="gate wrap"><b>How this works</b><br>
+<b>Goal:</b> Give you at least one <em>warm introduction</em>, with a request to look at your resume for a particular job.<br>
+<b>Hope:</b> While we can't guarantee any outcome, our hope is that you'll get noticed through this opportunity.<br>
+<b>How:</b> You <em>earn</em> this by demonstrating your work ethic &mdash; completing your Career Intelligence activities at a high quality and going through a 1:1 check-in interview with the team.</div>
 
 <div class="wrap">
 <div class="controls"><div class="row">
@@ -86,7 +89,7 @@ const grid=$('#grid'),q=$('#q'),disc=$('#disc'),stateS=$('#state'),modeS=$('#mod
 [...new Set(JOBS.map(j=>j.discipline))].sort().forEach(d=>{let o=document.createElement('option');o.textContent=d;disc.appendChild(o)});
 [...new Set(JOBS.map(j=>j.state).filter(Boolean))].sort().forEach(s=>{let o=document.createElement('option');o.value=s;o.textContent=(s==='US'?'Remote / US-wide':s);stateS.appendChild(o)});
 function intro(j){
-  if(j.via==='You') return `<b>Direct:</b> Prof. Narayanan knows <b>${j.contact}</b>${j.contact_title?' ('+j.contact_title+')':''} at ${j.company}. He can introduce you directly.`;
+  if(j.via==='You') return `<b>Direct:</b> Prof. Narayanan is connected to <b>${j.contact}</b>${j.contact_title?' ('+j.contact_title+')':''} at ${j.company}. He can introduce you directly.`;
   if(j.via==="Jeff D'Andria") return `<b>Via Jeff D'Andria:</b> Jeff (CTI team) can introduce you to <b>${j.contact}</b>${j.contact_title?' ('+j.contact_title+')':''} at ${j.company}.`;
   return `<b>Via ${j.via}:</b> Prof. Narayanan will reach out to ${j.via} on your behalf to connect you with <b>${j.contact}</b>${j.contact_title?' ('+j.contact_title+')':''} at ${j.company}.`;
 }
