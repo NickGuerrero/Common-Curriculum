@@ -40,6 +40,15 @@
     details.ex>summary::-webkit-details-marker{display:none;}
     details.ex .ex-body{padding:12px 16px;border-top:1px solid var(--border);}
     details.ex .ex-body p{margin:8px 0;}
+    details>summary{cursor:pointer;list-style:none;}
+    details>summary::-webkit-details-marker{display:none;}
+    details>summary::after{content:"\25B8";float:right;color:var(--accent);font-size:13px;line-height:1.5;margin-left:10px;}
+    details[open]>summary::after{content:"\25BE";}
+    details.drop{background:#f5f8fb;border:1px solid #cdd9e5;border-left:4px solid var(--accent);border-radius:var(--radius);padding:12px 16px;margin:14px 0;}
+    details.drop>summary{font-weight:700;color:var(--text);}
+    details.drop ul{margin:8px 0 0;padding-left:18px;}
+    details.drop li{margin:6px 0;}
+    details.drop p{margin:8px 0 0;}
     .submit{background:#ecfdf5;border:1px solid #6ee7b7;border-left:4px solid #10b981;border-radius:var(--radius);padding:14px 18px;margin:20px 0 12px;}
     .submit h2{margin:0 0 8px;font-size:12px;color:#065f46;text-transform:uppercase;letter-spacing:.06em;}
     .submit p{margin:4px 0;}
@@ -75,8 +84,7 @@
     <div class="goal">
       <h2>Learning goals</h2>
       <ul style="margin:4px 0 0;padding-left:18px;">
-        <li>Turn your job search into a fair experiment you can actually learn from, not a numbers game.</li>
-        <li>Leave with a runnable plan.</li>
+        <li>Turn your job search into a fair experiment you can actually learn from, beyond just applying to a lot of places.</li>
       </ul>
     </div>
 
@@ -115,22 +123,21 @@
     </ol>
     <p style="font-size:13px;color:var(--muted);margin:2px 0 0;">No tracker yet? Make your own copy (<strong>File &rarr; Make a copy</strong>) and work in that.</p>
 
-    <div class="lens">
-      <strong>How to use it through the week</strong>
+    <details class="drop">
+      <summary>How to use it through the week</summary>
       <ul>
         <li><strong>Fill the setup once.</strong> Your bet, bet type (geography or sector), Group&nbsp;A vs.&nbsp;B, your reason to win B, your skill-to-learn, and the signal you&rsquo;ll watch.</li>
         <li><strong>Log as you send.</strong> One row per application, marked <strong>A</strong> or <strong>B</strong>. The counter at the top tracks your progress toward 10&nbsp;+&nbsp;10 &mdash; aim for 3&ndash;5 quality a day.</li>
         <li><strong>Paste from the Dojo, don&rsquo;t retype.</strong> Drop its summary block straight into the log.</li>
-        <li><strong>Around 30 applications</strong> with mostly silence is your cue to <strong>adjust</strong> &mdash; the resume, the targeting, or the approach. That&rsquo;s the experiment working, not failing.</li>
+        <li><strong>Around 30 applications</strong> with mostly silence is your cue to <strong>adjust</strong> &mdash; the resume, the targeting, or the approach.</li>
         <li><strong>Reflect at the end of the week.</strong> Fill the bottom rows: what you saw, one lesson, and one adjustment you can point to.</li>
       </ul>
-    </div>
+    </details>
 
-    <h2 class="sec">Use your Search Strategy Dojo</h2>
-    <div class="prompt">
-      <div class="label">In your AI Dojo</div>
-      <p>Add the <strong>Search Strategy</strong> module to your Dojo (<a href="../resources/dojo-library.html" target="_blank" rel="noopener" data-keep-context>Dojo library</a>), then let it coach you: your bet (geography or sector), your two groups, the fair-test setup, your 10 + 10, and the signal you&rsquo;ll watch. At the end, paste its summary block straight into your Search Log &mdash; no re-typing.</p>
-    </div>
+    <details class="drop">
+      <summary>Set up your Search Strategy Dojo <span style="font-weight:400;color:var(--muted);">&mdash; if you don&rsquo;t already have it</span></summary>
+      <p>Add the <strong>Search Strategy</strong> module to your Dojo (<a href="../resources/dojo-library.html" target="_blank" rel="noopener" data-keep-context>Dojo library</a>), then partner with it on your bet (geography or sector), your two groups, the fair-test setup, your 10 + 10, and the signal you&rsquo;ll watch. At the end, paste its summary block straight into your Search Log &mdash; no re-typing.</p>
+    </details>
 
     <details class="ex">
       <summary>Worked examples &mdash; a geography bet and a sector bet</summary>
@@ -155,7 +162,7 @@
     <div class="submit">
       <h2>Capture &amp; submit</h2>
       <p>By now your <strong>Search Log</strong> tab should have your bet and groups filled in and your first applications logged under A and B.</p>
-      <p><strong>Submit:</strong> the link to your tracker with the Search Log tab (set sharing so anyone with the link can view). Then keep sending &mdash; 3&ndash;5 quality applications a day.</p>
+      <p><strong>Submit:</strong> the link to your tracker with the Search Log tab (set sharing so anyone with the link can comment). Then keep sending &mdash; 3&ndash;5 quality applications a day.</p>
     </div>
 
     <footer><img src="https://computingtalentinitiative.org/wp-content/uploads/2026/06/New._CTI_Logo_RGB-1.png" alt="Computing Talent Initiative" onerror="this.style.display='none'"></footer>
