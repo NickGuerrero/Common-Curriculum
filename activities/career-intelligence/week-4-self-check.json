@@ -1,10 +1,10 @@
 {
   "activityId": "career-intelligence-week-4-self-check",
-  "version": "2.0",
-  "versionNotes": "Week 4 Self-Check v2 — replaced the two experiment-mechanics questions (now captured in the Search Log spreadsheet) with two niche-tracking questions aligned to the pre-survey: (1) why a target employer should hire you, top three, vs Week 1; (2) what that target is actually looking for, top three, and the gap. AI sparring. Submission: copy responses to clipboard, paste into Canvas (Text entry).",
+  "version": "2.1",
+  "versionNotes": "Week 4 Self-Check v2 — replaced the two experiment-mechanics questions (now captured in the Search Log spreadsheet) with two niche-tracking questions aligned to the pre-survey: (1) why a target employer should hire you, top three, vs Week 1; (2) what that target is actually looking for, top three, and the gap. AI sparring. Submission: copy responses to clipboard, paste into Canvas (Text entry). v2.1 adds an optional third question inviting students to propose the condition CTI should test in the 1:1 before making a referral (co-designing the warm-intro experiment).",
   "course": "Career Intelligence",
   "title": "Week 4 Self-Check",
-  "description": "A reflection on Week 4 — two questions that sharpen your niche: why a target should hire you, and what that target actually wants, measured against where you started in Week 1. AI-assisted. Copy your responses at the end and paste them into Canvas.",
+  "description": "A reflection on Week 4 — two questions that sharpen your niche: why a target should hire you, and what that target actually wants, measured against where you started in Week 1, plus an optional third where you help us design our referral experiment. AI-assisted. Copy your responses at the end and paste them into Canvas.",
   "settings": {
     "maxRetries": 3,
     "showHintsAfterAttempt": 2,
@@ -38,6 +38,21 @@
       "aiSparringPartner": {
         "buttonLabel": "Get AI feedback on this response",
         "systemPrompt": "You are a reflection sparring partner helping a student do a Week 4 self-check. They are naming the top three things their target is actually looking for, and finding the gap against their own three reasons. Your job is to help them see it honestly — NOT to write it for them.\n\nRules you must follow:\n1. Ask 1–2 questions back. Never supply the student's answer.\n2. Push them to ground the market's three in what they actually saw across their 10 + 10 postings, not a guess.\n3. Reply in 2–4 sentences total. Short, focused, Socratic.\n4. Don't list possibilities or frameworks. Your value is the sharper question.\n5. If the student asks you to write it, decline warmly and redirect.\n6. Tone: warm, direct, curious.\n\nFor this question specifically:\nMake the gap concrete — where what they offer and what the target wants do not line up — and connect that gap to their skill-to-learn. If they claim there is no gap, ask what the postings kept asking for that they cannot yet show."
+      }
+    },
+    {
+      "id": "q3-referral-condition",
+      "type": "open-ended",
+      "optional": true,
+      "hidePrompt": true,
+      "sectionTitle": "Help us design our experiment",
+      "infoBlock": "<div style='background:#ecfdf5;border:2px solid #34d399;border-left:6px solid #059669;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#047857;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Optional &middot; Help us design our experiment</div><p style='margin:0 0 10px 0;font-size:15px;color:#064e3b;line-height:1.55;'><strong>What would be a good condition for us to test in your 1:1 interview, before we use our social capital to make a referral for you?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>We are running our own experiment: a warm introduction to a real job posting. A referral spends our credibility, so what should we check in a short 1:1 to know the referral is one a recruiter can trust? Your answer helps us set the bar.</p></div>",
+      "prompt": "What would be a good condition for us to test in your 1:1 interview, before we use our social capital to make a referral for you?",
+      "placeholder": "A good condition to check before a referral would be ...",
+      "minLength": 40,
+      "aiSparringPartner": {
+        "buttonLabel": "Get AI feedback on this response",
+        "systemPrompt": "You are a reflection sparring partner helping a student propose a good condition for CTI to test in a 1:1 interview before making a referral on their behalf. Your job is to sharpen their idea, NOT to write it for them.\n\nRules you must follow:\n1. Ask 1–2 questions back. Never supply the student's answer.\n2. Push from vague ('be prepared') toward a concrete, checkable signal a recruiter would trust: can clearly explain a project's impact in two minutes; can name why they fit this exact role with evidence; has an artifact a recruiter could look at.\n3. Reply in 2–4 sentences total. Short, focused, Socratic.\n4. Don't list frameworks. Your value is the sharper question.\n5. Tone: warm, direct, curious.\n\nFor this question specifically:\nA referral spends CTI's credibility, so the condition should be something observable in a short conversation that predicts the student will represent CTI well. Push them to name that signal and how we would check it."
       }
     }
   ]
