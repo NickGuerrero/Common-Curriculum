@@ -135,6 +135,27 @@
       "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6973",
       "canvasModuleItemId": 17753,
       "completionRequirement": "must_submit"
+    },
+    {
+      "id": "breakout-sharpen-your-bet",
+      "title": "Breakout — Sharpen Your Bet",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6977",
+      "canvasModuleItemId": 17761,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "set-up-and-start-your-search-experiment",
+      "title": "Set up and start your search experiment — 10 + 10",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6978",
+      "canvasModuleItemId": 17762,
+      "completionRequirement": "must_submit"
+    },
+    {
+      "id": "week-4-self-check",
+      "title": "Week 4 Self-Check",
+      "canvasHref": "https://cti-courses.instructure.com/courses/183/assignments/6979",
+      "canvasModuleItemId": 17763,
+      "completionRequirement": "must_submit"
     }
   ]
 }
