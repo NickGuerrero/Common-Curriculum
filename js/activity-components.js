@@ -278,8 +278,12 @@ const ActivityComponents = (function() {
   function renderOpenEnded(question, options) {
     const container = createElement('div', 'activity-question__content activity-open');
 
-    const prompt = createElement('p', 'activity-question__prompt', question.prompt);
-    container.appendChild(prompt);
+    // Skip the visible prompt paragraph when the question text already appears in
+    // the infoBlock (set hidePrompt:true). prompt is still kept for AI sparring + export.
+    if (question.prompt && !question.hidePrompt) {
+      const prompt = createElement('p', 'activity-question__prompt', question.prompt);
+      container.appendChild(prompt);
+    }
 
     const textarea = document.createElement('textarea');
     textarea.className = 'activity-open__textarea';

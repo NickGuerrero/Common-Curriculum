@@ -15,6 +15,7 @@
     {
       "id": "q1-why-hire-you",
       "type": "open-ended",
+      "hidePrompt": true,
       "sectionTitle": "Why should a target employer hire you?",
       "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 1 of 2 &middot; Your value (do this by hand first)</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>For your B target, what are the top three reasons an employer there should hire you? Then say how this is sharper than what you would have written in Week 1.</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>Be specific to the target, not generic &mdash; tie each reason to evidence (a project, a result, a skill the postings ask for). The point is to see how much your pitch has sharpened since you started.</p></div>",
       "prompt": "For your B target, what are the top three reasons an employer there should hire you? Then say how this is sharper or more specific than what you would have written in Week 1.",
@@ -28,6 +29,7 @@
     {
       "id": "q2-what-target-wants",
       "type": "open-ended",
+      "hidePrompt": true,
       "sectionTitle": "What is your target actually looking for?",
       "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 2 of 2 &middot; The market and the gap</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>What are the top three things your B target is actually looking for right now? Put them next to your three reasons from question 1: where do they line up, and where is the gap?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>Ground this in what you saw across your 10 + 10 postings, not a guess. The gap between what you offer and what they want is exactly what your skill-to-learn should close.</p></div>",
       "prompt": "What are the top three things your B target is actually looking for right now? Put them next to your three reasons from question 1: where do they line up, and where is the gap you need to close?",
