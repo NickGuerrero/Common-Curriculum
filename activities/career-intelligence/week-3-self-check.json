@@ -15,6 +15,7 @@
     {
       "id": "q1-resume-change",
       "type": "open-ended",
+      "hidePrompt": true,
       "sectionTitle": "What changed on your resume",
       "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 1 of 2 &middot; Your resume</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>What is the most important change you made &mdash; or still need to make &mdash; to your resume this week, and what evidence backs it?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>Be specific: name the actual bullet, section, or line, what it said before, what it says now, and the real result or evidence behind the change. &ldquo;I made it clearer&rdquo; is not an answer yet.</p></div>",
       "prompt": "What is the most important change you made — or still need to make — to your resume this week, and what evidence backs it?",
@@ -29,6 +30,7 @@
     {
       "id": "q2-thinking-with-dojo",
       "type": "open-ended",
+      "hidePrompt": true,
       "sectionTitle": "Did you do the thinking?",
       "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 2 of 2 &middot; How you worked</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>When you ran the Resume Dojo, where did it push your thinking &mdash; and where were you tempted to let it make the decisions (what to claim, what to cut) for you?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>Be honest. Letting it help you word things is fine &mdash; what matters is whether YOU made the calls about what to claim and what to cut. Name a moment it pushed your thinking, and a moment you were tempted to hand it a decision &mdash; and what you did.</p></div>",
       "prompt": "When you ran the Resume Dojo, where did it push your thinking — and where were you tempted to let it make the decisions (what to claim, what to cut) for you?",

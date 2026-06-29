@@ -15,6 +15,7 @@
     {
       "id": "q1-niche-from-swap",
       "type": "open-ended",
+      "hidePrompt": true,
       "sectionTitle": "What the resume swap taught you about your niche",
       "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 1 of 2 &middot; Your niche</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>What did you learn about your niche from the Resume Story Swap?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>Saying your resume story out loud and hearing your partner&rsquo;s read &mdash; what did it reveal about how clear, specific, and evidence-backed your niche really is? Name the drift or gap they found, and what it tells you about how your niche needs to change.</p></div>",
       "prompt": "What did you learn about your niche from the Resume Story Swap?",
@@ -29,6 +30,7 @@
     {
       "id": "q2-market-from-curate",
       "type": "open-ended",
+      "hidePrompt": true,
       "sectionTitle": "What the job search taught you about your opportunities",
       "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 2 of 2 &middot; The market</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>What did you learn about the job opportunities from the Curate &amp; Analyze 10 Jobs activity?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>From the real postings you pulled &mdash; which role types turned out to be real, what did employers keep asking for, and where were you too broad or too narrow? Name what actually shifted in how you see your opportunities.</p></div>",
       "prompt": "What did you learn about the job opportunities from the Curate & Analyze 10 Jobs activity?",

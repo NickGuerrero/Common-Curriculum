@@ -15,6 +15,7 @@
     {
       "id": "q1-purpose",
       "type": "open-ended",
+      "hidePrompt": true,
       "sectionTitle": "The purpose of this week",
       "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 1 of 4 &middot; Purpose</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>What was the purpose of this week?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>Name it in your own words. What was this week designed to produce in you &mdash; an artifact, an insight, a change in how you think about your job search?</p></div>",
       "prompt": "What was the purpose of this week?",
@@ -29,6 +30,7 @@
     {
       "id": "q2-course-design",
       "type": "open-ended",
+      "hidePrompt": true,
       "sectionTitle": "Did the course design help — and how could it be better?",
       "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 2 of 4 &middot; The design</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>Did the course design really help you toward that purpose, and how could it be improved?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>Be specific. Which activity moved you and which didn&rsquo;t? What was missing? What felt extra? Honest feedback &mdash; the course is being built and your read matters.</p></div>",
       "prompt": "Did the course design really help you toward that purpose, and how could it be improved?",
@@ -43,6 +45,7 @@
     {
       "id": "q3-my-effort",
       "type": "open-ended",
+      "hidePrompt": true,
       "sectionTitle": "Did I make my work about that purpose?",
       "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 3 of 4 &middot; Your part</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>Did I do everything to make my work about that purpose, and how could I do better?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>Honesty check. Where did you coast, rush, or stay on the surface? Name one moment where you could have gone deeper &mdash; and what you&rsquo;d do differently next week.</p></div>",
       "prompt": "Did I do everything to make my work about that purpose, and how could I do better?",
@@ -57,6 +60,7 @@
     {
       "id": "q4-new-learning",
       "type": "open-ended",
+      "hidePrompt": true,
       "sectionTitle": "What did I learn that I didn't know before?",
       "infoBlock": "<div style='background:#eff6ff;border:2px solid #3b82f6;border-left:6px solid #2563eb;border-radius:10px;padding:18px 20px;margin-bottom:16px;'><div style='font-size:11px;font-weight:700;color:#1d4ed8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;'>Question 4 of 4 &middot; New learning</div><p style='margin:0 0 10px 0;font-size:15px;color:#1e3a5f;line-height:1.55;'><strong>What did I learn that I did not know before the week started?</strong></p><p style='margin:0;font-size:13px;color:#475569;line-height:1.55;'>Not the topic &mdash; the actual cognitive shift. What assumption did you have to revise? What surprised you? What would you tell yourself on Day 1?</p></div>",
       "prompt": "What did I learn that I did not know before the week started?",
